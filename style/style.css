@@ -1,3 +1,32 @@
 body{
-    background-color: blue;
+    background-color: #33658a;
+}
+
+#tamanhoLogo{
+    height: 150px;
+    text-align: center;
+}
+body{
+    background-color: #86bbd8;
+    margin: 0;
+
+}
+
+
+header{
+    padding-top: 30px;
+    padding-bottom: 15px;
+    background-color: #33658a;
+    border-bottom-right-radius: 70px;
+    display: flex;
+    justify-content: center;
+}
+
+header img{
+    height: 70px;
+}
+
+#tamanhoLogo{
+    height: 150px;
+    text-align: center;
 }
