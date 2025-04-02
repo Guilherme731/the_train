@@ -1,32 +1,98 @@
-body{
-    background-color: #33658a;
+@font-face {
+    font-family: BebasNeue;
+    src: url('fonts/Bebas_Neue_Cyrillic_Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 
-#tamanhoLogo{
-    height: 150px;
-    text-align: center;
+@font-face {
+    font-family: OpenSans;
+    src: url('fonts/Open_Sans_Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
-body{
+
+
+/*Página padrão*/
+body {
     background-color: #86bbd8;
     margin: 0;
-
+    height: 100vh;
+    font-family: OpenSans, Arial, Helvetica, sans-serif;
 }
 
-
-header{
-    padding-top: 30px;
-    padding-bottom: 15px;
+/*Itens Padrão das páginas de acesso*/
+header {
+    padding-top: 7%;
+    padding-bottom: 5%;
     background-color: #33658a;
     border-bottom-right-radius: 70px;
     display: flex;
     justify-content: center;
 }
 
-header img{
+header img {
     height: 70px;
 }
 
-#tamanhoLogo{
+footer {
+    background-color: #33658a;
+    border-top-left-radius: 70px;
+    height: 12%;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+
+/*Página de Login*/
+.tituloLogin {
+    margin-top: 10px;
+    font-size: 50px;
+    font-family: BebasNeue, Arial, Helvetica, sans-serif;
+    color: #2f4858;
+    text-align: center;
+}
+
+.formularioLogin {
+    display: grid;
+    padding: 55px 15px 15px 15px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.formularioLogin input{
+    margin: 10px 0;
+    padding: 15px;
+    font-size: 20px;
+    background-color: #33658a;
+    border: none;
+    border-radius: 30px;
+    color: #86bbd8;
+    font-family: OpenSans, Arial, Helvetica, sans-serif;
+}
+
+.formularioLogin input::placeholder{
+    color: #86bbd8;
+}
+
+.formularioLogin a{
+    color: black;
+}
+
+.formularioLogin button {
+    margin-top: 30%;
+    padding: 15px 0;
+    font-size: 20px;
+    background-color: #33658a;
+    border: none;
+    border-radius: 25px;
+    color: #f6ae2d;
+}
+
+/*Página de carregamento*/
+
+#tamanhoLogo {
     height: 150px;
     text-align: center;
 }
