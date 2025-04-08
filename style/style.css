@@ -12,6 +12,12 @@
     font-style: normal;
 }
 
+#fundoAzulEscuro{
+    background-color: #33658a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 /*Página padrão*/
 body {
@@ -93,6 +99,6 @@ footer {
 /*Página de carregamento*/
 
 #tamanhoLogo {
-    height: 150px;
-    text-align: center;
+    height: 200px;
+    
 }
