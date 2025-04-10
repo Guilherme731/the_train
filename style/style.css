@@ -27,8 +27,8 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/*Itens Padrão das páginas de acesso*/
-header {
+/*Itens Padrão das páginas*/
+.headerAzulLogo {
     padding-top: 7%;
     padding-bottom: 5%;
     background-color: #33658a;
@@ -37,11 +37,19 @@ header {
     justify-content: center;
 }
 
-header img {
+.headerAzulLogo img {
     height: 70px;
 }
 
-footer {
+.headerAzulVoltar{
+    padding-top: 7px;
+    background-color: #33658a;
+}
+.headerAzulVoltar img{
+    height: 30px;
+}
+
+.footerAzulArredondado {
     background-color: #33658a;
     border-top-left-radius: 70px;
     height: 12%;
@@ -50,6 +58,18 @@ footer {
     bottom: 0;
 }
 
+.footerAzulLogo{
+    background-color: #33658a;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.footerAzulLogo img{
+    height: 70px;
+}
 
 /*Página de Login*/
 .tituloLogin {
@@ -103,6 +123,7 @@ footer {
     
 }
 
+
 /*Icone funcionario*/
 #icone{
     height: 70px;
@@ -150,4 +171,37 @@ footer {
     color: #f6ae2d;
     border-radius: 20px;
     text-align: center;
+}
+
+/*Página de configurações*/
+#tituloConfig{
+    color: #2f4858;
+    text-align: center;
+    margin-top: 200px;
+}
+
+#quadradoGeralConfig{
+    background-color: #33658a;
+    margin: 10px 20px;
+    padding: 4px;
+    border-radius: 15px;
+}
+
+.quadradosOpcoesConfig{
+    background-color: #2f4858;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    margin: 10px 20px;
+    border-radius: 15px;
+}
+
+.quadradosOpcoesConfig a{
+    color: #fdbe4d;
+    text-decoration: none;
+    font-size: 20px;
+}
+.iconeConfigTamanho{
+    height: 50px;
+    width: 50px;
 }
