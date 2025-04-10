@@ -164,13 +164,30 @@ body {
     border-radius: 20px;
 }
 
-.dataNascimento{
+#dataNascimentoDia{
     height: 30px;
     width: 50px;
     background-color:#2f4858;
     color: #f6ae2d;
     border-radius: 20px;
-    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    padding: 5px;
+    margin-left: 10px;
+}
+
+.dataNascimentoMesAno{
+    height: 30px;
+    width: 50px;
+    background-color:#2f4858;
+    color: #f6ae2d;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    padding: 5px;
+    margin-left: 50px;
 }
 
 /*Página de configurações*/
@@ -204,4 +221,20 @@ body {
 .iconeConfigTamanho{
     height: 50px;
     width: 50px;
+}
+
+.flex{
+    display: flex;
+}
+
+#ladoEsquerdo{
+    background-color: #33658a;
+    border-radius: 15px;
+    padding: 1px 40px;
+    margin-top: 10px;
+    margin-left: 200px;
+}
+
+#salvar{
+    color: #86bbd8;
 }
