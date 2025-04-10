@@ -102,3 +102,31 @@ body {
     height: 200px;
     
 }
+
+/*Página de configurações*/
+#tituloConfig{
+    color: #2f4858;
+    text-align: center;
+    margin-top: 200px;
+}
+
+#quadradoGeralConfig{
+    background-color: #33658a;
+    margin: 10px 20px;
+    padding: 4px;
+    border-radius: 15px;
+}
+
+#quadradosOpcoesConfig{
+    background-color: #2f4858;
+    color: #fdbe4d;
+    display: flex;
+    padding: 5px;
+    margin: 10px 20px;
+    border-radius: 15px;
+}
+
+#iconeConfigTamanho{
+    height: 50px;
+    width: 50px;
+}
