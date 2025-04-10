@@ -41,6 +41,14 @@ body {
     height: 70px;
 }
 
+.headerAzulVoltar{
+    padding-top: 7px;
+    background-color: #33658a;
+}
+.headerAzulVoltar img{
+    height: 30px;
+}
+
 .footerAzulArredondado {
     background-color: #33658a;
     border-top-left-radius: 70px;
@@ -50,6 +58,18 @@ body {
     bottom: 0;
 }
 
+.footerAzulLogo{
+    background-color: #33658a;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.footerAzulLogo img{
+    height: 70px;
+}
 
 /*Página de Login*/
 .tituloLogin {
