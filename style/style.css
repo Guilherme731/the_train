@@ -27,8 +27,8 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/*Itens Padrão das páginas de acesso*/
-header {
+/*Itens Padrão das páginas*/
+.headerAzulLogo {
     padding-top: 7%;
     padding-bottom: 5%;
     background-color: #33658a;
@@ -37,11 +37,11 @@ header {
     justify-content: center;
 }
 
-header img {
+.headerAzulLogo img {
     height: 70px;
 }
 
-footer {
+.footerAzulArredondado {
     background-color: #33658a;
     border-top-left-radius: 70px;
     height: 12%;
