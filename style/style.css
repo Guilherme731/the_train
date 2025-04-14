@@ -42,7 +42,8 @@ body {
 }
 
 .headerAzulVoltar{
-    padding-top: 7px;
+    padding: 7px 15px;
+    padding-top: 25px;
     background-color: #33658a;
 }
 .headerAzulVoltar img{
@@ -65,10 +66,11 @@ body {
     bottom: 0;
     display: flex;
     justify-content: center;
+    padding-top: 5px;
 }
 
 .footerAzulLogo img{
-    height: 70px;
+    height: 100px;
 }
 
 /*Página de Login*/
