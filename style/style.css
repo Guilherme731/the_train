@@ -194,6 +194,7 @@ body {
 }
 
 .central{
+    padding-top: 30px;
     display: grid;
     justify-content: center;
 }
@@ -211,7 +212,7 @@ body {
 #informacoesPessoais{
     background-color: #33658a;
     border-radius: 20px;
-    width: 300px;
+    width: 311px;
     padding: 5px;
 }
 
@@ -219,6 +220,7 @@ body {
     background-color:#2f4858;
     color: #f6ae2d;
     border-radius: 20px;
+    width: 300px;
 }
 
 #dataNascimentoDia{
