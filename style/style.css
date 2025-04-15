@@ -295,3 +295,28 @@ body {
 #salvar{
     color: #86bbd8;
 }
+
+/* Página Dashboard */
+
+.secaoDashboard{
+    background-color: #33658a;
+    border-radius: 15px;
+    margin: 5px 10px;
+    padding: 7px;
+    text-align: center;
+}
+.secaoDashboard h2{
+    color: #f6ae2d;
+    margin-top: 0;
+}
+
+.informacoesHorarios{
+    background-color: #2f4858;
+    color: #86bbd8;
+    display: flex;
+    align-items: center;
+    border-radius: 15px;
+}
+.informacoesHorarios div{
+    width: 33%;
+}
