@@ -15,7 +15,7 @@ function validarLogin(){
 
     //Validação da senha
     if(senhaFuncionario == 'admin_123'){
-        window.location.href = '../config/configFuncionario.html';
+        window.location.href = './config/configFuncionario.html';
     }else{
         alert('Senha incorreta! A senha é admin_123');
     }
