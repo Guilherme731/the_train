@@ -295,3 +295,28 @@ body {
 #salvar{
     color: #86bbd8;
 }
+
+/*Página fale conosco*/
+
+#primeiroQuadrado{
+    background-color: #33658a;
+    margin: 10px 20px;
+    padding: 4px;
+    border-radius: 15px;
+    color: #f6ae2d;
+    display:grid;
+}
+
+.segundoQuadrado{
+    background-color: #2f4858;
+    align-items: center;
+    padding: 5px;
+    margin: 10px 20px;
+    border-radius: 15px;
+    color: #f6ae2d;
+    display:flex;
+}
+
+#tituloFaleConosco{
+    text-align: center;
+}
