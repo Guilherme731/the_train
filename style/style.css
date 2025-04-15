@@ -194,6 +194,7 @@ body {
 }
 
 .central{
+    padding-top: 30px;
     display: grid;
     justify-content: center;
 }
@@ -211,7 +212,7 @@ body {
 #informacoesPessoais{
     background-color: #33658a;
     border-radius: 20px;
-    width: 300px;
+    width: 311px;
     padding: 5px;
 }
 
@@ -219,6 +220,7 @@ body {
     background-color:#2f4858;
     color: #f6ae2d;
     border-radius: 20px;
+    width: 300px;
 }
 
 #dataNascimentoDia{
@@ -268,10 +270,9 @@ body {
     padding: 5px;
     margin: 10px 20px;
     border-radius: 15px;
-    text-decoration: none;
 }
 
-.quadradosOpcoesConfig p{
+.quadradosOpcoesConfig a{
     color: #fdbe4d;
     text-decoration: none;
     font-size: 20px;
@@ -308,4 +309,28 @@ body {
 
 #iconeVerificacao2Etapas{
     width: 190px;
+}
+/* Página Dashboard */
+
+.secaoDashboard{
+    background-color: #33658a;
+    border-radius: 15px;
+    margin: 5px 10px;
+    padding: 7px;
+    text-align: center;
+}
+.secaoDashboard h2{
+    color: #f6ae2d;
+    margin-top: 0;
+}
+
+.informacoesHorarios{
+    background-color: #2f4858;
+    color: #86bbd8;
+    display: flex;
+    align-items: center;
+    border-radius: 15px;
+}
+.informacoesHorarios div{
+    width: 33%;
 }
