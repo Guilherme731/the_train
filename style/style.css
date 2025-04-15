@@ -86,6 +86,48 @@ body {
     height: 40px;
 }
 
+.footerPrincipal{
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+.footerPrincipal .navbar{
+    background-color: #33658a;
+    justify-content: center;
+    display: flex;
+}
+.navbar img{
+    margin: 5px 17px;
+    width: 50px;
+}
+.navbar a{
+    width: 25%;
+    display: flex;
+    justify-content: center;
+}
+.barraLinhaSelecao{
+    background-color: #2f4858;
+}
+.linhaAmarela{
+    background-color: #f6ae2d;
+    padding-top: 5px;
+    
+}
+.linhaPos1{
+    margin-right: 75%;
+}
+.linhaPos2{
+    margin-left: 25%;
+    margin-right: 50%;
+}
+.linhaPos3{
+    margin-left: 50%;
+    margin-right: 25%;
+}
+.linhaPos4{
+    margin-left: 75%;
+}
+
 /*Página de Login*/
 .tituloLogin {
     margin-top: 10px;
