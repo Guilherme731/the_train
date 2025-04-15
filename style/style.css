@@ -297,10 +297,15 @@ body {
     color: #86bbd8;
 }
 
-/* Verificação de duas etapas
+/* Verificação de duas etapas*/
 
+#centralizacaoVerificacao2Etapas{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+}
 
-
-
-
-*/
+#iconeVerificacao2Etapas{
+    width: 190px;
+}
