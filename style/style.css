@@ -270,9 +270,10 @@ body {
     padding: 5px;
     margin: 10px 20px;
     border-radius: 15px;
+    text-decoration: none;
 }
 
-.quadradosOpcoesConfig a{
+.quadradosOpcoesConfig p{
     color: #fdbe4d;
     text-decoration: none;
     font-size: 20px;
@@ -297,3 +298,11 @@ body {
 #salvar{
     color: #86bbd8;
 }
+
+/* Verificação de duas etapas
+
+
+
+
+
+*/
