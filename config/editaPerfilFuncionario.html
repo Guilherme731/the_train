@@ -35,36 +35,48 @@
 
         <div class="central">
             <div id="informacoesPessoais">
-                <div id="senha">
-                    <p>Senha</p>
-                </div>
+
+                <input type="password" name="senha" id="senha" placeholder="Senha" required>
+
 
                 <p>Data De Nascimento</p>
 
                 <div class="flex">
-                    <div id="dataNascimentoDia">
-                        <p>Dia</p>
-                    </div>
-                    <div class="dataNascimentoMesAno">
-                        <p>Mês</p>
-                    </div>
-                    <div class="dataNascimentoMesAno">
-                        <p>Ano</p>
-                    </div>
+                    <input type="text" name="Dia" id="dataNascimentoDia" placeholder="Dia" required>
+
+                    <input type="text" name="Mes" class="dataNascimentoMesAno" placeholder="Mês" required>
+
+                    <input type="text" name="Ano" class="dataNascimentoMesAno" placeholder="Ano" required>
                 </div>
 
                 <div class="flex">
-                    <input type="checkbox">
-                    <p>Feminino</p>
-                    <input type="checkbox">
-                    <p>Masculino</p>
+
+                    <div>
+                        <div class="flex">
+                            <input type="radio" id="Feminino" name="genero" value="Feminino">
+                            <label for="Feminino">Feminino</label>
+                        </div>
+
+                        <div class="flex">
+                            <input type="radio" id="PrefiroNaoDizer" name="genero" value="PrefiroNaoDizer">
+                            <label for="PrefiroNaoDizer">Prefiro não dizer</label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex">
+                            <input type="radio" id="Masculino" name="genero" value="Masculino">
+                            <label for="Masculino">Masculino</label>
+                        </div>
+
+                        <div class="flex">
+                            <input type="radio" id="Outro" name="genero" value="Outro">
+                            <label for="Outro">Outro</label>
+                        </div>
+                    </div>
+
                 </div>
-                <div class="flex">
-                    <input type="checkbox">
-                    <p>Prefiro não dizer</p>
-                    <input type="checkbox">
-                    <p>Outro</p>
-                </div>
+
             </div>
 
             <div class="flex">
@@ -72,7 +84,7 @@
                     <p id="salvar">Salvar</p>
                 </div>
             </div>
-            
+
 
         </div>
 
