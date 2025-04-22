@@ -436,6 +436,17 @@ body {
     text-align: right;
 }
 
+.statusTrensInfos{
+    display: flex;
+}
+.statusTrensInfos img{
+    height: 20px;
+}
+.statusTrensInfos div{
+    width: 25%;
+    display: flex;
+}
+
 /*Página dúvidas*/
 
 .centro{
