@@ -369,3 +369,36 @@ body {
     text-align: center;
     margin-top: 75px;
 }
+
+.cadastroFuncionario{
+    background-color: #33658a;
+    border: none;
+    border-bottom: solid 2px #2f4858;
+    width: 97%;
+    margin: 1%;
+    color: black;
+    font-size: 20px;
+    padding-top: 30px;
+}
+input:focus{
+    box-shadow: 0 0 0;
+    border: 0 none;
+    outline: 0;
+}
+
+.tituloConfigs{
+    color: #2f4858;
+    text-align: center;
+    margin-top: 100px;
+}
+
+#cadastrar{
+    align-items: center;
+    border-radius: 15px;
+    background-color: #2f4858;
+}
+
+.iconeCadastrarFuncionarioTamanho{
+    height: 50px;
+    width: 50px;
+}
