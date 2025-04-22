@@ -331,7 +331,7 @@ body {
 }
 /* Verificação de duas etapas*/
 
-#centralizacaoVerificacao2Etapas{
+#centralizacaoIconeVerificacao2Etapas{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -341,6 +341,41 @@ body {
 #iconeVerificacao2Etapas{
     width: 190px;
 }
+
+#imagemDigitarEmail{
+    width: 380px;
+    margin-left: 20px;
+    margin-bottom: -52px;
+}
+
+#imagemProxima{
+    width: 200px;
+    padding: 20px;
+    margin-left: 170px;
+}
+
+#centralizacaoTextoVerificacao2Etapas{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#botaoDigitarEmail{
+    margin-left: 35px;
+    margin-top: -20px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-color: #86bbd8;
+    width: 340px;
+    height: 42px;
+    font-size: 20px;
+    border-style: none;
+}
+
+
+
 /* Página Dashboard */
 
 .secaoDashboard{
@@ -435,3 +470,16 @@ body {
     text-align: center;
     margin-top: 75px;
 }
+
+/*Página idioma*/
+
+#pQuadrado{
+    background-color: #33658a;
+    margin: 10px 20px;
+    padding: 4px;
+    border-radius: 15px;
+    color: #f6ae2d;
+   
+}
+
+
