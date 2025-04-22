@@ -355,7 +355,42 @@ body {
     display: flex;
     align-items: center;
     border-radius: 15px;
+    margin-bottom: 10px;
 }
-.informacoesHorarios div{
-    width: 33%;
+.informacoesHorarios img{
+    width: 30px;
+}
+.textoSecundarioHorarios{
+    font-size: 17px;
+    margin: 0;
+}
+.textoPrincipalHorarios{
+    font-size: 25px;
+    margin: 0;
+}
+.conteudoEsquerda{
+    text-align: left;
+    margin-left: 10px;
+    width: 45%;
+}
+.conteudoCentro{
+    width: 10%;
+}
+.conteudoDireita{
+    text-align: right;
+    margin-right: 10px;
+    width: 45%;
+}
+.verTudoBotao{
+    text-decoration: none;
+    color: #f6ae2d;
+    font-weight: bold;
+    background-color: #2f4858;
+    font-size: 20px;
+    padding: 1px 40px;
+    border: solid 2px #f6ae2d;
+    border-radius: 20px;
+}
+.alinharDireita{
+    text-align: right;
 }
