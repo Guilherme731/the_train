@@ -221,6 +221,7 @@ body {
     color: #f6ae2d;
     border-radius: 20px;
     width: 300px;
+    height: 20px;
 }
 
 #dataNascimentoDia{
@@ -293,6 +294,9 @@ body {
     padding: 1px 40px;
     margin-top: 10px;
     margin-left: 200px;
+    height: 50px;
+    font-size: 15px;
+    color: #86bbd8;
 }
 
 #salvar{
@@ -308,6 +312,7 @@ body {
     border-radius: 15px;
     color: #f6ae2d;
     display:grid;
+   
 }
 
 .segundoQuadrado{
@@ -318,6 +323,7 @@ body {
     border-radius: 15px;
     color: #f6ae2d;
     display:flex;
+    padding: 20px;
 }
 
 #tituloFaleConosco{
@@ -390,7 +396,66 @@ body {
     display: flex;
     align-items: center;
     border-radius: 15px;
+    margin-bottom: 10px;
 }
-.informacoesHorarios div{
-    width: 33%;
+.informacoesHorarios img{
+    width: 30px;
+}
+.textoSecundarioHorarios{
+    font-size: 17px;
+    margin: 0;
+}
+.textoPrincipalHorarios{
+    font-size: 25px;
+    margin: 0;
+}
+.conteudoEsquerda{
+    text-align: left;
+    margin-left: 10px;
+    width: 45%;
+}
+.conteudoCentro{
+    width: 10%;
+}
+.conteudoDireita{
+    text-align: right;
+    margin-right: 10px;
+    width: 45%;
+}
+.verTudoBotao{
+    text-decoration: none;
+    color: #f6ae2d;
+    font-weight: bold;
+    background-color: #2f4858;
+    font-size: 20px;
+    padding: 1px 40px;
+    border: solid 2px #f6ae2d;
+    border-radius: 20px;
+}
+.alinharDireita{
+    text-align: right;
+}
+
+/*Página dúvidas*/
+
+.centro{
+   text-align: center;
+}
+
+#quadradoInvisivel{
+    background-color: #2f4858;
+    color: #f6ae2d;
+    width: 100%;
+    height: 200px;
+}
+
+.direita{
+    text-align: right;
+}
+
+
+#tituloConfigAdmin{
+    color: #2f4858;
+    text-align: center;
+    margin-top: 75px;
 }
