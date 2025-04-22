@@ -389,3 +389,16 @@ body {
     text-align: center;
     margin-top: 75px;
 }
+
+/*Página idioma*/
+
+#pQuadrado{
+    background-color: #33658a;
+    margin: 10px 20px;
+    padding: 4px;
+    border-radius: 15px;
+    color: #f6ae2d;
+   
+}
+
+
