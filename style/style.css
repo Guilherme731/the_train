@@ -363,3 +363,9 @@ body {
 .informacoesHorarios div{
     width: 33%;
 }
+
+#tituloConfigAdmin{
+    color: #2f4858;
+    text-align: center;
+    margin-top: 75px;
+}
