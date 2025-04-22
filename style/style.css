@@ -374,6 +374,25 @@ body {
     border-style: none;
 }
 
+.campoNumeroVerificacao2Etapas{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border-style: solid;
+    margin-top: 20px;
+    margin-left: 5px;
+    border-radius: 20px;
+    background-color: #86bbd8;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+}
+
+#textoVerificacao2EtapasConfirmacao{
+    font-size: 20px;
+    text-align: center;
+}
+
 
 
 /* Página Dashboard */
