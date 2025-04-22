@@ -50,13 +50,21 @@ body {
     height: 30px;
 }
 
-.footerAzulArredondado {
+.espacoFooterAzul{
+    height: 15%;
+}
+
+.footerAzulArredondado{
     background-color: #33658a;
     border-top-left-radius: 70px;
     height: 12%;
     position: fixed;
     width: 100%;
     bottom: 0;
+}
+
+.espacoFooterAzulLogo{
+    height: 110px;
 }
 
 .footerAzulLogo{
@@ -71,6 +79,10 @@ body {
 
 .footerAzulLogo img{
     height: 100px;
+}
+
+.espacoFooterPrincipal{
+    height: 70px;
 }
 
 .headerPrincipal{
