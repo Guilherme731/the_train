@@ -528,12 +528,26 @@ input:focus{
     align-items: center;
     border-radius: 15px;
     background-color: #2f4858;
+    margin: 10% 20%;
 }
 
 .iconeCadastrarFuncionarioTamanho{
     height: 50px;
     width: 50px;
+    padding-top: 5%;
+    padding-right: 5%;
 }
+
+#textoCadastrar{
+    text-align: center;
+    color: #86bbd8;
+}
+
+.flexCentral{
+    justify-content: center;
+    display: flex;
+}
+
 /*Página idioma*/
 
 #pQuadrado{
@@ -544,5 +558,4 @@ input:focus{
     color: #f6ae2d;
    
 }
-
 

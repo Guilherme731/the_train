@@ -1,32 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style/style.css">
+    <script src="../scripts/botoesMenus.js"></script>
     <title>Cadastrar Funcionário</title>
 </head>
+
 <body>
     <header class="headerAzulVoltar">
         <img src="../img/headerFooter/SetaEsquerda.png" alt="Seta" onclick="voltarPagina()">
     </header>
 
     <main>
-    <h1 class="tituloConfigs">Cadastrar Funcionário</h1>
+        <h1 class="tituloConfigs">Cadastrar Funcionário</h1>
 
         <div id="quadradoGeralConfig">
-            <input type="text" class="cadastroFuncionario" name="Nome" placeholder="Nome"> 
-            <input type="text" class="cadastroFuncionario" name="email" placeholder="E-mail"> 
-            <input type="password" class="cadastroFuncionario" name="Senha" placeholder="Senha"> 
-            <input type="text" class="cadastroFuncionario" name="CPF" placeholder="CPF"> 
+            <input type="text" class="cadastroFuncionario" name="Nome" placeholder="Nome">
+            <input type="text" class="cadastroFuncionario" name="email" placeholder="E-mail">
+            <input type="password" class="cadastroFuncionario" name="Senha" placeholder="Senha">
+            <input type="text" class="cadastroFuncionario" name="CPF" placeholder="CPF">
         </div>
 
         <div id="cadastrar">
-            <div class="flex">
+            <div class="flexCentral">
                 <img class="iconeCadastrarFuncionarioTamanho" src="../img/config/CadastroFuncionarioIcone.png">
-                <h2>Cadastrar</h2>
+                <h2 id="textoCadastrar">Cadastrar</h2>
             </div>
-            
+
         </div>
     </main>
 
@@ -35,6 +38,7 @@
     <footer class="footerAzulLogo">
         <img src="../img/logos/LogoCompleta.png" alt="Logo">
     </footer>
-    
+
 </body>
+
 </html>
