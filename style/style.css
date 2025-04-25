@@ -440,6 +440,7 @@ body {
     margin-bottom: 10px;
 }
 
+/* Dashboard Horarios*/
 .informacoesHorarios{
     background-color: #2f4858;
     color: #86bbd8;
@@ -485,7 +486,7 @@ body {
 .alinharDireita{
     text-align: right;
 }
-
+/* Dashboard Status Trens*/
 .statusTrensInfos{
     display: flex;
     background-color: #2f4858;
@@ -520,6 +521,37 @@ body {
 }
 .tremStatus4{
     width: 20%;
+}
+/* Dashboard Status Estacoes*/
+.statusEstacoesInfos{
+    display: flex;
+    background-color: #2f4858;
+    color: #86bbd8;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 5px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
+.statusEstacoesInfos img{
+    height: 27px;
+}
+.statusEstacoesInfos p{
+    margin: 0;
+    
+}
+.statusEstacoesInfos div{
+    display: flex;
+    align-items: center;
+    width: 50%;
+}
+.iconeETempStatusEstacoes{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 33%;
+    color: #f6ae2d;
 }
 
 /*Pagina manutenção*/
