@@ -569,4 +569,37 @@ input:focus{
     border-radius: 10%;
 }
 
+#imagemUsuario{
+    height: 70px;
+    padding-left: 37%;
+}
 
+#informacoesEspeciaisUser{
+    background-color: #33658a;
+    border-radius: 20px;
+    padding: 5px;
+    height: 180px;
+}
+
+.informacoesEspeciais{
+    background-color: #2f4858;
+    border: none;
+    height: 25px;
+    position: fixed;
+    border-radius: 20px;
+    width: 85%;
+}
+
+.margin{
+    margin: 5% 0%;
+}
+
+#centroPerfil{
+    justify-content: center;
+    padding: 0% 5%;
+}
+
+#espacoButton{
+    padding-top: 20px;
+    padding-left: 50px;
+}
