@@ -523,30 +523,57 @@ body {
 }
 
 /*Pagina manutenção*/
-.quadradoManutencao{
+.secaoTrens{
     background-color: #33658a;
-    justify-content: center;
+    border-radius: 15px;
+    margin: 5px 10px;
+    padding: 7px;
     text-align: center;
-    font-size: 12px;
-    margin-top: 55px;
-    margin-left: 10px;
-    height: 250px;
-    width: 390px;
-    border-radius: 20px;
-    color:#f6ae2d
 }
 
-.quadradoTrens{
-    display: flex;
+.secaoTrens h2{
+    color: #f6ae2d;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.informacoesTrens{
     background-color: #2f4858;
     color: #86bbd8;
-    justify-content: center;
+    display: flex;
     align-items: center;
-    margin-left: 10px;
-    margin-top: 8px;
-    width: 368px;
-    height: 55px;
     border-radius: 15px;
+    margin-bottom: 10px;
+}
+
+.informacoesTrens img{
+    width: 30px;
+}
+
+.textoSecundarioTrens{
+    font-size: 17px;
+    margin: 0;
+}
+
+.textoPrincipalTrens{
+    font-size: 25px;
+    margin: 0;
+}
+
+.conteudoEsquerda{
+    text-align: left;
+    margin-left: 10px;
+    width: 45%;
+}
+
+.conteudoCentro{
+    width: 10%;
+}
+
+.conteudoDireita{
+    text-align: right;
+    margin-right: 10px;
+    width: 45%;
 }
 
 /*Página dúvidas*/
