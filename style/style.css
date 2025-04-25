@@ -699,7 +699,6 @@ input:focus{
     border-radius: 10%;
 }
 
-<<<<<<< HEAD
 #imagemUsuario{
     height: 70px;
     padding-left: 37%;
@@ -733,7 +732,7 @@ input:focus{
 #espacoButton{
     padding-top: 20px;
     padding-left: 50px;
-=======
+}
 /*Página recuperar senha*/
 
 .corLetra{
@@ -768,6 +767,4 @@ input:focus{
 #diminuirImagem{
     background-color: #33658a;
 
-    
->>>>>>> cd09b02822849709ea68cf823aca4ebbb26340e7
-}
+}    
