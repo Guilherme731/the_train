@@ -140,6 +140,11 @@ body {
     margin-left: 75%;
 }
 
+/*Classes comuns de estilização*/
+.texto10px{
+    font-size: 10px;
+}
+
 /*Página de Login*/
 .tituloLogin {
     margin-top: 10px;
@@ -432,6 +437,7 @@ body {
 .secaoDashboard h2{
     color: #f6ae2d;
     margin-top: 0;
+    margin-bottom: 10px;
 }
 
 .informacoesHorarios{
@@ -482,13 +488,38 @@ body {
 
 .statusTrensInfos{
     display: flex;
+    background-color: #2f4858;
+    color: #86bbd8;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 5px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+
 }
 .statusTrensInfos img{
-    height: 20px;
+    height: 27px;
+}
+.statusTrensInfos p{
+    margin: 0;
+    
 }
 .statusTrensInfos div{
-    width: 25%;
     display: flex;
+    align-items: center;
+}
+.tremStatus1{
+    width: 30%;
+}
+.tremStatus2{
+    width: 30%;
+}
+.tremStatus3{
+    width: 20%;
+}
+.tremStatus4{
+    width: 20%;
 }
 
 /*Página dúvidas*/
