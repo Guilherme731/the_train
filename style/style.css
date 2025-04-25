@@ -110,7 +110,7 @@ body {
 }
 .navbar img{
     margin: 5px 17px;
-    width: 50px;
+    height: 50px;
 }
 .navbar a{
     width: 25%;
@@ -140,6 +140,11 @@ body {
     margin-left: 75%;
 }
 
+/*Classes comuns de estilização*/
+.texto10px{
+    font-size: 10px;
+}
+
 /*Página de Login*/
 .tituloLogin {
     margin-top: 10px;
@@ -151,7 +156,7 @@ body {
 
 .formularioLogin {
     display: grid;
-    padding: 55px 15px 15px 15px;
+    padding: 30px 15px 15px 15px;
     text-align: center;
     font-size: 20px;
 }
@@ -176,7 +181,7 @@ body {
 }
 
 .formularioLogin button {
-    margin-top: 30%;
+    margin-top: 50px;
     padding: 15px 0;
     font-size: 20px;
     background-color: #33658a;
@@ -324,7 +329,6 @@ body {
     border-radius: 15px;
     color: #f6ae2d;
     display:grid;
-   
 }
 
 .segundoQuadrado{
@@ -374,15 +378,29 @@ body {
 }
 
 #botaoDigitarEmail{
-    margin-left: 35px;
+    margin-left: 25px;
     margin-top: -20px;
-    text-align: center;
     justify-content: center;
     align-items: center;
     background-color: #86bbd8;
-    width: 340px;
-    height: 42px;
+    width: 350px;
+    height: 50px;
     font-size: 20px;
+    border-style: solid;
+    border-color: #3c6f93;
+    border-radius: 20px;
+}
+
+.botaoEnviar a{ 
+    text-align: center;
+    font-size: 20px;
+    border-radius: 20px;
+    background-color: #33658a;
+    color: #86bbd8;
+    margin-top: 20px;
+    width: 150px;
+    height: 50px;
+    margin-left: 220px;
     border-style: none;
 }
 
@@ -419,8 +437,10 @@ body {
 .secaoDashboard h2{
     color: #f6ae2d;
     margin-top: 0;
+    margin-bottom: 10px;
 }
 
+/* Dashboard Horarios*/
 .informacoesHorarios{
     background-color: #2f4858;
     color: #86bbd8;
@@ -466,16 +486,126 @@ body {
 .alinharDireita{
     text-align: right;
 }
-
+/* Dashboard Status Trens*/
 .statusTrensInfos{
     display: flex;
+    background-color: #2f4858;
+    color: #86bbd8;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 5px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+
 }
 .statusTrensInfos img{
-    height: 20px;
+    height: 27px;
+}
+.statusTrensInfos p{
+    margin: 0;
+    
 }
 .statusTrensInfos div{
-    width: 25%;
     display: flex;
+    align-items: center;
+}
+.tremStatus1{
+    width: 30%;
+}
+.tremStatus2{
+    width: 30%;
+}
+.tremStatus3{
+    width: 20%;
+}
+.tremStatus4{
+    width: 20%;
+}
+/* Dashboard Status Estacoes*/
+.statusEstacoesInfos{
+    display: flex;
+    background-color: #2f4858;
+    color: #86bbd8;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 5px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
+.statusEstacoesInfos img{
+    height: 27px;
+}
+.statusEstacoesInfos p{
+    margin: 0;
+    
+}
+.statusEstacoesInfos div{
+    display: flex;
+    align-items: center;
+    width: 50%;
+}
+.iconeETempStatusEstacoes{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 33%;
+    color: #f6ae2d;
+}
+
+/*Pagina manutenção*/
+.secaoTrens{
+    background-color: #33658a;
+    border-radius: 15px;
+    margin: 5px 10px;
+    padding: 7px;
+    text-align: center;
+}
+
+.secaoTrens h2{
+    color: #f6ae2d;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.informacoesTrens{
+    background-color: #2f4858;
+    color: #86bbd8;
+    display: flex;
+    align-items: center;
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
+
+.informacoesTrens img{
+    width: 30px;
+}
+
+.textoSecundarioTrens{
+    font-size: 17px;
+    margin: 0;
+}
+
+.textoPrincipalTrens{
+    font-size: 25px;
+    margin: 0;
+}
+
+.conteudoEsquerda{
+    text-align: left;
+    margin-left: 10px;
+    width: 45%;
+}
+
+.conteudoCentro{
+    width: 10%;
+}
+
+.conteudoDireita{
+    text-align: right;
+    margin-right: 10px;
+    width: 45%;
 }
 
 /*Página dúvidas*/

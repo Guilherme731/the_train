@@ -14,9 +14,9 @@ function validarLogin(){
     }
 
     //Validação da senha
-    if(senhaFuncionario == 'admin_123'){
+    //if(senhaFuncionario == 'admin_123'){
         window.location.href = '../../../the_train/private/user/dashboard/dashboard.html';
-    }else{
-        alert('Senha incorreta! A senha é admin_123');
-    }
+    //}else{
+    //    alert('Senha incorreta! A senha é admin_123');
+    //}
 }
