@@ -569,4 +569,39 @@ input:focus{
     border-radius: 10%;
 }
 
+/*Página recuperar senha*/
 
+.corLetra{
+    color: #33658a;
+    text-align: center;
+}
+
+#quadradoRedondo{
+    background-color: #86bbd8;
+    border-color: #33658a;
+    border-radius: 15px;
+    padding: 1px 75px;
+    margin-top: 50px;
+    height: 50px;
+    font-size: 20px;
+}
+
+#ajusteImagem{
+    padding: 1px;
+ 
+}
+
+.aDireita{
+    justify-content: right;
+    color: #86bbd8;
+    border-radius: 10%;
+    padding: 10px;
+    display: flex;
+  
+}
+
+#diminuirImagem{
+    background-color: #33658a;
+
+    
+}
