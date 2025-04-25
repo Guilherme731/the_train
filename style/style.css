@@ -554,6 +554,33 @@ body {
     color: #f6ae2d;
 }
 
+/*Pagina manutenção*/
+.quadradoManutencao{
+    background-color: #33658a;
+    justify-content: center;
+    text-align: center;
+    font-size: 12px;
+    margin-top: 55px;
+    margin-left: 10px;
+    height: 250px;
+    width: 390px;
+    border-radius: 20px;
+    color:#f6ae2d
+}
+
+.quadradoTrens{
+    display: flex;
+    background-color: #2f4858;
+    color: #86bbd8;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    margin-top: 8px;
+    width: 368px;
+    height: 55px;
+    border-radius: 15px;
+}
+
 /*Página dúvidas*/
 
 .centro{
