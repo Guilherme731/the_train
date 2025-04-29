@@ -627,6 +627,7 @@ body {
     text-align: right;
 }
 
+/*Página de configurações do admin*/
 
 #tituloConfigAdmin{
     color: #2f4858;
@@ -698,6 +699,8 @@ input:focus{
     height: 200px;
     border-radius: 10%;
 }
+
+/*Página editar perfil do usuário */
 
 #imagemUsuario{
     height: 70px;

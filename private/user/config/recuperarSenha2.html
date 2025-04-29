@@ -3,18 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="../../../scripts/recuperarSenha.js"></script>
     <link rel="stylesheet" href="../../../style/style.css">
     <title>Recuperar senha</title>
 </head>
 
 <body>
-
     <header class="headerAzulLogo">
         <img id="ajusteImagem" src="../../../assets/logos/logoPequena.png" alt="Logo Pequena">
 
     </header>
-    <img id="diminuirImagem" src="../../../assets/icons/header/setaEsquerdaClara.PNG" alt="Seta" onclick="voltarPagina()">
+    <img id="diminuirImagem" src="../../../assets/icons/header/setaEsquerdaClara.PNG" alt="Seta"
+        onclick="voltarPagina()">
     <div class="corLetra">
         <h1>Recuperar senha</h1>
         <br>
@@ -22,17 +21,18 @@
     <main>
         <form>
             <div id="central">
-                <input type="text" name="email" id="quadradoRedondo" placeholder="Digite seu email" required>
+                <input type="password" name="email" id="quadradoRedondo" placeholder="Nova senha" required>
             </div>
-
+            <div id="central">
+                <input type="password" name="email" id="quadradoRedondo" placeholder="Confirmar senha" required>
+            </div>
         </form>
         <div class="aDireita">
-            <input type="button" id="ladoEsquerdo" onclick="Próxima()" value="Próxima">
+            <input type="button" id="ladoEsquerdo" onclick="AlterarSenha()" value="Alterar Senha">
         </div>
     </main>
     <div class="espacoFooterAzul"></div>
     <footer class="footerAzulArredondado">
-
 
     </footer>
 </body>
