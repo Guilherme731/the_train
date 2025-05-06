@@ -770,4 +770,28 @@ input:focus{
 #diminuirImagem{
     background-color: #33658a;
 
-}    
+} 
+
+#linhaAzul{
+    margin-left: 15px;
+    width: 50px;
+    border-bottom: 5px solid #33658a;
+    text-align: center;
+}
+
+#textoCentro{
+    text-align: center;
+    color: #33658a;
+}
+
+#centro{
+    background-color: #33658a;
+    margin-left: 120px;
+    border-radius: 15px;
+    padding: 1px 30px;
+    margin-top: 10px;
+    text-align: center;
+    height: 50px;
+    font-size: 15px;
+    color: #86bbd8;
+}
