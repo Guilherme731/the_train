@@ -768,8 +768,15 @@ input:focus{
 
 #diminuirImagem{
     background-color: #33658a;
-
 } 
+
+/*Relatórios*/
+#graficoDesempenho{
+    width: 240px;
+    height: 150px;
+}
+
+/*Página de verificação de 2 etapas*/
 
 #linhaAzul{
     margin-left: 15px;
