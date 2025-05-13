@@ -769,7 +769,42 @@ input:focus{
 
 #diminuirImagem{
     background-color: #33658a;
-} 
+}
+/* Notificações */ 
+.alerta{
+    display: flex;
+    background-color: #2f4858;
+    border-radius: 12px;
+    color: #86bbd8;
+    margin: 10px 0;
+}
+.alerta img{
+    width: 50px;
+    height: 50px;
+    margin: 5px 10px;
+}
+.mensagens{
+    text-align: left;
+}
+.mensagens p{
+    margin: 0;
+}
+.finalAlerta{
+    margin-left: auto;
+}
+.finalAlerta img{
+    height: 30px;
+    width: 30px;
+}
+.finalAlerta p{
+    margin: 0;
+    height: 30px;
+    align-content: end;
+}
+.mensagemPrincipal{
+    font-size: 22px;
+    font-weight: 700;
+}
 
 /*Página de verificação de 2 etapas*/
 
