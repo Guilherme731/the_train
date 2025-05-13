@@ -1,16 +1,19 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../../../style/style.css">
     <title>Verificação de 2 etapas</title>
 </head>
+
 <body>
     <header class="headerAzulLogo">
         <img id="ajusteImagem" src="../../../../assets/logos/logoPequena.png" alt="Logo Pequena">
 
     </header>
-    <img id="diminuirImagem" src="../../../../assets/icons/header/setaEsquerdaClara.PNG" alt="Seta" onclick="voltarPagina()">
+    <img id="diminuirImagem" src="../../../../assets/icons/header/setaEsquerdaClara.PNG" alt="Seta"
+        onclick="voltarPagina()">
 
     <div class="corLetra">
         <h1>Verificação de 2 etapas</h1>
@@ -20,26 +23,27 @@
         <br>
         <br>
         <br>
-        <br>
-        <br>
-        <br>
-        <div class="flex">
-            <div id="linhaAzul"></div>
-            <div id="linhaAzul"></div>
-            <div id="linhaAzul"></div>
-            <div id="linhaAzul"></div>
-            <div id="linhaAzul"></div>
-            <div id="linhaAzul"></div>
+        <div class="container">
+            <form>
+                <div class="grupoInputs">
+                    <input type="number">
+                    <input type="number" disabled>
+                    <input type="number" disabled>
+                    <input type="number" disabled>
+                    <input type="number" disabled>
+                    <input type="number" disabled>
+                </div>
+                <h2 id="textoCentro">
+                    Um código de verificação foi enviado para o seu email. Insira o código para continuar.
+                </h2>
+                <button class="ativo">Reenviar código</button>
+            </form>
         </div>
-        <h2 id="textoCentro">
-            Um código de verificação foi enviado para o seu email. Insira o código para continuar.
-        </h2>
-        <input type="button" id="centro" onclick="Reenviarcódigo()" value="Reenviar código">
-       
     </main>
     <div class="espacoFooterAzul"></div>
     <footer class="footerAzulArredondado">
 
     </footer>
 </body>
+
 </html>

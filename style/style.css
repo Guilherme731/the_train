@@ -773,7 +773,7 @@ input:focus{
 
 /*Página de verificação de 2 etapas*/
 
-#linhaAzul{
+.linhaAzul{
     margin-left: 15px;
     width: 50px;
     border-bottom: 5px solid #33658a;
@@ -795,4 +795,72 @@ input:focus{
     height: 50px;
     font-size: 15px;
     color: #86bbd8;
+}
+
+.container h4 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: .04rem;
+    color:#33658a
+}
+
+.container form, .container form .grupoInputs {
+    width:100%;
+    text-align: center;
+}
+
+.container form .grupoInputs {
+    margin:30px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.container form input {
+    width:55px;
+    height: 55px;
+    margin:0 8px;
+    font-size: 1.5rem;
+    text-align: center;
+    background: #33658a;
+    margin-left: 15px;
+    width: 50px;
+    border-bottom: 5px solid #33658a;
+    text-align: center;
+    background-color:transparent;
+    text-shadow:0 0 0 #33658a;
+    transition: .1s ease-in-out;
+}
+
+.container form input::-webkit-inner-spin-button{
+    display:none;
+}
+
+.container form input:focus {
+    outline: 2px #33658a;
+    outline-offset: 3px;
+}
+
+.container form button{
+    cursor:pointer;
+    pointer-events: none;
+    color: #86bbd8;
+    background: #33658a;
+    width:100px;
+    padding:12px 0;
+    font-size: 1.125rem;
+    font-weight: 400;
+    letter-spacing: .04rem;
+    border-radius: 8px;
+    border: none;
+    opacity:.8;
+    transition:.3s;
+}
+
+.container form button:hover{
+    background: #33658a;
+}
+
+.container form button.ativo{
+    opacity:1;
+    pointer-events:auto;
 }
