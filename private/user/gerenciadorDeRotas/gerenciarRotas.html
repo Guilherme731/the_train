@@ -1,19 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../../style/style.css">
     <title>Gerenciador de rotas</title>
 </head>
+
 <body>
     <header class="headerPrincipal">
-        <a href="../../../private/user/config/configFuncionario.html"><img src="../../../assets/icons/header/engrenagemIcone.png" alt="Configurações"></a>
+        <a href="../../../private/user/config/configFuncionario.html"><img
+                src="../../../assets/icons/header/engrenagemIcone.png" alt="Configurações"></a>
         <img src="../../../assets/logos/logoPequena.png" alt="Logo">
         <a href=""><img src="../../../assets/icons/header/sinoIcone.png" alt="Notificações"></a>
     </header>
 
     <main>
+        <div id="mapa">
+
+        </div>
+
+
+        <div id="vizualizarEstacoesTrens">
+            <div class="flex">
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+                <h3>Ver Estações</h3>
+
+
+
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider round"></span>
+                </label>
+                <h3>Ver Trens</h3>
+            </div>
+        </div>
+
+        <div id="quadradoGeralConfig">
+            <h1 class="textoAmareloCentral">Trens</h1>
+            <div class="trensRota">
+                <div class="flex">
+                    <img class="iconeDesligar" src="../../../assets/icons/dashboard/desligar.png"
+                        alt="Icone de Desligar os Trens">
+
+                    <h3 class="textoTrem">Trem 1</h3>
+
+                    <img class="iconeVisualizar" src="../../../assets/icons/dashboard/visualizar.png"
+                        alt="Icone de Visualizar a Rota dos Trens">
+
+                    <select class="selecionarRota">
+                        <option value="rota1">Rota 1</option>
+                        <option value="rota2">Rota 2</option>
+                        <option value="rota3">Rota 3</option>
+                    </select>
+
+                </div>
+
+            </div>
+
+            <div class="trensRota">
+                <div class="flex">
+                    <img class="iconeDesligar" src="../../../assets/icons/dashboard/desligar.png"
+                        alt="Icone de Desligar os Trens">
+
+                    <h3 class="textoTrem">Trem 1</h3>
+
+                    <img class="iconeVisualizar" src="../../../assets/icons/dashboard/visualizar.png"
+                        alt="Icone de Visualizar a Rota dos Trens">
+
+                    <select class="selecionarRota">
+                        <option value="rota1">Rota 1</option>
+                        <option value="rota2">Rota 2</option>
+                        <option value="rota3">Rota 3</option>
+                    </select>
+
+                </div>
+
+            </div>
+
+            <div class="trensRota">
+                <div class="flex">
+                    <img class="iconeDesligar" src="../../../assets/icons/dashboard/desligar.png"
+                        alt="Icone de Desligar os Trens">
+
+                    <h3 class="textoTrem">Trem 1</h3>
+
+                    <img class="iconeVisualizar" src="../../../assets/icons/dashboard/visualizar.png"
+                        alt="Icone de Visualizar a Rota dos Trens">
+
+                    <select class="selecionarRota">
+                        <option value="rota1">Rota 1</option>
+                        <option value="rota2">Rota 2</option>
+                        <option value="rota3">Rota 3</option>
+                    </select>
+
+                </div>
+
+            </div>
+
+            <div id="botaoAplicar">
+                <p>Aplicar</p>
+            </div>
+
+        </div>
+
+
+
+
+
+
 
     </main>
 
@@ -24,12 +123,15 @@
             <div class="linhaAmarela linhaPos2"></div>
         </div>
         <div class="navbar">
-            <a href="../../../private/user/dashboard/dashboard.html"><img src="../../../assets/icons/footer/dashboardIcone.png" alt="Dashboard"></a>
+            <a href="../../../private/user/dashboard/dashboard.html"><img
+                    src="../../../assets/icons/footer/dashboardIcone.png" alt="Dashboard"></a>
             <a href=""><img src="../../../assets/icons/footer/rotasIcone.png" alt="Rotas"></a>
-            <a href="../manutencao/manutencao.html"><img src="../../../assets/icons/footer/manutencaoIcone.png" alt="Manutenção"></a>
+            <a href="../manutencao/manutencao.html"><img src="../../../assets/icons/footer/manutencaoIcone.png"
+                    alt="Manutenção"></a>
             <a href=""><img src="../../../assets/icons/footer/relatoriosIcone.png" alt="Relatórios"></a>
         </div>
     </footer>
-    
+
 </body>
+
 </html>
