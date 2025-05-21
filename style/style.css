@@ -485,33 +485,59 @@ body {
 .container form button.ativo { opacity: 1; pointer-events: auto; }
 
 /*  SWITCH  */
-.switch {
+.switch-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .switch {
     position: relative;
     display: inline-block;
-    width: 60px;
-    height: 34px;
-}
-.switch input { opacity: 0; width: 0; height: 0; }
-.slider {
+    width: 50px;
+    height: 26px;
+  }
+
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .slider {
     position: absolute;
     cursor: pointer;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background-color: #5fc3f4;
-    transition: .4s;
-}
-.slider:before {
+    background-color: #ccc;
+    border-radius: 34px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: 0.4s;
+  }
+
+  .slider::before {
     position: absolute;
     content: "";
-    height: 26px; width: 26px;
-    left: 4px; bottom: 4px;
-    background-color: #4aff7d;
-    transition: .4s;
-}
-input:checked + .slider { background-color: var(--corAzulEscuro); }
-input:focus + .slider { box-shadow: 0 0 1px #2196F3; }
-input:checked + .slider:before { transform: translateX(26px); }
-.slider.round { border-radius: 34px; }
-.slider.round:before { border-radius: 50%; }
+    height: 20px;
+    width: 20px;
+    left: 3px;
+    bottom: 3px;
+    background-color: #ff6b00; /* bolinha laranja por padrão */
+    border-radius: 50%;
+    transition: 0.4s;
+  }
+
+  /* Quando o botão está ativado */
+  .switch input:checked + .slider {
+    background-color: #2f4858;
+  }
+
+  .switch input:checked + .slider::before {
+    transform: translateX(24px);
+    background-color: #00cc44; /* bolinha verde quando ativado */
+  }
+
 
 /*  OUTROS  */
 .textoAmareloCentral { justify-content: center; text-align: center; color: var(--corAmarelo); }
