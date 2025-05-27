@@ -257,7 +257,7 @@ body {
     border-color: #3c6f93;
     border-radius: 20px;
 }
-.botaoEnviar a {
+.botaoEnviar{
     text-align: center;
     font-size: 20px;
     border-radius: 20px;
