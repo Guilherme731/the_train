@@ -165,8 +165,7 @@ body {
 }
 #icone { 
     height: 70px; 
-    padding-top: 20px; 
-    padding-left: 95px; 
+    padding-left: 30%;
 }
 #informacoesPessoais {
     background-color: var(--corAzulNormal);
