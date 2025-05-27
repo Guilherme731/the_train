@@ -547,6 +547,17 @@ body {
     background-color: #00cc44; /* bolinha verde quando ativado */
   }
 
+/* Editar Rotas */
+  .estacoes {
+    background-color: var(--corAzulEscuro);
+    margin: 0% 10%;
+    height: 25px;
+    border-radius: 5px;
+    width: 80%;
+}
+
+.textoAzul{color: var(--corAzulClaro);}
+
 
 /*  OUTROS  */
 .textoAmareloCentral { justify-content: center; text-align: center; color: var(--corAmarelo); margin: 0;}
