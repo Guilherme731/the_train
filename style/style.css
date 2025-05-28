@@ -26,6 +26,7 @@
 .flex { display: flex; }
 .flexCentro { display: flex; justify-content: center; align-items: center; }
 .gridCentro { padding-top: 30px; display: grid; justify-content: center; }
+.gridDireita { padding-top: 30px; display: grid; justify-content: right; }
 .textoCentral { text-align: center; }
 .textoDireita { text-align: right; }
 .textoEsquerda { text-align: left; }
@@ -439,7 +440,7 @@ body {
 .mensagemPrincipal { font-size: 22px; font-weight: 700; }
 
 /*  RELATÓRIOS  */
-#graficoDesempenho { width: 240px; height: 120px; margin-left: -10px; margin-right: auto; margin-top: 6px;}
+#graficoDesempenho { width: 200px; height: 120px; margin-left: -10px; margin-right: auto; margin-top: 6px;}
 
 .centralizacaoRelatorioFundo{
     margin-top: 30px;
@@ -461,6 +462,47 @@ body {
     border-radius: 20px 20px 0px 0px;
     background-color: #33658a;
     color: #86bbd8;
+}
+
+.iconeTrens{
+width: 40px;
+height: 30px;
+margin-left: 8px;
+}
+
+#fundoTrem1{
+    border-radius: 60px;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 50px;
+    display: flex;
+    background-color: #31356e;
+    color: #a07932
+}
+
+#fundoTrem2{
+    border-radius: 60px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4px;
+    width: 100px;
+    height: 50px;
+    display: flex;
+    background-color: #31356e;
+    color: #ffdd9f;
+}
+
+#fundoTrem3{
+    border-radius: 60px;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 50px;
+    display: flex;
+    background-color: #31356e;
+    color: #fdbe4d;
+    margin-top: 4px
 }
 
 /*  FORMULÁRIOS  */
@@ -659,5 +701,10 @@ body {
     padding: 8px 35px;
     margin-right: 8px;
     font-size: 13px;
+}
+
+.top_x_div{
+    width: 800px;
+    height: 600px; 
 }
 
