@@ -572,14 +572,17 @@ body {
 /* Editar Rotas */
   .estacoes {
     background-color: var(--corAzulEscuro);
-    margin: 0% 10%;
-    height: 25px;
+    margin: 8% 5%;
+    height: 10%;
     border-radius: 5px;
-    width: 80%;
+    width: 90%;
 }
 
-.textoAzul{color: var(--corAzulClaro);}
+.textoAzul{color: var(--corAzulClaro); margin: 2%; width: 50%;}
 
+.iconeEditarEstacao{height: 5%; width: 15%; margin: 0% 8%}
+
+.iconeAddRota{height: 5%; width: 15%; padding-left: 80%;}
 
 /*  OUTROS  */
 .textoAmareloCentral { justify-content: center; text-align: center; color: var(--corAmarelo); margin: 0;}
