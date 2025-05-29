@@ -626,6 +626,17 @@ margin-left: 8px;
 
 .iconeAddRota{height: 5%; width: 15%; padding-left: 80%;}
 
+/* Mapa */
+.linhaMapa {
+    stroke: var(--corAzulEscuro);
+    stroke-width: 10;
+    fill: none;
+  }
+svg {
+    width: 350px;
+    height: 150px;
+}
+
 /*  OUTROS  */
 .textoAmareloCentral { justify-content: center; text-align: center; color: var(--corAmarelo); margin: 0;}
 .trensRota { background-color: var(--corAzulEscuro); border-radius: 34px; margin: 3% 0; }

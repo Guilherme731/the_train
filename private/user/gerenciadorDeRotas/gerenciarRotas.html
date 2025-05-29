@@ -17,8 +17,28 @@
     </header>
 
     <main>
-        <div id="mapa">
+        <div class="mapa flexCentro">
+            <svg >
+                <!-- d= M posicaoHI posicaoVI Q posicaoHM posicaoVM posicaoHF posicaoVF -->
+                <!-- d= M posicaoHI posicaoVI posicaoHF posicaoVF -->
+                <!-- C -> Curva   R -> Reta  | D -> Direita  E -> Esquerda   C -> Central |  S-> Superior  I -> Inferior -->
+                
+                <!-- Linhas perimetrais -->
+                <path id="linhaCDS" class="linhaMapa" d="M 10 75 Q 10 10 90 10" />
+                <path id="linhaCDI" class="linhaMapa" d="M 90 140 Q 10 140 10 75" />
+                <path id="linhaRCI" class="linhaMapa" d="M 90 140 260 140" />
+                <path id="linhaCEI" class="linhaMapa" d="M 260 140 Q 340 140 340 75" />
+                <path id="linhaCES" class="linhaMapa" d="M 340 75 Q 340 10 260 10" />
+                <path id="linhaRCS" class="linhaMapa" d="M 145 10 260 10" />
+                <path id="linhaRDS" class="linhaMapa" d="M 90 10 145 10" />
 
+                <!-- Linhas interiores -->
+                <path id="linhaRDI" class="linhaMapa" d="M 170 140 110 75" />
+                <path id="linhaCCI" class="linhaMapa" d="M 260 140 Q 200 130 200 75" />
+                <path id="linhaCCD" class="linhaMapa" d="M 260 10 Q 200 20 200 75" />
+
+
+            </svg>
         </div>
 
         <div class="flexCentro">
