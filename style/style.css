@@ -251,7 +251,7 @@ body {
     justify-content: center;
     align-items: center;
     background-color: var(--corAzulClaro);
-    width: 350px;
+    width: 325px;
     height: 50px;
     font-size: 20px;
     border-style: solid;
@@ -277,13 +277,14 @@ body {
     border-style: solid;
     margin-top: 20px;
     margin-left: 5px;
-    border-radius: 20px;
+    border-radius: 18px;
     background-color: var(--corAzulClaro);
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     font-size: 20px;
 }
-#textoVerificacao2EtapasConfirmacao { font-size: 20px; text-align: center; }
+#textoVerificacao2EtapasConfirmacao { font-size: 20px; text-align: center;}
+#textoDigitarEmail{ font-size: 20px; }
 
 /*  DASHBOARD, MANUTENÇÃO, ALERTAS, ROTAS */
 .secaoInfo {
@@ -629,10 +630,23 @@ margin-left: 8px;
 .moverEstacoesCima{height: 5%; width: 15%; padding-top: 2.5%; padding-left: 7%;}
 .moverEstacoesBaixo{height: 5%; width: 16.5%; padding-top: 2.5%;}
 
+
 #lista1{padding: 0;}
 #lista2{padding: 0;}
 #lista3{padding: 0;}
 #lista4{padding: 0;}
+
+/* Mapa */
+.linhaMapa {
+    stroke: var(--corAzulEscuro);
+    stroke-width: 10;
+    fill: none;
+  }
+svg {
+    width: 350px;
+    height: 150px;
+}
+
 
 /*  OUTROS  */
 .textoAmareloCentral { justify-content: center; text-align: center; color: var(--corAmarelo); margin: 0;}
