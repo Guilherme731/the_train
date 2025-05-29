@@ -623,9 +623,12 @@ margin-left: 8px;
 
 .textoAzul{color: var(--corAzulClaro); margin: 2%; width: 50%;}
 
-.iconeEditarEstacao{height: 5%; width: 15%; margin: 0% 8%}
+.iconeEditarEstacao{height: 5%; width: 12%; margin: 2% 7%}
 
 .iconeAddRota{height: 5%; width: 15%; padding-left: 80%;}
+
+.moverEstacoesCima{height: 5%; width: 15%; padding-top: 2.5%; padding-left: 7%;}
+.moverEstacoesBaixo{height: 5%; width: 16.5%; padding-top: 2.5%;}
 
 /*  OUTROS  */
 .textoAmareloCentral { justify-content: center; text-align: center; color: var(--corAmarelo); margin: 0;}
