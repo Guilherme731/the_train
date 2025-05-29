@@ -648,62 +648,7 @@ margin-left: 8px;
     padding-top: 30px;
 }
 
-#graficoEnergia{
-    display:flex;
-    align-items: end;
-    justify-content: end;
-    height: 90px;
-    font-size: 10px;
-    text-align: center;
-   
-}
-
-.dadosBarra{
-    color: black;
-    margin-bottom: 3px;
-    text-align: left;
-}
-
-#periodosGrafico{
-    display: flex;
-    margin-bottom: 20px;
-    background-color: #3c6f93;
-    display: flex;
-}
-
-.botoesGrafico{
-    background-color: lightseagreen;
-    color: white;
-    padding: 8px 35px;
-    margin-right: 8px;
-    font-size: 13px;
-}
-
-.botoesGrafico2{
-    background-color: dodgerblue;
-    color: white;
-    padding: 8px 35px;
-    margin-right: 8px;
-    font-size: 13px;
-}
-
-.botoesGrafico3{
-    background-color: lightseagreen;
-    color: white;
-    padding: 8px 35px;
-    margin-right: 8px;
-    font-size: 13px;
-}
-
-.botoesGrafico4{
-    background-color: dodgerblue;
-    color: white;
-    padding: 8px 35px;
-    margin-right: 8px;
-    font-size: 13px;
-}
-
-.top_x_div{
+#top_x_div{
     width: 800px;
     height: 600px; 
 }
