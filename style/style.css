@@ -440,7 +440,7 @@ body {
 .mensagemPrincipal { font-size: 22px; font-weight: 700; }
 
 /*  RELATÓRIOS  */
-#graficoDesempenho { width: 200px; height: 120px; margin-left: -10px; margin-right: auto; margin-top: 6px;}
+.graficosTamanho { width: 200px; height: 120px; margin-left: -10px; margin-right: auto; margin-top: 6px;}
 
 .centralizacaoRelatorioFundo{
     margin-top: 30px;
