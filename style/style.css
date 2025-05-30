@@ -637,11 +637,17 @@ margin-left: 8px;
 #lista4{padding: 0;}
 
 /* Mapa */
+#mapa{
+    margin: 3% 0;
+}
 .linhaMapa {
     stroke: var(--corAzulEscuro);
     stroke-width: 10;
     fill: none;
-  }
+}
+.quadradoMapa {
+    fill: var(--corAzulNormal);
+}
 svg {
     width: 350px;
     height: 150px;
