@@ -627,7 +627,7 @@ margin-left: 8px;
 
 .iconeAddRota{height: 5%; width: 15%; padding-left: 80%;}
 
-.moverEstacoesCima{height: 5%; width: 15%; padding-top: 2.5%; padding-left: 7%;}
+.moverEstacoesCima{height: 5%; width: 15%; padding-top: 2.5%; padding-left: 7%; background-color:var(--corAzulEscuro);}
 .moverEstacoesBaixo{height: 5%; width: 16.5%; padding-top: 2.5%;}
 
 
@@ -635,6 +635,8 @@ margin-left: 8px;
 #lista2{padding: 0;}
 #lista3{padding: 0;}
 #lista4{padding: 0;}
+
+
 
 /* Mapa */
 .linhaMapa {
