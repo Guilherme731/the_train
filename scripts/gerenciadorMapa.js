@@ -1,4 +1,11 @@
-
+document.addEventListener('DOMContentLoaded', function () {
+    const linhasMapa = document.getElementsByClassName('linhaMapa');
+    for (let i = 0; i < linhasMapa.length; i++) {
+        linhasMapa[i].addEventListener('click', () => {
+            linhasMapa[i].classList.toggle('linhaMapaSelecionada');
+        });
+    }
+});
 
 function atualizaOpcoesMapa() {
     const inputEstacoes = document.getElementById('ver-estacoes');
@@ -14,13 +21,14 @@ function atualizaOpcoesMapa() {
 
 function mostraEstacoes() {
     let estacoes = document.getElementsByClassName('quadradoMapa');
-    for(let i = 0; i < estacoes.length; i++){
+    for (let i = 0; i < estacoes.length; i++) {
         estacoes[i].style.display = 'block';
     }
 }
 function escondeEstacoes() {
     let estacoes = document.getElementsByClassName('quadradoMapa');
-    for(let i = 0; i < estacoes.length; i++){
+    for (let i = 0; i < estacoes.length; i++) {
         estacoes[i].style.display = 'none';
     }
 }
+
