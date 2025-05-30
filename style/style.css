@@ -639,11 +639,20 @@ margin-left: 8px;
 
 
 /* Mapa */
+#mapa{
+    margin: 3% 0;
+}
 .linhaMapa {
     stroke: var(--corAzulEscuro);
     stroke-width: 10;
     fill: none;
+}
+.linhaMapaSelecionada {
+    stroke: #ff8036;
   }
+.quadradoMapa {
+    fill: var(--corAzulNormal);
+}
 svg {
     width: 350px;
     height: 150px;
@@ -673,7 +682,7 @@ svg {
 }
 
 #top_x_div{
-    width: 800px;
-    height: 600px; 
+    width: 400px;
+    height: 300px; 
 }
 

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../../style/style.css">
+    <script src="../../../scripts/gerenciadorMapa.js"></script>
     <title>Gerenciador de rotas</title>
 </head>
 
@@ -17,7 +18,7 @@
     </header>
 
     <main>
-        <div class="mapa flexCentro">
+        <div id="mapa" class="flexCentro">
             <svg >
                 <!-- d= M posicaoHI posicaoVI Q posicaoHM posicaoVM posicaoHF posicaoVF -->
                 <!-- d= M posicaoHI posicaoVI posicaoHF posicaoVF -->
@@ -37,6 +38,13 @@
                 <path id="linhaCCI" class="linhaMapa" d="M 260 140 Q 200 130 200 75" />
                 <path id="linhaCCD" class="linhaMapa" d="M 260 10 Q 200 20 200 75" />
 
+                <!-- Quadrados (e retângulos) -->
+                <rect x="135" y="00" width="20" height="20" class="quadradoMapa"/>
+                <rect x="250" y="00" width="20" height="20" class="quadradoMapa"/>
+                <rect x="330" y="65" width="20" height="20" class="quadradoMapa"/>
+                <rect x="190" y="65" width="20" height="20" class="quadradoMapa"/>
+                <rect x="250" y="130" width="20" height="20" class="quadradoMapa"/>
+                <rect x="75" y="130" width="40" height="20" class="quadradoMapa"/>
 
             </svg>
         </div>
@@ -44,7 +52,7 @@
         <div class="flexCentro">
             <div class="switch-container">
                 <label class="switch">
-                    <input type="checkbox" id="ver-estacoes" checked>
+                    <input type="checkbox" id="ver-estacoes" onclick="atualizaOpcoesMapa()" checked>
                     <span class="slider"></span>
                 </label>
                 <label for="ver-estacoes">Ver Estações</label>
@@ -52,7 +60,7 @@
         
             <div class="switch-container">
                 <label class="switch">
-                    <input type="checkbox" id="ver-trens">
+                    <input type="checkbox" id="ver-trens" onclick="atualizaOpcoesMapa()">
                     <span class="slider"></span>
                 </label>
                 <label for="ver-trens">Ver Trens</label>
