@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../../style/style.css">
+    <script src="../../../scripts/gerenciadorMapa.js"></script>
     <title>Gerenciador de rotas</title>
 </head>
 
@@ -51,7 +52,7 @@
         <div class="flexCentro">
             <div class="switch-container">
                 <label class="switch">
-                    <input type="checkbox" id="ver-estacoes" checked>
+                    <input type="checkbox" id="ver-estacoes" onclick="atualizaOpcoesMapa()" checked>
                     <span class="slider"></span>
                 </label>
                 <label for="ver-estacoes">Ver Estações</label>
@@ -59,7 +60,7 @@
         
             <div class="switch-container">
                 <label class="switch">
-                    <input type="checkbox" id="ver-trens">
+                    <input type="checkbox" id="ver-trens" onclick="atualizaOpcoesMapa()">
                     <span class="slider"></span>
                 </label>
                 <label for="ver-trens">Ver Trens</label>
