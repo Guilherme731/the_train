@@ -506,6 +506,16 @@ margin-left: 8px;
     margin-top: 4px
 }
 
+#columnchart_values{
+    width: 400px;
+    height: 300px;
+}
+
+#columnchart_values2{
+    width: 400px;
+    height: 300px;
+}
+
 /*  FORMULÁRIOS  */
 .container h4 {
     font-size: 1.3rem;
@@ -680,14 +690,3 @@ svg {
     font-size: 20px;
     padding-top: 30px;
 }
-
-#top_x_div{
-    width: 400px;
-    height: 300px; 
-}
-
-#columnchart_values{
-    width: 400px;
-    height: 300px;
-}
-

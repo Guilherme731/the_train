@@ -2,10 +2,10 @@ google.charts.load("current", { packages: ['corechart'] });
 google.charts.setOnLoadCallback(drawChart);
 function drawChart() {
     var data = google.visualization.arrayToDataTable([
-        ["Element", "Density", { role: "style" }],
-        ["Copper", 10, "#35e6eb"],
-        ["Silver", 6, "#5fc3f4"],
-        ["Gold", 4, "#31356e"],
+        ["Element", "Série", { role: "style" }],
+        ["Conforto", 10, "#35e6eb"],
+        ["Limpeza", 6, "#5fc3f4"],
+        ["Vistoria", 4, "#31356e"],
       
     ]);
 
@@ -20,11 +20,15 @@ function drawChart() {
         2]);
 
     var options = {
-        title: "Density of Precious Metals, in g/cm^3",
+        title: "",
         width: 300,
         height: 100,
         bar: { groupWidth: "95%" },
         legend: { position: "none" },
+        backgroundColor: 'transparent',
+    chartArea: {
+        backgroundColor: 'transparent'
+    }
     };
     var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
     chart.draw(view, options);
