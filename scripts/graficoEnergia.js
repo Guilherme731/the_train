@@ -21,7 +21,8 @@ function drawChart() {
     2]);
 
   var options = {
-    title: "",
+    title: "Em KWh",
+    titleTextStyle: { color: '#86bbd8' },
     width: 300,
     height: 100,
     bar: { groupWidth: "95%" },
