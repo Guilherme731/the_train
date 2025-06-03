@@ -22,8 +22,8 @@ function drawChart() {
     var options = {
         title: "Nota média dos passageiros",
         titleTextStyle: { color: '#86bbd8' },
-        width: 300,
-        height: 100,
+        width: 420,
+        height: 130,
         bar: { groupWidth: "95%" },
         legend: { position: "none" },
         backgroundColor: 'transparent',

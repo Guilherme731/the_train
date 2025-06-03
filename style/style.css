@@ -447,11 +447,12 @@ body {
     margin-top: 30px;
     margin-left: 90px;
 }
+
 .relatorioFundos{
     display: grid;
     background-color: #33658a;
     border-radius: 0px 20px 20px 10px;
-    width: 270px;
+    width: 320px;
     height: 130px;
 }
 
@@ -466,9 +467,15 @@ body {
 }
 
 .iconeTrens{
-width: 40px;
-height: 30px;
+width: 24px;
+height: 15px;
 margin-left: 8px;
+}
+
+#alinharIconesTrens{
+    position: absolute;
+    top: 134px;
+    right: 30px;
 }
 
 #fundoTrem1{
@@ -476,7 +483,7 @@ margin-left: 8px;
     align-items: center;
     justify-content: center;
     width: 100px;
-    height: 50px;
+    height: 20px;
     display: flex;
     background-color: #31356e;
     color: #a07932
@@ -488,7 +495,7 @@ margin-left: 8px;
     justify-content: center;
     margin-top: 4px;
     width: 100px;
-    height: 50px;
+    height: 20px;
     display: flex;
     background-color: #31356e;
     color: #ffdd9f;
@@ -499,7 +506,7 @@ margin-left: 8px;
     align-items: center;
     justify-content: center;
     width: 100px;
-    height: 50px;
+    height: 20px;
     display: flex;
     background-color: #31356e;
     color: #fdbe4d;
