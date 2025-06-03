@@ -10,7 +10,7 @@ function drawChart() {
   ]);
 
   var options = {
-    width: 235,
+    width: 205,
     title: '% de viagens sem atraso',
     titleTextStyle: { color: '#86bbd8' },
     legend: 'none',

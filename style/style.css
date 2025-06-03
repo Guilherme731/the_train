@@ -449,7 +449,7 @@ body {
 }
 
 .relatorioFundos{
-    display: grid;
+    display: flex;
     background-color: #33658a;
     border-radius: 0px 20px 20px 10px;
     width: 320px;
@@ -470,12 +470,6 @@ body {
 width: 24px;
 height: 15px;
 margin-left: 8px;
-}
-
-#alinharIconesTrens{
-    position: absolute;
-    top: 134px;
-    right: 30px;
 }
 
 #fundoTrem1{
