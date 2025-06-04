@@ -22,13 +22,13 @@ function drawChart() {
     var options = {
         title: "Nota média dos passageiros",
         titleTextStyle: { color: '#86bbd8' },
-        width: 420,
+        width: 355,
         height: 130,
         bar: { groupWidth: "95%" },
         legend: { position: "none" },
         backgroundColor: 'transparent',
     chartArea: {
-        backgroundColor: 'transparent'
+        backgroundColor: 'transparent',
     }
     };
     var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
