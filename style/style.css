@@ -443,11 +443,6 @@ body {
 /*  RELATÓRIOS  */
 .graficosTamanho { width: 200px; height: 120px; margin-left: -10px; margin-right: auto; margin-top: 6px;}
 
-.centralizacaoRelatorioFundo{
-    margin-top: 30px;
-    margin-left: 90px;
-}
-
 .relatorioFundos{
     display: flex;
     background-color: #33658a;
@@ -461,6 +456,7 @@ body {
     padding: 3px;
     width: 190px;
     height: 40px;
+    margin-top: 30px;
     border-radius: 20px 20px 0px 0px;
     background-color: #33658a;
     color: #86bbd8;
@@ -509,7 +505,7 @@ margin-left: 8px;
 
 #columnchart_values{
     width: 400px;
-    height: 300px;
+    height: 200px;
 }
 
 #columnchart_values2{
