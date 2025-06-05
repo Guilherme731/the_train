@@ -1,13 +1,11 @@
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../../../../scripts/botoesMenus.js"></script>
     <link rel="stylesheet" href="../../../../style/style.css">
-    <title>Fale conosco</title>
+    <title>Reportar erro</title>
 </head>
-
 <body>
     <header class="headerAzulVoltar">
         <img src="../../../../assets/icons/header/setaEsquerda.png" alt="Seta" onclick="voltarPagina()">
@@ -16,19 +14,25 @@
         <div id="quadradoMenu">
             <div class="flexCentro textoCentral">
                 <img class="iconeConfigTamanho" src="../../../../assets/icons/config/faleConoscoIcone.png" alt="imagem do icone fale conosco">
-                <h2  >Fale conosco</h2>
+                <h2>Relate o erro encontrado</h2>
             </div>
+
             <br>
-            <a href="duvidas.html" class="opcaoMenu paddingLeft-7">
-                <p>Dúvidas</p>
-            </a>
-            <a href="../faleConosco/reportarErro.html" class="opcaoMenu paddingLeft-7">
-                <p>Reportar erro</p>
-            </a>
-            <a href="../faleConosco/marcarAudiencia.html" class="opcaoMenu paddingLeft-7">
-                <p>Marcar audiência</p>
-            </a>
+            <div class="opcaoMenu padding-20">
+
+                <textarea id="caixaMensagem"></textarea>
+               
+            </div>
+            <div class="quadradoMenu">
+                <div class="textoDireita">
+                    <a href="">
+                        <img class="iconeConfigTamanho" src="../../../../assets/icons/config/EnviarIcone.PNG" alt="imagem do icone enviar">
+                    </a>
+                 
+                </div>
+            </div>
         </div>
+
     </main>
 
     <div class="espacoFooterAzulLogo"></div>
@@ -36,8 +40,5 @@
     <footer class="footerAzulLogo">
         <img src="../../../../assets/logos/logoCompleta.png" alt="Logo">
     </footer>
-
-
 </body>
-
 </html>
