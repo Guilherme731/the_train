@@ -39,6 +39,7 @@
 .marginLeft-Auto{ margin-left: auto;}
 .textSize-10{ font-size: 10px;}
 .tituloAzul { color: var(--corAzulNormal); text-align: center; }
+.tituloAzulEscuro{ color: var(--corAzulEscuro); text-align: center;}
 
 .mainCentral{
     display: flex;
@@ -295,6 +296,21 @@ body {
     text-align: center;
 }
 .secaoInfo h2 { color: var(--corAmarelo); margin: 0 0 10px 0; }
+#tituloDados{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+#tituloDados h2{
+    justify-content: center;
+}
+#tituloDados img{
+    width: 60px;
+}
+#tituloDados div{
+    width: 100%;
+    margin-right: 60px;
+}
 
 /*  DASHBOARD  */
 .dadoInfo {
@@ -412,18 +428,30 @@ body {
     background-color: var(--corAzulClaro);
     border-color: var(--corAzulNormal);
     border-radius: 15px;
-    padding: 1px 75px;
-    margin-top: 50px;
+    padding: 1px 45px;
+    margin-top: 35px;
     height: 50px;
     font-size: 20px;
 }
+
 #ajusteImagem { padding: 1px; }
+
 .aDireita {
-    justify-content: right;
     color: var(--corAzulClaro);
     border-radius: 10%;
     padding: 10px;
     display: flex;
+}
+
+#botaoAlterarSenha {
+    background-color: var(--corAzulNormal);
+    border-radius: 15px;
+    padding: 1px 25px;
+    margin-top: 10px;
+    margin-left: 185px;
+    height: 50px;
+    font-size: 15px;
+    color: var(--corAzulClaro);
 }
 
 /*  NOTIFICAÇÕES  */
@@ -530,8 +558,8 @@ margin-left: 8px;
     justify-content: center;
 }
 .container form input {
-    width: 50px;
-    height: 55px;
+    width: 40px;
+    height: 45px;
     margin: 0 8px 0 15px;
     font-size: 1.5rem;
     text-align: center;

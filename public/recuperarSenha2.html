@@ -3,34 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../../style/style.css">
+    <link rel="stylesheet" href="../style/style.css">
     <title>Recuperar senha</title>
 </head>
 
 <body>
     <header class="headerAzulLogo">
-        <img id="ajusteImagem" src="../../../assets/logos/logoPequena.png" alt="Logo Pequena">
+        <img id="ajusteImagem" src="../assets/logos/logoPequena.png" alt="Logo Pequena">
 
     </header>
-    <a href="../config/recuperarSenha.html">
-        <img src="../../../assets/icons/header/setaEsquerdaClara.PNG" alt="Seta" onclick="voltarPagina()">
+    <a href="../public/recuperarSenha.html">
+        <img src="../assets/icons/header/setaEsquerdaClara.PNG" alt="Seta" onclick="voltarPagina()">
     </a>
-    <div class="tituloAzul">
+    <div class="tituloAzulEscuro">
         <h1>Recuperar senha</h1>
         <br>
     </div>
-    <main>
-        <form>
+    <main class="gridCentro">
+        <form class="gridCentro">
             <input type="password" name="email" id="inputTextPadrao" placeholder="Nova senha" required>
             <input type="password" name="email" id="inputTextPadrao" placeholder="Confirmar senha" required>
-            
         </form>
         <div class="aDireita">
             <a href="../../user/config/verificacaoDuasEtapas/verificacaode2etapas.html">
-                <input type="button" id="ladoEsquerdo" onclick="AlterarSenha()" value="Alterar Senha">
+                <input type="button" id="botaoAlterarSenha" onclick="AlterarSenha()" value="Alterar Senha">
             </a>
         </div>
     </main>
+
     <div class="espacoFooterAzul"></div>
     <footer class="footerAzulArredondado">
 
