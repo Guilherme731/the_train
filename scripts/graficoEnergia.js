@@ -29,7 +29,8 @@ function drawChart() {
     legend: { position: "none" },
     backgroundColor: 'transparent',
     chartArea: {
-      backgroundColor: 'transparent'
+      backgroundColor: 'transparent',
+      left: 30
     }
   };
   var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values2"));
