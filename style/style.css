@@ -295,6 +295,21 @@ body {
     text-align: center;
 }
 .secaoInfo h2 { color: var(--corAmarelo); margin: 0 0 10px 0; }
+#tituloDados{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+#tituloDados h2{
+    justify-content: center;
+}
+#tituloDados img{
+    width: 60px;
+}
+#tituloDados div{
+    width: 100%;
+    margin-right: 60px;
+}
 
 /*  DASHBOARD  */
 .dadoInfo {
