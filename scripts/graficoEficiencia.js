@@ -29,6 +29,7 @@ function drawChart() {
         backgroundColor: 'transparent',
     chartArea: {
         backgroundColor: 'transparent',
+        left: 30
     }
     };
     var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));

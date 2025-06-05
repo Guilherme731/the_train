@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../../style/style.css">
     <script src="../../../scripts/botoesMenus.js"></script>
-    <script src="../../../scripts/configFuncionario.js"></script>
+    <script src="../../../scripts/validarConfiguracaoUsuario.js"></script>
 
     <title>Editar Perfil</title>
 </head>
@@ -33,53 +33,56 @@
         <div class="gridCentro">
             <div id="informacoesPessoais">
 
-                <input type="password" name="senha" id="senha" placeholder="Senha" required>
+                <form id="formularioConfgUsuario">
+                    <input type="password" name="senha" id="senha" placeholder="Senha" required>
 
 
-                <p>Data De Nascimento</p>
-
-                <div class="flex">
-                    <input type="text" name="Dia" id="dataNascimentoDia" placeholder="Dia" required>
-
-                    <input type="text" name="Mes" class="dataNascimentoMesAno" placeholder="Mês" required>
-
-                    <input type="text" name="Ano" class="dataNascimentoMesAno" placeholder="Ano" required>
-                </div>
-
-                <div class="flex">
-
-                    <div>
-                        <div class="flex">
-                            <input type="radio" id="Feminino" name="genero" value="Feminino">
-                            <label for="Feminino">Feminino</label>
-                        </div>
-
-                        <div class="flex">
-                            <input type="radio" id="PrefiroNaoDizer" name="genero" value="PrefiroNaoDizer">
-                            <label for="PrefiroNaoDizer">Prefiro não dizer</label>
-                        </div>
+                    <p>Data De Nascimento</p>
+    
+                    <div class="flex">
+                        <input type="text" name="Dia" id="dataNascimentoDia" placeholder="Dia" required>
+    
+                        <input type="text" name="Mes" class="dataNascimentoMesAno" placeholder="Mês" required>
+    
+                        <input type="text" name="Ano" class="dataNascimentoMesAno" placeholder="Ano" required>
                     </div>
-
-                    <div>
-                        <div class="flex">
-                            <input type="radio" id="Masculino" name="genero" value="Masculino">
-                            <label for="Masculino">Masculino</label>
+    
+                    <div class="flex">
+    
+                        <div>
+                            <div class="flex">
+                                <input type="radio" id="Feminino" name="genero" value="Feminino">
+                                <label for="Feminino">Feminino</label>
+                            </div>
+    
+                            <div class="flex">
+                                <input type="radio" id="PrefiroNaoDizer" name="genero" value="PrefiroNaoDizer">
+                                <label for="PrefiroNaoDizer">Prefiro não dizer</label>
+                            </div>
                         </div>
-
-                        <div class="flex">
-                            <input type="radio" id="Outro" name="genero" value="Outro">
-                            <label for="Outro">Outro</label>
+    
+                        <div>
+                            <div class="flex">
+                                <input type="radio" id="Masculino" name="genero" value="Masculino">
+                                <label for="Masculino">Masculino</label>
+                            </div>
+    
+                            <div class="flex">
+                                <input type="radio" id="Outro" name="genero" value="Outro">
+                                <label for="Outro">Outro</label>
+                            </div>
                         </div>
-                    </div>
+    
+                    </div> 
+                </form>
 
-                </div>
+                
 
             </div>
 
             <div class="flex">
-                <a href="../../admin/config/cadastrarFuncionario.html">
-                    <input type="button" id="ladoEsquerdo" onclick="salvar()" value="Salvar">
-                </a>
+                    <input type="button" onclick="validarConfigUser()" id="ladoEsquerdo" value="Salvar">
+               
             </div>
 
 
