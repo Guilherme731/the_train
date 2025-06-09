@@ -182,7 +182,7 @@ body {
     width: 300px;
     height: 20px;
 }
-#dataNascimentoDia, .dataNascimentoMesAno {
+#dataNascimentoDia, .dataNascimentoMes, #dataNascimentoAno{
     height: 30px;
     width: 50px;
     background-color: var(--corAzulEscuro);
@@ -194,7 +194,7 @@ body {
     padding: 5px;
 }
 #dataNascimentoDia { margin-left: 10px; }
-.dataNascimentoMesAno { margin-left: 50px; }
+#dataNascimentoMes, #dataNascimentoAno { margin-left: 50px; }
 
 /*  MENUS E OPÇÕES  */
 
@@ -696,17 +696,16 @@ svg {
 
 /*  OUTROS  */
 .textoAmareloCentral { justify-content: center; text-align: center; color: var(--corAmarelo); margin: 0;}
-.trensRota { background-color: var(--corAzulEscuro); border-radius: 34px; margin: 3% 0; }
-.textoTrem { color: var(--corAzulClaro); margin: 1% 0; }
-.iconeDesligar { height: 30px; width: 30px; margin: 0; }
-.iconeVisualizar { height: 10%; width: 50px; margin: 1% 10%; }
-.iconeVisualizarRota { height: 10%; width: 50px; margin: 1% 10%; padding-left: 30%;}
-.iconeEditarRota{height: 5%; width: 10%; margin: 0;}
-.iconeAddRotas{height: 5%; width: 10%; padding-left: 90%;}
+.textoTrem { color: var(--corAzulClaro); margin: 1% 0; padding-right: 30%; width: 30%;}
+.iconeDesligar { height: 30px; width: 30px; justify-content: center; padding-top: 1%;}
+.iconeVisualizar {  height: 30px; width: 45px;  margin: 1% 5%; }
+.iconeVisualizarRota { height: 30px; width: 45px; padding-right: 25%;}
+.iconeEditarRota{height: 30px; width: 30px; margin: 0;}
+.iconeAddRotas{height: 45px; width: 50px; padding-left: 85%; padding-top: 1%;}
 
 
 .cadastroFuncionario{
-    background-color: #33658a;
+    background-color: #4c7da3;
     border: none;
     border-bottom: solid 2px #2f4858;
     width: 97%;
