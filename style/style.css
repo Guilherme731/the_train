@@ -464,7 +464,8 @@ body {
 }
 .alerta img { width: 50px; height: 50px; margin: 5px 10px; }
 .finalAlerta { margin-left: auto; }
-.finalAlerta img { height: 30px; width: 30px; }
+.finalAlerta button { border: none; background-color: transparent; cursor: pointer;}
+.finalAlerta button img{ height: 30px; width: 30px;}
 .finalAlerta p { margin: 0; height: 30px; align-content: end; }
 .mensagemPrincipal { font-size: 22px; font-weight: 700; }
 
