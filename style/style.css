@@ -336,6 +336,7 @@ body {
     padding: 1px 40px;
     border: solid 2px var(--corAmarelo);
     border-radius: 20px;
+    cursor: pointer;
 }
 
 .dadoStatusTrens {
