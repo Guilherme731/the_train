@@ -469,6 +469,11 @@ body {
 .finalAlerta button img{ height: 30px; width: 30px;}
 .finalAlerta p { margin: 0; height: 30px; align-content: end; }
 .mensagemPrincipal { font-size: 22px; font-weight: 700; }
+#semAlertas{
+    color: var(--corAmarelo);
+    margin-bottom: 10px;
+    font-size: 15px;
+}
 
 /*  RELATÓRIOS  */
 .graficosTamanho { width: 200px; height: 120px; margin-left: -10px; margin-right: auto; margin-top: 6px;}
