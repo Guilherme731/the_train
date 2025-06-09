@@ -74,4 +74,8 @@ function addAlerta(mensagem, tipo){
 
     areaAlertas.appendChild(alerta);
 }
+
+function fecharTodosAlertas(){
+    areaAlertas.innerHTML = '';
+}
  
