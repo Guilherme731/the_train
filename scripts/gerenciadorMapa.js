@@ -1,18 +1,3 @@
-let rotasSegmentos = '{ "rotas" : [' +
-
-'["RCI",'+
-'"CDI" ],'+
-
-'["CCI", ' +
-'"CCS", ' +
-'"CDI", ' +
-'"CDS" ],' +
-
-'["CEI", ' +
-'"CES", ' +
-'"RES", ' +
-'"RCS" ]' +
-']}';
 
 document.addEventListener('DOMContentLoaded', function () {
     const linhasMapa = document.getElementsByClassName('linhaMapa');
@@ -65,4 +50,8 @@ function limpaSelecaoMapa(){
     for (let i = 0; i < linhasMapa.length; i++) {
         linhasMapa[i].classList.remove('linhaMapaSelecionada');
     }
+}
+function teste(){
+    
+     console.log(data);
 }
