@@ -425,7 +425,7 @@ body {
 #espacoButton { padding-top: 20px; padding-left: 50px; }
 
 /*  RECUPERAR SENHA  */
-#inputTextPadrao {
+.inputTextPadrao {
     background-color: var(--corAzulClaro);
     border-color: var(--corAzulNormal);
     border-radius: 15px;
@@ -445,6 +445,8 @@ body {
 }
 
 #botaoAlterarSenha {
+    display: flex;
+    align-items: center;
     background-color: var(--corAzulNormal);
     border-radius: 15px;
     padding: 1px 25px;
@@ -720,4 +722,10 @@ svg {
     color: black;
     font-size: 20px;
     padding-top: 30px;
+}
+
+
+.error{
+    color: rgb(182, 7, 7);
+    font-size: 0.9em;
 }

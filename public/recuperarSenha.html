@@ -23,11 +23,13 @@
     </div>
     <main class="gridCentro">
         <form>
-            <input type="text" name="email" id="inputTextPadrao" placeholder="Digite seu email" required>
+            <div class="error" id="erroEmail"></div>
+            <input type="text" name="email" id="email" class="inputTextPadrao" placeholder="Digite seu email" required>
+            <div id="aDireita">
+                <input type="button" id="ladoEsquerdo" onclick="validarEmail()" value="Próxima">
+            </div>
+
         </form>
-        <div id="aDireita">
-            <input type="button" id="ladoEsquerdo" onclick="validarEmail()" value="Próxima">
-        </div>
 
     </main>
     <div class="espacoFooterAzul"></div>
