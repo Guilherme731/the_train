@@ -1,3 +1,19 @@
+let rotasSegmentos = '{ "rotas" : [' +
+
+'["RCI",'+
+'"CEI" ],'+
+
+'["CCI", ' +
+'"CCD", ' +
+'"CDI", ' +
+'"CDS" ],' +
+
+'["CEI", ' +
+'"CES", ' +
+'"RCS", ' +
+'"RDS" ]' +
+']}';
+
 document.addEventListener('DOMContentLoaded', function () {
     const linhasMapa = document.getElementsByClassName('linhaMapa');
     for (let i = 0; i < linhasMapa.length; i++) {
@@ -32,3 +48,12 @@ function escondeEstacoes() {
     }
 }
 
+function visualizarRota(numeroRota){
+    const rota = JSON.parse(rotasSegmentos);
+
+
+    rota.rotas[numeroRota].forEach(nomeSegmento => {
+        const segmento = document.getElementById('linha' + nomeSegmento)
+        segmento.classList.toggle('linhaMapaSelecionada');
+    });
+}
