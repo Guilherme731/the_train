@@ -17,27 +17,41 @@
     <main class="mainCentral">
         <div>
             <h1 class="tituloAzul">Cadastrar Funcionário</h1>
-    <form action="">
-        <div id="quadradoMenu">
-            <input type="text" class="cadastroFuncionario" name="Nome" placeholder="Nome">
-            <input type="text" class="cadastroFuncionario" name="email" placeholder="E-mail">
-            <input type="password" class="cadastroFuncionario" name="Senha" placeholder="Senha">
-            <input type="text" class="cadastroFuncionario" name="CPF" placeholder="CPF">
-        </div>
-    </form>
-            
-    
-            <a href=""><div id="botaoCadastrar" onclick="cadastrar()">
-                <div class="flexCentro">
-                    <img class="iconeCadastrarFuncionarioTamanho"
-                        src="../../../assets/icons/config/cadastroFuncionarioIcone.png">
-                    <h2 id="textoCadastrar">Cadastrar</h2>
+            <form id="validarCadastroFuncionario">
+                <div id="quadradoMenu">
+                    <label for="nomeFuncionario">Nome</label>
+                    <input type="text" id="nomeFuncionario" name="Nome">
+                    <div class="error" id="errorNome"></div>
+                    <label for="emailFuncionario">Email</label>
+                    <input type="text" id="emailFuncionario" name="email">
+                    <div class="error" id="errorEmail"></div>
+                    <label for="senhaFuncionario">Senha</label>
+                    <input type="password" id="senhaFuncionario" name="Senha">
+                    <div class="error" id="errorSenha"></div>
+                    <label for="cpfFuncionario">CPF</label>
+                    <input type="text" id="cpfFuncionario" name="CPF">
+                    <div class="error" id="errorCpf"></div>
                 </div>
+                <div class="flexCentro">
+                    <button id="botaoSubmit" type="submit">
+                        <div class="flexCentro">
+                            <img class="iconeCadastrarFuncionarioTamanho"
+                                src="../../../assets/icons/config/cadastroFuncionarioIcone.png">
+                            <h2 id="textoCadastrar">Cadastrar</h2>
+                        </div>
     
-            </div></a>
-            
+                    </button>
+    
+                </div>
+            </form>
+
+
+
+
+        </div></a>
+
         </div>
-    
+
     </main>
 
     <div class="espacoFooterAzulLogo"></div>
@@ -46,6 +60,7 @@
         <img src="../../../assets/logos/logoCompleta.png" alt="Logo">
     </footer>
 
+    <script src="../../../scripts/cadastrarFuncionario.js"></script>
 </body>
 
 </html>
