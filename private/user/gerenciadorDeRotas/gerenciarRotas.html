@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../../style/style.css">
-    <script src="../../../scripts/gerenciadorMapa.js"></script>
+    
+    
     <title>Gerenciador de rotas</title>
 </head>
 
@@ -25,18 +26,18 @@
                 <!-- C -> Curva   R -> Reta  | D -> Direita  E -> Esquerda   C -> Central |  S-> Superior  I -> Inferior -->
                 
                 <!-- Linhas perimetrais -->
-                <path id="linhaCDS" class="linhaMapa" d="M 10 75 Q 10 10 90 10" />
-                <path id="linhaCDI" class="linhaMapa" d="M 90 140 Q 10 140 10 75" />
+                <path id="linhaCES" class="linhaMapa" d="M 10 75 Q 10 10 90 10" />
+                <path id="linhaCEI" class="linhaMapa" d="M 90 140 Q 10 140 10 75" />
                 <path id="linhaRCI" class="linhaMapa" d="M 90 140 260 140" />
-                <path id="linhaCEI" class="linhaMapa" d="M 260 140 Q 340 140 340 75" />
-                <path id="linhaCES" class="linhaMapa" d="M 340 75 Q 340 10 260 10" />
+                <path id="linhaCDI" class="linhaMapa" d="M 260 140 Q 340 140 340 75" />
+                <path id="linhaCDS" class="linhaMapa" d="M 340 75 Q 340 10 260 10" />
                 <path id="linhaRCS" class="linhaMapa" d="M 145 10 260 10" />
-                <path id="linhaRDS" class="linhaMapa" d="M 90 10 145 10" />
+                <path id="linhaRES" class="linhaMapa" d="M 90 10 145 10" />
 
                 <!-- Linhas interiores -->
-                <path id="linhaRDI" class="linhaMapa" d="M 170 140 110 75" />
+                <path id="linhaRCI" class="linhaMapa" d="M 170 140 110 75" />
                 <path id="linhaCCI" class="linhaMapa" d="M 260 140 Q 200 130 200 75" />
-                <path id="linhaCCD" class="linhaMapa" d="M 260 10 Q 200 20 200 75" />
+                <path id="linhaCCS" class="linhaMapa" d="M 260 10 Q 200 20 200 75" />
 
                 <!-- Quadrados (e retângulos) -->
                 <rect x="135" y="00" width="20" height="20" class="quadradoMapa"/>
@@ -151,7 +152,7 @@
             <div class="trensRota">
                 <div class="flex">
                     <h3 class="textoTrem">Rota 1</h3>
-                    <a class="iconeVisualizarRota" href="">
+                    <a class="iconeVisualizarRota" onclick="visualizarRota(0)">
                         <img class="iconeVisualizarRota" src="../../../assets/icons/dashboard/visualizar.png"
                         alt="Icone de Visualizar a Rota dos Trens">
                     </a>
@@ -165,7 +166,7 @@
             <div class="trensRota">
                 <div class="flex">
                     <h3 class="textoTrem">Rota 2</h3>
-                    <a class="iconeVisualizarRota" href=""><img class="iconeVisualizarRota" src="../../../assets/icons/dashboard/visualizar.png"
+                    <a class="iconeVisualizarRota" onclick="visualizarRota(1)"><img class="iconeVisualizarRota" src="../../../assets/icons/dashboard/visualizar.png"
                         alt="Icone de Visualizar a Rota dos Trens"></a>
                     
                         <a href="editarRotas.html"><img class="iconeEditarRota" src="../../../assets/icons/dashboard/editarRota.png"
@@ -177,7 +178,7 @@
             <div class="trensRota">
                 <div class="flex">
                     <h3 class="textoTrem">Rota 3</h3>
-                    <a class="iconeVisualizarRota" href=""><img class="iconeVisualizarRota" src="../../../assets/icons/dashboard/visualizar.png"
+                    <a class="iconeVisualizarRota" onclick="visualizarRota(2)"><img class="iconeVisualizarRota" src="../../../assets/icons/dashboard/visualizar.png"
                         alt="Icone de Visualizar a Rota dos Trens"></a>
                     
                         <a href="editarRotas.html"><img class="iconeEditarRota" src="../../../assets/icons/dashboard/editarRota.png"
@@ -185,7 +186,7 @@
                         
                 </div>
             </div>
-            <a href="">                <img class="iconeAddRotas" src="../../../assets/icons/dashboard/addRota.png" alt="Icone add rotas"></a>
+            <img class="iconeAddRotas" src="../../../assets/icons/dashboard/addRota.png" alt="Icone add rotas" onclick="teste()">
         </div>
         
 
@@ -209,6 +210,8 @@
             <a href=""><img src="../../../assets/icons/footer/relatoriosIcone.png" alt="Relatórios"></a>
         </div>
     </footer>
+    <script src="../../../scripts/rotas.js"></script>
+    <script src="../../../scripts/gerenciadorMapa.js"></script>
 
 </body>
 

@@ -1,8 +1,10 @@
+
 document.addEventListener('DOMContentLoaded', function () {
     const linhasMapa = document.getElementsByClassName('linhaMapa');
     for (let i = 0; i < linhasMapa.length; i++) {
         linhasMapa[i].addEventListener('click', () => {
             linhasMapa[i].classList.toggle('linhaMapaSelecionada');
+            // console.log(linhasMapa[i].id)
         });
     }
 });
@@ -32,3 +34,24 @@ function escondeEstacoes() {
     }
 }
 
+function visualizarRota(numeroRota){
+    limpaSelecaoMapa();
+    const rota = JSON.parse(rotasSegmentos);
+
+
+    rota.rotas[numeroRota].forEach(nomeSegmento => {
+        const segmento = document.getElementById('linha' + nomeSegmento)
+        segmento.classList.add('linhaMapaSelecionada');
+    });
+}
+
+function limpaSelecaoMapa(){
+    const linhasMapa = document.getElementsByClassName('linhaMapa');
+    for (let i = 0; i < linhasMapa.length; i++) {
+        linhasMapa[i].classList.remove('linhaMapaSelecionada');
+    }
+}
+function teste(){
+    
+     console.log(data);
+}

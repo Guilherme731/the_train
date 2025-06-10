@@ -20,21 +20,26 @@
         <br>
     </div>
     <main class="gridCentro">
-        <form class="gridCentro">
-            <input type="password" name="email" id="inputTextPadrao" placeholder="Nova senha" required>
-            <input type="password" name="email" id="inputTextPadrao" placeholder="Confirmar senha" required>
+        <form id="formularioRecuperarSenha" class="gridCentro">
+            <input type="password" name="novaSenha" id="novaSenha" class="inputTextPadrao" placeholder="Nova senha">
+            <div class="error" id="erroNovaSenha"></div>
+            <input type="password" name="confimacaoSenha" id="confirmacaoSenha" class="inputTextPadrao"
+                placeholder="Confirmar senha">
+            <div class="error" id="erroConfirmacaoSenha"></div>
+            <div class="aDireita">
+                <button id="botaoAlterarSenha" id="botaoSubmit" type="submit">
+                    <p>Alterar Senha</p>
+                </button>
+            </div>
         </form>
-        <div class="aDireita">
-            <a href="../../user/config/verificacaoDuasEtapas/verificacaode2etapas.html">
-                <input type="button" id="botaoAlterarSenha" onclick="AlterarSenha()" value="Alterar Senha">
-            </a>
-        </div>
     </main>
 
     <div class="espacoFooterAzul"></div>
     <footer class="footerAzulArredondado">
 
     </footer>
+
+    <script src="../scripts/novaSenha.js"></script>
 </body>
 
 </html>

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style/style.css">
+    <script src="../scripts/recuperarSenhaEmail.js"></script>
     <title>Recuperar senha</title>
 </head>
 
@@ -21,13 +22,15 @@
         <br>
     </div>
     <main class="gridCentro">
-            <form>
-                <input type="text" name="email" id="inputTextPadrao" placeholder="Digite seu email" required>
-            </form>
+        <form>
+            <div class="error" id="erroEmail"></div>
+            <input type="text" name="email" id="email" class="inputTextPadrao" placeholder="Digite seu email" required>
             <div id="aDireita">
-                <a href="../public/recuperarSenha2.html">
-                    <input type="button" id="ladoEsquerdo" onclick="Próxima()" value="Próxima">
-                </a>
+                <input type="button" id="ladoEsquerdo" onclick="validarEmail()" value="Próxima">
+            </div>
+
+        </form>
+
     </main>
     <div class="espacoFooterAzul"></div>
     <footer class="footerAzulArredondado">
