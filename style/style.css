@@ -182,7 +182,7 @@ body {
     width: 300px;
     height: 20px;
 }
-#dataNascimentoDia, .dataNascimentoMes, #dataNascimentoAno{
+#dataNascimentoDia, #dataNascimentoMes, #dataNascimentoAno{
     height: 30px;
     width: 50px;
     background-color: var(--corAzulEscuro);
@@ -225,7 +225,7 @@ body {
 
 /*  CONFIGURAÇÕES  */
 .iconeConfigTamanho, .iconeCadastrarFuncionarioTamanho { height: 50px; width: 50px; }
-.iconeCadastrarFuncionarioTamanho { padding-top: 5%; padding-right: 5%; }
+.iconeCadastrarFuncionarioTamanho {justify-content: center;}
 #ladoEsquerdo {
     background-color: var(--corAzulNormal);
     border-radius: 15px;
@@ -236,6 +236,17 @@ body {
     font-size: 15px;
     color: var(--corAzulClaro);
 }
+
+#botaoSubmit{
+    border-radius: 30px;
+    background-color: var(--corAzulEscuro);
+    width: 80%;
+}
+
+#salvar{
+    margin: 0;
+}
+
 #botaoCadastrar {
     align-items: center;
     border-radius: 15px;
@@ -243,6 +254,8 @@ body {
     margin: 10% 20%;
 }
 #textoCadastrar { text-align: center; color: var(--corAzulClaro); }
+
+.error{ color: rgb(182, 7, 7); font-size: 0.9em;}
 
 /*  VERIFICAÇÃO DE DUAS ETAPAS  */
 #iconeVerificacao2Etapas { width: 190px; }
@@ -713,7 +726,7 @@ svg {
 .iconeAddRotas{height: 45px; width: 50px; padding-left: 85%; padding-top: 1%;}
 
 
-.cadastroFuncionario{
+#nomeFuncionario, #emailFuncionario, #senhaFuncionario, #cpfFuncionario{
     background-color: #4c7da3;
     border: none;
     border-bottom: solid 2px #2f4858;
