@@ -7,6 +7,6 @@
             //window.location.href = '../../../the_train/public/recuperarSenha2.html';
             window.location.href = 'recuperarSenha2.html';
         } else{
-            alert('O email está incorreto, digite-o novamente da maneira correta para continuar.');
+            alert('O email está incorreto ou o campo está vazio, digite-o novamente da maneira correta para continuar.');
         }
     }
