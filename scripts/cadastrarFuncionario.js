@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function(){
             valido = false;
         }
 
-        if(valido = true){
+        if(valido){
             alert("Funcionario Cadastrado Com Sucesso!");
             formulario.reset();
         }

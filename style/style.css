@@ -182,7 +182,7 @@ body {
     width: 300px;
     height: 20px;
 }
-#dataNascimentoDia, .dataNascimentoMes, #dataNascimentoAno{
+#dataNascimentoDia, #dataNascimentoMes, #dataNascimentoAno{
     height: 30px;
     width: 50px;
     background-color: var(--corAzulEscuro);
@@ -204,7 +204,6 @@ body {
     padding: 4px;
     border-radius: 15px;
     color: var(--corAmarelo);
-    height: 500px;
 }
 .opcaoMenu{
     background-color: var(--corAzulEscuro);
@@ -242,6 +241,10 @@ body {
     border-radius: 30px;
     background-color: var(--corAzulEscuro);
     width: 80%;
+}
+
+#salvar{
+    margin: 0;
 }
 
 #botaoCadastrar {
