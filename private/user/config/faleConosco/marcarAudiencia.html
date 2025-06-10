@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../../../style/style.css">
+    <script src="../../../../scripts/marcarAudiencia.js"></script>
     <script src="../../../scripts/botoesMenus.js"></script>
     <title>Marcar audiência</title>
 </head>
@@ -14,6 +15,41 @@
             <img src="../../../../assets/icons/header/setaEsquerda.png" alt="Seta" onclick="voltarPagina()">
         </a>
     </header>
+    <div class="tituloAzul">
+        <h2>Agenda de audiência</h2>
+    </div>
+
+    <fieldset class="grupo">
+        <div id="check">
+
+            <p>Horário:</p>
+            <input type="time" name="horário">
+
+            <br>
+        
+            <p>No. Audiência/Horário:</p>
+            <input type="number" name="audiência/horário">
+            <input type="time" name="audiência/horário">
+
+            <div>
+            <p>Agendar automaticamente?:</p>
+
+            <input type="radio" id="tecnologia1" nome="tecnologia1" value="Não">
+            <label for="tecnologia1">Sim</label>
+
+            <input type="radio" id="tecnologia2" nome="tecnologia2" value="Sim">
+            <label for="tecnologia2">Não</label>
+
+            </div>
+
+            <br>
+            <br>
+
+            <button type="submit" id="adicionar" onclick="adicionar()">Adicionar</button>
+            <button type="button" id="cancelar" onclick="cancelar()">Cancelar</button>
+
+        </div>
+    </fieldset>
 
     <main>
 
