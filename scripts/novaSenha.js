@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", function(){
 
     let valido = true;
 
-    // para limpar os erros
     document.getElementById("erroNovaSenha").textContent = "";
     document.getElementById("erroConfirmacaoSenha").textContent = "";
 
