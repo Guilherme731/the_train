@@ -425,18 +425,29 @@ body {
     background-color: var(--corAzulNormal);
     border-radius: 20px;
     padding: 5px;
-    height: 50%;
+    height: 40%;
+    width: 80%;
 }
 .informacoesEspeciais {
     background-color: var(--corAzulEscuro);
     border: none;
     height: 25px;
     border-radius: 20px;
-    width: 98%;
+    width: 96%;
+}
+
+#botaoSalvarEditarPerfil{
+    background-color: var(--corAzulNormal);
+    border-radius: 15px;
+    padding: 1px 40px;
+    margin-top: 10px;
+    margin-left: 55%;
+    height: 50px;
+    font-size: 15px;
+    color: var(--corAzulClaro);
 }
 
 #centroPerfil { justify-content: center; padding: 0% 5%; }
-#espacoButton { padding-top: 20px;}
 
 /*  RECUPERAR SENHA  */
 .inputTextPadrao {

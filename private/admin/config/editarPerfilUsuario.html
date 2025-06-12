@@ -17,38 +17,40 @@
     <main>
         <div class="gridCentro">
 
-            <h1 class="tituloAzul">Editar Perfil De Usuário</h1>
+            <h2 class="tituloAzul">Editar Perfil De Usuário</h2>
 
             <img id="imagemUsuario" src="../../../assets/icons/config/funcionarioIcone.png" alt="Icone do funcionario">
 
-            <h2 class="textoCentral">Nome do Usuário</h2>
+            <h3 class="textoCentral">Nome do Usuário</h3>
         </div>
 
         <div id="centroPerfil">
-            <div id="informacoesEspeciaisUser">
-              <div class="marginTopDown-2">
-                <input type="text" name="cargo" class="informacoesEspeciais" placeholder="Cargo"><br>
+            <div class="flexCentro">
+                <div id="informacoesEspeciaisUser">
+                    <div class="marginTopDown-2">
+                      <input type="text" name="cargo" class="informacoesEspeciais" placeholder="Cargo"><br>
+                    </div>
+                      
+                    <div class="marginTopDown-2">
+                      <input type="text" name="CPF" class="informacoesEspeciais" placeholder="CPF"><br>
+                    </div>
+                      
+                  <div class="marginTopDown-2">
+                      <input type="text" name="email" class="informacoesEspeciais" placeholder="E-mail"><br>
+      
+                  </div>
+      
+                  <div class="marginTopDown-2">
+                      <input type="text" name="nomeUsuario" class="informacoesEspeciais" placeholder="Nome Usuário">
+                  </div>
+      
+                  </div>
               </div>
-                
-              <div class="marginTopDown-2">
-                <input type="text" name="CPF" class="informacoesEspeciais" placeholder="CPF"><br>
-              </div>
-                
-            <div class="marginTopDown-2">
-                <input type="text" name="email" class="informacoesEspeciais" placeholder="E-mail"><br>
-
             </div>
-
-            <div class="marginTopDown-2">
-                <input type="text" name="nomeUsuario" class="informacoesEspeciais" placeholder="Nome Usuário">
-            </div>
-
-            </div>
-        </div>
         
             <div id="espacoButton">
                 <a href="../../user/config/verificacaoDuasEtapas/codigoVerificacao.html">
-                    <input type="button" id="botaoSalvar" onclick="salvar()" value="Salvar">
+                    <input type="button" id="botaoSalvarEditarPerfil" onclick="salvar()" value="Salvar">
                 </a>
             </div>
         
