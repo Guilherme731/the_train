@@ -793,6 +793,7 @@ fieldset.grupo.campo{
 
 #check{
     display: inline-block;
+}
 
 .error{
     color: rgb(182, 7, 7);
