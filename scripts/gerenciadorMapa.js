@@ -55,3 +55,8 @@ function teste(){
     
      console.log(data);
 }
+
+function abrirEdicaoRota(rota){
+    sessionStorage.setItem('rotaParaEditar', rota);
+    window.location.href = 'editarRotas.html';
+}
