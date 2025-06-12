@@ -10,11 +10,13 @@ document.addEventListener("DOMContentLoaded", function(){
         document.getElementById("errorAno").textContent = "";
         document.getElementById("errorGenero").textContent = "";
 
+        let valido = true;
+
         const senha = document .getElementById("senha").value.trim();
         const dia = document .getElementById("dataNascimentoDia").value.trim();
         const mes = document .getElementById("dataNascimentoMes").value.trim();
         const ano = document .getElementById("dataNascimentoAno").value.trim();
-        const genero = document .getElementsByClassName("genero").value;
+        const genero = document .getElementById("generoFuncionario").value;
 
         console.log(senha);
         console.log(dia);
@@ -22,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function(){
         console.log(ano);
         console.log(genero);
 
-        if(!senha){
+        if(!senha || senha.length < 8){
             document.getElementById("errorSenhaFuncionario").textContent = "Coloque a Senha de Forma Certa.";
             valido = false;
         }
@@ -43,12 +45,12 @@ document.addEventListener("DOMContentLoaded", function(){
             valido = false;
         }
 
-        if(!genero){
-            document.getElementsByClassName("errorGenero").textContent = "Coloque o Gênero.";
+        if(genero == false){
+            document.getElementsByName("errorGenero").textContent = "Coloque o Seu Gênero.";
             valido = false;
         }
 
-        if(valido){
+        if(valido == true){
             alert("Alteração Feita Com Sucesso.");
             formulario.reset();
         }

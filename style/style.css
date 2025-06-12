@@ -6,6 +6,7 @@
     --corAzulClaro: #86bbd8;
     --fonte-Segoe: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     --fonte-OpenSans: OpenSans, Arial, Helvetica, sans-serif;
+    --corLaranja: #f26419;
 }
 
 /*  FONTES  */
@@ -173,14 +174,14 @@ body {
 #informacoesPessoais {
     background-color: var(--corAzulNormal);
     border-radius: 20px;
-    width: 311px;
+    width: 97%;
     padding: 5px;
 }
 #senha {
     background-color: var(--corAzulEscuro);
     color: var(--corAmarelo);
     border-radius: 20px;
-    width: 300px;
+    width: 98%;
     height: 20px;
 }
 #dataNascimentoDia, #dataNascimentoMes, #dataNascimentoAno{
@@ -195,7 +196,14 @@ body {
     padding: 5px;
 }
 #dataNascimentoDia { margin-left: 10px; }
-#dataNascimentoMes, #dataNascimentoAno { margin-left: 50px; }
+#dataNascimentoMes, #dataNascimentoAno { margin-left: 60px; }
+
+#generoFuncionario{
+    background-color: var(--corAzulEscuro);
+    padding: 1%;
+    margin: 2%;
+    width: 95%;
+}
 
 /*  MENUS E OPÇÕES  */
 
@@ -252,7 +260,7 @@ body {
 }
 #textoCadastrar { text-align: center; color: var(--corAzulClaro); }
 
-.error{ color: rgb(182, 7, 7); font-size: 0.9em;}
+.error{ color: var(--corLaranja); font-size: 0.9em; font-weight: 500;}
 
 /*  VERIFICAÇÃO DE DUAS ETAPAS  */
 #iconeVerificacao2Etapas { width: 190px; }
@@ -801,9 +809,4 @@ fieldset.grupo.campo{
 
 #check{
     display: inline-block;
-}
-
-.error{
-    color: rgb(182, 7, 7);
-    font-size: 0.9em;
 }

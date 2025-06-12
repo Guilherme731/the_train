@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function(){
             valido = false;
         }
 
-        if(!senha || senha.length <! 8){
+        if(!senha || senha.length < 8){
             document.getElementById("errorSenha").textContent = "A Senha Deve Ter Pelo Menos 8 Caracteres";
             valido = false;
         }
