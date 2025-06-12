@@ -43,6 +43,7 @@
 .textSize-10{ font-size: 10px;}
 .tituloAzul { color: var(--corAzulNormal); text-align: center; }
 .tituloAzulEscuro{ color: var(--corAzulEscuro); text-align: center;}
+.textoAzulEscuro{color: var(--corAzulEscuro);}
 
 .mainCentral{
     display: flex;
@@ -705,7 +706,7 @@ margin-left: 8px;
 /* Editar Rotas */
   .estacoes {
     background-color: var(--corAzulEscuro);
-    margin: 8% 5%;
+    margin: 5% 5%;
     height: 10%;
     border-radius: 5px;
     width: 90%;
