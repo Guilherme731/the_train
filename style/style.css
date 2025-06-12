@@ -6,6 +6,7 @@
     --corAzulClaro: #86bbd8;
     --fonte-Segoe: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     --fonte-OpenSans: OpenSans, Arial, Helvetica, sans-serif;
+    --corLaranja: #f26419;
 }
 
 /*  FONTES  */
@@ -37,6 +38,7 @@
 .margin-0{ margin: 0;}
 .marginTop-100{ margin-top: 100px;}
 .marginTopDown-5 { margin: 5% 0%; }
+.marginTopDown-2 {margin: 2% 0%; } 
 .marginLeft-Auto{ margin-left: auto;}
 .textSize-10{ font-size: 10px;}
 .tituloAzul { color: var(--corAzulNormal); text-align: center; }
@@ -173,14 +175,14 @@ body {
 #informacoesPessoais {
     background-color: var(--corAzulNormal);
     border-radius: 20px;
-    width: 311px;
+    width: 97%;
     padding: 5px;
 }
 #senha {
     background-color: var(--corAzulEscuro);
     color: var(--corAmarelo);
     border-radius: 20px;
-    width: 300px;
+    width: 98%;
     height: 20px;
 }
 #dataNascimentoDia, #dataNascimentoMes, #dataNascimentoAno{
@@ -195,7 +197,14 @@ body {
     padding: 5px;
 }
 #dataNascimentoDia { margin-left: 10px; }
-#dataNascimentoMes, #dataNascimentoAno { margin-left: 50px; }
+#dataNascimentoMes, #dataNascimentoAno { margin-left: 60px; }
+
+#generoFuncionario{
+    background-color: var(--corAzulEscuro);
+    padding: 1%;
+    margin: 2%;
+    width: 95%;
+}
 
 /*  MENUS E OPÇÕES  */
 
@@ -227,7 +236,7 @@ body {
 /*  CONFIGURAÇÕES  */
 .iconeConfigTamanho, .iconeCadastrarFuncionarioTamanho { height: 50px; width: 50px; }
 .iconeCadastrarFuncionarioTamanho {justify-content: center;}
-#ladoEsquerdo {
+#botaoSalvar {
     background-color: var(--corAzulNormal);
     border-radius: 15px;
     padding: 1px 40px;
@@ -244,10 +253,6 @@ body {
     width: 80%;
 }
 
-#salvar{
-    margin: 0;
-}
-
 #botaoCadastrar {
     align-items: center;
     border-radius: 15px;
@@ -256,7 +261,7 @@ body {
 }
 #textoCadastrar { text-align: center; color: var(--corAzulClaro); }
 
-.error{ color: rgb(182, 7, 7); font-size: 0.9em;}
+.error{ color: var(--corLaranja); font-size: 0.9em; font-weight: 500;}
 
 /*  VERIFICAÇÃO DE DUAS ETAPAS  */
 #iconeVerificacao2Etapas { width: 190px; }
@@ -440,18 +445,29 @@ font-weight: 600;
     background-color: var(--corAzulNormal);
     border-radius: 20px;
     padding: 5px;
-    height: 180px;
+    height: 40%;
+    width: 80%;
 }
 .informacoesEspeciais {
     background-color: var(--corAzulEscuro);
     border: none;
     height: 25px;
     border-radius: 20px;
-    width: 98%;
+    width: 96%;
+}
+
+#botaoSalvarEditarPerfil{
+    background-color: var(--corAzulNormal);
+    border-radius: 15px;
+    padding: 1px 40px;
+    margin-top: 10px;
+    margin-left: 55%;
+    height: 50px;
+    font-size: 15px;
+    color: var(--corAzulClaro);
 }
 
 #centroPerfil { justify-content: center; padding: 0% 5%; }
-#espacoButton { padding-top: 20px; padding-left: 50px; }
 
 /*  RECUPERAR SENHA  */
 .inputTextPadrao {
@@ -809,9 +825,4 @@ fieldset.grupo.campo{
 
 #check{
     display: inline-block;
-}
-
-.error{
-    color: rgb(182, 7, 7);
-    font-size: 0.9em;
 }

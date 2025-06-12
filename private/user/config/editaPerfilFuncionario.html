@@ -64,39 +64,20 @@
 
                     </div>
 
-                    <div class="flex">
-
-                        <div>
-                            <div class="flex">
-                                <input type="radio" class="genero" name="genero" value="Feminino">
-                                <label for="Feminino">Feminino</label>
-                            </div>
-
-                            <div class="flex">
-                                <input type="radio" class="genero" name="genero" value="PrefiroNaoDizer">
-                                <label for="PrefiroNaoDizer">Prefiro não dizer</label>
-                            </div>
-                        </div>
-
-                        <div>
-                            <div class="flex">
-                                <input type="radio" class="genero" name="genero" value="Masculino">
-                                <label for="Masculino">Masculino</label>
-                            </div>
-
-                            <div class="flex">
-                                <input type="radio" class="genero" name="genero" value="Outro">
-                                <label for="Outro">Outro</label>
-                            </div>
-                        </div>
-
-                    </div>
-
+                    <label for="genero">
+                        <select name="genero" id="generoFuncionario">
+                            <option value="feminino">Feminino</option>
+                            <option value="prefiroNaoDizer">Prefiro Não Dizer</option>
+                            <option value="masculino">Masculino</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </label>
                     <div class="error" id="errorGenero"></div>
+
 
                 </div>
 
-                <button id="ladoEsquerdo" type="submit">
+                <button id="botaoSalvar" type="submit">
                     <h2 id="salvar">Salvar</h2>
                 </button>
 

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../../style/style.css">
     <script src="../../../scripts/botoesMenus.js"></script>
+    <script src="../../../scripts/validarEditarPerfilUsuario.js"></script>
     <title>Editar Perfil De Usuário</title>
 </head>
 
@@ -17,48 +18,51 @@
     <main>
         <div class="gridCentro">
 
-            <h1 class="tituloAzul">Editar Perfil De Usuário</h1>
+            <h2 class="tituloAzul">Editar Perfil De Usuário</h2>
 
             <img id="imagemUsuario" src="../../../assets/icons/config/funcionarioIcone.png" alt="Icone do funcionario">
 
-            <h2 class="textoCentral">Nome do Usuário</h2>
+            <h3 class="textoCentral">Nome do Usuário</h3>
         </div>
 
+        <form id="formularioEditarPerfilUsuario">
         <div id="centroPerfil">
-            <div id="informacoesEspeciaisUser">
-              <div class="marginTopDown-5">
-                <input type="text" name="cargo" class="informacoesEspeciais" placeholder="Cargo"><br>
+            <div class="flexCentro">
+                <div id="informacoesEspeciaisUser">
+                    <div class="marginTopDown-2">
+                      <input type="text" name="cargo" id="cargo" class="informacoesEspeciais" placeholder="Cargo"><br>
+                      <div class="error" id="erroCargo"></div>
+                    </div>
+                      
+                    <div class="marginTopDown-2">
+                      <input type="text" name="CPF" id="cpf" class="informacoesEspeciais" placeholder="CPF"><br>
+                      <div class="error" id="erroCPF"></div>
+                    </div>
+                      
+                  <div class="marginTopDown-2">
+                      <input type="text" name="email" id="email" class="informacoesEspeciais" placeholder="E-mail"><br>
+                      <div class="error" id="erroEmail"></div>
+                  </div>
+      
+                  <div class="marginTopDown-2">
+                      <input type="text" name="nomeUsuario" id="nomeUsuario" class="informacoesEspeciais" placeholder="Nome Usuário">
+                      <div class="error" id="erroNomeUsuario"></div>
+                  </div>
+      
+                  </div>
               </div>
-                
-              <div  class="marginTopDown-5">
-                <input type="text" name="CPF" class="informacoesEspeciais" placeholder="CPF"><br>
-              </div>
-                
-            <div  class="marginTopDown-5">
-                <input type="text" name="email" class="informacoesEspeciais" placeholder="E-mail"><br>
-
             </div>
-
-            <div  class="marginTopDown-5">
-                <input type="text" name="nomeUsuario" class="informacoesEspeciais" placeholder="Nome Usuário">
-            </div>
-
-            </div>
-        </div>
         
-        <div id="espacoButton">
-            <div class="flex">
-                <a href="../../user/config/verificacaoDuasEtapas/codigoVerificacao.html">
-                    <input type="button" id="ladoEsquerdo" onclick="salvar()" value="Salvar">
-                </a>
+            <div id="espacoButton">
+                    <input type="submit" id="botaoSalvarEditarPerfil" value="Salvar">
             </div>
-        </div>
-        
+    </form>    
     </main>
     <div class="espacoFooterAzulLogo"></div>
     <footer class="footerAzulLogo">
         <img src="../../../assets/logos/logoCompleta.png" alt="Logo">
     </footer>
+    
 </body>
 
 </html>

@@ -14,22 +14,17 @@ document.addEventListener("DOMContentLoaded", function(){
         const senha = document .getElementById("senhaFuncionario").value.trim();
         const cpf = document .getElementById("cpfFuncionario").value.trim();
 
-        console.log(nome);
-        console.log(email);
-        console.log(senha);
-        console.log(cpf);
-
         if(!nome){
             document.getElementById("errorNome").textContent = "Coloque o Nome de Forma Certa.";
             valido = false;
         }
 
-        if(!senha || senha.length <! 8){
+        if(!senha || senha.length < 8){
             document.getElementById("errorSenha").textContent = "A Senha Deve Ter Pelo Menos 8 Caracteres";
             valido = false;
         }
 
-        if(!cpf || cpf.length > 11 && cpf.length < 11){
+        if(!cpf || cpf.length > 11 || cpf.length < 11){
             document.getElementById("errorCpf").textContent = "O CPF Deve Ter 11 Caracteres";
             valido = false;
         }
