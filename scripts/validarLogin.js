@@ -1,7 +1,7 @@
 function validarLogin(){
     //Obter dados de Login
-    const emailFuncionario = document.getElementById('email_funcionario').value.trim();
-    const senhaFuncionario = document.getElementById('senha_funcionario').value;
+    const emailFuncionario = document.getElementById('emailFuncionarioLogin').value.trim();
+    const senhaFuncionario = document.getElementById('senhaFuncionarioLogin').value;
 
     //Validação dos dados
     // if(!emailFuncionario || !emailFuncionario.includes('@')){

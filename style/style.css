@@ -149,7 +149,7 @@ body {
     color: var(--corAzulClaro);
     font-family: var(--fonte-OpenSans);
 }
-.formularioLogin input::placeholder { color: var(--corAzulClaro); }
+.formularioLogin input::placeholder { color: var(--corAzulEscuro); }
 .formularioLogin a { color: black; }
 .formularioLogin button {
     margin-top: 50px;
