@@ -826,6 +826,42 @@ fieldset.grupo.campo{
     text-shadow: none;
 }
 
-#check{
+#check {
     display: inline-block;
+    background-color: #3c6f93;
+    border-radius: 10px;
+    padding: 50px;
+}
+
+.corBarra{
+    color: #f6ae2d;
+    background-color: #33658a;
+    width: 100px;
+    border-radius: 10px;   
+}
+
+#adicionar{
+    color: #f6ae2d;
+    background-color: #33658a;
+    width: 100px;
+    border-radius: 10px;
+}
+
+#cancelar{
+    color: #f6ae2d;
+    background-color: #33658a;
+    width: 100px;
+    border-radius: 10px;
+}
+
+.amarelo{
+    color: #f6ae2d;
+}
+
+.proxima{
+    background-color: #33658a;
+    color: #86bbd8;
+    padding: 10px;
+    border-radius: 10px;
+    width: 100px;
 }
