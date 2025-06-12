@@ -454,6 +454,7 @@ font-weight: 600;
     height: 25px;
     border-radius: 20px;
     width: 96%;
+    color: var(--corAzulClaro);
 }
 
 #botaoSalvarEditarPerfil{
@@ -767,6 +768,7 @@ svg {
     color: black;
     font-size: 20px;
     padding-top: 30px;
+    color: var(--corAzulClaro);
 }
 
 fieldset {
