@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         if (valido == true) {
-            window.location.href = '../../../the_train/private/user/dashboard/dashboard.html';
+            window.location.href = '../private/user/dashboard/dashboard.html';
         }
 
     })
