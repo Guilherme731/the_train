@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../../../assets/logos/logoPequena.png">
     <script src="../../../../scripts/botoesMenus.js"></script>
-    <script src="../../../../scripts/configFuncionarioSalvarInformacoes.js"></script>
+    <script src="../../../../scripts/login/entradaEmail.js"></script>
     <link rel="stylesheet" href="../../../../style/style.css">
 
     <title>Verificação de Duas Etapas</title>
@@ -19,6 +19,7 @@
     </header>
 
     <main>
+        <form id="entradaEmail">
         <div class="flexCentral textoCentral marginTop-100">
             <img id="iconeVerificacao2Etapas"
                 src="../../../../assets/icons/config/verificacaoDuasEtapas/verificacao2EtapasIconeLaranja.png"
@@ -28,10 +29,13 @@
             <h2 id="textoDigitarEmail">Digite um email para registrar a sua verificação de duas etapas:</h2>
         </div>
         <div class="flexCentral textoCentral gridCentro">
-            <input id="botaoDigitarEmail" type="text" id="digitarEmail" name="digitarEmail"
+            <input class="botaoDigitarEmail" id="digitarEmail" type="text" name="digitarEmail"
                 placeholder="Digite seu email">
-            <a class="botaoEnviar flexCentro" href="codigoVerificacao.html">Próxima</a>
+                <div class="error" id="errorEmailLogin"></div>
+            <button type="submit" class="botaoEnviar flexCentro">Próxima</button>
         </div>
+        </form>
+       
     </main>
 
     <div class="espacoFooterAzulLogo"></div>

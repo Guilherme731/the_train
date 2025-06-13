@@ -268,7 +268,7 @@ body {
 
 /*  VERIFICAÇÃO DE DUAS ETAPAS  */
 #iconeVerificacao2Etapas { width: 190px; }
-#botaoDigitarEmail {
+.botaoDigitarEmail {
     margin-left: 25px;
     margin-top: -20px;
     justify-content: center;
