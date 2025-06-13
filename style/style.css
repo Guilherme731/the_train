@@ -32,18 +32,19 @@
 .textoDireita { text-align: right; }
 .textoEsquerda { text-align: left; }
 
-.padding-20{ padding: 20px;}
-.padding-3{ padding: 3px;}
-.paddingLeft-7{ padding-left: 7px;}
+.padding-20{ padding: 20px; }
+.padding-3{ padding: 3px; }
+.paddingLeft-7{ padding-left: 7px; }
 .margin-0{ margin: 0;}
-.marginTop-100{ margin-top: 100px;}
+.marginTop-100{ margin-top: 100px; }
+.marginTop-10{ margin-top: 10px; }
 .marginTopDown-5 { margin: 5% 0%; }
 .marginTopDown-2 {margin: 2% 0%; } 
 .marginLeft-Auto{ margin-left: auto;}
 .textSize-10{ font-size: 10px;}
 .tituloAzul { color: var(--corAzulNormal); text-align: center; }
-.tituloAzulEscuro{ color: var(--corAzulEscuro); text-align: center;}
-.textoAzulEscuro{color: var(--corAzulEscuro);}
+.tituloAzulEscuro{ color: var(--corAzulEscuro); text-align: center; }
+.textoAzulEscuro{color: var(--corAzulEscuro); } 
 
 .mainCentral{
     display: flex;
@@ -205,6 +206,7 @@ body {
     padding: 1%;
     margin: 2%;
     width: 95%;
+    color: var(--corAmarelo);
 }
 
 /*  MENUS E OPÇÕES  */
