@@ -53,6 +53,10 @@
     height: 80%;
 }
 
+#tamanhoLogo{
+    width: 30%;
+}
+
 /*  PADRÃO  */
 body {
     background-color: var(--corAzulClaro);
