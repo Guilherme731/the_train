@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../assets/logos/logoPequena.png">
     <link rel="stylesheet" href="../style/style.css">
-    <script src="../scripts/validarLogin.js"></script>
     <title>Login - The Train</title>
 </head>
 <body>
@@ -14,17 +13,22 @@
     </header>
     <main>
         <p class="tituloLogin">LOGIN</p>
-        <form action="" class="formularioLogin">
-            <input type="text" name="email" id="emailFuncionarioLogin" placeholder="E-mail" required>
-            <input type="password" name="senha" id="senhaFuncionarioLogin" placeholder="Senha" required>
+        <form id="formLogin" class="formularioLogin">
+            <label for="email"></label>
+            <input type="text" name="email" id="emailFuncionarioLogin" placeholder="E-mail">
+            <label for="senha"></label>
+            <div class="error" id="errorEmailLogin"></div>
+            <input type="password" name="senha" id="senhaFuncionarioLogin" placeholder="Senha">
+            <div class="error" id="errorSenhaLogin"></div>
             <a href="recuperarSenha.html">Esqueceu a senha?</a>
-            <button type="button" onclick="validarLogin()">Entrar</button>
+            <button type="submit">Entrar</button>
         </form>
     </main>
     <div class="espacoFooterAzul"></div>
     <footer class="footerAzulArredondado">
 
     </footer>
-</body>
+    <script src="../scripts/validarLogin.js"></script>
 
+</body>
 </html>
