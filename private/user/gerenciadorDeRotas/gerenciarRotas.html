@@ -76,10 +76,10 @@
                         alt="Icone de Desligar os Trens"></a>
                 <h3 class="tituloTrem">Trem 1</h3>
                 <div class="parteDireitaGerenciador">
-                    <a class="iconeVisualizarRota" href=""><img class="iconeVisualizarRota"
+                    <a class="iconeVisualizarRota"  onclick="mostraTremEspecifico(0)"><img class="iconeVisualizarRota"
                             src="../../../assets/icons/dashboard/visualizar.png" alt="Icone de Visualizar a Rota dos Trens"></a>
         
-                    <select class="selecionarRota">
+                    <select class="selecionarRota" id="selectRota1">
                         <option value="rota1">Rota 1</option>
                         <option value="rota2">Rota 2</option>
                         <option value="rota3">Rota 3</option>
@@ -92,10 +92,10 @@
                         alt="Icone de Desligar os Trens"></a>
                 <h3 class="tituloTrem">Trem 2</h3>
                 <div class="parteDireitaGerenciador">
-                    <a class="iconeVisualizarRota" href=""><img class="iconeVisualizarRota"
+                    <a class="iconeVisualizarRota"   onclick="mostraTremEspecifico(1)"><img class="iconeVisualizarRota"
                             src="../../../assets/icons/dashboard/visualizar.png" alt="Icone de Visualizar a Rota dos Trens"></a>
         
-                    <select class="selecionarRota">
+                    <select class="selecionarRota" id="selectRota2">
                         <option value="rota1">Rota 1</option>
                         <option value="rota2">Rota 2</option>
                         <option value="rota3">Rota 3</option>
@@ -108,10 +108,10 @@
                         alt="Icone de Desligar os Trens"></a>
                 <h3 class="tituloTrem">Trem 3</h3>
                 <div class="parteDireitaGerenciador">
-                    <a class="iconeVisualizarRota" href=""><img class="iconeVisualizarRota"
+                    <a class="iconeVisualizarRota"   onclick="mostraTremEspecifico(2)"><img class="iconeVisualizarRota"
                             src="../../../assets/icons/dashboard/visualizar.png" alt="Icone de Visualizar a Rota dos Trens"></a>
         
-                    <select class="selecionarRota">
+                    <select class="selecionarRota" id="selectRota3">
                         <option value="rota1">Rota 1</option>
                         <option value="rota2">Rota 2</option>
                         <option value="rota3">Rota 3</option>
@@ -120,9 +120,9 @@
             </div>
 
             <div class="textoDireita">
-                <a href="" class="botaoAmarelo">
+                <button onclick="aplicarRotas()" class="botaoAmarelo">
                     Aplicar
-                </a>
+                </button>
             </div>
             
 
@@ -163,7 +163,7 @@
                             alt="Icone de editar a Rota dos Trens"></a>
                 </div>
             </div>
-            <img class="iconeAddRotas" src="../../../assets/icons/dashboard/addRota.png" alt="Icone add rotas" onclick="teste()">
+            <img class="iconeAddRotas" src="../../../assets/icons/dashboard/addRota.png" alt="Icone add rotas" onclick="criarRota()">
         </div>
         
 
