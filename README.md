@@ -11,3 +11,13 @@ A equipe de desenvolvimento faz parte da turma DS23 1 M1, do SENAI SC.
 - Gabriel K. B.
 - Pedro F. F.
 - Rodrigo F. S.
+## Principais Funções
+- Verificação de duas etapas
+- Dashboard
+- Gerencimaneto de Rotas
+- Edição de Rotas
+- Mapa interativo
+- Visualização de manutenções e inspeções
+- Visualização de gráficos
+- Edição de usuário
+- Alertas / notificações
