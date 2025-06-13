@@ -1,4 +1,4 @@
-
+const mapaSvg = document.getElementById('svgMapaEditar');
 const tituloPagina = document.getElementById('tituloPagina');
 const listaEstacoes = document.getElementById("listaEstacoes");
 let rota = sessionStorage.getItem('rotaParaEditar');
@@ -112,3 +112,27 @@ function editarEstacao(){
     alert('Não é possível editar sem banco de dados!');
 }
 
+function renderizarNumerosEstacoes(){
+    renderizarNumeros(95, 140, 1);
+    renderizarNumeros(260, 140, 2);
+    renderizarNumeros(340, 75, 3);
+    renderizarNumeros(260, 10, 4);
+    renderizarNumeros(145, 10, 5);
+    renderizarNumeros(200, 75, 6);
+}
+
+function renderizarNumeros(x, y, numero){
+    const namespace = "http://www.w3.org/2000/svg";
+    const texto = document.createElementNS(namespace, "text");
+    texto.setAttribute("x", x); 
+    texto.setAttribute("y", y); 
+    texto.setAttribute("text-anchor", "middle");
+    texto.setAttribute("dominant-baseline", "middle");
+    texto.setAttribute("font-size", "14");
+    texto.setAttribute("fill", "#f6ae2d");
+    texto.textContent = numero;
+
+    mapaSvg.appendChild(texto);
+}
+
+renderizarNumerosEstacoes();

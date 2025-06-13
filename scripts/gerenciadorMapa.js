@@ -148,7 +148,5 @@ function atualizarMapaPorEstacoes(estacoes){
                         document.getElementById('linhaCEI').classList.add('linhaMapaSelecionada');
                     }
                 }
-                
-          
     }
 }
