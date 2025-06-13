@@ -2,13 +2,13 @@
 const mapa = document.getElementById('svgMapa');
 
 document.addEventListener('DOMContentLoaded', function () {
-    const linhasMapa = document.getElementsByClassName('linhaMapa');
-    for (let i = 0; i < linhasMapa.length; i++) {
-        linhasMapa[i].addEventListener('click', () => {
-            linhasMapa[i].classList.toggle('linhaMapaSelecionada');
-            console.log(linhasMapa[i].id)
-        });
-     }
+    // const linhasMapa = document.getElementsByClassName('linhaMapa');
+    // for (let i = 0; i < linhasMapa.length; i++) {
+    //     linhasMapa[i].addEventListener('click', () => {
+    //         linhasMapa[i].classList.toggle('linhaMapaSelecionada');
+    //         console.log(linhasMapa[i].id)
+    //     });
+    //  }
 });
 
 function atualizaOpcoesMapa() {
@@ -128,3 +128,22 @@ function renderizarTrensMapa(){
     });
 }
 
+function atualizarMapaPorEstacoes(estacoes){
+    const segmentos = JSON.parse(segmentosEstacoes);
+    let segmentosDaRota;
+    limpaSelecaoMapa();
+
+    for(let i = 1; i < estacoes.length; i++){
+        
+        const segmento = segmentos.segmentos.find(s =>
+      (s[1] == estacoes[i-1] && s[2] == estacoes[i]) ||
+      (s[1] == estacoes[i] && s[2] == estacoes[i-1])
+    );
+                if(segmento){
+                    const segmentoa = document.getElementById('linha' + segmento[0])
+                    segmentoa.classList.add('linhaMapaSelecionada');
+                }
+                
+          
+    }
+}

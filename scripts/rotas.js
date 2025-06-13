@@ -14,6 +14,23 @@ let rotasSegmentos = '{ "rotas" : [' +
 '"RCS" ]' +
 ']}';
 
+let rotasEstacoes = '{ "rotasE" : [' +
+
+'[1,'+
+'2, ' +
+'3 ],'+
+
+'[2,'+
+'3, ' +
+'4, '+
+'6 ],'+
+
+'[4,'+
+'5, ' +
+'1 ]'+
+
+']}';
+
 let segmentosEstacoes = '{ "segmentos" : [' +
 
 '["RCI",'+
@@ -50,7 +67,7 @@ let segmentosEstacoes = '{ "segmentos" : [' +
 
 '["CCI",'+
 '6, ' +
-'2 ],'+
+'2 ]'+
 
 ']}';
 
