@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="../../../style/style.css">
     <title>Editar Rotas</title>
 </head>
+
 <body>
     <header class="headerPrincipal">
         <a href="../../../private/user/config/configFuncionario.html"><img
@@ -18,11 +20,11 @@
     <main>
 
         <div id="mapa" class="flexCentro">
-            <svg >
+            <svg>
                 <!-- d= M posicaoHI posicaoVI Q posicaoHM posicaoVM posicaoHF posicaoVF -->
                 <!-- d= M posicaoHI posicaoVI posicaoHF posicaoVF -->
                 <!-- C -> Curva   R -> Reta  | D -> Direita  E -> Esquerda   C -> Central |  S-> Superior  I -> Inferior -->
-                
+
                 <!-- Linhas perimetrais -->
                 <path id="linhaCES" class="linhaMapa" d="M 10 75 Q 10 10 90 10" />
                 <path id="linhaCEI" class="linhaMapa" d="M 90 140 Q 10 140 10 75" />
@@ -38,100 +40,105 @@
                 <path id="linhaCCS" class="linhaMapa" d="M 260 10 Q 200 20 200 75" />
 
                 <!-- Quadrados (e retângulos) -->
-                <rect x="135" y="00" width="20" height="20" class="quadradoMapa"/>
-                <rect x="250" y="00" width="20" height="20" class="quadradoMapa"/>
-                <rect x="330" y="65" width="20" height="20" class="quadradoMapa"/>
-                <rect x="190" y="65" width="20" height="20" class="quadradoMapa"/>
-                <rect x="250" y="130" width="20" height="20" class="quadradoMapa"/>
-                <rect x="75" y="130" width="40" height="20" class="quadradoMapa"/>
+                <rect x="135" y="00" width="20" height="20" class="quadradoMapa" />
+                <rect x="250" y="00" width="20" height="20" class="quadradoMapa" />
+                <rect x="330" y="65" width="20" height="20" class="quadradoMapa" />
+                <rect x="190" y="65" width="20" height="20" class="quadradoMapa" />
+                <rect x="250" y="130" width="20" height="20" class="quadradoMapa" />
+                <rect x="75" y="130" width="40" height="20" class="quadradoMapa" />
 
             </svg>
         </div>
-
         <h2 class="tituloAzul" id="tituloPagina">Editar Rota</h2>
-            <p class="textoCentral textSize-10">Deseja editar outra rota? <br> <a class="textoAzulEscuro" href="gerenciarRotas.html">Selecione outra</a></p>
-                <div class="estacoes">
-                    <div class="flex">
-                        <h3 class="textoAzul">Estação 1</h3>
-                        <div>
-                            <div class="flex">
-                                <img class="iconeEditarEstacao" src="../../../assets/icons/dashboard/editarRota.png"
+        <p class="textoCentral textSize-10">Deseja editar outra rota? <br> <a class="textoAzulEscuro"
+                href="gerenciarRotas.html">Selecione outra</a></p>
+
+        <div id="listaEstacoes">
+            <div class="estacoes" data-id="1">
+                <div class="flex">
+                    <h3 class="textoAzul">Estação 1</h3>
+                    <div>
+                        <div class="flex">
+                            <img class="iconeEditarEstacao" src="../../../assets/icons/dashboard/editarRota.png"
                                 alt="Icone de editar a Rota dos Trens">
-                                <img class="iconeEditarEstacao" src="../../../assets/icons/dashboard/deletar.png"
+                            <img class="iconeEditarEstacao" src="../../../assets/icons/dashboard/deletar.png"
                                 alt="Icone de editar a Rota dos Trens">
-                                <img class="moverEstacoesCima" onclick="irParaCima(this)" src="../../../assets/icons/dashboard/irParaCima.png"
-                                    alt="Botão de mover para cima">                              
-                                <img class="moverEstacoesBaixo" onclick="irParaBaixo(this)" src="../../../assets/icons/dashboard/irParaBaixo.png" 
-                                    alt="Botão de mover para Baixo">
-                            </div>
+                            <img class="moverEstacoesCima" onclick="mover(this, 'up')"
+                                src="../../../assets/icons/dashboard/irParaCima.png" alt="Botão de mover para cima">
+                            <img class="moverEstacoesBaixo" onclick="mover(this, 'down')"
+                                src="../../../assets/icons/dashboard/irParaBaixo.png" alt="Botão de mover para Baixo">
                         </div>
                     </div>
                 </div>
-            
-            
+            </div>
 
-                <div class="estacoes">
-                    <div class="flex">
-                        <h3 class="textoAzul">Estação 2</h3>
-                        <div>
-                            <div class="flex">
-                                <img class="iconeEditarEstacao" src="../../../assets/icons/dashboard/editarRota.png"
+
+
+            <div class="estacoes" data-id="2">
+                <div class="flex">
+                    <h3 class="textoAzul">Estação 2</h3>
+                    <div>
+                        <div class="flex">
+                            <img class="iconeEditarEstacao" src="../../../assets/icons/dashboard/editarRota.png"
                                 alt="Icone de editar a Rota dos Trens">
-                                <img class="iconeEditarEstacao" src="../../../assets/icons/dashboard/deletar.png"
-                            alt="Icone de editar a Rota dos Trens">
-                            <img class="moverEstacoesCima" onclick="irParaCima(this)" src="../../../assets/icons/dashboard/irParaCima.png"
-                                alt="Botão de mover para cima">                           
-                            <img class="moverEstacoesBaixo" onclick="irParaBaixo(this)" src="../../../assets/icons/dashboard/irParaBaixo.png" 
-                                alt="Botão de mover para Baixo">
-                            </div>
+                            <img class="iconeEditarEstacao" src="../../../assets/icons/dashboard/deletar.png"
+                                alt="Icone de editar a Rota dos Trens">
+                            <img class="moverEstacoesCima" onclick="mover(this, 'up')"
+                                src="../../../assets/icons/dashboard/irParaCima.png" alt="Botão de mover para cima">
+                            <img class="moverEstacoesBaixo" onclick="mover(this, 'down')"
+                                src="../../../assets/icons/dashboard/irParaBaixo.png" alt="Botão de mover para Baixo">
                         </div>
                     </div>
                 </div>
-        
+            </div>
 
-        
 
-        
-                <div class="estacoes">
-                    <div class="flex">
-                        <h3 class="textoAzul">Estação 3</h3>
-                        <div>
-                            <div class="flex">
-                                <img class="iconeEditarEstacao" src="../../../assets/icons/dashboard/editarRota.png"
+
+
+
+            <div class="estacoes" data-id="3">
+                <div class="flex">
+                    <h3 class="textoAzul">Estação 3</h3>
+                    <div>
+                        <div class="flex">
+                            <img class="iconeEditarEstacao" src="../../../assets/icons/dashboard/editarRota.png"
                                 alt="Icone de editar a Rota dos Trens">
-                                <img class="iconeEditarEstacao" src="../../../assets/icons/dashboard/deletar.png"
+                            <img class="iconeEditarEstacao" src="../../../assets/icons/dashboard/deletar.png"
                                 alt="Icone de editar a Rota dos Trens">
-                                <img class="moverEstacoesCima" onclick="irParaCima(this)" src="../../../assets/icons/dashboard/irParaCima.png"
-                                     alt="Botão de mover para cima">
+                            <img class="moverEstacoesCima" onclick="mover(this, 'up')"
+                                src="../../../assets/icons/dashboard/irParaCima.png" alt="Botão de mover para cima">
 
-                                
-                                    <img class="moverEstacoesBaixo" onclick="irParaBaixo(this)" src="../../../assets/icons/dashboard/irParaBaixo.png" 
-                                    alt="Botão de mover para Baixo"></button>
-                            </div>
+
+                            <img class="moverEstacoesBaixo" onclick="mover(this, 'down')"
+                                src="../../../assets/icons/dashboard/irParaBaixo.png"
+                                alt="Botão de mover para Baixo"></button>
                         </div>
                     </div>
                 </div>
-          
-            
-        
-                <div class="estacoes">
-                    <div class="flex">
-                        <h3 class="textoAzul">Estação 4</h3>
-                        <div>
-                            <div class="flex">
-                                <img class="iconeEditarEstacao" src="../../../assets/icons/dashboard/editarRota.png"
+            </div>
+
+
+
+            <div class="estacoes" data-id="4">
+                <div class="flex">
+                    <h3 class="textoAzul">Estação 4</h3>
+                    <div>
+                        <div class="flex">
+                            <img class="iconeEditarEstacao" src="../../../assets/icons/dashboard/editarRota.png"
                                 alt="Icone de editar a Rota dos Trens">
-                                <img class="iconeEditarEstacao" src="../../../assets/icons/dashboard/deletar.png"
-                            alt="Icone de editar a Rota dos Trens">
-                            <img class="moverEstacoesCima" onclick="irParaBaixo(this)" src="../../../assets/icons/dashboard/irParaCima.png"
-                                alt="Botão de mover para cima">                            
-                            <img class="moverEstacoesBaixo" onclick="irParaBaixo(this)" src="../../../assets/icons/dashboard/irParaBaixo.png" 
-                                alt="Botão de mover para Baixo">                            
-                            </div>
+                            <img class="iconeEditarEstacao" src="../../../assets/icons/dashboard/deletar.png"
+                                alt="Icone de editar a Rota dos Trens">
+                            <img class="moverEstacoesCima" onclick="mover(this, 'up')"
+                                src="../../../assets/icons/dashboard/irParaCima.png" alt="Botão de mover para cima">
+                            <img class="moverEstacoesBaixo" onclick="mover(this, 'down')"
+                                src="../../../assets/icons/dashboard/irParaBaixo.png" alt="Botão de mover para Baixo">
                         </div>
                     </div>
                 </div>
-           
+            </div>
+        </div>
+
+
 
         <img class="iconeAddRota" src="../../../assets/icons/dashboard/botaoAdd.png" alt="Botão add rotas">
 
@@ -149,14 +156,15 @@
             <a href=""><img src="../../../assets/icons/footer/rotasIcone.png" alt="Rotas"></a>
             <a href="../manutencao/manutencao.html"><img src="../../../assets/icons/footer/manutencaoIcone.png"
                     alt="Manutenção"></a>
-            <a href="../relatorios/relatorios.html"><img src="../../../assets/icons/footer/relatoriosIcone.png" alt="Relatórios"></a>
+            <a href="../relatorios/relatorios.html"><img src="../../../assets/icons/footer/relatoriosIcone.png"
+                    alt="Relatórios"></a>
         </div>
     </footer>
 
     <script src="../../../scripts/rotas.js"></script>
     <script src="../../../scripts/gerenciadorMapa.js"></script>
-    <script src="../../../scripts/moverEstacoes.js"></script>
     <script src="../../../scripts/editarRotas.js"></script>
-    
+
 </body>
+
 </html>
