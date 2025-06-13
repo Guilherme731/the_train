@@ -20,4 +20,8 @@ function atualizarSelects(){
     });
 }
 
+function desligarTrem(numeroTrem){
+    alert('O desligamento do trem ' + (numeroTrem + 1) + ' foi agendado para o próximo sensor/estação.');
+}
+
 atualizarSelects();
