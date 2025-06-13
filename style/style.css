@@ -867,3 +867,9 @@ fieldset.grupo.campo{
     border-radius: 10px;
     width: 100px;
 }
+
+#trocarFoto{
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
