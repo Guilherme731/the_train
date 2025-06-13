@@ -1,22 +1,32 @@
-function validarLogin(){
-    //Obter dados de Login
-    const emailFuncionario = document.getElementById('emailFuncionarioLogin').value.trim();
-    const senhaFuncionario = document.getElementById('senhaFuncionarioLogin').value;
+document.addEventListener("DOMContentLoaded", function () {
+    const formulario = document.getElementById("formLogin");
 
-    //Validação dos dados
-    // if(!emailFuncionario || !emailFuncionario.includes('@')){
-    //     alert('Insira um e-mail válido!');
-    //     return;
-    // }
-    if(!senhaFuncionario){
-        alert('Digite uma senha!');
-        return;
-    }
+    formulario.addEventListener("submit", function (e) {
+        e.preventDefault();
 
-    //Validação da senha
-    //if(senhaFuncionario == 'admin_123'){
-        window.location.href = '../../../the_train/private/user/dashboard/dashboard.html';
-    //}else{
-    //    alert('Senha incorreta! A senha é admin_123');
-    //}
-}
+        document.getElementById("errorEmailLogin").textContent = "";
+        document.getElementById("errorSenhaLogin").textContent = "";
+
+        const email = document.getElementById("emailFuncionarioLogin").value.trim();
+        const senha = document.getElementById("senhaFuncionarioLogin").value.trim();
+
+        let valido = true;
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!emailRegex.test(email)) {
+            document.getElementById("errorEmailLogin").textContent = "E-mail Inválido.";
+            valido = false;
+        }
+
+        if (!senha || senha.length < 8) {
+            document.getElementById("errorSenhaLogin").textContent = "A Senha Deve Ter Pelo Menos 8 Caracteres";
+            valido = false;
+        }
+
+        if (valido == true) {
+            window.location.href = '../private/user/dashboard/dashboard.html';
+        }
+
+    })
+})
