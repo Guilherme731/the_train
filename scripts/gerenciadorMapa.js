@@ -2,13 +2,13 @@
 const mapa = document.getElementById('svgMapa');
 
 document.addEventListener('DOMContentLoaded', function () {
-    // const linhasMapa = document.getElementsByClassName('linhaMapa');
-    // for (let i = 0; i < linhasMapa.length; i++) {
-    //     linhasMapa[i].addEventListener('click', () => {
-    //         linhasMapa[i].classList.toggle('linhaMapaSelecionada');
-    //         // console.log(linhasMapa[i].id)
-    //     });
-    // }
+    const linhasMapa = document.getElementsByClassName('linhaMapa');
+    for (let i = 0; i < linhasMapa.length; i++) {
+        linhasMapa[i].addEventListener('click', () => {
+            linhasMapa[i].classList.toggle('linhaMapaSelecionada');
+            console.log(linhasMapa[i].id)
+        });
+     }
 });
 
 function atualizaOpcoesMapa() {
