@@ -1,0 +1,2 @@
+renderizarTrensMapa();
+escondeTrens();

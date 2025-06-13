@@ -14,12 +14,17 @@ document.addEventListener('DOMContentLoaded', function () {
 function atualizaOpcoesMapa() {
     const inputEstacoes = document.getElementById('ver-estacoes');
     const inputTrens = document.getElementById('ver-trens');
-    console.log(inputEstacoes);
     if (inputEstacoes.checked == true) {
         mostraEstacoes();
     }
     else {
         escondeEstacoes();
+    }
+    if (inputTrens.checked == true) {
+        mostraTrens();
+    }
+    else {
+        escondeTrens();
     }
 }
 
@@ -34,6 +39,30 @@ function escondeEstacoes() {
     for (let i = 0; i < estacoes.length; i++) {
         estacoes[i].style.display = 'none';
     }
+}
+function mostraTrens(){
+    const trens = document.getElementsByClassName('tremMapa');
+    const textos = document.getElementsByClassName('textoMapa');
+    for (let i = 0; i < trens.length; i++) {
+        trens[i].setAttribute("visibility", "visible");
+        textos[i].setAttribute("visibility", "visible");
+    }
+}
+function escondeTrens(){
+    const trens = document.getElementsByClassName('tremMapa');
+    const textos = document.getElementsByClassName('textoMapa');
+    for (let i = 0; i < trens.length; i++) {
+        trens[i].setAttribute("visibility", "hidden");
+        textos[i].setAttribute("visibility", "hidden");
+    }
+}
+
+function mostraTremEspecifico(numeroTrem){
+    escondeTrens();
+    const trem = document.getElementById('tremMapa' + numeroTrem);
+    const texto = document.getElementById('textoMapa' + numeroTrem);
+    trem.setAttribute("visibility", "visible");
+        texto.setAttribute("visibility", "visible");
 }
 
 function visualizarRota(numeroRota){
@@ -53,10 +82,6 @@ function limpaSelecaoMapa(){
         linhasMapa[i].classList.remove('linhaMapaSelecionada');
     }
 }
-function teste(){
-    
-     console.log(data);
-}
 
 function abrirEdicaoRota(rota){
     sessionStorage.setItem('rotaParaEditar', rota);
@@ -66,7 +91,6 @@ function abrirEdicaoRota(rota){
 function addQuadradoTrem(x, y, numero) {
   const namespace = "http://www.w3.org/2000/svg";
 
-  // Cria o quadrado
   const trem = document.createElementNS(namespace, "rect");
   trem.setAttribute("x", x);
   trem.setAttribute("y", y);
@@ -75,18 +99,32 @@ function addQuadradoTrem(x, y, numero) {
   trem.setAttribute("fill", "#f26419");
   trem.setAttribute("stroke", "black");
   trem.setAttribute("stroke-width", "1");
+  trem.classList.add('tremMapa');
+  trem.setAttribute("id", "tremMapa" + (numero - 1));
 
-  // Cria o texto (centralizado)
+
   const texto = document.createElementNS(namespace, "text");
-  texto.setAttribute("x", x + 7.5); // centro X do quadrado
-  texto.setAttribute("y", y + 7.5); // centro Y do quadrado
+  texto.setAttribute("x", x + 7.5); 
+  texto.setAttribute("y", y + 7.5); 
   texto.setAttribute("text-anchor", "middle");
   texto.setAttribute("dominant-baseline", "middle");
   texto.setAttribute("font-size", "12");
   texto.setAttribute("fill", "black");
   texto.textContent = numero;
+  texto.setAttribute("class", "textoMapa");
+  texto.setAttribute("id", "textoMapa" + (numero - 1));
 
-  // Adiciona ao SVG
   mapa.appendChild(trem);
   mapa.appendChild(texto);
 }
+
+function renderizarTrensMapa(){
+    const trem = JSON.parse(trensPosicoes);
+
+    let i = 1;
+    trem.trens.forEach(tremCoordenada => {
+        addQuadradoTrem(tremCoordenada[0], tremCoordenada[1], i);
+        i++;
+    });
+}
+
