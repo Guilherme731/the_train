@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../../../assets/logos/logoPequena.png">
     <link rel="stylesheet" href="../../../../style/style.css">
-    <script src="../../../../scripts/marcarAudiencia.js"></script>
-    <script src="../../../scripts/botoesMenus.js"></script>
     <title>Marcar audiência</title>
 </head>
 
@@ -21,7 +19,7 @@
     </div>
 
     <fieldset class="grupo">
-        <div id="check">
+        <form id="check">
 
             <h3 class="amarelo">Horário:</h3>
             <input type="time"  class="corBarra" name="horário">
@@ -46,10 +44,10 @@
             <br>
             <br>
 
-            <button type="submit" id="adicionar" onclick="adicionar()">Adicionar</button>
+            <button type="submit" id="adicionar">Adicionar</button>
             <button type="button" id="cancelar" onclick="cancelar()">Cancelar</button>
 
-        </div>
+        </form>
     </fieldset>
 
     <main>
@@ -58,6 +56,8 @@
     <footer class="footerAzulLogo">
         <img src="../../../../assets/logos/logoCompleta.png" alt="Logo">
     </footer>
+    <script src="../../../../scripts/marcarAudiencia.js"></script>
+    <script src="../../../../scripts/botoesMenus.js"></script>
 </body>
 
 </html>
