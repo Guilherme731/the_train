@@ -27,22 +27,27 @@ function mover(botao, direcao) {
 function exibirOrdem() {
     const itens = document.querySelectorAll(".estacoes");
     const ordem = Array.from(itens).map(el => el.dataset.id);
-    atualizarMapaPorEstacoes(ordem)
+    atualizarMapaPorEstacoes(ordem);
 }
 
 function carregarListaEstacoes(numeroRota){
     const rotas = JSON.parse(rotasEstacoes);
 
     rotas.rotasE[numeroRota].forEach(estacaoNumero => {
-        console.log(estacaoNumero);
+        criarElementoEstacao(estacaoNumero);
     });
 }
 
-function criarElementoEstacao(){
+function criarElementoEstacao(estacaoNumero){
+    let idEstacao = estacaoNumero;
+    if(estacaoNumero == null || estacaoNumero == 0 || estacaoNumero == ''){
+        idEstacao = (parseInt(document.querySelectorAll(".estacoes").length) + 1);
+    }
+    
     if(document.querySelectorAll(".estacoes").length < 6){
         const elementoEstacao = document.createElement('div');
         elementoEstacao.setAttribute("class", "estacoes");
-        elementoEstacao.setAttribute("data-id", (parseInt(document.querySelectorAll(".estacoes").length) + 1));
+        elementoEstacao.setAttribute("data-id", idEstacao);
     
 
         const iconeEditar = document.createElement('img');
@@ -55,6 +60,7 @@ function criarElementoEstacao(){
         iconeDeletar.setAttribute("class", "iconeEditarEstacao");
         iconeDeletar.onclick = () => {
             elementoEstacao.remove();
+            exibirOrdem();
         };
 
         const moverCima = document.createElement('img');
@@ -76,7 +82,7 @@ function criarElementoEstacao(){
 
         const h3 = document.createElement('h3');
         h3.setAttribute("class", "textoAzul");
-        h3.innerText = 'Estação ' + (parseInt(document.querySelectorAll(".estacoes").length) + 1);
+        h3.innerText = 'Estação ' + idEstacao;
 
 
         const divFlex2 = document.createElement('div');
@@ -98,6 +104,8 @@ function criarElementoEstacao(){
 
         listaEstacoes.appendChild(elementoEstacao);
     }
+
+    exibirOrdem();
 }
 
 function editarEstacao(){

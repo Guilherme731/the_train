@@ -142,6 +142,11 @@ function atualizarMapaPorEstacoes(estacoes){
                 if(segmento){
                     const segmentoa = document.getElementById('linha' + segmento[0])
                     segmentoa.classList.add('linhaMapaSelecionada');
+                    if(segmento[0] == "RES" || segmento[0] == "CES" || segmento[0] == "CEI" ){
+                        document.getElementById('linhaRES').classList.add('linhaMapaSelecionada');
+                        document.getElementById('linhaCES').classList.add('linhaMapaSelecionada');
+                        document.getElementById('linhaCEI').classList.add('linhaMapaSelecionada');
+                    }
                 }
                 
           
