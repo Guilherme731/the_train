@@ -4,14 +4,14 @@ USE the_train;
     
 CREATE TABLE usuarios(
 	id INT NOT NULL PRIMARY KEY,
-    cargo VARCHAR(120) NOT NULL, /* emum */
+    cargo EMUM('Administrador', 'Mecânico', 'Faxineiro', 'Supervisor', 'Operário', 'Piloto') NOT NULL,
     salario DECIMAL(10, 2) NOT NULL,
     genero VARCHAR(40),
     dataNascimento DATE NOT NULL,
     senha VARCHAR(40) NOT NULL,
     email VARCHAR(255) NOT NULL,
     nome VARCHAR(120) NOT NULL,
-    cpf VARCHAR(11) NOT NULL,
+    cpf VARCHAR(11) UNIQUE NOT NULL,
     tipo EMUM('admin', 'funcionario') NOT NULL
 );
 
@@ -19,7 +19,7 @@ CREATE TABLE notificacoes(
 	id INT NOT NULL PRIMARY KEY,
     descricao VARCHAR(120) NOT NULL,
     horario INT NOT NULL,
-    tipo VARCHAR(120) NOT NULL /* emum */
+    tipo EMUM('Chuva', 'Atraso', 'Falha Mecanica') NOT NULL
 );
 
 CREATE TABLE estacoes(
@@ -31,12 +31,12 @@ CREATE TABLE estacoes(
 
 CREATE TABLE rotas(
 	id INT NOT NULL PRIMARY KEY,
-    nome VARCHAR(120) NOT NULL
+    nome VARCHAR(120) UNIQUE NOT NULL
 );
 
 CREATE TABLE trens(
 	id INT NOT NULL PRIMARY KEY,
-    nome VARCHAR(120) NOT NULL,
+    nome VARCHAR(120) UNIQUE NOT NULL,
     desempenho VARCHAR(120) NOT NULL,
     consumo INT NOT NULL,
     velocidade DECIMAL(10,2) NOT NULL,
