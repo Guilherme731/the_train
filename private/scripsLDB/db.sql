@@ -24,7 +24,7 @@ CREATE TABLE notificacoes(
 
 CREATE TABLE estacoes(
 	id INT NOT NULL PRIMARY KEY,
-    nomeEstacao VARCHAR(120) NOT NULL, /* emum */
+    nomeEstacao ENUM('Estação Aurora', 'Estação Vila Nova', 'Estação Vale Verde', 'Estação São Pedro') NOT NULL,
     temperatura INT NOT NULL,
     estaChovendo BOOLEAN NOT NULL
 );
@@ -54,7 +54,7 @@ CREATE TABLE trens(
 CREATE TABLE manutencoes(
 	id INT NOT NULL PRIMARY KEY,
     tipoManutencao VARCHAR(120) NOT NULL,
-    estacao VARCHAR(120) NOT NULL, /* emum */
+    estacao ENUM('Estação Aurora', 'Estação Vila Nova', 'Estação Vale Verde', 'Estação São Pedro') NOT NULL,
     descricao VARCHAR(120) NOT NULL,
     idTrem INT NOT NULL,
     FOREIGN KEY (idTrem) REFERENCES trens(id)
