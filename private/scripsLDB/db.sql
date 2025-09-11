@@ -1,6 +1,6 @@
 CREATE DATABASE the_train_db;
 
-USE the_train;
+USE the_train_db;   
     
 CREATE TABLE usuarios(
 	id INT NOT NULL PRIMARY KEY,
