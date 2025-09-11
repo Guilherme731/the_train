@@ -18,7 +18,7 @@
         <div id="quadradoMenu">
             <div class="flexCentro textoCentral">
                 <img class="iconeConfigTamanho" src="../../../../assets/icons/config/faleConoscoIcone.png" alt="imagem do icone fale conosco">
-                <h2  >Dúvidas</h2>
+                <h2>Dúvidas</h2>
             </div>
 
             <br>

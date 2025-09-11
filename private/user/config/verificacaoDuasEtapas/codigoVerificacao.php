@@ -13,7 +13,7 @@
 </head>
 <body>
     <header class="headerAzulVoltar">
-        <a href="../../config/configFuncionario.html">
+        <a href="../../config/configFuncionario.php">
             <img src="../../../../assets/icons/header/setaEsquerda.png" alt="Seta" onclick="voltarPagina()">
         </a>
     </header>

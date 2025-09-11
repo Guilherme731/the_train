@@ -13,7 +13,7 @@
 
 <body>
     <header class="headerAzulVoltar">
-        <a href="../dashboard/dashboard.html"><img src="../../../assets/icons/header/setaEsquerda.png" alt="Seta"></a>
+        <a href="../dashboard/dashboard.php"><img src="../../../assets/icons/header/setaEsquerda.png" alt="Seta"></a>
     </header>
 
     <main class="mainCentral">
@@ -21,23 +21,23 @@
             <h1 class="tituloAzul">Configurações</h1>
             <div id="quadradoMenu">
     
-                <a href="editaPerfilFuncionario.html" class="opcaoMenu">
+                <a href="../config/editaPerfilFuncionario.php" class="opcaoMenu">
                     <img class="iconeConfigTamanho" src="../../../assets/icons/config/funcionarioIcone.png"
                         alt="Imagem do ícone de editar perfil">
                     <p>Conta</p>
                 </a>
-                <a href="idioma.html" class="opcaoMenu">
+                <a href="idioma.php" class="opcaoMenu">
                     <img class="iconeConfigTamanho" src="../../../assets/icons/config/idiomaIcone.png"
                         alt="Imagem do ícone de Conta">
                     <p>Idioma</p>
                 </a>
-                <a href="verificacaoDuasEtapas/entradaEmail.html" class="opcaoMenu">
+                <a href="verificacaoDuasEtapas/entradaEmail.php" class="opcaoMenu">
                     <img class="iconeConfigTamanho"
                         src="../../../assets/icons/config/verificacaoDuasEtapas/verificacao2EtapasIcone.png"
                         alt="Imagem do ícone de verificação de 2 etapas">
                     <p>Verificação De 2 etapas</p>
                 </a>
-                <a href="faleConosco/faleConosco.html" class="opcaoMenu">
+                <a href="faleConosco/faleConosco.php" class="opcaoMenu">
                     <img class="iconeConfigTamanho" src="../../../assets/icons/config/faleConoscoIcone.png"
                         alt="Imagem do ícone de Fale Conosco">
                     <p>Fale Conosco</p>

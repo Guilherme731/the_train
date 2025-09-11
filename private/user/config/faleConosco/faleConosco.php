@@ -11,7 +11,7 @@
 
 <body>
     <header class="headerAzulVoltar">
-        <a href="../configFuncionario.html"><img src="../../../../assets/icons/header/setaEsquerda.png" alt="Seta"></a>
+        <a href="../configFuncionario.php"><img src="../../../../assets/icons/header/setaEsquerda.png" alt="Seta"></a>
     </header>
     <main>
         <div id="quadradoMenu">
@@ -21,13 +21,13 @@
                 <h2>Fale conosco</h2>
             </div>
             <br>
-            <a href="duvidas.html" class="opcaoMenu paddingLeft-7">
+            <a href="../faleConosco/duvidas.php" class="opcaoMenu paddingLeft-7">
                 <p>Dúvidas</p>
             </a>
-            <a href="../faleConosco/reportarErro.html" class="opcaoMenu paddingLeft-7">
+            <a href="../faleConosco/reportarErro.php" class="opcaoMenu paddingLeft-7">
                 <p>Reportar erro</p>
             </a>
-            <a href="../faleConosco/marcarAudiencia.html" class="opcaoMenu paddingLeft-7">
+            <a href="../faleConosco/marcarAudiencia.php" class="opcaoMenu paddingLeft-7">
                 <p>Marcar audiência</p>
             </a>
         </div>
