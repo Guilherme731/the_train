@@ -766,7 +766,7 @@ svg {
 .iconeAddRotas{height: 45px; width: 50px; padding-left: 85%; padding-top: 1%;}
 
 
-#nomeFuncionario, #emailFuncionario, #senhaFuncionario, #cpfFuncionario{
+#nomeFuncionario, #emailFuncionario, #senhaFuncionario, #cpfFuncionario, #cargoFuncionario, #salarioFuncionario{
     background-color: #4c7da3;
     border: none;
     border-bottom: solid 2px #2f4858;

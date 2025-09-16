@@ -3,10 +3,10 @@ CREATE DATABASE the_train_db;
 USE the_train_db;   
     
 CREATE TABLE usuarios(
-	id INT NOT NULL PRIMARY KEY,
+	id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     cargo ENUM('Administrador', 'Mecânico', 'Faxineiro', 'Supervisor', 'Operário', 'Piloto') NOT NULL,
     salario DECIMAL(10, 2) NOT NULL,
-    genero VARCHAR(40),
+    genero ENUM('Feminino', 'Masculino', 'Prefiro não dizer', 'Outro') NOT NULL,
     dataNascimento DATE NOT NULL,
     senha VARCHAR(40) NOT NULL,
     email VARCHAR(255) NOT NULL,
@@ -16,26 +16,26 @@ CREATE TABLE usuarios(
 );
 
 CREATE TABLE notificacoes(
-	id INT NOT NULL PRIMARY KEY,
+	id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     descricao VARCHAR(120) NOT NULL,
     horario INT NOT NULL,
     tipo ENUM('Chuva', 'Atraso', 'Falha Mecanica') NOT NULL
 );
 
 CREATE TABLE estacoes(
-	id INT NOT NULL PRIMARY KEY,
+	id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     nomeEstacao ENUM('Estação Aurora', 'Estação Vila Nova', 'Estação Vale Verde', 'Estação São Pedro') NOT NULL,
     temperatura INT NOT NULL,
     estaChovendo BOOLEAN NOT NULL
 );
 
 CREATE TABLE rotas(
-	id INT NOT NULL PRIMARY KEY,
+	id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     nome VARCHAR(120) UNIQUE NOT NULL
 );
 
 CREATE TABLE trens(
-	id INT NOT NULL PRIMARY KEY,
+	id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     nome VARCHAR(120) UNIQUE NOT NULL,
     desempenho VARCHAR(120) NOT NULL,
     consumo INT NOT NULL,
@@ -52,7 +52,7 @@ CREATE TABLE trens(
 );
 
 CREATE TABLE manutencoes(
-	id INT NOT NULL PRIMARY KEY,
+	id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     tipoManutencao VARCHAR(120) NOT NULL,
     estacao ENUM('Estação Aurora', 'Estação Vila Nova', 'Estação Vale Verde', 'Estação São Pedro') NOT NULL,
     descricao VARCHAR(120) NOT NULL,
@@ -61,7 +61,7 @@ CREATE TABLE manutencoes(
 );
 
 CREATE TABLE avaliacoes(
-	id INT NOT NULL PRIMARY KEY,
+	id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     notaConforto INT NOT NULL,
     notaLimpeza INT NOT NULL,
     notaVistoria INT NOT NULL,
