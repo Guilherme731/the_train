@@ -46,8 +46,18 @@
                   </div>
       
                   <div class="marginTopDown-2">
-                      <input type="text" name="nomeUsuario" id="nomeUsuario" class="informacoesEspeciais" placeholder="Nome Usuário">
+                      <input type="text" name="nomeUsuario" id="nomeUsuario" class="informacoesEspeciais" placeholder="Nome de Usuário">
                       <div class="error" id="erroNomeUsuario"></div>
+                  </div>
+
+                  <div class="marginTopDown-2">
+                      <input type="text" name="senha" id="senhaUsuario" class="informacoesEspeciais" placeholder="Senha">
+                      <div class="error" id="erroSenha"></div>
+                  </div>
+
+                  <div class="marginTopDown-2">
+                      <input type="text" name="salario" id="salarioUsuario" class="informacoesEspeciais" placeholder="Salário">
+                      <div class="error" id="erroSalario"></div>
                   </div>
       
                   </div>
