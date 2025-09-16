@@ -1,3 +1,7 @@
+<?php
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -41,6 +45,11 @@
                     <img class="iconeConfigTamanho" src="../../../assets/icons/config/faleConoscoIcone.png"
                         alt="Imagem do ícone de Fale Conosco">
                     <p>Fale Conosco</p>
+                </a>
+                <a href="../../../public/sair.php" class="opcaoMenu">
+                    <img class="iconeConfigTamanho" src="../../../assets/icons/config/sair.png"
+                        alt="Imagem do ícone de Fale Conosco">
+                    <p>Encerrar Sessão</p>
                 </a>
             </div>
         </div>
