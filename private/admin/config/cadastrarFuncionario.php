@@ -1,3 +1,36 @@
+<?php
+
+include '../conexao/conexao.php';
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    $name = $_POST['nome'];
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
+    $cpf = $_POST['cpf'];
+    $cargo = $_POST['cargo'];
+    $tipo = $_POST['tipo'];
+
+
+    $sql = " INSERT INTO usuarios (nome,email,senha,cpf,cargo,tipo) VALUE ('$name','$email','$senha', '$cpf', '$cargo', 'funcionario')";
+
+    if ($conn->query($sql) === true) {
+        echo "Novo jogador registrado criado com sucesso.";
+    } else {
+        echo "Erro " . $sql . '<br>' . $conn->error;
+    }
+    $conn->close();
+}
+
+    
+
+?>
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -20,17 +53,17 @@
             <h1 class="tituloAzul">Cadastrar Funcionário</h1>
             <form id="validarCadastroFuncionario">
                 <div id="quadradoMenu">
-                    <label for="nomeFuncionario">Nome</label>
-                    <input type="text" id="nomeFuncionario" name="Nome">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nomeFuncionario" name="nome">
                     <div class="error" id="errorNome"></div>
-                    <label for="emailFuncionario">Email</label>
+                    <label for="email">Email</label>
                     <input type="text" id="emailFuncionario" name="email">
                     <div class="error" id="errorEmail"></div>
-                    <label for="senhaFuncionario">Senha</label>
-                    <input type="password" id="senhaFuncionario" name="Senha">
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senhaFuncionario" name="senha">
                     <div class="error" id="errorSenha"></div>
-                    <label for="cpfFuncionario">CPF</label>
-                    <input type="text" id="cpfFuncionario" name="CPF">
+                    <label for="cpf">CPF</label>
+                    <input type="text" id="cpfFuncionario" name="cpf">
                     <div class="error" id="errorCpf"></div>
                 </div>
                 <div class="flexCentro">
