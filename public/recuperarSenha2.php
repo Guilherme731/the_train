@@ -13,7 +13,7 @@
         <img id="ajusteImagem" src="../assets/logos/logoPequena.png" alt="Logo Pequena">
 
     </header>
-    <a href="../public/recuperarSenha.html">
+    <a href="../public/recuperarSenha.php">
         <img src="../assets/icons/header/setaEsquerdaClara.PNG" alt="Seta" onclick="voltarPagina()">
     </a>
     <div class="tituloAzulEscuro">

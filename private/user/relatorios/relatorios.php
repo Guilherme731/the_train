@@ -13,9 +13,9 @@
 </head>
 <body>
     <header class="headerPrincipal">
-        <a href="../../../private/user/config/configFuncionario.html"><img src="../../../assets/icons/header/engrenagemIcone.png" alt="Configurações"></a>
+        <a href="../../../private/user/config/configFuncionario.php"><img src="../../../assets/icons/header/engrenagemIcone.png" alt="Configurações"></a>
         <img src="../../../assets/logos/logoPequena.png" alt="Logo">
-        <a href="../alertas.html"><img src="../../../assets/icons/header/sinoIcone.png" alt="Notificações"></a>
+        <a href="../alertas.php"><img src="../../../assets/icons/header/sinoIcone.png" alt="Notificações"></a>
     </header>
 
     <main class="flexCentro">
@@ -77,10 +77,10 @@
             <div class="linhaAmarela linhaPos4"></div>
         </div>
         <div class="navbar">
-            <a href="../../../private/user/dashboard/dashboard.html"><img src="../../../assets/icons/footer/dashboardIcone.png" alt="Dashboard"></a>
-            <a href="../gerenciadorDeRotas/gerenciarRotas.html"><img src="../../../assets/icons/footer/rotasIcone.png" alt="Rotas"></a>
-            <a href="../manutencao/manutencao.html"><img src="../../../assets/icons/footer/manutencaoIcone.png" alt="Manutenção"></a>
-            <a href="relatorios.html"><img src="../../../assets/icons/footer/relatoriosIcone.png" alt="Relatórios"></a>
+            <a href="../dashboard/dashboard.php"><img src="../../../assets/icons/footer/dashboardIcone.png" alt="Dashboard"></a>
+            <a href="../gerenciadorDeRotas/gerenciarRotas.php"><img src="../../../assets/icons/footer/rotasIcone.png" alt="Rotas"></a>
+            <a href="../manutencao/manutencao.php"><img src="../../../assets/icons/footer/manutencaoIcone.png" alt="Manutenção"></a>
+            <a href="relatorios.php"><img src="../../../assets/icons/footer/relatoriosIcone.png" alt="Relatórios"></a>
         </div>
     </footer>
 </body>

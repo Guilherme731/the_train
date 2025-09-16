@@ -46,14 +46,14 @@
                 </a>
 
                 </a>
-                <a href="../../admin/cadastrarFuncionario.php" class="opcaoMenu">
+                <a href="../../admin/config/cadastrarFuncionario.php" class="opcaoMenu">
                     <img class="iconeConfigTamanho" src="../../../assets/icons/config/addFuncionarioIcone.png"
                         alt="Imagem do ícone de Criar Usuario">
                     <p>Criar Usuário</p>
                 </a>
 
                 </a>
-                <a href="../../admin/editarPerfilUsuario.php" class="opcaoMenu">
+                <a href="../../admin/config/editarPerfilUsuario.php" class="opcaoMenu">
                     <img class="iconeConfigTamanho" src="../../../assets/icons/config/editarFuncionarioIcone.png"
                         alt="Imagem do ícone de Editar Usuário">
                     <p>Editar Usuário</p>

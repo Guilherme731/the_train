@@ -53,17 +53,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <h1 class="tituloAzul">Cadastrar Funcionário</h1>
             <form id="validarCadastroFuncionario">
                 <div id="quadradoMenu">
-                    <label for="nome">Nome</label>
-                    <input type="text" id="nomeFuncionario" name="nome">
-                    <div class="error" id="errorNome"></div>
-                    <label for="email">Email</label>
-                    <input type="text" id="emailFuncionario" name="email">
+                    <input type="text" id="nomeFuncionario" name="nome" placeholder="Nome">
+                    <label class="error" id="errorNome"></label>
+                    <input type="text" id="cargoFuncionario" name="cargo" placeholder="Cargo">
+                    <div class="error" id="errorCargo"></div>
+                    <input type="text" id="salarioFuncionario" name="salario" placeholder="Salario">
+                    <div class="error" id="errorSalario"></div>
+                    <input type="text" id="emailFuncionario" name="email" placeholder="Email">
                     <div class="error" id="errorEmail"></div>
-                    <label for="senha">Senha</label>
-                    <input type="password" id="senhaFuncionario" name="senha">
+                    <input type="password" id="senhaFuncionario" name="senha" placeholder="Senha">
                     <div class="error" id="errorSenha"></div>
-                    <label for="cpf">CPF</label>
-                    <input type="text" id="cpfFuncionario" name="cpf">
+                    <input type="text" id="cpfFuncionario" name="cpf" placeholder="CPF">
                     <div class="error" id="errorCpf"></div>
                 </div>
                 <div class="flexCentro">
