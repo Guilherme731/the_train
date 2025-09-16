@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         if (valido == true) {
-            window.location.href = '../private/user/dashboard/dashboard.html';
+            window.location.href = '../dashboard/dashboard.php';
         }
 
     })

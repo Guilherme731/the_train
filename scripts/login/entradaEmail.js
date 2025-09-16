@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         if (valido == true) {
-            window.location.href = 'codigoVerificacao.html';
+            window.location.href = 'codigoVerificacao.php';
         }
 
     })
