@@ -12,8 +12,24 @@
         <img src="../../../assets/icons/header/setaEsquerda.png" alt="Seta" onclick="voltarPagina()">
     </header>
 
-    <main>
+    <main class="gridCentro">
+        <div id="usuarioTitulo">
+            <h1>Usuários</h1>
+        </div>
 
+        <div class="quadradoAzulEscuro">
+            <div class="quadradoAzulNormal">
+                <h3>Nome do Usuário</h3>
+            </div>
+
+            <div class="quadradoAzulNormal">
+                <h3>Cargo do Usuário</h3>
+            </div>
+            
+            <div class="quadradoAzulNormalPequeno">
+                <p>Escolher Usuário</p>
+            </div>
+        </div>
     </main>
 
     <div class="espacoFooterAzulLogo"></div>
