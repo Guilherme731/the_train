@@ -1,24 +1,12 @@
-<?php
-
-$mysqli = new mysqli("localhost", "root", "root", "the_train_db");
-if ($mysqli->connect_errno) {
-    die("Erro de conexão: " . $mysqli->connect_error);
-}
-
+<?php 
 session_start();
+include("../private/conexao/conexao.php");
 
-if (isset($_GET['logout'])) {
-    session_destroy();
-    header("Location: public/login.php");
-    exit;
-}
-
-$msg = "";
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $email = $_POST["email"] ?? "";
     $pass = $_POST["password"] ?? "";
 
-    $stmt = $mysqli->prepare("SELECT id, email, senha FROM usuarios WHERE email=? AND senha=?");
+    $stmt = $conn->prepare("SELECT id, email, senha FROM usuarios WHERE email=? AND senha=?");
     $stmt->bind_param("ss", $email, $pass);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -28,15 +16,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if ($dados) {
         $_SESSION["user_id"] = $dados["id"];
         $_SESSION["email"] = $dados["email"];
-        header("Location: public/login.php");
-        exit;
+        header("Location: login.php");
     } else {
-        $msg = "Usuário ou senha incorretos!";
+        echo("Usuário ou senha incorretos!");
     }
 }
+
+if(isset($_SESSION["email"])){
+    echo("Você já tem sessão iniciada com <br> " . $_SESSION["email"] . '<br> deseja <a href="sair.php">encerrar sessão</a>?');
+    exit;
+}
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -48,41 +38,26 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <title>Login - The Train</title>
 </head>
 <body>
-
-<?php if (!empty($_SESSION["user_id"])): 
-    header("Location: public/login.php");?>
-    
-  <div class="card">
-    <h3>Bem-vindo, <?= $_SESSION["email"] ?>!</h3>
-    <p>Sessão ativa.</p>
-    <p><a href="?logout=1">Sair</a></p>
-  </div>
-
     <header class="headerAzulLogo">
         <img src="../assets/logos/logoPequena.png" alt="Logo Pequena">
     </header>
     <main>
-        <?php else: ?>
-         <div class="card">   
         <p class="tituloLogin">LOGIN</p>
-        <?php if ($msg): ?><p class="msg"><?= $msg ?></p><?php endif; ?>
-        <form id="formLogin" class="formularioLogin">
+        <form id="formLogin" class="formularioLogin" method="POST" action="">
             <label for="email"></label>
             <input type="text" name="email" id="emailFuncionarioLogin" placeholder="E-mail">
-            <label for="senha"></label>
+            <label for="password"></label>
             <div class="error" id="errorEmailLogin"></div>
-            <input type="password" name="senha" id="senhaFuncionarioLogin" placeholder="Senha">
+            <input type="password" name="password" id="senhaFuncionarioLogin" placeholder="Senha">
             <div class="error" id="errorSenhaLogin"></div>
-            <a href="recuperarSenha.html">Esqueceu a senha?</a>
+            <a href="recuperarSenha.php">Esqueceu a senha?</a>
             <button type="submit">Entrar</button>
         </form>
-        </div>
     </main>
     <div class="espacoFooterAzul"></div>
     <footer class="footerAzulArredondado">
 
     </footer>
-    <script src="../scripts/login/validarLogin.js"></script>
 
 </body>
 </html>
