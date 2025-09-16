@@ -64,9 +64,15 @@
               </div>
             </div>
         
-            <div id="espacoButton">
-                    <input type="submit" id="botaoSalvarEditarPerfil" value="Salvar">
+            <div class="flex">
+                <div id="espacoButton">
+                    <input type="submit" id="botaoSalvarEditarPerfil" value="Deletar">
+                </div>
+                <div id="espacoButton">
+                    <input type="submit" id="botaoDeletarEditarPerfil" value="Salvar">
+                </div>
             </div>
+            
     </form>    
     </main>
     <div class="espacoFooterAzulLogo"></div>

@@ -469,10 +469,22 @@ font-weight: 600;
     border-radius: 15px;
     padding: 1px 40px;
     margin-top: 10px;
+    margin-left: 45%;
+    height: 50px;
+    font-size: 15px;
+    color: var(--corAzulClaro);
+}
+
+#botaoDeletarEditarPerfil{
+    background-color: var(--corAzulNormal);
+    border-radius: 15px;
+    padding: 1px 40px;
+    margin-top: 10px;
     margin-left: 55%;
     height: 50px;
     font-size: 15px;
     color: var(--corAzulClaro);
+    margin-right: 45px;
 }
 
 #centroPerfil { justify-content: center; padding: 0% 5%; }
