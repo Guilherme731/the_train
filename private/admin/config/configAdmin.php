@@ -58,6 +58,11 @@
                         alt="Imagem do ícone de Editar Usuário">
                     <p>Editar Usuário</p>
                 </a>
+                <a href="../../../public/sair.php" class="opcaoMenu">
+                    <img class="iconeConfigTamanho" src="../../../assets/icons/config/sair.png"
+                        alt="Imagem do ícone de Fale Conosco">
+                    <p>Encerrar Sessão</p>
+                </a>
             </div>
         </div>
     </main>
