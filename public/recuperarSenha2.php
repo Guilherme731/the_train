@@ -9,10 +9,9 @@
 </head>
 
 <body>
-    <header class="headerAzulLogo">
-        <img id="ajusteImagem" src="../assets/logos/logoPequena.png" alt="Logo Pequena">
+    
+    <?php include '../private/includes/header/headerLogo.php'; ?>
 
-    </header>
     <a href="../public/recuperarSenha.php">
         <img src="../assets/icons/header/setaEsquerdaClara.PNG" alt="Seta" onclick="voltarPagina()">
     </a>
