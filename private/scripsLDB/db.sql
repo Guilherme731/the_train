@@ -94,7 +94,7 @@ CREATE TABLE trabalha(
     PRIMARY KEY (idFuncionario, idTrem)
 );
 
-INSERT  INTO usuarios (`cargo`, `salario`, `genero`, `dataNascimento`, `senha`, `email`, `nome`, `cpf`, `tipo`) VALUES
+INSERT INTO usuarios (`cargo`, `salario`, `genero`, `dataNascimento`, `senha`, `email`, `nome`, `cpf`, `tipo`) VALUES
 ('Administrador', '5000', 'Feminino', '1997-04-27', 'admin', 'admin@thetrain.com', 'Admin', '99999999999', 'admin'),
 ('Operário', '3000', 'Masculino', '1999-05-27', 'user', 'user@thetrain.com', 'Usuario', '99999999998', 'funcionario');
 
@@ -116,20 +116,20 @@ VALUES
 ('Rota Sul'),
 ('Rota Central');
 
-INSERT INTO trens(nome, desempenho, consumo, velocidade, quantidadePassageiros, localizacaoX, localizacaoY, parado, ativo, idEstacao)
+INSERT INTO trens(nome, desempenho, consumo, velocidade, quantidadePassageiros, localizacaoX, localizacaoY, parado, ativo, idEstacao, idRota)
 VALUES
-('Trem Expresso 1', 'Alto', 300, 120.50, 200, 10, 20, FALSE, TRUE, 1),
-('Trem Regional 2', 'Médio', 400, 90.00, 150, 15, 25, TRUE, TRUE, 2),
-('Trem Urbano 3', 'Baixo', 200, 60.75, 100, 8, 12, FALSE, FALSE, 3);
+('Trem Expresso 1', 'Alto', 300, 120.50, 200, 10, 20, FALSE, TRUE, 1, 1),
+('Trem Regional 2', 'Médio', 400, 90.00, 150, 15, 25, TRUE, TRUE, 2, 2),
+('Trem Urbano 3', 'Baixo', 200, 60.75, 100, 8, 12, FALSE, FALSE, 3, 3);
 
-INSERT INTO manutencoes(tipoManutencao, estacao)
+INSERT INTO manutencoes(tipoManutencao, idEstacao, idTrem)
 VALUES
-('Revisão Elétrica', 'Estação Vila Nova'),
-('Manutenção Preventiva', 'Estação Aurora'),
-('Reparo de Freios', 'Estação Vale Verde');
+('Revisão Elétrica', 1, 3),
+('Manutenção Preventiva', 2, 2),
+('Reparo de Freios', 3, 1);
 
-INSERT INTO avaliacoes(notaConforto, notaLimpeza, notaVistoria)
+INSERT INTO avaliacoes(notaConforto, notaLimpeza, notaVistoria, idTrem)
 VALUES
-(8, 9, 2),
-(3, 5, 2),
-(10, 3, 9);
+(8, 9, 2, 3),
+(3, 5, 2, 1),
+(10, 3, 9, 2);
