@@ -38,9 +38,7 @@ if(isset($_SESSION["email"])){
     <title>Login - The Train</title>
 </head>
 <body>
-    <header class="headerAzulLogo">
-        <img src="../assets/logos/logoPequena.png" alt="Logo Pequena">
-    </header>
+    <?php include '../private/includes/header/headerLogo.php'; ?>
     <main>
         <p class="tituloLogin">LOGIN</p>
         <form id="formLogin" class="formularioLogin" method="POST" action="">

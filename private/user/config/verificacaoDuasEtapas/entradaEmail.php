@@ -12,11 +12,7 @@
 </head>
 
 <body>
-    <header class="headerAzulVoltar">
-
-        <img src="../../../../assets/icons/header/setaEsquerda.png" alt="Seta" onclick="voltarPagina()">
-
-    </header>
+    <?php include '../../../includes/header/headerConfig.php'; ?>
 
     <main>
         <form id="entradaEmail">
