@@ -1,6 +1,6 @@
 <?php
 
-include '../conexao/conexao.php';
+include '../../conexao/conexao.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 

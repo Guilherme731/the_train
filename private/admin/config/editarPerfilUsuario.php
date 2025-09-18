@@ -1,3 +1,37 @@
+<?php
+
+include '../../conexao/conexao.php';
+
+$id = $_GET ['id'];
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    $nome = $_POST['nome'];
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
+    $cpf = $_POST['cpf'];
+    $cargo = $_POST['cargo'];
+    $salario = $_POST['salario'];
+
+    $sql = "UPDATE usuarios SET nome = '$nome',email = '$email',senha = '$senha',cpf = '$cpf', cargo = '$cargo',salario = '$salario' WHERE id=$id";
+
+    if ($conn->query($sql) === true) {
+        echo "Registro atualizado com sucesso.
+        <a href=''>Ver registros.</a>
+        ";
+    } else {
+        echo "Erro " . $sql . '<br>' . $conn->error;
+    }
+    $conn->close();
+    exit(); 
+}
+
+$sql = "SELECT * FROM usuarios WHERE id=$id";
+$result = $conn -> query($sql);
+$row = $result -> fetch_assoc();
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -7,7 +41,6 @@
     <link rel="shortcut icon" href="../../../assets/logos/logoPequena.png">
     <link rel="stylesheet" href="../../../style/style.css">
     <script src="../../../scripts/botoesMenus.js"></script>
-    <script src="../../../scripts/perfil/validarEditarPerfilUsuario.js"></script>
     <title>Editar Perfil De Usuário</title>
 </head>
 
@@ -66,7 +99,9 @@
         
             <div class="flex">
                 <div id="espacoButton">
-                    <input type="submit" id="botaoDeletarEditarPerfil" value="Deletar">
+                    <a href="../../admin/config/deleteUser.php?id=<?=$id?>">
+                        deletar
+                    </a>
                 </div>
                 <div id="espacoButton">
                     <input type="submit" id="botaoSalvarEditarPerfil" value="Salvar">
