@@ -775,6 +775,7 @@ svg {
     background-color: var(--corAzulNormal);
     color: var(--corAmarelo);
     border-radius: 25px;
+    margin-left: 27%;
 }
 
 .quadradoAzulEscuro{
@@ -784,7 +785,7 @@ svg {
     display: grid;
     align-items: center;
     justify-content: center;
-    width: 320spx;
+    width: 320px;
 }
 
 .quadradoAzulNormal{
@@ -805,6 +806,8 @@ svg {
     border-radius: 20px;
     width: 140px;
     height: 50px;
+    margin-left: 27%;
+    border: none;
 }
 
 
