@@ -10,8 +10,9 @@
 </head>
 
 <body>
-    <?php include '../../../includes/header/headerLogo.php'; ?>
-    
+    <header class="headerAzulLogo">
+        <img id="ajusteImagem" src="../../../../assets/logos/logoPequena.png" alt="Logo Pequena">
+    </header>
     <a href="../../../../public/recuperarSenha2.php">
         <img src="../../../../assets/icons/header/setaEsquerdaClara.PNG" alt="Seta" onclick="voltarPagina()">
     </a>

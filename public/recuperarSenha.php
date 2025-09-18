@@ -11,8 +11,10 @@
 
 <body>
 
-    <?php include '../private/includes/header/headerLogo.php'; ?>
-    
+    <header class="headerAzulLogo">
+        <img id="ajusteImagem" src="../assets/logos/logoPequena.png" alt="Logo Pequena">
+
+    </header>
     <a href="../public/login.php">
         <img src="../assets/icons/header/setaEsquerdaClara.PNG" alt="Seta" onclick="voltarPagina()">
     </a>

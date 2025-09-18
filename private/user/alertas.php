@@ -10,7 +10,11 @@
     
 </head>
 <body>
-    <?php include '../includes/header/headerPadrao.php'; ?>
+    <header class="headerPrincipal">
+        <a href="../../private/user/config/configFuncionario.php"><img src="../../assets/icons/header/engrenagemIcone.png" alt="Configurações"></a>
+        <img src="../../assets/logos/logoPequena.png" alt="Logo">
+        <a href="alertas.php"><img src="../../assets/icons/header/sinoIcone.png" alt="Notificações"></a>
+    </header>
 
     <main>
         <section class="secaoInfo">

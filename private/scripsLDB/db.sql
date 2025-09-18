@@ -93,7 +93,7 @@ CREATE TABLE trabalha(
     PRIMARY KEY (idFuncionario, idTrem)
 );
 
-INSERT INTO usuarios(`cargo`, `salario`, `genero`, `dataNascimento`, `senha`, `email`, `nome`, `cpf`, `tipo`) VALUES
+INSERT (`cargo`, `salario`, `genero`, `dataNascimento`, `senha`, `email`, `nome`, `cpf`, `tipo`) INTO usuarios VALUES
 ('Administrador', '5000', 'Feminino', '1997-04-27', 'admin', 'admin@thetrain.com', 'Admin', '99999999999', 'admin'),
 ('Operário', '3000', 'Masculino', '1999-05-27', 'user', 'user@thetrain.com', 'Usuario', '99999999998', 'funcionario');
 

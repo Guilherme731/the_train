@@ -11,7 +11,9 @@
 </head>
 
 <body>
-    <?php include '../../../includes/header/headerConfig.php'; ?>
+    <header class="headerAzulVoltar">
+        <img src="../../../../assets/icons/header/setaEsquerda.png" alt="Seta" onclick="voltarPagina()">
+    </header>
     <main>
         <div id="quadradoMenu">
             <div class="flexCentro textoCentral">
