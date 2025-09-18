@@ -54,10 +54,11 @@ CREATE TABLE trens(
 CREATE TABLE manutencoes(
 	id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     tipoManutencao VARCHAR(120) NOT NULL,
-    estacao ENUM('Estação Aurora', 'Estação Vila Nova', 'Estação Vale Verde', 'Estação São Pedro') NOT NULL,
+    idEstacao INT NOT NULL,
     descricao VARCHAR(120) NULL,
     idTrem INT NOT NULL,
-    FOREIGN KEY (idTrem) REFERENCES trens(id)
+    FOREIGN KEY (idTrem) REFERENCES trens(id),
+    FOREIGN KEY (idEstacao) REFERENCES estacoes(id)
 );
 
 CREATE TABLE avaliacoes(
@@ -115,11 +116,11 @@ VALUES
 ('Rota Sul'),
 ('Rota Central');
 
-INSERT INTO trens(nome, desempenho, consumo, velocidade, quantidadePassageiros, localizacaoX, localizacaoY, parado, ativo)
+INSERT INTO trens(nome, desempenho, consumo, velocidade, quantidadePassageiros, localizacaoX, localizacaoY, parado, ativo, idEstacao)
 VALUES
-('Trem Expresso 1', 'Alto', 300, 120.50, 200, 10, 20, FALSE, TRUE),
-('Trem Regional 2', 'Médio', 400, 90.00, 150, 15, 25, TRUE, TRUE),
-('Trem Urbano 3', 'Baixo', 200, 60.75, 100, 8, 12, FALSE, FALSE);
+('Trem Expresso 1', 'Alto', 300, 120.50, 200, 10, 20, FALSE, TRUE, 1),
+('Trem Regional 2', 'Médio', 400, 90.00, 150, 15, 25, TRUE, TRUE, 2),
+('Trem Urbano 3', 'Baixo', 200, 60.75, 100, 8, 12, FALSE, FALSE, 3);
 
 INSERT INTO manutencoes(tipoManutencao, estacao)
 VALUES
