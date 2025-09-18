@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -12,11 +15,12 @@
     <script src="../../../scripts/graficos/graficoEficiencia.js"></script>
 </head>
 <body>
-    <header class="headerPrincipal">
-        <a href="../../../private/user/config/configFuncionario.php"><img src="../../../assets/icons/header/engrenagemIcone.png" alt="Configurações"></a>
-        <img src="../../../assets/logos/logoPequena.png" alt="Logo">
-        <a href="../alertas.php"><img src="../../../assets/icons/header/sinoIcone.png" alt="Notificações"></a>
-    </header>
+
+<header class="headerPrincipal">
+    <a href="../../../private/<?php if($_SESSION['tipo'] == 'admin'){echo 'admin/config/configAdmin.php';} else {echo 'user/config/configFuncionario.php';}?>"><img src="../../../assets/icons/header/engrenagemIcone.png" alt="Configurações"></a>
+    <img src="../../../assets/logos/logoPequena.png" alt="Logo">
+    <a href="../alertas.php"><img src="../../../assets/icons/header/sinoIcone.png" alt="Notificações"></a>
+</header>
 
     <main class="flexCentro">
         <div>
