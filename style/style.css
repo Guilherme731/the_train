@@ -68,11 +68,13 @@ body {
 /*  HEADER  */
 .headerAzulLogo {
     padding-top: 7%;
+    height: 3vh;
     padding-bottom: 5%;
     background-color: var(--corAzulNormal);
     border-bottom-right-radius: 70px;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 .headerAzulLogo img { height: 70px; }
 .headerAzulVoltar {
