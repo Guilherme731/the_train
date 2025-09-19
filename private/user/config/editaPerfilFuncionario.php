@@ -1,3 +1,7 @@
+<?php
+include '../../authGuard/authUsuario.php';
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 

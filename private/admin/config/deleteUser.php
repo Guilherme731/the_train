@@ -11,12 +11,12 @@
     <form action="" method="post">
         <button type="submit">Excluir</button>
     </form>
-    <a href="editarPerfilUsuario.php">Voltar</a>
+    <a href="editarPerfilUsuario.php?id=1">Voltar</a>
     
 </body>
 </html>
     <?php
-        include '../conexao/conexao.php';
+        include '../../conexao/conexao.php';
 
         if(isset($_GET['id'])){
             $id = $_GET['id'];
@@ -24,10 +24,10 @@
                 $stmt = $conn->prepare("DELETE FROM usuarios WHERE id = ?");
                 $stmt->bind_param("i", $id);
                 $stmt->execute();
-                header("Location: editarPerfilUsuario.php");
+                header("Location configAdmin.php");
             }
         }else{
-            header("Location: editarPerfilUsuario.php");
+            header("Location configAdmin.php");
         }
         
     ?>
