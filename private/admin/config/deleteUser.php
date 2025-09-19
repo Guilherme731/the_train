@@ -11,7 +11,7 @@
     <form action="" method="post">
         <button type="submit">Excluir</button>
     </form>
-    <a href="http://localhost:90/Atividades_Rodrigo/SA_Parte_8/the_train/private/admin/config/editarPerfilUsuario.php?id=1">Voltar</a>
+    <a href="editarPerfilUsuario.php?id=1">Voltar</a>
     
 </body>
 </html>

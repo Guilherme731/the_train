@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($conn->query($sql) === true) {
         echo "Registro atualizado com sucesso.
-        <a href=''>Ver registros.</a>
+        <a href='../selecionarUsuario.php'>Ver registros.</a>
         ";
     } else {
         echo "Erro " . $sql . '<br>' . $conn->error;
@@ -100,7 +100,7 @@ $row = $result -> fetch_assoc();
             <div class="flex">
                 <div id="espacoButton">
                     <a href="../../admin/config/deleteUser.php?id=<?=$id?>">
-                        deletar
+                        Deletar
                     </a>
                 </div>
                 <div id="espacoButton">
