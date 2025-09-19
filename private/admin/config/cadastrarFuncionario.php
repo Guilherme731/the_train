@@ -1,6 +1,6 @@
 <?php
 
-include '../conexao/conexao.php';
+include '../../conexao/conexao.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -10,12 +10,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $cpf = $_POST['cpf'];
     $cargo = $_POST['cargo'];
     $tipo = $_POST['tipo'];
+    $genero = $_POST['genero'];
+    $dataNascimento = $_POST['dataNascimento'];
 
-
-    $sql = " INSERT INTO usuarios (nome,email,senha,cpf,cargo,tipo) VALUE ('$name','$email','$senha', '$cpf', '$cargo', 'funcionario')";
+    $sql = " INSERT INTO usuarios (nome,email,senha,cpf,cargo,tipo,genero,dataNascimento) VALUE ('$name','$email','$senha', '$cpf', '$cargo', 'funcionario', '$genero', '$dataNascimento')";
 
     if ($conn->query($sql) === true) {
-        echo "Novo jogador registrado criado com sucesso.";
+        echo "Novo Funcionario registrado com sucesso.";
     } else {
         echo "Erro " . $sql . '<br>' . $conn->error;
     }
@@ -51,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <main class="mainCentral">
         <div>
             <h1 class="tituloAzul">Cadastrar Funcionário</h1>
-            <form id="validarCadastroFuncionario">
+            <form id="validarCadastroFuncionario" method="POST" action="cadastrarFuncionario.php">
                 <div id="quadradoMenu">
                     <input type="text" id="nomeFuncionario" name="nome" placeholder="Nome">
                     <label class="error" id="errorNome"></label>
@@ -65,9 +66,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <div class="error" id="errorSenha"></div>
                     <input type="text" id="cpfFuncionario" name="cpf" placeholder="CPF">
                     <div class="error" id="errorCpf"></div>
+                    <input type="text" id="generoFuncionario" name="genero" placeholder="Gênero">
+                    <div class="error" id="errorGenero"></div>
+                    <input type="date" id="dataNascimentoFuncionario" name="dataNascimento" placeholder="Data de Nascimento">
+                    <div class="error" id="errorDataNascimento"></div>
                 </div>
                 <div class="flexCentro">
-                    <button id="botaoSubmit" type="submit">
+                    <button id="botaoSubmit" type="submit" value="adicionar">
                         <div class="flexCentro">
                             <img class="iconeCadastrarFuncionarioTamanho"
                                 src="../../../assets/icons/config/cadastroFuncionarioIcone.png">
