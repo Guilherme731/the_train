@@ -2,16 +2,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../style/style.css">
-    <title>Excluir Funcionario</title>
+    <link rel="stylesheet" href="../../../style/style.css">
+    <title>Excluir Funcionário</title>
 </head>
 <body>
-    <h2>Excluir Funcionario</h2>
-    <p>Deseja Realmente Excluir o Funcionario?</p>
-    <form action="" method="post">
-        <button type="submit">Excluir</button>
-    </form>
-    <a href="editarPerfilUsuario.php?id=1">Voltar</a>
+
+<header class="headerAzulVoltar">
+    <a href="selecionarUsuario.php"><img src="../../../assets/icons/header/setaEsquerda.png" alt="Seta"></a>
+</header>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="gridCentro">
+    <div class="flexCentro">
+        <h2>Excluir Funcionário</h2>
+    </div>
+    <div class="flexCentro">
+        <h3>Deseja Realmente Excluir o Funcionário?</h3>
+    </div>
+         
+    <a href="selecionarUsuario.php" class="quadradoAzulNormalPequeno">
+        <div>
+            <p>Excluir</p>
+        </div>
+    </a>
+
+
+    <a href="editarPerfilUsuario.php?id=1" class="quadradoAzulNormalPequeno">
+        <div>
+            <p>Voltar</p>
+        </div>
+    </a>
+    
+</div>
+
+
+<div class="flexCentro">
+    <div class="espacoFooterAzulLogo"></div>
+    <footer class="footerAzulLogo">
+        <img src="../../../assets/logos/logoCompleta.png" alt="Logo">
+    </footer>
+</div>
+
     
 </body>
 </html>
