@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $pass = $_POST["password"] ?? "";
 
     $stmt = $conn->prepare("SELECT id, email, senha, tipo FROM usuarios WHERE email=?");
-    $stmt->bind_param("ss", $email, $pass);
+    $stmt->bind_param("s", $email);
     $stmt->execute();
     $result = $stmt->get_result();
     $dados = $result->fetch_assoc();
