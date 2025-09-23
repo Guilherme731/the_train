@@ -103,9 +103,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
         
             <div class="flex">
-                <div id="espacoButton">
                     <input type="submit" id="botaoSalvarEditarPerfil" value="Salvar">
-                </div>
             </div>
             
     </form>    
