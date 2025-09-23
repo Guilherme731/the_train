@@ -18,7 +18,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $_SESSION["email"] = $dados["email"];
         header("Location: ../private/user/dashboard/dashboard.php");
     } else {
-        echo("Usuário ou senha incorretos!");
+        echo "<div class='mensagemErro'>
+        <p>Nome ou senha incorretos</p>
+        <a class='fechar' href='login.php'>Fechar</a>
+        </div>";
     }
 }
 

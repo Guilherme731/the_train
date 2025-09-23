@@ -270,6 +270,26 @@ body {
 
 .error{ color: var(--corLaranja); font-size: 0.9em; font-weight: 500;}
 
+.mensagemErro{
+    text-align: center;
+    font-size: 130%;
+    background: var(--corAzulEscuro);
+    padding: 15px 0px;
+    border:3px solid black;
+    border-radius: 5px;
+    position: absolute;
+    top: 43%;
+    left: 30%;
+    width: 30%;
+    padding: 5%;
+    margin-bottom: 10px;
+    color: var(--corAmarelo);
+}
+
+.fechar{
+    color: var(--corLaranja);
+}
+
 /*  VERIFICAÇÃO DE DUAS ETAPAS  */
 #iconeVerificacao2Etapas { width: 190px; }
 .botaoDigitarEmail {
