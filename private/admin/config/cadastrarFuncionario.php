@@ -9,11 +9,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $senha = $_POST['senha'];
     $cpf = $_POST['cpf'];
     $cargo = $_POST['cargo'];
-    $tipo = $_POST['tipo'];
     $genero = $_POST['genero'];
     $dataNascimento = $_POST['dataNascimento'];
+    $salario = $_POST['salario'];
+    $tipoFuncionario = $_POST['tipo'];
 
-    $sql = " INSERT INTO usuarios (nome,email,senha,cpf,cargo,tipo,genero,dataNascimento) VALUE ('$name','$email','$senha', '$cpf', '$cargo', 'funcionario', '$genero', '$dataNascimento')";
+    $sql = " INSERT INTO usuarios (nome,email,senha,cpf,cargo,tipo,genero,dataNascimento,salario) VALUE ('$name','$email','$senha', '$cpf', '$cargo', '$tipoFuncionario', '$genero', '$dataNascimento', '$salario')";
 
     if ($conn->query($sql) === true) {
         echo "Novo Funcionario registrado com sucesso.";
@@ -52,33 +53,56 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <main class="mainCentral">
         <div>
             <h1 class="tituloAzul">Cadastrar Funcionário</h1>
-            <form id="validarCadastroFuncionario" method="POST" action="cadastrarFuncionario.php">
+            <form id="validarCadastroFuncionario" method="POST">
                 <div id="quadradoMenu">
-                    <input type="text" id="nomeFuncionario" name="nome" placeholder="Nome">
+                    <input type="text" id="nomeFuncionario" class="placeholderClaro" name="nome" placeholder="Nome">
                     <label class="error" id="errorNome"></label>
-                    <input type="text" id="cargoFuncionario" name="cargo" placeholder="Cargo">
-                    <div class="error" id="errorCargo"></div>
-                    <input type="text" id="salarioFuncionario" name="salario" placeholder="Salario">
+
+                    <label for="cargo" id="" class="placeholderClaro">
+                        <select name="cargo" id="cargoFuncionario">
+                            <option value="Administrador">Administrador</option>
+                            <option value="Mecânico">Mecânico</option>
+                            <option value="Faxineiro">Faxineiro</option>
+                            <option value="Supervisor">Supervisor</option>
+                            <option value="Operário">Operário</option>
+                            <option value="Piloto">Piloto</option> 
+                        </select>
+                    
+
+                    <input type="text" id="salarioFuncionario" class="placeholderClaro" name="salario" placeholder="Salario">
                     <div class="error" id="errorSalario"></div>
-                    <input type="text" id="emailFuncionario" name="email" placeholder="Email">
+                    <input type="text" id="emailFuncionario" class="placeholderClaro" name="email" placeholder="Email">
                     <div class="error" id="errorEmail"></div>
-                    <input type="password" id="senhaFuncionario" name="senha" placeholder="Senha">
+                    <input type="password" id="senhaFuncionario" class="placeholderClaro" name="senha" placeholder="Senha">
                     <div class="error" id="errorSenha"></div>
-                    <input type="text" id="cpfFuncionario" name="cpf" placeholder="CPF">
-                    <div class="error" id="errorCpf"></div>
-                    <input type="text" id="generoFuncionario" name="genero" placeholder="Gênero">
+                    <input type="text" id="cpfFuncionario" class="placeholderClaro" name="cpf" placeholder="CPF">
+                    <div class="error" id="errorCpf"></div>                    
+
+                    <label for="genero">
+                        <select name="genero" id="generoFuncionario">
+                            <option value="Feminino">Feminino</option>
+                            <option value="Masculino">Masculino</option>
+                            <option value="Prefiro não dizer">Prefiro não dizer</option>
+                            <option value="Outro">Outro</option>
+                        </select>
                     <div class="error" id="errorGenero"></div>
+                    
                     <input type="date" id="dataNascimentoFuncionario" name="dataNascimento" placeholder="Data de Nascimento">
+                    <div class="error" id="errorDataNascimento"></div>
+
+                    <label for="tipo" id="" name="" placeholder="Data de Nascimento">
+                        <select name="tipo" id="tipoFuncionario">
+                            <option value="funcionario">Funcionario</option>
+                            <option value="admin">Admin</option>
+                        </select>
                     <div class="error" id="errorDataNascimento"></div>
                 </div>
                 <div class="flexCentro">
-                    <button id="botaoSubmit" type="submit" value="adicionar">
+                    <button id="botaoSubmit" type="submit">
                         <div class="flexCentro">
-                            <img class="iconeCadastrarFuncionarioTamanho"
-                                src="../../../assets/icons/config/cadastroFuncionarioIcone.png">
+                            <img class="iconeCadastrarFuncionarioTamanho" src="../../../assets/icons/config/cadastroFuncionarioIcone.png">
                             <h2 id="textoCadastrar">Cadastrar</h2>
                         </div>
-    
                     </button>
 
                 </div>
@@ -99,7 +123,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <img src="../../../assets/logos/logoCompleta.png" alt="Logo">
     </footer>
 
-    <script src="../../../scripts/perfil/cadastrarFuncionario.js"></script>
 </body>
 
 </html>
