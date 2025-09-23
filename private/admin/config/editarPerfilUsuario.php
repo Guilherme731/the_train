@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $nome = $_POST['nome'];
     $email = $_POST['email'];
-    $senha = $_POST['senha'];
+    $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
     $cpf = $_POST['cpf'];
     $cargo = $_POST['cargo'];
     $salario = $_POST['salario'];
@@ -84,7 +84,7 @@ $row = $result -> fetch_assoc();
                   </div>
 
                   <div class="marginTopDown-2">
-                      <input type="text" name="senha" id="senhaUsuario" value="<?php echo $row['senha'] ?>" class="informacoesEspeciais" placeholder="Senha">
+                      <input type="text" name="senha" id="senhaUsuario" value="" class="informacoesEspeciais" placeholder="Senha">
                       <div class="error" id="erroSenha"></div>
                   </div>
 
