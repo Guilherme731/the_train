@@ -95,7 +95,7 @@ CREATE TABLE trabalha(
 );
 
 INSERT INTO usuarios (`cargo`, `salario`, `genero`, `dataNascimento`, `senha`, `email`, `nome`, `cpf`, `tipo`) VALUES
-('Administrador', '5000', 'Feminino', '1997-04-27', '$2y$10$TpeFcCWX2FMuma.gJ6APfujNso/.d5cVWm8kMso5tj4krsECVQ3A.', 'admin@thetrain.com', 'Admin', '99999999999', 'admin'),
+('Administrador', '5000', 'Feminino', '1997-04-27', '$2y$10$UQ8NEEGJMhR27KYLr6JwAOoa6YOXyrbF8jwiirn2QbgcG3eDmBJEC', 'admin@thetrain.com', 'Admin', '99999999999', 'admin'),
 ('Operário', '3000', 'Masculino', '1999-05-27', '$2y$10$FXEtBMctNaZfGFhEG9cYgOcROkb0z.2xEayu9JKbZuWVg8L/0OisO', 'user@thetrain.com', 'Usuario', '99999999998', 'funcionario');
 
 INSERT INTO notificacoes(horario, tipo)
