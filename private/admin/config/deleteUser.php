@@ -1,3 +1,20 @@
+<?php
+    include '../../conexao/conexao.php';
+
+        if(isset($_GET['id'])){
+            $id = $_GET['id'];
+            if($_SERVER['REQUEST_METHOD'] == 'POST'){
+                $stmt = $conn->prepare("DELETE FROM usuarios WHERE id = ?");
+                $stmt->bind_param("i", $id);
+                $stmt->execute();
+                header("Location: selecionarUsuario.php");
+            }
+        }else{
+            header("Location: selecionarUsuario.php");
+        }
+        
+?>
+
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -27,14 +44,14 @@
         <h3>Deseja Realmente Excluir o Funcionário?</h3>
     </div>
          
+    <form action="" method="post">
+        <input class="quadradoAzulNormalPequeno" type="submit" value="Excluir">
+    </form>
+        
+        
+
+
     <a href="selecionarUsuario.php" class="quadradoAzulNormalPequeno">
-        <div>
-            <p>Excluir</p>
-        </div>
-    </a>
-
-
-    <a href="editarPerfilUsuario.php?id=1" class="quadradoAzulNormalPequeno">
         <div>
             <p>Voltar</p>
         </div>
