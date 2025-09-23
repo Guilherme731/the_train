@@ -16,9 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $sql = "UPDATE usuarios SET nome = '$nome',email = '$email',senha = '$senha',cpf = '$cpf', cargo = '$cargo',salario = '$salario' WHERE id=$id";
 
     if ($conn->query($sql) === true) {
-        echo "Registro atualizado com sucesso.
-        <a href='../selecionarUsuario.php'>Ver registros.</a>
-        ";
+        header("location: selecionarUsuario.php");
     } else {
         echo "Erro " . $sql . '<br>' . $conn->error;
     }
@@ -59,7 +57,7 @@ $row = $result -> fetch_assoc();
             <h3 class="textoCentral">Nome do Usuário</h3>
         </div>
 
-        <form id="formularioEditarPerfilUsuario">
+        <form action="" method="POST" id="formularioEditarPerfilUsuario">
         <div id="centroPerfil">
             <div class="flexCentro">
                 <div id="informacoesEspeciaisUser">
@@ -69,7 +67,7 @@ $row = $result -> fetch_assoc();
                     </div>
                       
                     <div class="marginTopDown-2">
-                      <input type="text" name="CPF" id="cpf" value="<?php echo $row['cpf'] ?>" class="informacoesEspeciais" placeholder="CPF"><br>
+                      <input type="text" name="cpf" id="cpf" value="<?php echo $row['cpf'] ?>" class="informacoesEspeciais" placeholder="CPF"><br>
                       <div class="error" id="erroCPF"></div>
                     </div>
                       
@@ -79,7 +77,7 @@ $row = $result -> fetch_assoc();
                   </div>
       
                   <div class="marginTopDown-2">
-                      <input type="text" name="nomeUsuario" id="nomeUsuario" value="<?php echo $row['nome'] ?>" class="informacoesEspeciais" placeholder="Nome de Usuário">
+                      <input type="text" name="nome" id="nomeUsuario" value="<?php echo $row['nome'] ?>" class="informacoesEspeciais" placeholder="Nome de Usuário">
                       <div class="error" id="erroNomeUsuario"></div>
                   </div>
 
@@ -98,11 +96,6 @@ $row = $result -> fetch_assoc();
             </div>
         
             <div class="flex">
-                <div id="espacoButton">
-                    <a href="../../admin/config/deleteUser.php?id=<?=$id?>">
-                        Deletar
-                    </a>
-                </div>
                 <div id="espacoButton">
                     <input type="submit" id="botaoSalvarEditarPerfil" value="Salvar">
                 </div>
