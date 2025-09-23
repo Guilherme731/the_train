@@ -489,10 +489,11 @@ font-weight: 600;
 #botaoSalvarEditarPerfil{
     background-color: var(--corAzulNormal);
     border-radius: 15px;
-    padding: 1px 40px;
+    padding: 1px 2%;
     margin-top: 10px;
-    margin-left: 79.6%;
+    margin-left: 66%;
     height: 50px;
+    width: 20%;
     font-size: 15px;
     color: var(--corAzulClaro);
 }
