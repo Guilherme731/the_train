@@ -844,7 +844,7 @@ svg {
 .iconeAddRotas{height: 45px; width: 50px; padding-left: 85%; padding-top: 1%;}
 
 
-#nomeFuncionario, #emailFuncionario, #senhaFuncionario, #cpfFuncionario, #cargoFuncionario, #salarioFuncionario, #dataNascimentoFuncionario, #generoFuncionario{
+#nomeFuncionario, #emailFuncionario, #senhaFuncionario, #cpfFuncionario, #cargoFuncionario, #salarioFuncionario, #dataNascimentoFuncionario, #generoFuncionario, #tipoFuncionario{
     background-color: #4c7da3;
     border: none;
     border-bottom: solid 2px #2f4858;
@@ -855,6 +855,11 @@ svg {
     padding-top: 30px;
     color: var(--corAzulClaro);
 }
+
+.placeholderClaro::placeholder{
+    color: var(--corAzulClaro);
+}
+
 
 fieldset {
     border: 0;

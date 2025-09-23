@@ -6,14 +6,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $email = $_POST["email"] ?? "";
     $pass = $_POST["password"] ?? "";
 
-    $stmt = $conn->prepare("SELECT id, email, senha, tipo FROM usuarios WHERE email=? AND senha=?");
+    $stmt = $conn->prepare("SELECT id, email, senha, tipo FROM usuarios WHERE email=?");
     $stmt->bind_param("ss", $email, $pass);
     $stmt->execute();
     $result = $stmt->get_result();
     $dados = $result->fetch_assoc();
     $stmt->close();
 
-    if ($dados) {
+    if (password_verify($pass, $dados['senha'])) {
         $_SESSION["user_id"] = $dados["id"];
         $_SESSION["email"] = $dados["email"];
         $_SESSION["tipo"] = $dados["tipo"];
@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 }
 
 if(isset($_SESSION["email"])){
-    echo("Você já tem sessão iniciada com <br> " . $_SESSION["email"] . '<br> deseja <a href="sair.php">encerrar sessão</a>?');
+    header("Location: ../private/user/dashboard/dashboard.php");
     exit;
 }
 ?>
