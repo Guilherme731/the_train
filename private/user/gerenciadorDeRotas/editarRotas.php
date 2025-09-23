@@ -55,7 +55,7 @@ include '../../authGuard/authUsuario.php';
         </div>
         <h2 class="tituloAzul" id="tituloPagina">Editar Rota</h2>
         <p class="textoCentral textSize-10">Deseja editar outra rota? <br> <a class="textoAzulEscuro"
-                href="gerenciarRotas.html">Selecione outra</a></p>
+                href="gerenciarRotas.php">Selecione outra</a></p>
 
         <div id="listaEstacoes">
             
@@ -74,12 +74,12 @@ include '../../authGuard/authUsuario.php';
             <div class="linhaAmarela linhaPos2"></div>
         </div>
         <div class="navbar">
-            <a href="../../../private/user/dashboard/dashboard.html"><img
+            <a href="../../../private/user/dashboard/dashboard.php"><img
                     src="../../../assets/icons/footer/dashboardIcone.png" alt="Dashboard"></a>
             <a href=""><img src="../../../assets/icons/footer/rotasIcone.png" alt="Rotas"></a>
-            <a href="../manutencao/manutencao.html"><img src="../../../assets/icons/footer/manutencaoIcone.png"
+            <a href="../manutencao/manutencao.php"><img src="../../../assets/icons/footer/manutencaoIcone.png"
                     alt="Manutenção"></a>
-            <a href="../relatorios/relatorios.html"><img src="../../../assets/icons/footer/relatoriosIcone.png"
+            <a href="../relatorios/relatorios.php"><img src="../../../assets/icons/footer/relatoriosIcone.png"
                     alt="Relatórios"></a>
         </div>
     </footer>
