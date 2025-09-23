@@ -41,12 +41,19 @@ $result = $conn->query($sql);
                 <h3>{$row['cargo']}</h3>
             </div>
             
-                <a href='editarPerfilUsuario.php?id={$row['id']}' class='quadradoAzulNormalPequeno'>
+                <div class='flex'>
+                <a href='deleteUser.php?id={$row['id']}' class='quadradoAzulNormalPequeno'>
                     <div>
-                        <p>Escolher Usuário</p>
+                        <p>Deletar Usuário</p>
                     </div>
                 </a>
-                
+
+                <a href='editarPerfilUsuario.php?id={$row['id']}' class='quadradoAzulNormalPequeno'>
+                    <div>
+                        <p>Selecionar Usuário</p>
+                    </div>
+                </a>
+                </div>
         </div>
                 
                 ";
