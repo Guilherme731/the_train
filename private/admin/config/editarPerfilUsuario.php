@@ -4,11 +4,20 @@ include '../../conexao/conexao.php';
 
 $id = $_GET ['id'];
 
+$sql = "SELECT * FROM usuarios WHERE id=$id";
+$result = $conn -> query($sql);
+$row = $result -> fetch_assoc();
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $nome = $_POST['nome'];
     $email = $_POST['email'];
-    $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
+    if($_POST['senha'] === ''){
+        $senha = $row['senha'];
+    }else{
+        $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
+    }
+    
     $cpf = $_POST['cpf'];
     $cargo = $_POST['cargo'];
     $salario = $_POST['salario'];
@@ -26,9 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     exit(); 
 }
 
-$sql = "SELECT * FROM usuarios WHERE id=$id";
-$result = $conn -> query($sql);
-$row = $result -> fetch_assoc();
+
 
 ?>
 
