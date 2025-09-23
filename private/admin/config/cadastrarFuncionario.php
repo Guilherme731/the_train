@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <body>
     <header class="headerAzulVoltar">
-        <img src="../../../assets/icons/header/setaEsquerda.png" alt="Seta" onclick="voltarPagina()">
+        <a href="configAdmin.php"><img src="../../../assets/icons/header/setaEsquerda.png" alt="Seta"></a>
     </header>
 
     <main class="mainCentral">
@@ -86,7 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <option value="Outro">Outro</option>
                         </select>
                     <div class="error" id="errorGenero"></div>
-                    
+
                     <input type="date" id="dataNascimentoFuncionario" name="dataNascimento" placeholder="Data de Nascimento">
                     <div class="error" id="errorDataNascimento"></div>
 
