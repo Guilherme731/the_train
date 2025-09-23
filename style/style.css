@@ -68,11 +68,13 @@ body {
 /*  HEADER  */
 .headerAzulLogo {
     padding-top: 7%;
+    height: 3vh;
     padding-bottom: 5%;
     background-color: var(--corAzulNormal);
     border-bottom-right-radius: 70px;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 .headerAzulLogo img { height: 70px; }
 .headerAzulVoltar {
@@ -795,6 +797,7 @@ svg {
     background-color: var(--corAzulNormal);
     color: var(--corAmarelo);
     border-radius: 25px;
+    margin-left: 27%;
 }
 
 .quadradoAzulEscuro{
@@ -804,7 +807,7 @@ svg {
     display: grid;
     align-items: center;
     justify-content: center;
-    width: 320spx;
+    width: 320px;
 }
 
 .quadradoAzulNormal{
@@ -825,6 +828,8 @@ svg {
     border-radius: 20px;
     width: 140px;
     height: 50px;
+    margin-left: 27%;
+    border: none;
 }
 
 
@@ -839,7 +844,7 @@ svg {
 .iconeAddRotas{height: 45px; width: 50px; padding-left: 85%; padding-top: 1%;}
 
 
-#nomeFuncionario, #emailFuncionario, #senhaFuncionario, #cpfFuncionario, #cargoFuncionario, #salarioFuncionario{
+#nomeFuncionario, #emailFuncionario, #senhaFuncionario, #cpfFuncionario, #cargoFuncionario, #salarioFuncionario, #dataNascimentoFuncionario, #generoFuncionario{
     background-color: #4c7da3;
     border: none;
     border-bottom: solid 2px #2f4858;
@@ -950,3 +955,4 @@ fieldset.grupo.campo{
     color: black;
     cursor: pointer;
 }
+

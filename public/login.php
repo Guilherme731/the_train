@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $email = $_POST["email"] ?? "";
     $pass = $_POST["password"] ?? "";
 
-    $stmt = $conn->prepare("SELECT id, email, senha FROM usuarios WHERE email=? AND senha=?");
+    $stmt = $conn->prepare("SELECT id, email, senha, tipo FROM usuarios WHERE email=? AND senha=?");
     $stmt->bind_param("ss", $email, $pass);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -16,6 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if ($dados) {
         $_SESSION["user_id"] = $dados["id"];
         $_SESSION["email"] = $dados["email"];
+        $_SESSION["tipo"] = $dados["tipo"];
         header("Location: ../private/user/dashboard/dashboard.php");
     } else {
         echo "<div class='mensagemErro'>

@@ -17,15 +17,15 @@ CREATE TABLE usuarios(
 
 CREATE TABLE notificacoes(
 	id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
-    descricao VARCHAR(120) NOT NULL,
-    horario INT NOT NULL,
+    descricao VARCHAR(120) NULL,
+    horario TIME NOT NULL,
     tipo ENUM('Chuva', 'Atraso', 'Falha Mecanica') NOT NULL
 );
 
 CREATE TABLE estacoes(
 	id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     nomeEstacao ENUM('Estação Aurora', 'Estação Vila Nova', 'Estação Vale Verde', 'Estação São Pedro') NOT NULL,
-    temperatura INT NOT NULL,
+    temperatura DECIMAL NOT NULL,
     estaChovendo BOOLEAN NOT NULL
 );
 
@@ -54,10 +54,11 @@ CREATE TABLE trens(
 CREATE TABLE manutencoes(
 	id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     tipoManutencao VARCHAR(120) NOT NULL,
-    estacao ENUM('Estação Aurora', 'Estação Vila Nova', 'Estação Vale Verde', 'Estação São Pedro') NOT NULL,
-    descricao VARCHAR(120) NOT NULL,
+    idEstacao INT NOT NULL,
+    descricao VARCHAR(120) NULL,
     idTrem INT NOT NULL,
-    FOREIGN KEY (idTrem) REFERENCES trens(id)
+    FOREIGN KEY (idTrem) REFERENCES trens(id),
+    FOREIGN KEY (idEstacao) REFERENCES estacoes(id)
 );
 
 CREATE TABLE avaliacoes(
@@ -93,6 +94,42 @@ CREATE TABLE trabalha(
     PRIMARY KEY (idFuncionario, idTrem)
 );
 
-INSERT (`cargo`, `salario`, `genero`, `dataNascimento`, `senha`, `email`, `nome`, `cpf`, `tipo`) INTO usuarios VALUES
+INSERT INTO usuarios (`cargo`, `salario`, `genero`, `dataNascimento`, `senha`, `email`, `nome`, `cpf`, `tipo`) VALUES
 ('Administrador', '5000', 'Feminino', '1997-04-27', 'admin', 'admin@thetrain.com', 'Admin', '99999999999', 'admin'),
-();
+('Operário', '3000', 'Masculino', '1999-05-27', 'user', 'user@thetrain.com', 'Usuario', '99999999998', 'funcionario');
+
+INSERT INTO notificacoes(horario, tipo)
+VALUES
+('12:20:00', 'Chuva'),
+('8:20:00', 'Atraso'),
+('2:20:10', 'Falha Mecânica');
+
+INSERT INTO estacoes(nomeEstacao, temperatura, estaChovendo)
+VALUES
+('Estação Aurora', 23.3, TRUE),
+('Estação Vila Nova', 25.3, FALSE),
+('Estação Vale Verde', 15.3, TRUE);
+
+INSERT INTO rotas(nome)
+VALUES
+('Rota Norte'),
+('Rota Sul'),
+('Rota Central');
+
+INSERT INTO trens(nome, desempenho, consumo, velocidade, quantidadePassageiros, localizacaoX, localizacaoY, parado, ativo, idEstacao, idRota)
+VALUES
+('Trem Expresso 1', 'Alto', 300, 120.50, 200, 10, 20, FALSE, TRUE, 1, 1),
+('Trem Regional 2', 'Médio', 400, 90.00, 150, 15, 25, TRUE, TRUE, 2, 2),
+('Trem Urbano 3', 'Baixo', 200, 60.75, 100, 8, 12, FALSE, FALSE, 3, 3);
+
+INSERT INTO manutencoes(tipoManutencao, idEstacao, idTrem)
+VALUES
+('Revisão Elétrica', 1, 3),
+('Manutenção Preventiva', 2, 2),
+('Reparo de Freios', 3, 1);
+
+INSERT INTO avaliacoes(notaConforto, notaLimpeza, notaVistoria, idTrem)
+VALUES
+(8, 9, 2, 3),
+(3, 5, 2, 1),
+(10, 3, 9, 2);

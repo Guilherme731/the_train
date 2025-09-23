@@ -1,5 +1,5 @@
 <?php
-
+include '../../authGuard/authUsuario.php';
 ?>
 
 <!DOCTYPE html>
