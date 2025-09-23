@@ -64,32 +64,32 @@ $row = $result -> fetch_assoc();
             <div class="flexCentro">
                 <div id="informacoesEspeciaisUser">
                     <div class="marginTopDown-2">
-                      <input type="text" name="cargo" id="cargo" class="informacoesEspeciais" placeholder="Cargo"><br>
+                      <input type="text" name="cargo" id="cargo" value="<?php echo $row['cargo'] ?>" class="informacoesEspeciais" placeholder="Cargo"><br>
                       <div class="error" id="erroCargo"></div>
                     </div>
                       
                     <div class="marginTopDown-2">
-                      <input type="text" name="CPF" id="cpf" class="informacoesEspeciais" placeholder="CPF"><br>
+                      <input type="text" name="CPF" id="cpf" value="<?php echo $row['cpf'] ?>" class="informacoesEspeciais" placeholder="CPF"><br>
                       <div class="error" id="erroCPF"></div>
                     </div>
                       
                   <div class="marginTopDown-2">
-                      <input type="text" name="email" id="email" class="informacoesEspeciais" placeholder="E-mail"><br>
+                      <input type="text" name="email" id="email" value="<?php echo $row['email'] ?>" class="informacoesEspeciais" placeholder="E-mail"><br>
                       <div class="error" id="erroEmail"></div>
                   </div>
       
                   <div class="marginTopDown-2">
-                      <input type="text" name="nomeUsuario" id="nomeUsuario" class="informacoesEspeciais" placeholder="Nome de Usuário">
+                      <input type="text" name="nomeUsuario" id="nomeUsuario" value="<?php echo $row['nome'] ?>" class="informacoesEspeciais" placeholder="Nome de Usuário">
                       <div class="error" id="erroNomeUsuario"></div>
                   </div>
 
                   <div class="marginTopDown-2">
-                      <input type="text" name="senha" id="senhaUsuario" class="informacoesEspeciais" placeholder="Senha">
+                      <input type="text" name="senha" id="senhaUsuario" value="<?php echo $row['senha'] ?>" class="informacoesEspeciais" placeholder="Senha">
                       <div class="error" id="erroSenha"></div>
                   </div>
 
                   <div class="marginTopDown-2">
-                      <input type="text" name="salario" id="salarioUsuario" class="informacoesEspeciais" placeholder="Salário">
+                      <input type="text" name="salario" id="salarioUsuario" value="<?php echo $row['salario'] ?>" class="informacoesEspeciais" placeholder="Salário">
                       <div class="error" id="erroSalario"></div>
                   </div>
       
