@@ -17,9 +17,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $sql = " INSERT INTO usuarios (nome,email,senha,cpf,cargo,tipo,genero,dataNascimento,salario) VALUE ('$name','$email','$senha', '$cpf', '$cargo', '$tipoFuncionario', '$genero', '$dataNascimento', '$salario')";
 
     if ($conn->query($sql) === true) {
-        echo "Novo Funcionario registrado com sucesso.";
+        echo "<div class='mensagemErro'> 
+       <p>Novo Funcionario registrado com sucesso.</p>
+       <a href='cadastrarFuncionario.php' class='fechar'>Fechar</a>
+        </div>";
     } else {
-        echo "Erro " . $sql . '<br>' . $conn->error;
+        echo "<div class='mensagemErro'> 
+       <p>Erro</p>
+       <a href='cadastrarFuncionario.php' class='fechar'>Fechar</a>
+        </div>" . $sql . '<br>' . $conn->error;
     }
     $conn->close();
 }
