@@ -432,8 +432,7 @@ body {
     background-color: var(--corAzulEscuro);
     align-items: center;
     justify-content: center;
-    position: fixed;
-    opacity: 55%;
+    position: absolute;
     top: 5;
     right: 0;
     width: 60px;
@@ -442,7 +441,6 @@ body {
 
 #iconeUsuarios{
     width: 55px;
-    opacity: 55%;
 }
 
 /*  ROTAS  */
