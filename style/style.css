@@ -427,6 +427,24 @@ body {
     color: #f6ae2d;
 }
 
+.quadradoUsuarios{
+    display: flex;
+    background-color: var(--corAzulEscuro);
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    opacity: 55%;
+    top: 5;
+    right: 0;
+    width: 60px;
+    height: 52px;
+}
+
+#iconeUsuarios{
+    width: 55px;
+    opacity: 55%;
+}
+
 /*  ROTAS  */
 .selecionarRota {
     margin: 2%;
