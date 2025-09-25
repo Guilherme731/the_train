@@ -94,6 +94,21 @@ CREATE TABLE trabalha(
     PRIMARY KEY (idFuncionario, idTrem)
 );
 
+CREATE TABLE sensores(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    tipo ENUM('Sensor de umidade', 'Sensor de temperatura', 'Sensor de luminosidade') NOT NULL,
+    descricao VARCHAR(240) NULL,
+    status ENUM('Em funcionamento', 'Em manutenção', 'Em pausa')
+);
+
+CREATE TABLE sensores_data(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_sensores INT NOT NULL,
+    valor INT NOT NULL,
+    data_hora DATE NOT NULL,
+    CONSTRAINT fk_sensores_id FOREIGN KEY (id_sensores) REFERENCES sensores(id)
+);
+
 INSERT INTO usuarios (`cargo`, `salario`, `genero`, `dataNascimento`, `senha`, `email`, `nome`, `cpf`, `tipo`) VALUES
 ('Administrador', '5000', 'Feminino', '1997-04-27', '$2y$10$UQ8NEEGJMhR27KYLr6JwAOoa6YOXyrbF8jwiirn2QbgcG3eDmBJEC', 'admin@thetrain.com', 'Admin', '99999999999', 'admin'),
 ('Operário', '3000', 'Masculino', '1999-05-27', '$2y$10$FXEtBMctNaZfGFhEG9cYgOcROkb0z.2xEayu9JKbZuWVg8L/0OisO', 'user@thetrain.com', 'Usuario', '99999999998', 'funcionario');
