@@ -3,10 +3,10 @@ google.charts.setOnLoadCallback(drawChart);
 function drawChart() {
   var data = google.visualization.arrayToDataTable([
     ["Element", "Série", { role: "style" }],
-    ["1°Tri", 10, "#5cc0cd"],
-    ["2°Tri", 20, "#5fc3f4"],
-    ["3°Tri", 5, "#5cc0cd"],
-    ["4°Tri", 25, "#5fc3f4"],
+    ["Trem 1", 10, "#5cc0cd"],
+    ["Trem 2", 20, "#5fc3f4"],
+    ["Trem 3", 5, "#5cc0cd"],
+    ["Trem 4", 25, "#5fc3f4"],
 
   ]);
 
