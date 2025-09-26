@@ -16,18 +16,12 @@ include '../../authGuard/authUsuario.php';
     <a href="../../../private/<?php if($_SESSION['tipo'] == 'admin'){echo 'admin/config/configAdmin.php';} else {echo 'user/config/configFuncionario.php';}?>"><img src="../../../assets/icons/header/engrenagemIcone.png" alt="Configurações"></a>
     <img src="../../../assets/logos/logoPequena.png" alt="Logo">
     <a href="../alertas.php"><img src="../../../assets/icons/header/sinoIcone.png" alt="Notificações"></a>
-    <button onclick="ExibirAlerta()" id="cancelar">Exibir Alerta</button>
-    <script>
-        function ExibirAlerta (){
-            alert("Dashboard em implementação!")
-        }
-    </script>
 </header>
-
     <a href="usuarios.php"><div class='quadradoUsuarios'>
         <img id="iconeUsuarios" src="../../../assets/icons/dashboard/botaoVisualizarUsuarios.png" alt="Botão para visualizar usuários">
     </div>
     </a>
+     <h4 class="flexCentro">Em implementação</h4>
     <section class="secaoInfo">
         <h2>HORÁRIOS</h2>
         <div class="dadoInfo dashboard">
