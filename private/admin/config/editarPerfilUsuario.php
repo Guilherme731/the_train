@@ -1,4 +1,6 @@
 <?php
+session_start();
+include '../../authGuard/authAdmin.php';
 
 include '../../conexao/conexao.php';
 

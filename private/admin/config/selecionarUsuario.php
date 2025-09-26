@@ -1,4 +1,7 @@
 <?php
+session_start();
+include '../../authGuard/authAdmin.php';
+
 include '../../conexao/conexao.php';
 
 $sql = 'SELECT id, nome, cargo FROM usuarios';
