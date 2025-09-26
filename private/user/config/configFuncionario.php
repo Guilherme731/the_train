@@ -1,4 +1,5 @@
 <?php
+session_start();
 include '../../authGuard/authUsuario.php';
 ?>
 
@@ -10,7 +11,6 @@ include '../../authGuard/authUsuario.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../../assets/logos/logoPequena.png">
     <title>Configurações</title>
-    <script src="../../../scripts/configFuncionarioSalvarInformacoes.js"></script>
     <script src="../../../scripts/botoesMenus.js"></script>
     <link rel="stylesheet" href="../../../style/style.css">
 </head>
