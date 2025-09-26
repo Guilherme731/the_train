@@ -22,7 +22,7 @@ $result = $conn->query($sql);
 
 <body>
     <header class="headerAzulVoltar">
-        <img src="../../../assets/icons/header/setaEsquerda.png" alt="Seta" onclick="voltarPagina()">
+        <a href="configAdmin.php"><img src="../../../assets/icons/header/setaEsquerda.png" alt="Seta"></a>
     </header>
 
     <main class="gridCentro">
