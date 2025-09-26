@@ -1,4 +1,6 @@
 <?php
+session_start();
+include '../../authGuard/authAdmin.php';
 
 include '../../conexao/conexao.php';
 
@@ -140,7 +142,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <input type="password" id="senhaFuncionario" class="placeholderClaro" name="senha" placeholder="Senha">
                      <?php
                         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                            if(!$senha || $senha < 8){
+                            if(!$senha || $senha > 8){
                                 echo "<div class='error'>
                                 <p>Preencha a Senha de Forma Correta</p>
                                 </div>";

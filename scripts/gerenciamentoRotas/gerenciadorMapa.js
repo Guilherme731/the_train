@@ -85,7 +85,7 @@ function limpaSelecaoMapa(){
 
 function abrirEdicaoRota(rota){
     sessionStorage.setItem('rotaParaEditar', rota);
-    window.location.href = 'editarRotas.html';
+    window.location.href = 'editarRotas.php';
 }
 
 function addQuadradoTrem(x, y, numero) {

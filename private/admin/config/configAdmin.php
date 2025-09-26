@@ -1,3 +1,9 @@
+<?php
+session_start();
+include '../../authGuard/authAdmin.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -33,11 +39,11 @@
                         alt="Imagem do ícone de Conta">
                     <p>Idioma</p>
                 </a>
-                <a href="../../user/config/verificacaoDuasEtapas/entradaEmail.php" class="opcaoMenu">
+                <a href="../../../public/recuperarSenha.php" class="opcaoMenu">
                     <img class="iconeConfigTamanho"
                         src="../../../assets/icons/config/verificacaoDuasEtapas/verificacao2EtapasIcone.png"
                         alt="Imagem do ícone de verificação de 2 etapas">
-                    <p>Verificação De 2 etapas</p>
+                    <p>Verificação de 2 etapas</p>
                 </a>
                 <a href="../../user/config/faleConosco/faleConosco.php" class="opcaoMenu">
                     <img class="iconeConfigTamanho" src="../../../assets/icons/config/faleConoscoIcone.png"
@@ -53,7 +59,7 @@
                 </a>
 
                 </a>
-                <a href="../../admin/config/editarPerfilUsuario.php" class="opcaoMenu">
+                <a href="selecionarUsuario.php" class="opcaoMenu">
                     <img class="iconeConfigTamanho" src="../../../assets/icons/config/editarFuncionarioIcone.png"
                         alt="Imagem do ícone de Editar Usuário">
                     <p>Editar Usuário</p>

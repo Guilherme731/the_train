@@ -1,4 +1,6 @@
 <?php
+session_start();
+include '../../authGuard/authAdmin.php';
 
 include '../../conexao/conexao.php';
 
@@ -54,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <body>
     <header class="headerAzulVoltar">
-        <img src="../../../assets/icons/header/setaEsquerda.png" alt="Seta" onclick="voltarPagina()">
+        <a href="selecionarUsuario.php"><img src="../../../assets/icons/header/setaEsquerda.png" alt="Seta"></a>
     </header>
 
     <main>

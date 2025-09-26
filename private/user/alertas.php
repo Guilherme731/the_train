@@ -16,9 +16,9 @@ include '../authGuard/authUsuario.php';
 <body>
 
 <header class="headerPrincipal">
-    <a href="../../../private/<?php if($_SESSION['tipo'] == 'admin'){echo 'admin/config/configAdmin.php';} else {echo 'user/config/configFuncionario.php';}?>"><img src="../../assets/icons/header/engrenagemIcone.png" alt="Configurações"></a>
+    <a href="../../private/<?php if($_SESSION['tipo'] == 'admin'){echo 'admin/config/configAdmin.php';} else {echo 'user/config/configFuncionario.php';}?>"><img src="../../assets/icons/header/engrenagemIcone.png" alt="Configurações"></a>
     <img src="../../assets/logos/logoPequena.png" alt="Logo">
-    <a href="../alertas.php"><img src="../../assets/icons/header/sinoIcone.png" alt="Notificações"></a>
+    <a href="alertas.php"><img src="../../assets/icons/header/sinoIcone.png" alt="Notificações"></a>
 </header>
 
     <main>

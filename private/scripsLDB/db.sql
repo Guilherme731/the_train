@@ -98,14 +98,14 @@ CREATE TABLE sensores(
     id INT AUTO_INCREMENT PRIMARY KEY,
     tipo ENUM('Sensor de umidade', 'Sensor de temperatura', 'Sensor de luminosidade') NOT NULL,
     descricao VARCHAR(240) NULL,
-    status ENUM('Em funcionamento', 'Em manutenção', 'Em pausa')
+    status ENUM('Em funcionamento', 'Em manutenção', 'Em pausa') NOT NULL
 );
 
 CREATE TABLE sensores_data(
     id INT AUTO_INCREMENT PRIMARY KEY,
     id_sensores INT NOT NULL,
     valor INT NOT NULL,
-    data_hora DATE NOT NULL,
+    data_hora DATETIME NOT NULL,
     CONSTRAINT fk_sensores_id FOREIGN KEY (id_sensores) REFERENCES sensores(id)
 );
 
@@ -148,3 +148,15 @@ VALUES
 (8, 9, 2, 3),
 (3, 5, 2, 1),
 (10, 3, 9, 2);
+
+INSERT INTO sensores(tipo, status, descricao)
+VALUES
+('Sensor de temperatura', 'Em funcionamento', 'O sensor de temperatura está medindo de forma correta e coerente.'),
+('Sensor de Umidade', 'Em manutenção', 'O sensor de umidade está em manutenção no momento, devido a um erro encontrado no sistema.'),
+('Sensor de Luminosidade', 'Em pausa', 'O sensor de luminosidade está em pausa no momento, devido a um erro grave que precisa ser consertado.');
+
+INSERT INTO sensores_data(id_sensores, valor, data_hora)
+VALUES
+(1, 23, '2025-09-26 14:30:00'),
+(2, 40, '2025-03-09 15:20:10'),
+(3, 30, '2025-06-10 16:10:50');

@@ -1,4 +1,5 @@
 <?php
+session_start();
 include '../../../authGuard/authUsuario.php';
 ?>
 
@@ -15,7 +16,7 @@ include '../../../authGuard/authUsuario.php';
 
 <body>
     <header class="headerAzulVoltar">
-        <a href="../configFuncionario.php"><img src="../../../../assets/icons/header/setaEsquerda.png" alt="Seta"></a>
+        <a href="../../../admin/config/configAdmin.php"><img src="../../../../assets/icons/header/setaEsquerda.png" alt="Seta"></a>
     </header>
     <main>
         <div id="quadradoMenu">
