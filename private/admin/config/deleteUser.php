@@ -1,4 +1,8 @@
 <?php
+session_start();
+include '../../authGuard/authAdmin.php';
+
+
     include '../../conexao/conexao.php';
 
         if(isset($_GET['id'])){

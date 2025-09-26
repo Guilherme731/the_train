@@ -1,3 +1,9 @@
+<?php
+session_start();
+include '../../authGuard/authAdmin.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
