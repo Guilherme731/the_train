@@ -59,7 +59,7 @@ include '../../authGuard/authAdmin.php';
                 </a>
 
                 </a>
-                <a href="../../admin/config/editarPerfilUsuario.php" class="opcaoMenu">
+                <a href="selecionarUsuario.php" class="opcaoMenu">
                     <img class="iconeConfigTamanho" src="../../../assets/icons/config/editarFuncionarioIcone.png"
                         alt="Imagem do ícone de Editar Usuário">
                     <p>Editar Usuário</p>
