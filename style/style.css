@@ -219,8 +219,8 @@ body {
 
 #quadradoMenu{
     background-color: var(--corAzulNormal);
-    margin: 10px 20px;
-    padding: 4px;
+    margin: 5px 5px;
+    padding: 1px;
     border-radius: 15px;
     color: var(--corAmarelo);
 }
@@ -268,13 +268,13 @@ body {
     background-color: var(--corAzulEscuro);
     margin: 10% 20%;
 }
-#textoCadastrar { text-align: center; color: var(--corAzulClaro); }
+#textoCadastrar { text-align: center; color: var(--corAzulClaro); margin: 10px; }
 
-.error{ color: var(--corLaranja); font-size: 0.9em; font-weight: 500;}
+.error{ color: var(--corLaranja); font-weight: 0.8em; font-weight: 500;}
 
 .mensagemErro{
     text-align: center;
-    font-size: 130%;
+    font-size: 100%;
     background: var(--corAzulEscuro);
     padding: 15px 0px;
     border:3px solid black;

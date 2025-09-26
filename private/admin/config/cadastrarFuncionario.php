@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if($valido == true){
         if ($conn->query($sql) === true) {
             echo "<div class='mensagemErro'> 
-        <p>Novo Funcionario registrado com sucesso.</p>
+        <p>Novo Funcionário registrado com sucesso.</p>
         <a href='cadastrarFuncionario.php' class='fechar'>Fechar</a>
             </div>";
         } else {
@@ -68,7 +68,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <h1 class="tituloAzul">Cadastrar Funcionário</h1>
             <form id="validarCadastroFuncionario" method="POST">
                 <div id="quadradoMenu">
-
                     <input type="text" id="nomeFuncionario" class="placeholderClaro" name="nome" placeholder="Nome">
                     <?php
                         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -113,7 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             if(!$salario){
                                 echo "<div class='error'>
-                                <p>Preencha o Salario de Forma Correta</p>
+                                <p>Preencha o Salário de Forma Correta</p>
                                 </div>";
                                 $valido = false;
                             }else{
@@ -207,8 +206,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                     <label for="tipo" id="" name="" placeholder="Tipo Funcionario">
                         <select name="tipo" id="tipoFuncionario">
-                            <option value="none">Tipo do Funcionario</option>
-                            <option value="funcionario">Funcionario</option>
+                            <option value="none">Tipo do Funcionário</option>
+                            <option value="funcionario">Funcionário</option>
                             <option value="admin">Admin</option>
                         </select>
                         <?php
