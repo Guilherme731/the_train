@@ -17,7 +17,11 @@ include '../../authGuard/authUsuario.php';
     <img src="../../../assets/logos/logoPequena.png" alt="Logo">
     <a href="../alertas.php"><img src="../../../assets/icons/header/sinoIcone.png" alt="Notificações"></a>
 </header>
-
+    <a href="usuarios.php"><div class='quadradoUsuarios'>
+        <img id="iconeUsuarios" src="../../../assets/icons/dashboard/botaoVisualizarUsuarios.png" alt="Botão para visualizar usuários">
+    </div>
+    </a>
+     <h4 class="flexCentro">Em implementação</h4>
     <section class="secaoInfo">
         <h2>HORÁRIOS</h2>
         <div class="dadoInfo dashboard">

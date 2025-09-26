@@ -427,6 +427,22 @@ body {
     color: #f6ae2d;
 }
 
+.quadradoUsuarios{
+    display: flex;
+    background-color: var(--corAzulEscuro);
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 5;
+    right: 0;
+    width: 60px;
+    height: 52px;
+}
+
+#iconeUsuarios{
+    width: 55px;
+}
+
 /*  ROTAS  */
 .selecionarRota {
     margin: 2%;
@@ -961,4 +977,3 @@ fieldset.grupo.campo{
     color: black;
     cursor: pointer;
 }
-

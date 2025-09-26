@@ -29,7 +29,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($conn->query($sql) === true) {
         header("location: selecionarUsuario.php");
     } else {
-        echo "Erro " . $sql . '<br>' . $conn->error;
+        echo "<div class='mensagemErro'> 
+       <p>Novo Funcionario registrado com sucesso.</p>
+       <a href='cadastrarFuncionario.php' class='fechar'>Fechar</a>
+        </div>" . $sql . '<br>' . $conn->error;
     }
     $conn->close();
     exit(); 
