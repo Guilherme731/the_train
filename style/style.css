@@ -207,12 +207,14 @@ body {
 #dataNascimentoDia { margin-left: 10px; }
 #dataNascimentoMes, #dataNascimentoAno { margin-left: 60px; }
 
-#generoFuncionario{
+#generosFuncionario{
     background-color: var(--corAzulEscuro);
     padding: 1%;
     margin: 2%;
     width: 95%;
     color: var(--corAmarelo);
+    font-size: 20px;
+
 }
 
 /*  MENUS E OPÇÕES  */
@@ -877,6 +879,9 @@ svg {
     color: var(--corAzulClaro);
 }
 
+.placeholderAmarelo::placeholder{
+    color: var(--corAmarelo)
+}
 
 fieldset {
     border: 0;
