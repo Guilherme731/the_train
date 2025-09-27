@@ -6,7 +6,7 @@ include '../../conexao/conexao.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    $valido = false;
+    //$valido = false;
 
     $name = $_POST['nome'];
     $email = $_POST['email'];
@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $sql = " INSERT INTO usuarios (nome,email,senha,cpf,cargo,tipo,genero,dataNascimento,salario) VALUE ('$name','$email','$senha', '$cpf', '$cargo', '$tipoFuncionario', '$genero', '$dataNascimento', '$salario')";   
 
-    if($valido == true){
+    //if($valido == true){
         if ($conn->query($sql) === true) {
             echo "<div class='mensagemErro'> 
         <p>Novo Funcionário registrado com sucesso.</p>
@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>" . $sql . '<br>' . $conn->error;
         }
         $conn->close();
-    }
+    //}
 
 
     
@@ -68,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <main class="mainCentral">
         <div>
             <h1 class="tituloAzul">Cadastrar Funcionário</h1>
-            <form id="validarCadastroFuncionario" method="POST">
+            <form id="validarCadastroFuncionario" action="" method="POST">
                 <div id="quadradoMenu">
                     <input type="text" id="nomeFuncionario" class="placeholderClaro" name="nome" placeholder="Nome">
                     <?php
@@ -236,9 +236,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                 </div>
             </form>
-
-
-
 
         </div></a>
 
