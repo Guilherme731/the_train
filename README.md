@@ -6,11 +6,19 @@ O The Train é um sistema de gerenciamento de ferrovias com interface de aplicat
 > [!IMPORTANT]
 > Versão em desenvolvimento da S.A. de Desenvolvimento de Sistemas
 ## Acesse o The Train
+Acesso em servidor:
 [thetrain.guilhermepmoreira.com/the_train](https://thetrain.guilhermepmoreira.com/the_train)
 > [!TIP]
 > Use as credenciais padrão de teste:
+>
+> email: admin@thetrain.com
+> senha: admin
+>
 > email: user@thetrain.com
 > senha: user
+>
+> email: rodrigo@thetrain.com
+> senha: rodrigo123
 ## Equipe
 A equipe de desenvolvimento faz parte da turma DS23 1 M1, do SENAI SC.
 - Guilherme P. M. [Líder]
@@ -30,3 +38,5 @@ Esse projeto é avaliativo e, portanto, o desenvolvimento está limitado à equi
 - Edição de usuário
 - Login
 - Alertas / notificações
+- Criptografia de senha via Hash
+
