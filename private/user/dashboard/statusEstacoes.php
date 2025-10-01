@@ -1,6 +1,10 @@
 <?php
 session_start();
 include '../../authGuard/authUsuario.php';
+include '../../conexao/conexao.php';
+
+$sqlEstacoes = 'SELECT id, nomeEstacao, temperatura, estaChovendo FROM estacoes';
+$resultEstacoes = $conn->query($sqlEstacoes);
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -24,74 +28,41 @@ include '../../authGuard/authUsuario.php';
                 <a href="dashboard.php"><img src="../../../assets/icons/header/setaEsquerda.png" alt=""></a>
             <div class="textoCentral"><h2>STATUS - SENSORES</h2></div>
             </div>
+
+            <?php
+            while ($row = $resultEstacoes->fetch_assoc()) {
+                $id = $row['id'];
+                $queryTrem = "SELECT idEstacao FROM trens WHERE idEstacao = $id";
+                $existeTrem = ($conn->query($queryTrem))->fetch_assoc();
+                
+                echo "
+                <div class='dadoStatusEstacoes'>
+                <div>
+                    <img src='../../../assets/icons/dashboard/circuloVerdeIcone.png' alt='simboloStatusVerde'>
+                    <p>{$row['nomeEstacao']}</p>
+                </div>
+                <div>";
+                if($row['estaChovendo']){
+                    echo "<div class='iconeETempStatusEstacoes'><img src='../../../assets/icons/dashboard/chuvaIcone.png' alt='Ícone de chuva'></div>";
+                }else{
+                    echo "<div class='iconeETempStatusEstacoes'><img src='../../../assets/icons/dashboard/solIcone.png' alt='Ícone de sol'></div>";
+                }
+                if($existeTrem){
+                    echo "<div class='iconeETempStatusEstacoes'><img src='../../../assets/icons/dashboard/comTremIcone.png' alt='Ícone de trem'></div>";
+                }else{
+                    echo "<div class='iconeETempStatusEstacoes'><img src='../../../assets/icons/dashboard/semTremIcone.png' alt='Ícone de sem trem'></div>";
+                }
+                    
+                    
+                    echo "
+                    <p class='iconeETempStatusEstacoes'>{$row['temperatura']}ºC</p>
+                </div>
+            </div>
+                ";
+            }
+            ?>
             
-            <div class="dadoStatusEstacoes">
-                <div>
-                    <img src="../../../assets/icons/dashboard/circuloVerdeIcone.png" alt="simboloStatusVerde">
-                    <p>ESTAÇÃO 1</p>
-                </div>
-                <div>
-                    <div class="iconeETempStatusEstacoes"><img src="../../../assets/icons/dashboard/chuvaIcone.png" alt="Ícone de chuva"></div>
-                    <div class="iconeETempStatusEstacoes"><img src="../../../assets/icons/dashboard/comTremIcone.png" alt="Ícone de trem"></div>
-                    <p class="iconeETempStatusEstacoes">23ºC</p>
-                </div>
-            </div>
-            <div class="dadoStatusEstacoes">
-                <div>
-                    <img src="../../../assets/icons/dashboard/circuloVerdeIcone.png" alt="simboloStatusVerde">
-                    <p>ESTAÇÃO 2</p>
-                </div>
-                <div>
-                    <div class="iconeETempStatusEstacoes"><img src="../../../assets/icons/dashboard/chuvaIcone.png" alt="Ícone de chuva"></div>
-                    <div class="iconeETempStatusEstacoes"><img src="../../../assets/icons/dashboard/semTremIcone.png" alt="Ícone de sem trem"></div>
-                    <p class="iconeETempStatusEstacoes">25ºC</p>
-                </div>
-            </div>
-            <div class="dadoStatusEstacoes">
-                <div>
-                    <img src="../../../assets/icons/dashboard/circuloVerdeIcone.png" alt="simboloStatusVerde">
-                    <p>ESTAÇÃO 3</p>
-                </div>
-                <div>
-                    <div class="iconeETempStatusEstacoes"><img src="../../../assets/icons/dashboard/solIcone.png" alt="Ícone de sol"></div>
-                    <div class="iconeETempStatusEstacoes"><img src="../../../assets/icons/dashboard/semTremIcone.png" alt="Ícone de sem trem"></div>
-                    <p class="iconeETempStatusEstacoes">22ºC</p>
-                </div>
-            </div>
-            <div class="dadoStatusEstacoes">
-                <div>
-                    <img src="../../../assets/icons/dashboard/circuloVerdeIcone.png" alt="simboloStatusVerde">
-                    <p>ESTAÇÃO 1</p>
-                </div>
-                <div>
-                    <div class="iconeETempStatusEstacoes"><img src="../../../assets/icons/dashboard/chuvaIcone.png" alt="Ícone de chuva"></div>
-                    <div class="iconeETempStatusEstacoes"><img src="../../../assets/icons/dashboard/comTremIcone.png" alt="Ícone de trem"></div>
-                    <p class="iconeETempStatusEstacoes">23ºC</p>
-                </div>
-            </div>
-            <div class="dadoStatusEstacoes">
-                <div>
-                    <img src="../../../assets/icons/dashboard/circuloVerdeIcone.png" alt="simboloStatusVerde">
-                    <p>ESTAÇÃO 2</p>
-                </div>
-                <div>
-                    <div class="iconeETempStatusEstacoes"><img src="../../../assets/icons/dashboard/chuvaIcone.png" alt="Ícone de chuva"></div>
-                    <div class="iconeETempStatusEstacoes"><img src="../../../assets/icons/dashboard/semTremIcone.png" alt="Ícone de sem trem"></div>
-                    <p class="iconeETempStatusEstacoes">25ºC</p>
-                </div>
-            </div>
-            <div class="dadoStatusEstacoes">
-                <div>
-                    <img src="../../../assets/icons/dashboard/circuloVerdeIcone.png" alt="simboloStatusVerde">
-                    <p>ESTAÇÃO 3</p>
-                </div>
-                <div>
-                    <div class="iconeETempStatusEstacoes"><img src="../../../assets/icons/dashboard/solIcone.png" alt="Ícone de sol"></div>
-                    <div class="iconeETempStatusEstacoes"><img src="../../../assets/icons/dashboard/semTremIcone.png" alt="Ícone de sem trem"></div>
-                    <p class="iconeETempStatusEstacoes">22ºC</p>
-                </div>
-            </div>
-    </section>
+        </section>
     </main>
 
     <footer class="footerPrincipal"> 

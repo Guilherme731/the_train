@@ -5,6 +5,9 @@ include '../../conexao/conexao.php';
 
 $sqlTrens = 'SELECT trens.nome AS nomeTrem, rotas.nome AS nomeRota, ativo, quantidadePassageiros, velocidade, idRota FROM trens INNER JOIN rotas ON rotas.id = idRota';
 $resultTrens = $conn->query($sqlTrens);
+
+$sqlEstacoes = 'SELECT id, nomeEstacao, temperatura, estaChovendo FROM estacoes';
+$resultEstacoes = $conn->query($sqlEstacoes);
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -25,7 +28,7 @@ $resultTrens = $conn->query($sqlTrens);
         <img id="iconeUsuarios" src="../../../assets/icons/dashboard/botaoVisualizarUsuarios.png" alt="Botão para visualizar usuários">
     </div>
     </a>
-     <h4 class="flexCentro">Em implementação</h4>
+     <h4 class="flexCentro" style="background-color: #33658a; width:fit-content; text-align:center; margin:20px auto; padding: 5px; border: solid 3px #f6ae2d; border-radius: 15px; color:#f6ae2d;">Dashboard em implementação! Horários estão com Placeholder.</h4>
     <section class="secaoInfo">
         <h2>HORÁRIOS</h2>
         <div class="dadoInfo dashboard">
@@ -112,39 +115,38 @@ $resultTrens = $conn->query($sqlTrens);
 
     <section  class="secaoInfo">
         <h2>STATUS - ESTAÇÕES</h2>
-        <div class="dadoStatusEstacoes">
-            <div>
-                <img src="../../../assets/icons/dashboard/circuloVerdeIcone.png" alt="simboloStatusVerde">
-                <p>ESTAÇÃO 1</p>
+        <?php
+            while ($row = $resultEstacoes->fetch_assoc()) {
+                $id = $row['id'];
+                $queryTrem = "SELECT idEstacao FROM trens WHERE idEstacao = $id";
+                $existeTrem = ($conn->query($queryTrem))->fetch_assoc();
+                
+                echo "
+                <div class='dadoStatusEstacoes'>
+                <div>
+                    <img src='../../../assets/icons/dashboard/circuloVerdeIcone.png' alt='simboloStatusVerde'>
+                    <p>{$row['nomeEstacao']}</p>
+                </div>
+                <div>";
+                if($row['estaChovendo']){
+                    echo "<div class='iconeETempStatusEstacoes'><img src='../../../assets/icons/dashboard/chuvaIcone.png' alt='Ícone de chuva'></div>";
+                }else{
+                    echo "<div class='iconeETempStatusEstacoes'><img src='../../../assets/icons/dashboard/solIcone.png' alt='Ícone de sol'></div>";
+                }
+                if($existeTrem){
+                    echo "<div class='iconeETempStatusEstacoes'><img src='../../../assets/icons/dashboard/comTremIcone.png' alt='Ícone de trem'></div>";
+                }else{
+                    echo "<div class='iconeETempStatusEstacoes'><img src='../../../assets/icons/dashboard/semTremIcone.png' alt='Ícone de sem trem'></div>";
+                }
+                    
+                    
+                    echo "
+                    <p class='iconeETempStatusEstacoes'>{$row['temperatura']}ºC</p>
+                </div>
             </div>
-            <div>
-                <div class="iconeETempStatusEstacoes"><img src="../../../assets/icons/dashboard/chuvaIcone.png" alt="Ícone de chuva"></div>
-                <div class="iconeETempStatusEstacoes"><img src="../../../assets/icons/dashboard/comTremIcone.png" alt="Ícone de trem"></div>
-                <p class="iconeETempStatusEstacoes">23ºC</p>
-            </div>
-        </div>
-        <div class="dadoStatusEstacoes">
-            <div>
-                <img src="../../../assets/icons/dashboard/circuloVerdeIcone.png" alt="simboloStatusVerde">
-                <p>ESTAÇÃO 2</p>
-            </div>
-            <div>
-                <div class="iconeETempStatusEstacoes"><img src="../../../assets/icons/dashboard/chuvaIcone.png" alt="Ícone de chuva"></div>
-                <div class="iconeETempStatusEstacoes"><img src="../../../assets/icons/dashboard/semTremIcone.png" alt="Ícone de sem trem"></div>
-                <p class="iconeETempStatusEstacoes">25ºC</p>
-            </div>
-        </div>
-        <div class="dadoStatusEstacoes">
-            <div>
-                <img src="../../../assets/icons/dashboard/circuloVerdeIcone.png" alt="simboloStatusVerde">
-                <p>ESTAÇÃO 3</p>
-            </div>
-            <div>
-                <div class="iconeETempStatusEstacoes"><img src="../../../assets/icons/dashboard/solIcone.png" alt="Ícone de sol"></div>
-                <div class="iconeETempStatusEstacoes"><img src="../../../assets/icons/dashboard/semTremIcone.png" alt="Ícone de sem trem"></div>
-                <p class="iconeETempStatusEstacoes">22ºC</p>
-            </div>
-        </div>
+                ";
+            }
+            ?>
         <div class="textoDireita">
             <a href="statusEstacoes.php" class="botaoAmarelo">Ver Tudo</a>
         </div>
