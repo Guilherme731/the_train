@@ -22,14 +22,13 @@ Acesso em servidor:
 >
 > email: rodrigo@thetrain.com
 > senha: rodrigo123
-## Equipe
-A equipe de desenvolvimento faz parte da turma DS23 1 M1, do SENAI SC.
-- Guilherme P. M. [Líder]
-- Gabriel K. B.
-- Pedro F. F.
-- Rodrigo F. S.
-## Contribuindo com o projeto
-Esse projeto é avaliativo e, portanto, o desenvolvimento está limitado à equipe. Porém, você pode testar e reportar problemas e erros no The Train com o Github Issues.
+
+## Recursos com Banco de Dados implementado
+- Login e AuthGuard
+- Registro e exclusão de Usuários (admin)
+- Edição e Visualização de Usuários (admin e outros)
+- Sensores/dados de Trens e Estações (dashboard)
+
 ## Principais Funções
 - Verificação de duas etapas
 - Dashboard
@@ -42,4 +41,15 @@ Esse projeto é avaliativo e, portanto, o desenvolvimento está limitado à equi
 - Login
 - Alertas / notificações
 - Criptografia de senha via Hash
+  
+## Equipe
+A equipe de desenvolvimento faz parte da turma DS23 1 M1, do SENAI SC.
+- Guilherme P. M. [Líder]
+- Gabriel K. B.
+- Pedro F. F.
+- Rodrigo F. S.
+## Contribuindo com o projeto
+Esse projeto é avaliativo e, portanto, o desenvolvimento está limitado à equipe. Porém, você pode testar e reportar problemas e erros no The Train com o Github Issues.
+
+
 
