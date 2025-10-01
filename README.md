@@ -5,6 +5,9 @@
 O The Train é um sistema de gerenciamento de ferrovias com interface de aplicativo móvel responsivo. Com ele você pode gerenciar os trens, as rotas, os horários, as manutenções, etc...
 > [!IMPORTANT]
 > Versão em desenvolvimento da S.A. de Desenvolvimento de Sistemas
+
+> [!WARNING]
+> O script do banco de dados está localizado em private/scriptsLDB/db.sql
 ## Acesse o The Train
 Acesso em servidor:
 [thetrain.guilhermepmoreira.com/the_train](https://thetrain.guilhermepmoreira.com/the_train)

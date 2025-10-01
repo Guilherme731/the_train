@@ -1,6 +1,10 @@
 <?php
 session_start();
 include '../../authGuard/authUsuario.php';
+include '../../conexao/conexao.php';
+
+$sqlTrens = 'SELECT trens.nome AS nomeTrem, rotas.nome AS nomeRota, ativo, quantidadePassageiros, velocidade, idRota FROM trens INNER JOIN rotas ON rotas.id = idRota';
+$resultTrens = $conn->query($sqlTrens);
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -74,60 +78,33 @@ include '../../authGuard/authUsuario.php';
 
     <section class="secaoInfo">
         <h2>STATUS - TRENS</h2>
-        <div class="dadoStatusTrens">
-            <div class="tremStatus1">
-                <img src="../../../assets/icons/dashboard/circuloVerdeIcone.png" alt="simboloStatusVerde">
-                <p>TREM 1</p>
-            </div>
-            <div class="tremStatus2">
-                <img src="../../../assets/icons/dashboard/velocidadeIcone.png" alt="simboloVelocidade">
-                <p>102</p>
-                <p class="textSize-10">Km/h</p>
-            </div>
-            <div class="tremStatus3">
-                <img src="../../../assets/icons/dashboard/pessoaIcone.png" alt="simboloPessoa">
-                <p>34</p>
-            </div>
-            <div class="tremStatus4">
-                <p>ROTA 1</p>
-            </div>
-        </div>
-        <div class="dadoStatusTrens">
-            <div class="tremStatus1">
-                <img src="../../../assets/icons/dashboard/circuloVerdeIcone.png" alt="simboloStatusVerde">
-                <p>TREM 2</p>
-            </div>
-            <div class="tremStatus2">
-                <img src="../../../assets/icons/dashboard/velocidadeIcone.png" alt="simboloVelocidade">
-                <p>0</p>
-                <p class="textSize-10">Km/h</p>
-            </div>
-            <div class="tremStatus3">
-                <img src="../../../assets/icons/dashboard/pessoaIcone.png" alt="simboloPessoa">
-                <p>23</p>
-            </div>
-            <div class="tremStatus4">
-                <p>ROTA 4</p>
-            </div>
-        </div>
-        <div class="dadoStatusTrens">
-            <div class="tremStatus1">
-                <img src="../../../assets/icons/dashboard/circuloVerdeIcone.png" alt="simboloStatusVerde">
-                <p>TREM 3</p>
-            </div>
-            <div class="tremStatus2">
-                <img src="../../../assets/icons/dashboard/velocidadeIcone.png" alt="simboloVelocidade">
-                <p>87</p>
-                <p class="textSize-10">Km/h</p>
-            </div>
-            <div class="tremStatus3">
-                <img src="../../../assets/icons/dashboard/pessoaIcone.png" alt="simboloPessoa">
-                <p>45</p>
-            </div>
-            <div class="tremStatus4">
-                <p>ROTA 2</p>
-            </div>
-        </div>
+        <?php
+            while ($row = $resultTrens->fetch_assoc()) {
+                echo "<div class='dadoStatusTrens'>
+                <div class='tremStatus1'>";
+                if($row['ativo']){
+                    echo "<img src='../../../assets/icons/dashboard/circuloVerdeIcone.png' alt='simboloStatusVerde'>";
+                }else{
+                    echo "<img src='../../../assets/icons/dashboard/circuloLaranjaIcone.png' alt='simboloStatusVermelho'>";
+                }
+                echo "
+                <p>{$row['nomeTrem']}</p>
+                </div>
+                <div class='tremStatus2'>
+                    <img src='../../../assets/icons/dashboard/velocidadeIcone.png' alt='simboloVelocidade'>
+                    <p>{$row['velocidade']}</p>
+                    <p class='textSize-10'>Km/h</p>
+                </div>
+                <div class='tremStatus3'>
+                    <img src='../../../assets/icons/dashboard/pessoaIcone.png' alt='simboloPessoa'>
+                    <p>{$row['quantidadePassageiros']}</p>
+                </div>
+                <div class='tremStatus4'>
+                    <p>{$row['nomeRota']}</p>
+                </div>
+            </div>";
+            }
+            ?>
         <div class="textoDireita">
             <a href="statusTrens.php" class="botaoAmarelo">Ver Tudo</a>
         </div>
