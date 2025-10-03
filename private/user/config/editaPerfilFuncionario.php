@@ -6,7 +6,7 @@ include '../../conexao/conexao.php';
 
 $id = $_SESSION['user_id'];
 
-$sql = "SELECT * FROM usuarios WHERE id=$id";
+$sql = "SELECT dataNascimento,genero,nome FROM usuarios WHERE id=$id";
 $result = $conn -> query($sql);
 $row = $result -> fetch_assoc();
 
@@ -19,15 +19,24 @@ $ano = date('Y', strtotime($row['dataNascimento']));
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
-    $name = $_POST['nome'];
-    $senha = $_POST['senha'];
+    
+    $data = $_POST['dataNascimento'];
     $genero = $_POST['genero'];
-    if($_POST['senha'] === ''){
-        $senha = $row['senha'];
-    }else{
-        $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
-    }
 
+
+    $sqlUpdate = "UPDATE usuarios SET genero='$genero', dataNascimento='$data' WHERE id=$id";
+
+        if ($conn->query($sql) === true) {
+            echo "<div class='mensagemErro'> 
+            <p>Alteração salva com sucesso.</p>
+            <a href='editaPerfilFuncionario.php' class='fechar'>Fechar</a>
+                </div>";
+        } else {
+            echo "<div class='mensagemErro'> 
+            <p>Erro</p>
+            <a href='editaPerfilFuncionario.php' class='fechar'>Fechar</a>
+                </div>" . $sql . '<br>' . $conn->error;
+        }
     
 }
 
@@ -77,7 +86,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <div>
                         <label for="senha"></label>
                         <input type="password" name="senha" id="senha"  placeholder="Senha" >
-                        <div class="error" id="errorSenhaFuncionario"></div>
                     </div>
 
                     <p>Data de Nascimento</p>
@@ -85,19 +93,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <div class="flex">
                         <div>
                             <label for="dataNascimentoDia"></label>
-                            <input type="text" name="Dia" id="dataNascimentoDia" placeholder="Dia" value="<?php echo $dia; ?>">
+                            <input type="text" name="dataNascimento" id="dataNascimentoDia" placeholder="Dia" value="<?php echo $dia; ?>">
                             <div class="error" id="errorDia"></div>
                         </div>
 
                         <div>
                             <label for="dataNascimentoMes"></label>
-                            <input type="text" name="Mes" id="dataNascimentoMes" placeholder="Mês" value="<?php echo $mes; ?>">
+                            <input type="text" name="dataNascimento" id="dataNascimentoMes" placeholder="Mês" value="<?php echo $mes; ?>">
                             <div class="error" id="errorMes"></div>
                         </div>
 
                         <div>
                             <label for="dataNascimentoAno"></label>
-                            <input type="text" name="Ano" id="dataNascimentoAno" placeholder="Ano" value="<?php echo $ano; ?>">
+                            <input type="text" name="dataNascimento" id="dataNascimentoAno" placeholder="Ano" value="<?php echo $ano; ?>">
                             <div class="error" id="errorAno"></div>
                         </div>
 
@@ -140,7 +148,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <footer class="footerAzulLogo">
         <img src="../../../assets/logos/logoCompleta.png" alt="Logo">
     </footer>
-    <script src="../../../scripts/perfil/validarConfiguracaoUsuario.js"></script>
+    
     <script src="../../../scripts/perfil/trocarFoto.js"></script>
 </body>
 
