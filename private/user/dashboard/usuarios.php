@@ -1,7 +1,7 @@
 <?php
 include '../../conexao/conexao.php';
 
-$sql = 'SELECT id, nome, cargo FROM usuarios';
+$sql = 'SELECT id, nome, cargo, email FROM usuarios';
 $result = $conn->query($sql);
 
 ?>
@@ -35,6 +35,10 @@ $result = $conn->query($sql);
                 <div class='quadradoAzulEscuro'>
             <div class='quadradoAzulNormal'>
                 <h3>{$row['nome']}</h3>
+            </div>
+            
+            <div class='quadradoAzulNormal'>
+                <h3>{$row['email']}</h3>
             </div>
 
             <div class='quadradoAzulNormal'>

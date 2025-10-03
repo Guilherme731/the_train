@@ -1,9 +1,14 @@
 <?php
 session_start();
 include '../../authGuard/authUsuario.php';
+include '../../conexao/conexao.php';
+
+$sqlTrens = 'SELECT trens.nome AS nomeTrem, rotas.nome AS nomeRota, ativo, quantidadePassageiros, velocidade, idRota FROM trens INNER JOIN rotas ON rotas.id = idRota';
+$resultTrens = $conn->query($sqlTrens);
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,157 +16,57 @@ include '../../authGuard/authUsuario.php';
     <title>Status dos Trens</title>
     <link rel="stylesheet" href="../../../style/style.css">
 </head>
+
 <body>
     <header class="headerPrincipal">
-    <a href="../../../private/<?php if($_SESSION['tipo'] == 'admin'){echo 'admin/config/configAdmin.php';} else {echo 'user/config/configFuncionario.php';}?>"><img src="../../../assets/icons/header/engrenagemIcone.png" alt="Configurações"></a>
-    <img src="../../../assets/logos/logoPequena.png" alt="Logo">
-    <a href="../alertas.php"><img src="../../../assets/icons/header/sinoIcone.png" alt="Notificações"></a>
-</header>
+        <a href="../../../private/<?php if ($_SESSION['tipo'] == 'admin') {
+                                        echo 'admin/config/configAdmin.php';
+                                    } else {
+                                        echo 'user/config/configFuncionario.php';
+                                    } ?>"><img src="../../../assets/icons/header/engrenagemIcone.png" alt="Configurações"></a>
+        <img src="../../../assets/logos/logoPequena.png" alt="Logo">
+        <a href="../alertas.php"><img src="../../../assets/icons/header/sinoIcone.png" alt="Notificações"></a>
+    </header>
 
     <main>
         <section class="secaoInfo">
             <div id="tituloDados">
                 <a href="dashboard.php"><img src="../../../assets/icons/header/setaEsquerda.png" alt=""></a>
-            <div class="textoCentral"><h2>STATUS - TRENS</h2></div>
+                <div class="textoCentral">
+                    <h2>STATUS - TRENS</h2>
+                </div>
             </div>
-        <div class="dadoStatusTrens">
-            <div class="tremStatus1">
-                <img src="../../../assets/icons/dashboard/circuloVerdeIcone.png" alt="simboloStatusVerde">
-                <p>TREM 3</p>
-            </div>
-            <div class="tremStatus2">
-                <img src="../../../assets/icons/dashboard/velocidadeIcone.png" alt="simboloVelocidade">
-                <p>102</p>
-                <p class="textSize-10">Km/h</p>
-            </div>
-            <div class="tremStatus3">
-                <img src="../../../assets/icons/dashboard/pessoaIcone.png" alt="simboloPessoa">
-                <p>34</p>
-            </div>
-            <div class="tremStatus4">
-                <p>ROTA 1</p>
-            </div>
-        </div>
-
-        <div class="dadoStatusTrens">
-            <div class="tremStatus1">
-                <img src="../../../assets/icons/dashboard/circuloVerdeIcone.png" alt="simboloStatusVerde">
-                <p>TREM 2</p>
-            </div>
-            <div class="tremStatus2">
-                <img src="../../../assets/icons/dashboard/velocidadeIcone.png" alt="simboloVelocidade">
-                <p>0</p>
-                <p class="textSize-10">Km/h</p>
-            </div>
-            <div class="tremStatus3">
-                <img src="../../../assets/icons/dashboard/pessoaIcone.png" alt="simboloPessoa">
-                <p>23</p>
-            </div>
-            <div class="tremStatus4">
-                <p>ROTA 4</p>
-            </div>
-        </div>
-
-        <div class="dadoStatusTrens">
-            <div class="tremStatus1">
-                <img src="../../../assets/icons/dashboard/circuloVerdeIcone.png" alt="simboloStatusVerde">
-                <p>TREM 3</p>
-            </div>
-            <div class="tremStatus2">
-                <img src="../../../assets/icons/dashboard/velocidadeIcone.png" alt="simboloVelocidade">
-                <p>87</p>
-                <p class="textSize-10">Km/h</p>
-            </div>
-            <div class="tremStatus3">
-                <img src="../../../assets/icons/dashboard/pessoaIcone.png" alt="simboloPessoa">
-                <p>45</p>
-            </div>
-            <div class="tremStatus4">
-                <p>ROTA 2</p>
-            </div>
-        </div>
-
-        <div class="dadoStatusTrens">
-            <div class="tremStatus1">
-                <img src="../../../assets/icons/dashboard/circuloLaranjaIcone.png" alt="simboloStatusVerde">
-                <p>TREM 4</p>
-            </div>
-            <div class="tremStatus2">
-                <img src="../../../assets/icons/dashboard/velocidadeIcone.png" alt="simboloVelocidade">
-                <p>0</p>
-                <p class="textSize-10">Km/h</p>
-            </div>
-            <div class="tremStatus3">
-                <img src="../../../assets/icons/dashboard/pessoaIcone.png" alt="simboloPessoa">
-                <p>0</p>
-            </div>
-            <div class="tremStatus4">
-                <p>ROTA 2</p>
-            </div>
-        </div>
-
-        <div class="dadoStatusTrens">
-            <div class="tremStatus1">
-                <img src="../../../assets/icons/dashboard/circuloLaranjaIcone.png" alt="simboloStatusVerde">
-                <p>TREM 5</p>
-            </div>
-            <div class="tremStatus2">
-                <img src="../../../assets/icons/dashboard/velocidadeIcone.png" alt="simboloVelocidade">
-                <p>0</p>
-                <p class="textSize-10">Km/h</p>
-            </div>
-            <div class="tremStatus3">
-                <img src="../../../assets/icons/dashboard/pessoaIcone.png" alt="simboloPessoa">
-                <p>0</p>
-            </div>
-            <div class="tremStatus4">
-                <p>ROTA 1</p>
-            </div>
-        </div>
-
-        <div class="dadoStatusTrens">
-            <div class="tremStatus1">
-                <img src="../../../assets/icons/dashboard/circuloLaranjaIcone.png" alt="simboloStatusVerde">
-                <p>TREM 6</p>
-            </div>
-            <div class="tremStatus2">
-                <img src="../../../assets/icons/dashboard/velocidadeIcone.png" alt="simboloVelocidade">
-                <p>0</p>
-                <p class="textSize-10">Km/h</p>
-            </div>
-            <div class="tremStatus3">
-                <img src="../../../assets/icons/dashboard/pessoaIcone.png" alt="simboloPessoa">
-                <p>0</p>
-            </div>
-            <div class="tremStatus4">
-                <p>ROTA 3</p>
-            </div>
-        </div>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-    </section>
+            <?php
+            while ($row = $resultTrens->fetch_assoc()) {
+                echo "<div class='dadoStatusTrens'>
+                <div class='tremStatus1'>";
+                if($row['ativo']){
+                    echo "<img src='../../../assets/icons/dashboard/circuloVerdeIcone.png' alt='simboloStatusVerde'>";
+                }else{
+                    echo "<img src='../../../assets/icons/dashboard/circuloLaranjaIcone.png' alt='simboloStatusVermelho'>";
+                }
+                echo "
+                <p>{$row['nomeTrem']}</p>
+                </div>
+                <div class='tremStatus2'>
+                    <img src='../../../assets/icons/dashboard/velocidadeIcone.png' alt='simboloVelocidade'>
+                    <p>{$row['velocidade']}</p>
+                    <p class='textSize-10'>Km/h</p>
+                </div>
+                <div class='tremStatus3'>
+                    <img src='../../../assets/icons/dashboard/pessoaIcone.png' alt='simboloPessoa'>
+                    <p>{$row['quantidadePassageiros']}</p>
+                </div>
+                <div class='tremStatus4'>
+                    <p>{$row['nomeRota']}</p>
+                </div>
+            </div>";
+            }
+            ?>
+        </section>
     </main>
 
-    <footer class="footerPrincipal"> 
+    <footer class="footerPrincipal">
         <div class="barraLinhaSelecao">
             <div class="linhaAmarela linhaPos1"></div>
         </div>
@@ -173,4 +78,5 @@ include '../../authGuard/authUsuario.php';
         </div>
     </footer>
 </body>
+
 </html>

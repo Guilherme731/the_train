@@ -1,6 +1,38 @@
 <?php
 session_start();
 include '../../authGuard/authUsuario.php';
+
+include '../../conexao/conexao.php';
+
+$id = $_SESSION['user_id'];
+
+$sql = "SELECT * FROM usuarios WHERE id=$id";
+$result = $conn -> query($sql);
+$row = $result -> fetch_assoc();
+
+$sql_dia = "SELECT DAY(data) AS dia FROM usuarios";
+$sql_mes = "SELECT MONTH(data) AS mes FROM usuarios";
+$sql_ano = "SELECT YEAR(data) AS ano FROM usuarios";
+
+
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+
+    $name = $_POST['nome'];
+    $senha = $_POST['senha'];
+    $dataNascimento = $_POST['dataNascimento'];
+    $genero = $_POST['genero'];
+    if($_POST['senha'] === ''){
+        $senha = $row['senha'];
+    }else{
+        $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
+    }
+
+    
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -33,28 +65,28 @@ include '../../authGuard/authUsuario.php';
                 <p class="textoCentral">Trocar Foto</p>
             </a>
 
-            <h2 class="textoCentral">Nome do Usuário</h2>
+            <h2 class="textoCentral"> <?php echo $row['nome']; ?> </h2>
 
         </div>
 
         <div class="gridCentro">
 
 
-            <form id="formularioConfgUsuario">
+            <form  id="formularioConfgUsuario">
 
                 <div id="informacoesPessoais">
                     <div>
                         <label for="senha"></label>
-                        <input type="password" name="senha" id="senha" placeholder="Senha">
+                        <input type="password" name="senha" id="senha"  placeholder="Senha" value="">
                         <div class="error" id="errorSenhaFuncionario"></div>
                     </div>
 
-                    <p>Data De Nascimento</p>
+                    <p>Data de Nascimento</p>
 
                     <div class="flex">
                         <div>
                             <label for="dataNascimentoDia"></label>
-                            <input type="text" name="Dia" id="dataNascimentoDia" placeholder="Dia">
+                            <input type="text" name="Dia" id="dataNascimentoDia" placeholder="Dia" value="">
                             <div class="error" id="errorDia"></div>
                         </div>
 
@@ -72,8 +104,9 @@ include '../../authGuard/authUsuario.php';
 
                     </div>
 
-                    <label for="genero">
+                    <label>
                         <select name="genero" id="generoFuncionario">
+                            <option value="<?php echo $row['genero'];?>" selected><?php echo $row['genero'];?></option>
                             <option value="feminino">Feminino</option>
                             <option value="prefiroNaoDizer">Prefiro Não Dizer</option>
                             <option value="masculino">Masculino</option>
