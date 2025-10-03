@@ -10,18 +10,17 @@ $sql = "SELECT * FROM usuarios WHERE id=$id";
 $result = $conn -> query($sql);
 $row = $result -> fetch_assoc();
 
-$sql_dia = "SELECT DAY(data) AS dia FROM usuarios";
-$sql_mes = "SELECT MONTH(data) AS mes FROM usuarios";
-$sql_ano = "SELECT YEAR(data) AS ano FROM usuarios";
+$result = $conn->query($sql);
 
-
+$dia = date('d', strtotime($row['dataNascimento']));
+$mes = date('m', strtotime($row['dataNascimento']));
+$ano = date('Y', strtotime($row['dataNascimento']));
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
     $name = $_POST['nome'];
     $senha = $_POST['senha'];
-    $dataNascimento = $_POST['dataNascimento'];
     $genero = $_POST['genero'];
     if($_POST['senha'] === ''){
         $senha = $row['senha'];
@@ -75,12 +74,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div class="gridCentro">
 
 
-            <form  id="formularioConfgUsuario">
+            <form  id="formularioConfgUsuario" method="POST" action="">
 
                 <div id="informacoesPessoais">
                     <div>
                         <label for="senha"></label>
-                        <input type="password" name="senha" id="senha"  placeholder="Senha" value="">
+                        <input type="password" name="senha" id="senha"  placeholder="Senha" >
                         <div class="error" id="errorSenhaFuncionario"></div>
                     </div>
 
@@ -89,19 +88,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <div class="flex">
                         <div>
                             <label for="dataNascimentoDia"></label>
-                            <input type="text" name="Dia" id="dataNascimentoDia" placeholder="Dia" value="">
+                            <input type="text" name="Dia" id="dataNascimentoDia" placeholder="Dia" value="<?php echo $dia; ?>">
                             <div class="error" id="errorDia"></div>
                         </div>
 
                         <div>
                             <label for="dataNascimentoMes"></label>
-                            <input type="text" name="Mes" id="dataNascimentoMes" placeholder="Mês">
+                            <input type="text" name="Mes" id="dataNascimentoMes" placeholder="Mês" value="<?php echo $mes; ?>">
                             <div class="error" id="errorMes"></div>
                         </div>
 
                         <div>
                             <label for="dataNascimentoAno"></label>
-                            <input type="text" name="Ano" id="dataNascimentoAno" placeholder="Ano">
+                            <input type="text" name="Ano" id="dataNascimentoAno" placeholder="Ano" value="<?php echo $ano; ?>">
                             <div class="error" id="errorAno"></div>
                         </div>
 

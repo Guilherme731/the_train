@@ -1,6 +1,22 @@
 <?php
 session_start();
 include '../../authGuard/authUsuario.php';
+include '../../conexao/conexao.php';
+
+$sql = 'SELECT AVG(notaConforto) AS mediaConforto, AVG(notaLimpeza) AS mediaLimpeza, AVG(notaVistoria) AS mediaVistoria FROM avaliacoes';
+$result = $conn->query($sql);
+
+$dados = [];
+// Cabeçalho do gráfico
+$dados[] = ["Element", "Série", ["role" => "style"]];
+
+$row = $result->fetch_assoc();
+$dados[] = ['conforto', (int)$row['mediaConforto'], '#35e6eb'];
+$dados[] = ['limpeza', (int)$row['mediaLimpeza'], '#5fc3f4'];
+$dados[] = ['vistoria', (int)$row['mediaVistoria'], '#31356e'];
+
+echo "<script>var dadosPHP = " . json_encode($dados) . ";</script>";
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">

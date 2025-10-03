@@ -1,13 +1,7 @@
 google.charts.load("current", { packages: ['corechart'] });
 google.charts.setOnLoadCallback(drawChart);
 function drawChart() {
-    var data = google.visualization.arrayToDataTable([
-        ["Element", "Série", { role: "style" }],
-        ["Conforto", 10, "#35e6eb"],
-        ["Limpeza", 6, "#5fc3f4"],
-        ["Vistoria", 4, "#31356e"],
-      
-    ]);
+    var data = google.visualization.arrayToDataTable(dadosPHP);
 
     var view = new google.visualization.DataView(data);
     view.setColumns([0, 1,
