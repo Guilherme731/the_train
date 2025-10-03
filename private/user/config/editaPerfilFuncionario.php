@@ -68,10 +68,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <img id="icone" src="../../../assets/icons/config/funcionarioIcone.png" alt="Icone do funcionario">
             </div>
 
-
-            <a id="trocarFoto" onclick="trocarFoto()">
-                <p class="textoCentral">Trocar Foto</p>
-            </a>
+            <form action="" method="post" enctype="multipart/form-data" class="textoCentral">
+                <input type="file" name="fotoPerfil"  required><br>
+                <button type="submit" id="trocarFoto">
+                    <p class="textoCentral">Trocar Foto</p>
+                </button>
+            </form>
+            
 
             <h2 class="textoCentral"> <?php echo $row['nome']; ?> </h2>
 

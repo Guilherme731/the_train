@@ -12,7 +12,8 @@ CREATE TABLE usuarios(
     email VARCHAR(255) NOT NULL,
     nome VARCHAR(120) NOT NULL,
     cpf VARCHAR(11) UNIQUE NOT NULL,
-    tipo ENUM('admin', 'funcionario') NOT NULL
+    tipo ENUM('admin', 'funcionario') NOT NULL,
+    imagemPerfil VARCHAR(120) NULL
 );
 
 CREATE TABLE notificacoes(
