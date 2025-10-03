@@ -22,22 +22,24 @@ include '../../authGuard/authUsuario.php';
         <div id="quadradoMenu">
             <div class="flexCentro textoCentral">
                 <img class="iconeConfigTamanho" src="../../../assets/icons/config/idiomaIcone.png" alt="imagem do icone idioma">
-            <h2  >Idioma</h2>
+            <h2>Idioma</h2>
             </div>
-            <br>
-            <select name="idioma" id="selecao">
-                <option value="Selecione o idioma">Selecione o idioma</option>
-                <option value="Português(Brasil)">Português(Brasil)</option>
-                <option value="Português(Brasil)">Alemão</option>
-                <option value="Português(Brasil)">Árabe</option>
-                <option value="Português(Brasil)">Armênio</option>
-                <option value="Português(Brasil)">Catalão</option>
-                <option value="Português(Brasil)">Coreano</option>
-                <option value="Português(Brasil)">Chinês</option>
-                <option value="Português(Brasil)">Dinamarquês</option>
-                <option value="Português(Brasil)">Espanhol</option>
-
-            </select>
+            <div class="gridCentro">
+                <h4>Selecione o idioma:</h4>
+            </div>
+                <div class="gridCentro">
+                    <select class="flexCentro" id="selecao">
+                        <option value="Português(Brasil)">Português(Brasil)</option>
+                        <option value="Português(Brasil)">Alemão</option>
+                        <option value="Português(Brasil)">Árabe</option>
+                        <option value="Português(Brasil)">Armênio</option>
+                        <option value="Português(Brasil)">Catalão</option>
+                        <option value="Português(Brasil)">Coreano</option>
+                        <option value="Português(Brasil)">Chinês</option>
+                        <option value="Português(Brasil)">Dinamarquês</option>
+                        <option value="Português(Brasil)">Espanhol</option>
+                    <select>
+                </div>
     </main>
 
     <div class="espacoFooterAzulLogo"></div>
