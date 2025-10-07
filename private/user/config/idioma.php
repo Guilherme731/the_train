@@ -19,13 +19,10 @@ include '../../authGuard/authUsuario.php';
         <img src="../../../assets/icons/header/setaEsquerda.png" alt="Seta" onclick="voltarPagina()">
     </header>
     <main>
-        <div id="quadradoMenu">
+        <div id="quadradoIdioma">
             <div class="flexCentro textoCentral">
                 <img class="iconeConfigTamanho" src="../../../assets/icons/config/idiomaIcone.png" alt="imagem do icone idioma">
             <h2>Idioma</h2>
-            </div>
-            <div class="gridCentro">
-                <h4>Selecione o idioma:</h4>
             </div>
                 <div class="gridCentro">
                     <select class="flexCentro" id="selecao">
@@ -40,8 +37,9 @@ include '../../authGuard/authUsuario.php';
                         <option value="Português(Brasil)">Espanhol</option>
                     <select>
                 </div>
+            </div>
+        </div>  
     </main>
-
     <div class="espacoFooterAzulLogo"></div>
 
     <footer class="footerAzulLogo">
