@@ -39,24 +39,9 @@ while ($row = $result->fetch_assoc()) {
 echo "<script>var dadosenergiaPHP = " . json_encode($dados) . ";</script>";
 
 //Gráfico de desempenho
-$sql = "SELECT nome, desempenho FROM trens";
-$result = $conn->query($sql);
 
-$dados = [];
-$dados[] = ["Trem", "Desempenho", ["role" => "style"]];
 
-$cores = ["#a07932", "#ffdd9f", "#fdbe4d"];
-$i = 0;
 
-while ($row = $result->fetch_assoc()) {
-    $dados[] = [
-        $row['nome'], 
-        (float)$row['desempenho'], 
-        $cores[$i % count($cores)] 
-    ];
-    $i++;
-}
-echo "<script>var dadosdesempenhoPHP = " . json_encode($dados) . ";</script>";
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
