@@ -16,17 +16,15 @@ $dados[] = ['Conforto', (int)$row['mediaConforto'], '#35e6eb'];
 $dados[] = ['Limpeza', (int)$row['mediaLimpeza'], '#5fc3f4'];
 $dados[] = ['Vistoria', (int)$row['mediaVistoria'], '#31356e'];
 
-echo "<script>var dadosPHP = " . json_encode($dados) . ";</script>";
+echo "<script>var dadoseficienciaPHP = " . json_encode($dados) . ";</script>";
 
 //Gráfico de Energia
 $sql = "SELECT nome, consumo FROM trens";
 $result = $conn->query($sql);
 
-// Cria o array no formato aceito pelo Google Charts
 $dados = [];
 $dados[] = ["Trem", "Consumo (kWh)", ["role" => "style"]];
 
-// Cores personalizadas (você pode colocar outras, ou definir dinamicamente)
 $cores = ["#35e6eb", "#5fc3f4", "#5cc0cd"];
 $i = 0;
 
@@ -34,12 +32,10 @@ while ($row = $result->fetch_assoc()) {
     $dados[] = [
         $row['nome'], 
         (float)$row['consumo'], 
-        $cores[$i % count($cores)] // repete as cores caso tenha mais trens
+        $cores[$i % count($cores)] 
     ];
     $i++;
 }
-
-// Envia os dados para o JS
 echo "<script>var dadosenergiaPHP = " . json_encode($dados) . ";</script>";
 ?>
 <!DOCTYPE html>
