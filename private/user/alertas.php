@@ -31,12 +31,13 @@ $resultAlertas = $conn->query($sqlAlertas);
     <main>
         <section class="secaoInfo">
             <div id="tituloDados">
-                <img src="../../assets/icons/header/setaEsquerda.png" alt="" onclick="voltarPagina()">
+                <a href="dashboard/dashboard.php"><img src="../../assets/icons/header/setaEsquerda.png" alt="Seta"></a>
             <div class="textoCentral"><h2>ALERTAS</h2></div>
             </div>
             <div id="areaAlertas">
             <?php
-            while ($row = $resultAlertas->fetch_assoc()){
+            if($resultAlertas->num_rows > 0){
+              while ($row = $resultAlertas->fetch_assoc()){
                 $nomeTipo = $row['tipoAlerta'];
                 $tipo = 'atraso';
                 if($nomeTipo == 'Falha Mecanica'){
@@ -45,8 +46,8 @@ $resultAlertas = $conn->query($sqlAlertas);
                     $tipo = 'chuva';
                 }
                 $descricao = $row['descricaoAlerta'];
-                $horario = $row['horarioAlerta'];
-                $id = $row['idAlerta'];
+                $horario = substr($row['horarioAlerta'], 0, 5);
+                $idAlerta = $row['idAlerta'];
 
                 echo "<div class='alerta $tipo'>
                 <img src='../../assets/icons/alertas/chuvaIcone.png'>
@@ -55,17 +56,21 @@ $resultAlertas = $conn->query($sqlAlertas);
                     <p class='mensagemSecundaria margin-0'>$descricao</p>
                 </div>
                 <div class='finalAlerta'>
-                    <form action='' method='POST'><button><img src='../../assets/icons/alertas/fecharIcone.png'></button></form>
+                    <a href='fecharAlerta.php?idAlerta=$idAlerta'><img src='../../assets/icons/alertas/fecharIcone.png'></a>
                     <p class='horaAlerta'>$horario</p>
                 </div>
                 ";
                 echo "</div>";
                 
+            }  
+            }else{
+                echo "<div id='semAlertas'>Não há mensagens.</div>";
             }
+            
             ?>
-                <div id="semAlertas">Não há mensagens.</div>
+                
             </div>
-            <button onclick="fecharTodosAlertas()" class="botaoAmarelo">Fechar Tudo</button>
+            <a href="fecharTodosAlertas.php" class="botaoAmarelo">Fechar Tudo</a>
         </section>
     </main>
 
@@ -83,6 +88,5 @@ $resultAlertas = $conn->query($sqlAlertas);
             <a href="relatorios/relatorios.php"><img src="../../assets/icons/footer/relatoriosIcone.png" alt="Relatórios"></a>
         </div>
     </footer>
-    <script src="../../scripts/alertas.js"></script>
 </body>
 </html>

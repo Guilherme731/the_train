@@ -39,6 +39,7 @@ CREATE TABLE trens(
 	id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     nome VARCHAR(120) UNIQUE NOT NULL,
     desempenho INT NOT NULL,
+    mes ENUM('Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho','Agosto', 'Setembro', 'Outubro', 'Novembro', 'Desembro');
     consumo INT NOT NULL,
     velocidade DECIMAL(10,2) NOT NULL,
     quantidadePassageiros INT,
@@ -133,11 +134,11 @@ VALUES
 ('Rota Sul'),
 ('Rota Central');
 
-INSERT INTO trens(nome, desempenho, consumo, velocidade, quantidadePassageiros, localizacaoX, localizacaoY, parado, ativo, idEstacao, idRota)
+INSERT INTO trens(nome, mes, desempenho, consumo, velocidade, quantidadePassageiros, localizacaoX, localizacaoY, parado, ativo, idEstacao, idRota)
 VALUES
-('Trem Expresso 1', 85, 300, 120.50, 200, 10, 20, FALSE, TRUE, 1, 1),
-('Trem Regional 2', 89, 400, 90.00, 150, 15, 25, TRUE, TRUE, 2, 2),
-('Trem Urbano 3', 95, 200, 60.75, 100, 8, 12, FALSE, FALSE, 3, 3);
+('Trem Expresso 1', 'Abril' 85, 300, 120.50, 200, 10, 20, FALSE, TRUE, 1, 1),
+('Trem Regional 2', 'Maio', 89, 400, 90.00, 150, 15, 25, TRUE, TRUE, 2, 2),
+('Trem Urbano 3', 'Junho', 95, 200, 60.75, 100, 8, 12, FALSE, FALSE, 3, 3);
 
 INSERT INTO manutencoes(tipoManutencao, idEstacao, idTrem)
 VALUES
