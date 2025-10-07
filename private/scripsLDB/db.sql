@@ -39,7 +39,7 @@ CREATE TABLE trens(
 	id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     nome VARCHAR(120) UNIQUE NOT NULL,
     desempenho INT NOT NULL,
-    mes ENUM('Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Desembro') NOT NULL,
+    mes ENUM('Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro') NOT NULL,
     consumo INT NOT NULL,
     velocidade DECIMAL(10,2) NOT NULL,
     quantidadePassageiros INT,
