@@ -1,7 +1,7 @@
 google.charts.load("current", { packages: ['corechart'] });
 google.charts.setOnLoadCallback(drawChart);
 function drawChart() {
-    var data = google.visualization.arrayToDataTable(dadosPHP);
+    var data = google.visualization.arrayToDataTable(dadoseficienciaPHP);
 
     var view = new google.visualization.DataView(data);
     view.setColumns([0, 1,
