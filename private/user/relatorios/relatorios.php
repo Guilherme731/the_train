@@ -39,9 +39,6 @@ while ($row = $result->fetch_assoc()) {
 echo "<script>var dadosenergiaPHP = " . json_encode($dados) . ";</script>";
 
 //Gráfico de desempenho
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">

@@ -3,7 +3,7 @@ google.charts.setOnLoadCallback(drawChart);
 
 function drawChart() {
   var data = google.visualization.arrayToDataTable([
-    ['Trem 1', 'Trem 2', 'Trem 3'],
+    ['Mes', 'Trem 1', 'Trem 2', 'Trem 3'],
     ['Abril', 95, 90, 83],
     ['Maio', 93, 96, 87],
     ['Junho', 85, 89, 95]
