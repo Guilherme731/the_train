@@ -985,8 +985,38 @@ fieldset.grupo.campo{
     width: 100px;
 }
 
-#trocarFoto{
+.trocarFoto{
     text-decoration: none;
-    color: black;
+    color: var(--corAzulClaro);
     cursor: pointer;
+    background-color: var(--corAzulNormal);
+    align-items: center;
+    margin-bottom: 2%;
+    display: block;
+}
+
+input[type="file"]::file-selector-button {
+  text-decoration: none;
+    color: var(--corAzulClaro);
+    cursor: pointer;
+    background-color: var(--corAzulNormal);
+    align-items: center;
+    margin-bottom: 2%;
+    display: block;
+    margin-left: 15%;
+}
+
+input[type="file"]{
+    margin-left: 20%;
+    color: var(--corLaranja);
+    font-weight: bolder;
+}
+
+
+#textoAlerta{
+    justify-content: center; 
+    text-align: center; 
+    color: var(--corLaranja); 
+    margin: 2%;
+     font-weight: 900
 }

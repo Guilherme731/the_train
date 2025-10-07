@@ -2,12 +2,15 @@ google.charts.load('current', { 'packages': ['corechart'] });
 google.charts.setOnLoadCallback(drawChart);
 
 function drawChart() {
-  var data = google.visualization.arrayToDataTable([
-    ['Mes', 'Trem 1', 'Trem 2', 'Trem 3'],
-    ['Abril', 95, 90, 83],
-    ['Maio', 93, 96, 87],
-    ['Junho', 85, 89, 95]
-  ]);
+   var data = google.visualization.arrayToDataTable(dadosdesempenhoPHP);
+
+   var view = new google.visualization.DataView(data);
+    view.setColumns([0, 1, {
+        calc: "stringify",
+        sourceColumn: 1,
+        type: "string",
+        role: "annotation"
+    }, 2]);
 
   var options = {
     width: 205,
