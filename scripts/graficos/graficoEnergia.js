@@ -1,8 +1,7 @@
 google.charts.load("current", { packages: ['corechart'] });
 google.charts.setOnLoadCallback(drawChart);
 
-function drawChart() {
-    // Usa os dados enviados pelo PHP
+function drawChart() {s
     var data = google.visualization.arrayToDataTable(dadosenergiaPHP);
 
     var view = new google.visualization.DataView(data);
