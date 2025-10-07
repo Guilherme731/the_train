@@ -6,11 +6,16 @@ include '../../conexao/conexao.php';
 
 $id = $_SESSION['user_id'];
 
-$sql = "SELECT dataNascimento,genero,nome FROM usuarios WHERE id=$id";
+$sql = "SELECT dataNascimento,genero,nome,imagemPerfil FROM usuarios WHERE id=$id";
 $result = $conn -> query($sql);
 $row = $result -> fetch_assoc();
 
 $result = $conn->query($sql);
+
+$imgFileName = $row['imagemPerfil'];
+if(!isset($imgFileName)){
+    $imgFileName = 'default.jpg';
+}
 
 $dia = date('d', strtotime($row['dataNascimento']));
 $mes = date('m', strtotime($row['dataNascimento']));
@@ -65,15 +70,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div class="gridCentro">
                 <h1 class="textoCentral">Editar Perfil</h1>
 
-                <img id="icone" src="../../../assets/icons/config/funcionarioIcone.png" alt="Icone do funcionario">
+                <img id="icone" src="../uploads/<?=$imgFileName?>" alt="Icone do funcionario">
             </div>
 
-            <form action="" method="post" enctype="multipart/form-data" class="textoCentral">
-                <input type="file" name="fotoPerfil"  required><br>
-                <button type="submit" id="trocarFoto">
-                    <p class="textoCentral">Trocar Foto</p>
-                </button>
-            </form>
+            <a id="trocarFoto" href="mudarFotoPerfil.php">
+                <p class="textoCentral">Trocar Foto</p>
+            </a>
             
 
             <h2 class="textoCentral"> <?php echo $row['nome']; ?> </h2>
