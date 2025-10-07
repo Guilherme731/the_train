@@ -24,12 +24,15 @@ $ano = date('Y', strtotime($row['dataNascimento']));
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
-    
-    $data = $_POST['dataNascimento'];
+    $dia = $_POST['dataNascimentoDia'];
+    $mes = $_POST['dataNascimentoMes'];
+    $ano = $_POST['dataNascimentoAno'];
     $genero = $_POST['genero'];
 
 
-    $sqlUpdate = "UPDATE usuarios SET genero='$genero', dataNascimento='$data' WHERE id=$id";
+
+
+    $sql = "UPDATE usuarios SET genero='$genero', dataNascimento='$ano-$mes-$dia' WHERE id=$id";
 
         if ($conn->query($sql) === true) {
             echo "<div class='mensagemErro'> 
@@ -98,19 +101,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <div class="flex">
                         <div>
                             <label for="dataNascimentoDia"></label>
-                            <input type="text" name="dataNascimento" id="dataNascimentoDia" placeholder="Dia" value="<?php echo $dia; ?>">
+                            <input type="text" name="dataNascimentoDia" id="dataNascimentoDia" placeholder="Dia" value="<?php echo $dia; ?>">
                             <div class="error" id="errorDia"></div>
                         </div>
 
                         <div>
                             <label for="dataNascimentoMes"></label>
-                            <input type="text" name="dataNascimento" id="dataNascimentoMes" placeholder="Mês" value="<?php echo $mes; ?>">
+                            <input type="text" name="dataNascimentoMes" id="dataNascimentoMes" placeholder="Mês" value="<?php echo $mes; ?>">
                             <div class="error" id="errorMes"></div>
                         </div>
 
                         <div>
                             <label for="dataNascimentoAno"></label>
-                            <input type="text" name="dataNascimento" id="dataNascimentoAno" placeholder="Ano" value="<?php echo $ano; ?>">
+                            <input type="text" name="dataNascimentoAno" id="dataNascimentoAno" placeholder="Ano" value="<?php echo $ano; ?>">
                             <div class="error" id="errorAno"></div>
                         </div>
 
@@ -119,10 +122,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <label>
                         <select name="genero" id="generoFuncionario">
                             <option value="<?php echo $row['genero'];?>" selected><?php echo $row['genero'];?></option>
-                            <option value="feminino">Feminino</option>
-                            <option value="prefiroNaoDizer">Prefiro Não Dizer</option>
-                            <option value="masculino">Masculino</option>
-                            <option value="outro">Outro</option>
+                            <option value="Feminino">Feminino</option>
+                            <option value="Prefiro Não Dizer">Prefiro Não Dizer</option>
+                            <option value="Masculino">Masculino</option>
+                            <option value="Outro">Outro</option>
                         </select>
                     </label>
                     <div class="error" id="errorGenero"></div>
