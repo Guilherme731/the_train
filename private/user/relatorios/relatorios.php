@@ -3,20 +3,42 @@ session_start();
 include '../../authGuard/authUsuario.php';
 include '../../conexao/conexao.php';
 
+//Gráfico de Eficiência
 $sql = 'SELECT AVG(notaConforto) AS mediaConforto, AVG(notaLimpeza) AS mediaLimpeza, AVG(notaVistoria) AS mediaVistoria FROM avaliacoes';
 $result = $conn->query($sql);
 
 $dados = [];
-// Cabeçalho do gráfico
+
 $dados[] = ["Element", "Série", ["role" => "style"]];
 
 $row = $result->fetch_assoc();
-$dados[] = ['conforto', (int)$row['mediaConforto'], '#35e6eb'];
-$dados[] = ['limpeza', (int)$row['mediaLimpeza'], '#5fc3f4'];
-$dados[] = ['vistoria', (int)$row['mediaVistoria'], '#31356e'];
+$dados[] = ['Conforto', (int)$row['mediaConforto'], '#35e6eb'];
+$dados[] = ['Limpeza', (int)$row['mediaLimpeza'], '#5fc3f4'];
+$dados[] = ['Vistoria', (int)$row['mediaVistoria'], '#31356e'];
 
-echo "<script>var dadosPHP = " . json_encode($dados) . ";</script>";
+echo "<script>var dadoseficienciaPHP = " . json_encode($dados) . ";</script>";
 
+//Gráfico de Energia
+$sql = "SELECT nome, consumo FROM trens";
+$result = $conn->query($sql);
+
+$dados = [];
+$dados[] = ["Trem", "Consumo (kWh)", ["role" => "style"]];
+
+$cores = ["#35e6eb", "#5fc3f4", "#5cc0cd"];
+$i = 0;
+
+while ($row = $result->fetch_assoc()) {
+    $dados[] = [
+        $row['nome'], 
+        (float)$row['consumo'], 
+        $cores[$i % count($cores)] 
+    ];
+    $i++;
+}
+echo "<script>var dadosenergiaPHP = " . json_encode($dados) . ";</script>";
+
+//Gráfico de desempenho
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -24,7 +46,7 @@ echo "<script>var dadosPHP = " . json_encode($dados) . ";</script>";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../../assets/logos/logoPequena.png">
-    <title>Dashboard</title>
+    <title>Relatorios</title>
     <link rel="stylesheet" href="../../../style/style.css">
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="../../../scripts/graficos/graficoDesempenho.js"></script>
