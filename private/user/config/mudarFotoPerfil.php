@@ -15,23 +15,30 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['aplicar']) && isset($_F
     if ($check !== false){
         $uploadOK = 1;
     }else{
-        echo "O arquivo não é uma imagem.";
+        echo "<div class='mensagemErro'> 
+            <p>O arquivo precisa ser uma imagem.</p>
+            <a href='' class='fechar'>Fechar</a>
+                </div>";
         $uploadOK = 0;
     }
 
     if($_FILES["fotoPerfil"]["size"] > 500000){
-        echo " Imagem muito pesada para o sistema. ";
+        echo "<div class='mensagemErro'> 
+            <p>A imagem é muito grande. O máximo é 500kB.</p>
+            <a href='' class='fechar'>Fechar</a>
+                </div>";
         $uploadOk = 0;
     }
 
     if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"){
-        echo(" Desculpe, só aceitamos JPG, JPEG e PNG. ");
+        echo(" <div class='mensagemErro'> 
+            <p>A imagem precisa ter uma das seguintes extensões: .jpg .png .jpeg</p>
+            <a href='' class='fechar'>Fechar</a>
+                </div> ");
         $uploadOk = 0;
     }
 
-    if ($uploadOk == 0){
-        echo "Desculpe seu arquivo não foi enviado.";
-    }else{
+    if ($uploadOk != 0){
         if(move_uploaded_file($_FILES["fotoPerfil"]["tmp_name"], $target_file)){
             $imageFileName = 'perfilUsuario' . $id . '.' . $imageFileType;
             $sql = "UPDATE usuarios SET imagemPerfil = '$imageFileName' WHERE id=$id";
@@ -39,7 +46,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['aplicar']) && isset($_F
             header("Location: editaPerfilFuncionario.php");
 
         }else{
-            echo "Desculpa houve algum erro no envio.";
+            echo "<div class='mensagemErro'> 
+            <p>Erro ao enviar arquivo.</p>
+            <a href='' class='fechar'>Fechar</a>
+                </div>";
         }
     }
 
