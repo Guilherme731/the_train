@@ -110,10 +110,10 @@ CREATE TABLE sensores_data(
     CONSTRAINT fk_sensores_id FOREIGN KEY (id_sensores) REFERENCES sensores(id)
 );
 
-INSERT INTO usuarios (`cargo`, `salario`, `genero`, `dataNascimento`, `senha`, `email`, `nome`, `cpf`, `tipo`) VALUES
-('Administrador', '5000', 'Feminino', '1997-04-27', '$2y$10$UQ8NEEGJMhR27KYLr6JwAOoa6YOXyrbF8jwiirn2QbgcG3eDmBJEC', 'admin@thetrain.com', 'Admin', '99999999999', 'admin'),
-('Operário', '3000', 'Masculino', '1999-05-27', '$2y$10$FXEtBMctNaZfGFhEG9cYgOcROkb0z.2xEayu9JKbZuWVg8L/0OisO', 'user@thetrain.com', 'Usuario', '99999999998', 'funcionario'),
-('Faxineiro', '2500', 'Masculino', '2008-03-23', '$2y$10$Rsbvwg2x95QebiQdyls6jeoRMhphc59FE4SpS.fONeu7Bn4L/wU4K', 'rodrigo@thetrain.com', 'Rodrigo', '77777777777', 'funcionario');
+INSERT INTO usuarios (`cargo`, `salario`, `genero`, `dataNascimento`, `senha`, `email`, `nome`, `cpf`, `tipo`, `imagemPerfil`) VALUES
+('Administrador', '5000', 'Feminino', '1997-04-27', '$2y$10$UQ8NEEGJMhR27KYLr6JwAOoa6YOXyrbF8jwiirn2QbgcG3eDmBJEC', 'admin@thetrain.com', 'Admin', '99999999999', 'admin', null),
+('Operário', '3000', 'Masculino', '1999-05-27', '$2y$10$FXEtBMctNaZfGFhEG9cYgOcROkb0z.2xEayu9JKbZuWVg8L/0OisO', 'user@thetrain.com', 'Usuario', '99999999998', 'funcionario', 'perfilUsuario2.png'),
+('Faxineiro', '2500', 'Masculino', '2008-03-23', '$2y$10$Rsbvwg2x95QebiQdyls6jeoRMhphc59FE4SpS.fONeu7Bn4L/wU4K', 'rodrigo@thetrain.com', 'Rodrigo', '77777777777', 'funcionario', 'perfilUsuario3.png');
 
 INSERT INTO notificacoes(horario, tipo)
 VALUES

@@ -14,7 +14,7 @@ $result = $conn->query($sql);
 
 $imgFileName = $row['imagemPerfil'];
 if(!isset($imgFileName)){
-    $imgFileName = 'default.jpg';
+    $imgFileName = 'default.png';
 }
 
 $dia = date('d', strtotime($row['dataNascimento']));
@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <body>
     <header class="headerAzulVoltar">
-        <img src="../../../assets/icons/header/setaEsquerda.png" alt="Seta" onclick="voltarPagina()">
+        <a href="configFuncionario.php"><img src="../../../assets/icons/header/setaEsquerda.png" alt="Seta"></a>
     </header>
 
     <main>
