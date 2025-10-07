@@ -88,18 +88,23 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['retirar'])){
             </div>
 
             <form action="" method="post" enctype="multipart/form-data" class="textoCentral">
-                <input type="file" name="fotoPerfil"  required><br>
-                <button type="submit" name="aplicar" id="trocarFoto">
-                    <p class="textoCentral">Aplicar nova foto</p>
-                </button>
+                <div class="gridCentro">
+                    <input type="file" name="fotoPerfil" required><br>
+                    <button type="submit" name="aplicar" class="trocarFoto">
+                        <p class="textoCentral">Aplicar nova foto</p>
+                    </button>
+                </div>
+                
                 
             </form>
             <form action="" method="post">
-                <button type="submit" name="retirar" id="trocarFoto">
+                <div class="gridCentro">
+                <button type="submit" name="retirar" class="trocarFoto">
                     <p class="textoCentral">Retirar Foto</p>
                 </button>
+                </div>
             </form>
-            <span>Ao aplicar uma nova foto, você concorda que a imagem será enviada para o servidor.</span>
+            <span id="textoAlerta">Ao aplicar uma nova foto, você concorda que a imagem será enviada para o servidor.</span>
 
         </div>
 
