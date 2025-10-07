@@ -2,6 +2,11 @@
 session_start();
 include '../../authGuard/authUsuario.php';
 include '../../conexao/conexao.php';
+$id = $_SESSION['user_id'];
+
+$sqlUsers = "SELECT nome FROM usuarios WHERE id=$id";
+$resultUsers = $conn->query($sqlUsers);
+$user = $resultUsers->fetch_assoc();
 
 $sqlTrens = 'SELECT trens.nome AS nomeTrem, rotas.nome AS nomeRota, ativo, quantidadePassageiros, velocidade, idRota FROM trens INNER JOIN rotas ON rotas.id = idRota';
 $resultTrens = $conn->query($sqlTrens);
@@ -28,6 +33,7 @@ $resultEstacoes = $conn->query($sqlEstacoes);
         <img id="iconeUsuarios" src="../../../assets/icons/dashboard/botaoVisualizarUsuarios.png" alt="Botão para visualizar usuários">
     </div>
     </a>
+     <h4 class="flexCentro" style="background-color: #33658a; width:fit-content; text-align:center; margin:20px auto; padding: 5px; border: solid 3px #f6ae2d; border-radius: 15px; color:#f6ae2d;">Você tem sessão iniciada como <?=$user['nome']?>.</h4>
      <h4 class="flexCentro" style="background-color: #33658a; width:fit-content; text-align:center; margin:20px auto; padding: 5px; border: solid 3px #f6ae2d; border-radius: 15px; color:#f6ae2d;">Dashboard em implementação! Horários estão com Placeholder.</h4>
     <section class="secaoInfo">
         <h2>HORÁRIOS</h2>
