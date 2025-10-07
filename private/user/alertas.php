@@ -1,6 +1,13 @@
     <?php
 session_start();
 include '../authGuard/authUsuario.php';
+include '../conexao/conexao.php';
+
+$id = $_SESSION['user_id'];
+
+$sqlAlertas = "SELECT notificacoes.descricao AS descricaoAlerta, notificacoes.horario AS horarioAlerta, notificacoes.tipo AS tipoAlerta, notificacoes.id AS idAlerta FROM alertas INNER JOIN notificacoes ON idNotificacao = notificacoes.id WHERE idFuncionario = $id";
+$resultAlertas = $conn->query($sqlAlertas);
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -28,6 +35,34 @@ include '../authGuard/authUsuario.php';
             <div class="textoCentral"><h2>ALERTAS</h2></div>
             </div>
             <div id="areaAlertas">
+            <?php
+            while ($row = $resultAlertas->fetch_assoc()){
+                $nomeTipo = $row['tipoAlerta'];
+                $tipo = 'atraso';
+                if($nomeTipo == 'Falha Mecanica'){
+                    $tipo = 'falha';
+                }elseif($nomeTipo == 'Chuva'){
+                    $tipo = 'chuva';
+                }
+                $descricao = $row['descricaoAlerta'];
+                $horario = $row['horarioAlerta'];
+                $id = $row['idAlerta'];
+
+                echo "<div class='alerta $tipo'>
+                <img src='../../assets/icons/alertas/chuvaIcone.png'>
+                <div class='textoEsquerda'>
+                    <p class='mensagemPrincipal margin-0'>" . strtoupper($nomeTipo) . "</p>
+                    <p class='mensagemSecundaria margin-0'>$descricao</p>
+                </div>
+                <div class='finalAlerta'>
+                    <form action='' method='POST'><button><img src='../../assets/icons/alertas/fecharIcone.png'></button></form>
+                    <p class='horaAlerta'>$horario</p>
+                </div>
+                ";
+                echo "</div>";
+                
+            }
+            ?>
                 <div id="semAlertas">Não há mensagens.</div>
             </div>
             <button onclick="fecharTodosAlertas()" class="botaoAmarelo">Fechar Tudo</button>
