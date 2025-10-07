@@ -1,7 +1,7 @@
 google.charts.load("current", { packages: ['corechart'] });
 google.charts.setOnLoadCallback(drawChart);
 
-function drawChart() {s
+function drawChart() {
     var data = google.visualization.arrayToDataTable(dadosenergiaPHP);
 
     var view = new google.visualization.DataView(data);

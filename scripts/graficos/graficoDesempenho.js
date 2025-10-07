@@ -4,6 +4,14 @@ google.charts.setOnLoadCallback(drawChart);
 function drawChart() {
    var data = google.visualization.arrayToDataTable(dadosdesempenhoPHP);
 
+   var view = new google.visualization.DataView(data);
+    view.setColumns([0, 1, {
+        calc: "stringify",
+        sourceColumn: 1,
+        type: "string",
+        role: "annotation"
+    }, 2]);
+
   var options = {
     width: 205,
     title: '% de viagens sem atraso',
