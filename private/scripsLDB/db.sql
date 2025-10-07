@@ -116,11 +116,11 @@ INSERT INTO usuarios (`cargo`, `salario`, `genero`, `dataNascimento`, `senha`, `
 ('Operário', '3000', 'Masculino', '1999-05-27', '$2y$10$FXEtBMctNaZfGFhEG9cYgOcROkb0z.2xEayu9JKbZuWVg8L/0OisO', 'user@thetrain.com', 'Usuario', '99999999998', 'funcionario', 'perfilUsuario2.png'),
 ('Faxineiro', '2500', 'Masculino', '2008-03-23', '$2y$10$Rsbvwg2x95QebiQdyls6jeoRMhphc59FE4SpS.fONeu7Bn4L/wU4K', 'rodrigo@thetrain.com', 'Rodrigo', '77777777777', 'funcionario', 'perfilUsuario3.png');
 
-INSERT INTO notificacoes(horario, tipo)
+INSERT INTO notificacoes(horario, tipo, descricao)
 VALUES
-('12:20:00', 'Chuva'),
-('8:20:00', 'Atraso'),
-('2:20:10', 'Falha Mecânica');
+('12:20:00', 'Chuva', 'Chuva forte na rota 3, possível risco a passageiros e/ou funcionários.'),
+('8:20:00', 'Atraso', 'Atraso na rota 1 devido a animal ferido na linha.'),
+('2:20:10', 'Falha Mecânica', 'Requisição de manutenção para o trem 2, problema de desgaste do eixo que gerou a quebra das rodas.'); 
 
 INSERT INTO estacoes(nomeEstacao, temperatura, estaChovendo)
 VALUES
@@ -163,3 +163,12 @@ VALUES
 (1, 23, '2025-09-26 14:30:00'),
 (2, 40, '2025-03-09 15:20:10'),
 (3, 30, '2025-06-10 16:10:50');
+
+
+INSERT INTO alertas(idFuncionario, idNotificacao)
+VALUES
+(1, 2),
+(3, 1),
+(2, 3),
+(3, 3),
+(2, 1);
