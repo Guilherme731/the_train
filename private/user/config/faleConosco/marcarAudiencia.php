@@ -16,7 +16,7 @@ include '../../../authGuard/authUsuario.php';
 <body>
     <header class="headerAzulVoltar">
         <a href="../faleConosco/faleConosco.php">
-            <a href="../configFuncionario.php"><img src="../../../../assets/icons/header/setaEsquerda.png" alt="Seta"></a>
+            <a href="faleConosco.php"><img src="../../../../assets/icons/header/setaEsquerda.png" alt="Seta"></a>
         </a>
     </header>
     <div class="tituloAzul">
