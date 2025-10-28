@@ -1,7 +1,7 @@
 <?php
 include '../../conexao/conexao.php';
 
-$sql = 'SELECT id, nome, cargo, email FROM usuarios';
+$sql = 'SELECT id, nome, cargo, email, imagemPerfil FROM usuarios';
 $result = $conn->query($sql);
 
 ?>
@@ -30,9 +30,17 @@ $result = $conn->query($sql);
         
         <?php
         while ($row = $result->fetch_assoc()) {
+            if($row['imagemPerfil'] == null){
+                $img = 'default.png';
+            }else{
+                $img = $row['imagemPerfil'];
+            }
             echo "
                 
                 <div class='quadradoAzulEscuro'>
+            <div  class='quadradoAzulNormal'>
+                <img height='70px' class='textoCentral' src='../uploads/{$img}'>
+            </div>
             <div class='quadradoAzulNormal'>
                 <h3>{$row['nome']}</h3>
             </div>

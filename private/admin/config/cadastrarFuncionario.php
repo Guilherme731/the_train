@@ -69,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div>
             <h1 class="tituloAzul">Cadastrar Funcionário</h1>
             <form id="validarCadastroFuncionario" action="" method="POST">
-                <div id="quadradoMenu">
+                <div id="quadradoCadastroFuncionario">
                     <input type="text" id="nomeFuncionario" class="placeholderClaro" name="nome" placeholder="Nome">
                     <?php
                         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -225,22 +225,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         }
                         ?>    
                     <div class="error" id="errorTipo"></div>
-                </div>
-                <div class="flexCentro">
-                    <button id="botaoSubmit" type="submit">
+                    </div>
                         <div class="flexCentro">
-                            <img class="iconeCadastrarFuncionarioTamanho" src="../../../assets/icons/config/cadastroFuncionarioIcone.png">
-                            <h2 id="textoCadastrar">Cadastrar</h2>
+                            <button id="botaoSubmit" type="submit">
+                                <div class="flexCentro">
+                                    <img class="iconeCadastrarFuncionarioTamanho" src="../../../assets/icons/config/cadastroFuncionarioIcone.png">
+                                    <div id="botaoCadastrar">
+                                        <h2 id="textoCadastrar">Cadastrar</h2>
+                                    </div>
+                                </div>
+                            </button>
                         </div>
-                    </button>
-
+                    </div>
                 </div>
             </form>
-
         </div></a>
-
-        </div>
-
     </main>
 
     <div class="espacoFooterAzulLogo"></div>

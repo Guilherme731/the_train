@@ -10,6 +10,11 @@ $sql = "SELECT * FROM usuarios WHERE id=$id";
 $result = $conn -> query($sql);
 $row = $result -> fetch_assoc();
 
+$imgFileName = $row['imagemPerfil'];
+if(!isset($imgFileName)){
+    $imgFileName = 'default.png';
+}
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $nome = $_POST['nome'];
@@ -69,9 +74,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             <h2 class="tituloAzul">Editar Perfil De Usuário</h2>
 
-            <img id="imagemUsuario" src="../../../assets/icons/config/funcionarioIcone.png" alt="Icone do funcionario">
+            <img id="imagemUsuario" src="../../user/uploads/<?=$imgFileName?>" alt="Icone do funcionario">
 
-            <h3 class="textoCentral">Nome do Usuário</h3>
+
+            <h3 class="textoCentral"><?php echo $row['nome']?></h3>
         </div>
 
         <form action="" method="POST" id="formularioEditarPerfilUsuario">

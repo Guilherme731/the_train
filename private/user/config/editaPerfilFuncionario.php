@@ -65,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <body>
     <header class="headerAzulVoltar">
-        <a href="configFuncionario.php"><img src="../../../assets/icons/header/setaEsquerda.png" alt="Seta"></a>
+        <a href="<?php if($_SESSION['tipo'] == 'admin'){echo '../../admin/config/configAdmin.php';} else {echo 'configFuncionario.php';}?>"><img src="../../../assets/icons/header/setaEsquerda.png" alt="Seta"></a>
     </header>
 
     <main>
