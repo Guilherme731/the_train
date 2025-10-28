@@ -39,18 +39,21 @@ $resultAlertas = $conn->query($sqlAlertas);
             if($resultAlertas->num_rows > 0){
               while ($row = $resultAlertas->fetch_assoc()){
                 $nomeTipo = $row['tipoAlerta'];
-                $tipo = 'atraso';
+                    $tipo = 'atraso';
+                    $icon = 'relogioIcone';
                 if($nomeTipo == 'Falha Mecanica'){
                     $tipo = 'falha';
+                    $icon = 'trianguloexclamacaoIcone';
                 }elseif($nomeTipo == 'Chuva'){
                     $tipo = 'chuva';
+                    $icon = 'chuvaIcone';
                 }
                 $descricao = $row['descricaoAlerta'];
                 $horario = substr($row['horarioAlerta'], 0, 5);
                 $idAlerta = $row['idAlerta'];
 
                 echo "<div class='alerta $tipo'>
-                <img src='../../assets/icons/alertas/chuvaIcone.png'>
+                <img src='../../assets/icons/alertas/$icon.png'>
                 <div class='textoEsquerda'>
                     <p class='mensagemPrincipal margin-0'>" . strtoupper($nomeTipo) . "</p>
                     <p class='mensagemSecundaria margin-0'>$descricao</p>
