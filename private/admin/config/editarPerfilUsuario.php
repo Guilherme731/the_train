@@ -10,6 +10,11 @@ $sql = "SELECT * FROM usuarios WHERE id=$id";
 $result = $conn -> query($sql);
 $row = $result -> fetch_assoc();
 
+$imgFileName = $row['imagemPerfil'];
+if(!isset($imgFileName)){
+    $imgFileName = 'default.png';
+}
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $nome = $_POST['nome'];
@@ -23,8 +28,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $cpf = $_POST['cpf'];
     $cargo = $_POST['cargo'];
     $salario = $_POST['salario'];
+    $cep = $_POST['cep'];
+    $rua = $_POST['rua'];
+    $numero = $_POST['numero'];
+    $cidade = $_POST['cidade'];
+    $estado = $_POST['estado'];
 
-    $sql = "UPDATE usuarios SET nome = '$nome',email = '$email',senha = '$senha',cpf = '$cpf', cargo = '$cargo',salario = '$salario' WHERE id=$id";
+    $sql = "UPDATE usuarios SET nome = '$nome',email = '$email',senha = '$senha',cpf = '$cpf', cargo = '$cargo',salario = '$salario', cep = '$cep', rua = '$rua', numero = '$numero', cidade = '$cidade', estado = '$estado' WHERE id=$id";
 
     if ($conn->query($sql) === true) {
         header("location: selecionarUsuario.php");
@@ -64,9 +74,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             <h2 class="tituloAzul">Editar Perfil De Usuário</h2>
 
-            <img id="imagemUsuario" src="../../../assets/icons/config/funcionarioIcone.png" alt="Icone do funcionario">
+            <img id="imagemUsuario" src="../../user/uploads/<?=$imgFileName?>" alt="Icone do funcionario">
 
-            <h3 class="textoCentral">Nome do Usuário</h3>
+
+            <h3 class="textoCentral"><?php echo $row['nome']?></h3>
         </div>
 
         <form action="" method="POST" id="formularioEditarPerfilUsuario">
@@ -101,6 +112,31 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                   <div class="marginTopDown-2">
                       <input type="text" name="salario" id="salarioUsuario" value="<?php echo $row['salario'] ?>" class="informacoesEspeciais" placeholder="Salário">
                       <div class="error" id="erroSalario"></div>
+                  </div>
+
+                  <div class="marginTopDown-2">
+                      <input type="text" name="cep" id="cepUsuario" value="<?php echo $row['cep'] ?>" class="informacoesEspeciais" placeholder="CEP">
+                      <div class="error" id="erroCep"></div>
+                  </div>
+
+                  <div class="marginTopDown-2">
+                      <input type="text" name="rua" id="ruaUsuario" value="<?php echo $row['rua'] ?>" class="informacoesEspeciais" placeholder="Rua">
+                      <div class="error" id="erroRua"></div>
+                  </div>
+
+                  <div class="marginTopDown-2">
+                      <input type="text" name="numero" id="numeroUsuario" value="<?php echo $row['numero'] ?>" class="informacoesEspeciais" placeholder="Número">
+                      <div class="error" id="erroNumero"></div>
+                  </div>
+      
+                   <div class="marginTopDown-2">
+                      <input type="text" name="cidade" id="cidadeUsuario" value="<?php echo $row['cidade'] ?>" class="informacoesEspeciais" placeholder="Cidade">
+                      <div class="error" id="erroCidade"></div>
+                  </div>
+      
+                   <div class="marginTopDown-2">
+                      <input type="text" name="estado" id="estadoUsuario" value="<?php echo $row['estado'] ?>" class="informacoesEspeciais" placeholder="Estado">
+                      <div class="error" id="erroEstado"></div>
                   </div>
       
                   </div>
