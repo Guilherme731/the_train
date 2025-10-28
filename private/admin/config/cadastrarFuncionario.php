@@ -286,7 +286,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         ?>  
                     <div class="error" id="errorCidade"></div>
 
-                    <input type="text" id="estadoFuncionario" class="placeholderClaro" name="Estado" placeholder="Estado'">
+                    <input type="text" id="estadoFuncionario" class="placeholderClaro" name="Estado" placeholder="Estado">
                      <?php
                         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             if(!$email){
