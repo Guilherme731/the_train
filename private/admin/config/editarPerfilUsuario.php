@@ -66,7 +66,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             <img id="imagemUsuario" src="../../../assets/icons/config/funcionarioIcone.png" alt="Icone do funcionario">
 
-            <h3 class="textoCentral">Nome do Usuário</h3>
+
+            <h3 class="textoCentral"><?php
+            
+            $sql = 'SELECT id FROM usuarios';
+            
+            
+            ?></h3>
         </div>
 
         <form action="" method="POST" id="formularioEditarPerfilUsuario">

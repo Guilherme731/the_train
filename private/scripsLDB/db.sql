@@ -13,6 +13,11 @@ CREATE TABLE usuarios(
     nome VARCHAR(120) NOT NULL,
     cpf VARCHAR(11) UNIQUE NOT NULL,
     tipo ENUM('admin', 'funcionario') NOT NULL,
+    cep VARCHAR(8) NOT NULL,
+    rua VARCHAR(255),
+    cidade VARCHAR(255),
+    estado VARCHAR(255),
+    numero INT,
     imagemPerfil VARCHAR(120) NULL
 );
 
