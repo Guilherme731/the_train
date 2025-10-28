@@ -19,9 +19,12 @@ include '../../../authGuard/authUsuario.php';
             <a href="faleConosco.php"><img src="../../../../assets/icons/header/setaEsquerda.png" alt="Seta"></a>
         </a>
     </header>
+
     <div class="tituloAzul">
         <h2>Agenda de audiência</h2>
     </div>
+    
+<div class="mainCentral">
 
     <fieldset class="grupo">
         <form id="check">
@@ -46,10 +49,6 @@ include '../../../authGuard/authUsuario.php';
                 <input type="radio" id="tecnologia2" name="tecnologia">
                 <label for="tecnologia" class="amarelo">Não</label>
 
-
-
-
-
             </div>
 
             <br>
@@ -60,6 +59,7 @@ include '../../../authGuard/authUsuario.php';
 
         </form>
     </fieldset>
+</div> 
 
     <main>
 

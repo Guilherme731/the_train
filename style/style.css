@@ -311,7 +311,7 @@ body {
     margin: 5px 5px;
     padding: 5px 5px;
     border-radius: 15px;
-    width: 320px;
+    width: 300px;
     color: var(--corAmarelo);
 }
 
@@ -884,7 +884,7 @@ svg {
 .iconeAddRotas{height: 45px; width: 50px; padding-left: 85%; padding-top: 1%;}
 
 
-#nomeFuncionario, #emailFuncionario, #senhaFuncionario, #cpfFuncionario, #cargoFuncionario, #salarioFuncionario, #dataNascimentoFuncionario, #generoFuncionario, #tipoFuncionario{
+#nomeFuncionario, #emailFuncionario, #senhaFuncionario, #cpfFuncionario, #cargoFuncionario, #salarioFuncionario, #dataNascimentoFuncionario, #generoFuncionario, #tipoFuncionario, #cepFuncionario, #ruaFuncionario, #numeroFuncionario, #cidadeFuncionario, #estadoFuncionario{
     background-color: #4c7da3;
     border: none;
     border-bottom: solid 2px #2f4858;
@@ -892,7 +892,7 @@ svg {
     margin: 1%;
     color: black;
     font-size: 20px;
-    padding-top: 30px;
+    padding-top: 10px;
     color: var(--corAzulClaro);
 }
 

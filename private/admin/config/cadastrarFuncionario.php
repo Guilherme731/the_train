@@ -225,6 +225,81 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         }
                         ?>    
                     <div class="error" id="errorTipo"></div>
+
+                   <input type="text" id="cepFuncionario" class="placeholderClaro" name="CEP" placeholder="CEP">
+                     <?php
+                        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                            if(!$email){
+                                echo "<div class='error'>
+                                <p>Preencha o CEP de Forma Correta</p>
+                                </div>";
+                                $valido = false;
+                            }else{
+                                $valido = true;
+                            }
+                        }
+                        ?>  
+                    <div class="error" id="errorCEP"></div>   
+
+                    <input type="text" id="ruaFuncionario" class="placeholderClaro" name="Rua" placeholder="Rua">
+                     <?php
+                        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                            if(!$email){
+                                echo "<div class='error'>
+                                <p>Preencha a rua de Forma Correta</p>
+                                </div>";
+                                $valido = false;
+                            }else{
+                                $valido = true;
+                            }
+                        }
+                        ?>  
+                    <div class="error" id="errorRua"></div>
+
+                    <input type="text" id="numeroFuncionario" class="placeholderClaro" name="Número" placeholder="Número">
+                     <?php
+                        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                            if(!$email){
+                                echo "<div class='error'>
+                                <p>Preencha o número de Forma Correta</p>
+                                </div>";
+                                $valido = false;
+                            }else{
+                                $valido = true;
+                            }
+                        }
+                        ?>  
+                    <div class="error" id="errorNumero"></div>
+
+                    <input type="text" id="cidadeFuncionario" class="placeholderClaro" name="Cidade" placeholder="Cidade">
+                     <?php
+                        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                            if(!$email){
+                                echo "<div class='error'>
+                                <p>Preencha o cidade de Forma Correta</p>
+                                </div>";
+                                $valido = false;
+                            }else{
+                                $valido = true;
+                            }
+                        }
+                        ?>  
+                    <div class="error" id="errorCidade"></div>
+
+                    <input type="text" id="estadoFuncionario" class="placeholderClaro" name="Estado" placeholder="Estado">
+                     <?php
+                        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                            if(!$email){
+                                echo "<div class='error'>
+                                <p>Preencha o estado de Forma Correta</p>
+                                </div>";
+                                $valido = false;
+                            }else{
+                                $valido = true;
+                            }
+                        }
+                        ?>  
+                    <div class="error" id="errorEstado"></div>
                     </div>
                         <div class="flexCentro">
                             <button id="botaoSubmit" type="submit">
