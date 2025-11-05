@@ -4,15 +4,15 @@ include '../../authGuard/authUsuario.php';
 include '../../conexao/conexao.php';
 $id = $_SESSION['user_id'];
 
-$sqlUsers = "SELECT nome FROM usuarios WHERE id=$id";
+$sqlUsers = "SELECT nome FROM usuarios WHERE id=$id LIMIT 3";
 $resultUsers = $conn->query($sqlUsers);
 $user = $resultUsers->fetch_assoc();
 
-$sqlTrens = 'SELECT trens.nome AS nomeTrem, rotas.nome AS nomeRota, ativo, quantidadePassageiros, velocidade, idRota, horaSaida, parado, idEstacao FROM trens INNER JOIN rotas ON rotas.id = idRota';
+$sqlTrens = 'SELECT trens.nome AS nomeTrem, rotas.nome AS nomeRota, ativo, quantidadePassageiros, velocidade, idRota, horaSaida, parado, idEstacao FROM trens INNER JOIN rotas ON rotas.id = idRota LIMIT 3';
 $resultTrens = $conn->query($sqlTrens);
 $resultTrens2 = $conn->query($sqlTrens);
 
-$sqlEstacoes = 'SELECT id, nomeEstacao, temperatura, estaChovendo FROM estacoes';
+$sqlEstacoes = 'SELECT id, nomeEstacao, temperatura, estaChovendo FROM estacoes LIMIT 3';
 $resultEstacoes = $conn->query($sqlEstacoes);
 ?>
 <!DOCTYPE html>
