@@ -117,6 +117,16 @@ CREATE TABLE sensores_data(
     CONSTRAINT fk_sensores_id FOREIGN KEY (id_sensores) REFERENCES sensores(id)
 );
 
+CREATE TABLE mensagens(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_remetente INT NOT NULL,
+    id_destinatario INT NOT NULL,
+    conteudo TEXT NOT NULL,
+    data_envio DATETIME NOT NULL,
+    FOREIGN KEY (id_remetente) REFERENCES usuarios(id),
+    FOREIGN KEY (id_destinatario) REFERENCES usuarios(id)
+);
+
 INSERT INTO usuarios (`cargo`, `salario`, `genero`, `dataNascimento`, `senha`, `email`, `nome`, `cpf`, `tipo`, `imagemPerfil`, `cep`, `rua`, `cidade`, `estado`, `numero`) VALUES
 ('Administrador', '5000', 'Feminino', '1997-04-27', '$2y$10$UQ8NEEGJMhR27KYLr6JwAOoa6YOXyrbF8jwiirn2QbgcG3eDmBJEC', 'admin@thetrain.com', 'Admin', '99999999999', 'admin', null, '89202205', 'Av. Getúlio Vargas', 'Joinville', 'Santa Catarina', 463),
 ('Operário', '3000', 'Masculino', '1999-05-27', '$2y$10$FXEtBMctNaZfGFhEG9cYgOcROkb0z.2xEayu9JKbZuWVg8L/0OisO', 'user@thetrain.com', 'Usuario', '99999999998', 'funcionario', 'perfilUsuario2.png', '81580290', 'Rua Tenente Coronel Benjamin Lage', 'Curitiba', 'Paraná', 52),
