@@ -54,6 +54,7 @@ CREATE TABLE trens(
     ativo BOOLEAN,
     idEstacao INT NOT NULL,
     idRota INT NOT NULL,
+    horaSaida TIME,
     FOREIGN KEY (idEstacao) REFERENCES estacoes(id),
     FOREIGN KEY (idRota) REFERENCES rotas(id)
 );
@@ -139,11 +140,11 @@ VALUES
 ('Rota Sul'),
 ('Rota Central');
 
-INSERT INTO trens(nome, mes, desempenho, consumo, velocidade, quantidadePassageiros, localizacaoX, localizacaoY, parado, ativo, idEstacao, idRota)
+INSERT INTO trens(nome, mes, desempenho, consumo, velocidade, quantidadePassageiros, localizacaoX, localizacaoY, parado, ativo, horaSaida, idEstacao, idRota)
 VALUES
-('Trem Expresso 1', 'Abril', 85, 300, 120.50, 200, 10, 20, FALSE, TRUE, 1, 1),
-('Trem Regional 2', 'Maio', 89, 400, 90.00, 150, 15, 25, TRUE, TRUE, 2, 2),
-('Trem Urbano 3', 'Junho', 95, 200, 60.75, 100, 8, 12, FALSE, FALSE, 3, 3);
+('Trem Expresso 1', 'Abril', 85, 300, 120.50, 200, 10, 20, FALSE, TRUE, '12:23', 1, 1),
+('Trem Regional 2', 'Maio', 89, 400, 90.00, 150, 15, 25, TRUE, TRUE, '12:27', 2, 2),
+('Trem Urbano 3', 'Junho', 95, 200, 60.75, 100, 8, 12, FALSE, FALSE, '12:24', 3, 3);
 
 INSERT INTO manutencoes(tipoManutencao, idEstacao, idTrem)
 VALUES
