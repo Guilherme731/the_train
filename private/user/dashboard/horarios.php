@@ -1,6 +1,10 @@
 <?php
 session_start();
 include '../../authGuard/authUsuario.php';
+include '../../conexao/conexao.php';
+
+$sqlTrens = 'SELECT trens.nome AS nomeTrem, rotas.nome AS nomeRota, ativo, quantidadePassageiros, velocidade, idRota, horaSaida, parado, idEstacao FROM trens INNER JOIN rotas ON rotas.id = idRota';
+$resultTrens2 = $conn->query($sqlTrens);
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -24,90 +28,50 @@ include '../../authGuard/authUsuario.php';
                 <a href="dashboard.php"><img src="../../../assets/icons/header/setaEsquerda.png" alt=""></a>
             <div class="textoCentral"><h2>HORÁRIOS</h2></div>
             </div>
-            <div class="dadoInfo dashboard">
-                <div class="dadoInfoLeft">
-                    <p class="textoPrincipalDado">TREM 1</p>
-                    <p class="textoSecundarioDado">Saiu as 12:23</p>
+            <?php
+            while ($row = $resultTrens2->fetch_assoc()) {
+                $idEstacao = $row['idEstacao'];
+                $queryEstacao = "SELECT nomeEstacao FROM estacoes WHERE id = $idEstacao";
+                $est = ($conn->query($queryEstacao))->fetch_assoc();
+
+                $horaSaida = substr($row['horaSaida'], 0, -3);
+
+                $timestamp = strtotime(date($row['horaSaida']));
+                $novo_timestamp = strtotime('+5 minutes', $timestamp);
+                $chegadaEstimada = date('H:i', $novo_timestamp);
+
+                echo "<div class='dadoInfo dashboard'>
+                <div class='dadoInfoLeft'>
+                    <p class='textoPrincipalDado'>{$row['nomeTrem']}</p>";
+                    if($row['parado']){
+                        echo "<p class='textoSecundarioDado'>Embarcando...</p>";
+                    }else{
+                        echo "<p class='textoSecundarioDado'>Saiu as {$horaSaida}</p>";
+                    }
+                    echo "
+                    
                 </div>
-                <div class="dadoInfoCenter">
-                    <img src="../../../assets/icons/dashboard/trafegandoIcone.png" alt="iconeTrafegando">
+                <div class='dadoInfoCenter'>";
+                    if($row['parado']){
+                        echo "<img src='../../../assets/icons/dashboard/paradoIcone.png' alt='iconeParado'>";
+                    }else{
+                        echo "<img src='../../../assets/icons/dashboard/trafegandoIcone.png' alt='iconeTrafegando'>";
+                    }
+                    echo "
+                
                 </div>
-                <div class="dadoInfoRight">
-                    <p class="textoPrincipalDado">ESTAÇÃO 2</p>
-                    <p class="textoSecundarioDado">Chega as 12:31</p>
+                <div class='dadoInfoRight'>
+                    <p class='textoPrincipalDado'>{$est['nomeEstacao']}</p>";
+                    if($row['parado']){
+                        echo "<p class='textoSecundarioDado'>Sai as {$horaSaida}</p>";
+                    }else{
+                        echo "<p class='textoSecundarioDado'>Chega as $chegadaEstimada</p>";
+                    }
+                    echo "
                 </div>
-        
-            </div>
-            <div class="dadoInfo dashboard">
-                <div class="dadoInfoLeft">
-                    <p class="textoPrincipalDado">TREM 2</p>
-                    <p class="textoSecundarioDado">Embarcando...</p>
-                </div>
-                <div class="dadoInfoCenter">
-                    <img src="../../../assets/icons/dashboard/paradoIcone.png" alt="iconeParado">
-                </div>
-                <div class="dadoInfoRight">
-                    <p class="textoPrincipalDado">ESTAÇÃO 1</p>
-                    <p class="textoSecundarioDado">Sai as 12:27</p>
-                </div>
-        
-            </div>
-            <div class="dadoInfo dashboard">
-                <div class="dadoInfoLeft">
-                    <p class="textoPrincipalDado">TREM 3</p>
-                    <p class="textoSecundarioDado">Saiu as 12:24</p>
-                </div>
-                <div class="dadoInfoCenter">
-                    <img src="../../../assets/icons/dashboard/trafegandoIcone.png" alt="iconeTrafegando">
-                </div>
-                <div class="dadoInfoRight">
-                    <p class="textoPrincipalDado">ESTAÇÃO 1</p>
-                    <p class="textoSecundarioDado">Chega as 12:35</p>
-                </div>
-        
-            </div>
-            <div class="dadoInfo dashboard">
-                <div class="dadoInfoLeft">
-                    <p class="textoPrincipalDado">TREM 1</p>
-                    <p class="textoSecundarioDado">Saiu as 12:23</p>
-                </div>
-                <div class="dadoInfoCenter">
-                    <img src="../../../assets/icons/dashboard/trafegandoIcone.png" alt="iconeTrafegando">
-                </div>
-                <div class="dadoInfoRight">
-                    <p class="textoPrincipalDado">ESTAÇÃO 2</p>
-                    <p class="textoSecundarioDado">Chega as 12:31</p>
-                </div>
-        
-            </div>
-            <div class="dadoInfo dashboard">
-                <div class="dadoInfoLeft">
-                    <p class="textoPrincipalDado">TREM 2</p>
-                    <p class="textoSecundarioDado">Embarcando...</p>
-                </div>
-                <div class="dadoInfoCenter">
-                    <img src="../../../assets/icons/dashboard/paradoIcone.png" alt="iconeParado">
-                </div>
-                <div class="dadoInfoRight">
-                    <p class="textoPrincipalDado">ESTAÇÃO 1</p>
-                    <p class="textoSecundarioDado">Sai as 12:27</p>
-                </div>
-        
-            </div>
-            <div class="dadoInfo dashboard">
-                <div class="dadoInfoLeft">
-                    <p class="textoPrincipalDado">TREM 3</p>
-                    <p class="textoSecundarioDado">Saiu as 12:24</p>
-                </div>
-                <div class="dadoInfoCenter">
-                    <img src="../../../assets/icons/dashboard/trafegandoIcone.png" alt="iconeTrafegando">
-                </div>
-                <div class="dadoInfoRight">
-                    <p class="textoPrincipalDado">ESTAÇÃO 1</p>
-                    <p class="textoSecundarioDado">Chega as 12:35</p>
-                </div>
-        
-            </div>
+            </div>";
+            }
+            ?>
     </section>
     </main>
 

@@ -54,8 +54,10 @@ include '../../authGuard/authUsuario.php';
             </svg>
         </div>
         <h2 class="tituloAzul" id="tituloPagina">Editar Rota</h2>
-        <p class="textoCentral textSize-10">Deseja editar outra rota? <br> <a class="textoAzulEscuro"
-                href="gerenciarRotas.php">Selecione outra</a></p>
+        <h3 class="textoCentral, tituloAzul">Deseja editar outra rota? <br> <br>
+            <a class="textoAzulEscuro, botaoAmarelo" href="gerenciarRotas.php">Selecione outra</a>
+        </h3>
+                
 
         <div id="listaEstacoes">
             
