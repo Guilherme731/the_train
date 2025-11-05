@@ -39,6 +39,26 @@ while ($row = $result->fetch_assoc()) {
 echo "<script>var dadosenergiaPHP = " . json_encode($dados) . ";</script>";
 
 //Gráfico de desempenho
+
+$sql = "SELECT nome, desempenho FROM trens";
+$result = $conn->query($sql);
+
+$dados = [];
+$dados[] = ["Trem", "% de viagens sem atraso", ["role" => "style"]];
+
+$cores = ["#35e6eb", "#5fc3f4", "#5cc0cd"];
+$i = 0;
+
+while ($row = $result->fetch_assoc()) {
+    $dados[] = [
+        $row['nome'], 
+        (float)$row['desempenho'], 
+        $cores[$i % count($cores)] 
+    ];
+    $i++;
+}
+echo "<script>var dadosdesempenhoPHP = " . json_encode($dados) . ";</script>";
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -69,26 +89,7 @@ echo "<script>var dadosenergiaPHP = " . json_encode($dados) . ";</script>";
                     <p>Dados de desempenho</p>
                 </div>
                 <div class="relatorioFundos">
-
-                    <div id="graficoDesempenho"></div>
-                    <section>
-                        <div class="gridDireita">
-                            <div id="fundoTrem1">
-                                <p>Trem 1</p> <img class="iconeTrens"
-                                    src="../../../assets/icons/config/relatorios/IconeTrem1.png" alt="Icone do Trem 1">
-                            </div>
-                            <div id="fundoTrem2">
-                                <p>Trem 2</p> <img class="iconeTrens"
-                                    src="../../../assets/icons/config/relatorios/IconeTrem2.png" alt="Icone do trem 2">
-                            </div>
-                            <div id="fundoTrem3">
-                                <p>Trem 3</p> <img class="iconeTrens"
-                                    src="../../../assets/icons/config/relatorios/IconeTrem3.png" alt="Icone do Trem 3">
-                            </div>
-                        </div>
-                    </section>
-
-
+                    <div id="columnchart_values3"></div>
                 </div>
 
             </div>

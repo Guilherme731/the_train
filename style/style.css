@@ -631,41 +631,6 @@ height: 15px;
 margin-left: 8px;
 }
 
-#fundoTrem1{
-    border-radius: 60px;
-    align-items: center;
-    justify-content: center;
-    width: 100px;
-    height: 20px;
-    display: flex;
-    background-color: #31356e;
-    color: #a07932
-}
-
-#fundoTrem2{
-    border-radius: 60px;
-    align-items: center;
-    justify-content: center;
-    margin-top: 4px;
-    width: 100px;
-    height: 20px;
-    display: flex;
-    background-color: #31356e;
-    color: #ffdd9f;
-}
-
-#fundoTrem3{
-    border-radius: 60px;
-    align-items: center;
-    justify-content: center;
-    width: 100px;
-    height: 20px;
-    display: flex;
-    background-color: #31356e;
-    color: #fdbe4d;
-    margin-top: 4px
-}
-
 #columnchart_values{
     width: 400px;
     height: 200px;

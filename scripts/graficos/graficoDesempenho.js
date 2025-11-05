@@ -1,29 +1,33 @@
-google.charts.load('current', { 'packages': ['corechart'] });
+google.charts.load("current", { packages: ['corechart'] });
 google.charts.setOnLoadCallback(drawChart);
 
 function drawChart() {
-  var data = google.visualization.arrayToDataTable([
-    ['Mes', 'Trem 1', 'Trem 2', 'Trem 3'],
-    ['Abril', 95, 90, 83],
-    ['Maio', 93, 96, 87],
-    ['Junho', 85, 89, 95]
-  ]);
+    var data = google.visualization.arrayToDataTable(dadosdesempenhoPHP);
 
-  var options = {
-    width: 205,
-    title: '% de viagens sem atraso',
-    titleTextStyle: { color: '#86bbd8' },
-    legend: 'none',
-    series: {
-      0: { color: '#a07932' },
-      1: { color: '#ffdd9f' },
-      2: { color: '#fdbe4d' }
-    },
-    backgroundColor: 'transparent',
-  };
-  var chart = new google.visualization.LineChart(document.getElementById('graficoDesempenho'));
+    var view = new google.visualization.DataView(data);
+    view.setColumns([0, 1, {
+        calc: "stringify",
+        sourceColumn: 1,
+        type: "string",
+        role: "annotation"
+    }, 2]);
 
-  chart.draw(data, options);
+    var options = {
+        title: "% de viagens sem atraso",
+        titleTextStyle: { color: '#86bbd8' },
+        width: 355,
+        height: 130,
+        bar: { groupWidth: "95%" },
+        legend: { position: "none" },
+        backgroundColor: 'transparent',
+    chartArea: {
+        backgroundColor: 'transparent',
+        left: 30
+    }
+    };
+
+    var chart = new google.visualization.ColumnChart(
+        document.getElementById("columnchart_values3")
+    );
+    chart.draw(view, options);
 }
-
-
