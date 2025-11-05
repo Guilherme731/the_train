@@ -7,9 +7,10 @@ check.addEventListener("submit", function (e){
     alert("Audiência marcada!");
 })
 
-function cancelar(){
+check.addEventListener("button", function (e){
+    e.preventDefault();
+    check.reset();
     alert("Sua audiência foi cancelada");
-}
-
+})
 
 
