@@ -119,6 +119,7 @@ CREATE TABLE sensores_data(
 
 CREATE TABLE mensagens(
     id INT AUTO_INCREMENT PRIMARY KEY,
+    tipo ENUM('duvida', 'reportarErro', 'marcarAudiencia') NOT NULL,
     id_remetente INT NOT NULL,
     id_destinatario INT NOT NULL,
     conteudo TEXT NOT NULL,

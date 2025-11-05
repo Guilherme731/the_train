@@ -35,9 +35,6 @@ include '../../../authGuard/authUsuario.php';
             <a href="../faleConosco/marcarAudiencia.php" class="opcaoMenu paddingLeft-7">
                 <p>Marcar audiência</p>
             </a>
-            <a href="../faleConosco/responderMensagens.php" class="opcaoMenu paddingLeft-7">
-                <p>Responder Mensagem</p>
-            </a>
             <a href="../faleConosco/verMensagens.php" class="opcaoMenu paddingLeft-7">
                 <p>Ver Mensagem</p>
             </a>
