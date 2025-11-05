@@ -13,7 +13,7 @@ function drawChart() {
     }, 2]);
 
     var options = {
-        title: "En KHh",
+        title: "Em KHh",
         titleTextStyle: { color: '#86bbd8' },
         width: 355,
         height: 130,
