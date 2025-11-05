@@ -54,6 +54,7 @@ CREATE TABLE trens(
     ativo BOOLEAN,
     idEstacao INT NOT NULL,
     idRota INT NOT NULL,
+    horaSaida TIME,
     FOREIGN KEY (idEstacao) REFERENCES estacoes(id),
     FOREIGN KEY (idRota) REFERENCES rotas(id)
 );
@@ -116,6 +117,17 @@ CREATE TABLE sensores_data(
     CONSTRAINT fk_sensores_id FOREIGN KEY (id_sensores) REFERENCES sensores(id)
 );
 
+CREATE TABLE mensagens(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    tipo ENUM('duvida', 'reportarErro', 'marcarAudiencia') NOT NULL,
+    id_remetente INT NOT NULL,
+    id_destinatario INT NOT NULL,
+    conteudo TEXT NOT NULL,
+    data_envio DATETIME NOT NULL,
+    FOREIGN KEY (id_remetente) REFERENCES usuarios(id),
+    FOREIGN KEY (id_destinatario) REFERENCES usuarios(id)
+);
+
 INSERT INTO usuarios (`cargo`, `salario`, `genero`, `dataNascimento`, `senha`, `email`, `nome`, `cpf`, `tipo`, `imagemPerfil`, `cep`, `rua`, `cidade`, `estado`, `numero`) VALUES
 ('Administrador', '5000', 'Feminino', '1997-04-27', '$2y$10$UQ8NEEGJMhR27KYLr6JwAOoa6YOXyrbF8jwiirn2QbgcG3eDmBJEC', 'admin@thetrain.com', 'Admin', '99999999999', 'admin', null, '89202205', 'Av. Getúlio Vargas', 'Joinville', 'Santa Catarina', 463),
 ('Operário', '3000', 'Masculino', '1999-05-27', '$2y$10$FXEtBMctNaZfGFhEG9cYgOcROkb0z.2xEayu9JKbZuWVg8L/0OisO', 'user@thetrain.com', 'Usuario', '99999999998', 'funcionario', 'perfilUsuario2.png', '81580290', 'Rua Tenente Coronel Benjamin Lage', 'Curitiba', 'Paraná', 52),
@@ -139,11 +151,11 @@ VALUES
 ('Rota Sul'),
 ('Rota Central');
 
-INSERT INTO trens(nome, mes, desempenho, consumo, velocidade, quantidadePassageiros, localizacaoX, localizacaoY, parado, ativo, idEstacao, idRota)
+INSERT INTO trens(nome, mes, desempenho, consumo, velocidade, quantidadePassageiros, localizacaoX, localizacaoY, parado, ativo, horaSaida, idEstacao, idRota)
 VALUES
-('Trem Expresso 1', 'Abril', 85, 300, 120.50, 200, 10, 20, FALSE, TRUE, 1, 1),
-('Trem Regional 2', 'Maio', 89, 400, 90.00, 150, 15, 25, TRUE, TRUE, 2, 2),
-('Trem Urbano 3', 'Junho', 95, 200, 60.75, 100, 8, 12, FALSE, FALSE, 3, 3);
+('Trem Expresso 1', 'Abril', 85, 300, 120.50, 200, 10, 20, FALSE, TRUE, '12:23', 1, 1),
+('Trem Regional 2', 'Maio', 89, 400, 90.00, 150, 15, 25, TRUE, TRUE, '12:27', 2, 2),
+('Trem Urbano 3', 'Junho', 95, 200, 60.75, 100, 8, 12, FALSE, FALSE, '12:24', 3, 3);
 
 INSERT INTO manutencoes(tipoManutencao, idEstacao, idTrem)
 VALUES

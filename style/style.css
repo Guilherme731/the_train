@@ -631,41 +631,6 @@ height: 15px;
 margin-left: 8px;
 }
 
-#fundoTrem1{
-    border-radius: 60px;
-    align-items: center;
-    justify-content: center;
-    width: 100px;
-    height: 20px;
-    display: flex;
-    background-color: #31356e;
-    color: #a07932
-}
-
-#fundoTrem2{
-    border-radius: 60px;
-    align-items: center;
-    justify-content: center;
-    margin-top: 4px;
-    width: 100px;
-    height: 20px;
-    display: flex;
-    background-color: #31356e;
-    color: #ffdd9f;
-}
-
-#fundoTrem3{
-    border-radius: 60px;
-    align-items: center;
-    justify-content: center;
-    width: 100px;
-    height: 20px;
-    display: flex;
-    background-color: #31356e;
-    color: #fdbe4d;
-    margin-top: 4px
-}
-
 #columnchart_values{
     width: 400px;
     height: 200px;
@@ -785,20 +750,20 @@ margin-left: 8px;
 /* Editar Rotas */
   .estacoes {
     background-color: var(--corAzulEscuro);
-    margin: 5% 5%;
+    margin: 2% 5%;
     height: 10%;
     border-radius: 5px;
     width: 90%;
 }
 
-.textoAzul{color: var(--corAzulClaro); margin: 2%; width: 50%;}
+.textoAzul{color: var(--corAzulClaro); margin: 4px; width: 55px; font-size: 12px;}
 
-.iconeEditarEstacao{height: 5%; width: 12%; margin: 2% 7%}
+.iconeEditarEstacao{height: 17px; width: 20px; margin: 2% 7%; padding-right: 15px; padding-left: 30px;}
 
-.iconeAddRota{height: 5%; width: 15%; padding-left: 80%;}
+.iconeAddRota{height: 40px; width: 40px; padding-left: 80%;}
 
-.moverEstacoesCima{height: 5%; width: 15%; padding-top: 2.5%; padding-left: 7%; background-color:var(--corAzulEscuro);}
-.moverEstacoesBaixo{height: 5%; width: 16.5%; padding-top: 2.5%;}
+.moverEstacoesCima{height: 20px; width: 35px; padding-top: 2%; padding-left: 15%; background-color:var(--corAzulEscuro);}
+.moverEstacoesBaixo{height: 20px; width: 40px; padding-top: 2%;}
 
 
 #lista1{padding: 0;}

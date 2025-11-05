@@ -4,14 +4,15 @@ include '../../authGuard/authUsuario.php';
 include '../../conexao/conexao.php';
 $id = $_SESSION['user_id'];
 
-$sqlUsers = "SELECT nome FROM usuarios WHERE id=$id";
+$sqlUsers = "SELECT nome FROM usuarios WHERE id=$id LIMIT 3";
 $resultUsers = $conn->query($sqlUsers);
 $user = $resultUsers->fetch_assoc();
 
-$sqlTrens = 'SELECT trens.nome AS nomeTrem, rotas.nome AS nomeRota, ativo, quantidadePassageiros, velocidade, idRota FROM trens INNER JOIN rotas ON rotas.id = idRota';
+$sqlTrens = 'SELECT trens.nome AS nomeTrem, rotas.nome AS nomeRota, ativo, quantidadePassageiros, velocidade, idRota, horaSaida, parado, idEstacao FROM trens INNER JOIN rotas ON rotas.id = idRota LIMIT 3';
 $resultTrens = $conn->query($sqlTrens);
+$resultTrens2 = $conn->query($sqlTrens);
 
-$sqlEstacoes = 'SELECT id, nomeEstacao, temperatura, estaChovendo FROM estacoes';
+$sqlEstacoes = 'SELECT id, nomeEstacao, temperatura, estaChovendo FROM estacoes LIMIT 3';
 $resultEstacoes = $conn->query($sqlEstacoes);
 ?>
 <!DOCTYPE html>
@@ -34,49 +35,53 @@ $resultEstacoes = $conn->query($sqlEstacoes);
     </div>
     </a>
      <h4 class="flexCentro" style="background-color: #33658a; width:fit-content; text-align:center; margin:20px auto; padding: 5px; border: solid 3px #f6ae2d; border-radius: 15px; color:#f6ae2d;">Você tem sessão iniciada como <?=$user['nome']?>.</h4>
-     <h4 class="flexCentro" style="background-color: #33658a; width:fit-content; text-align:center; margin:20px auto; padding: 5px; border: solid 3px #f6ae2d; border-radius: 15px; color:#f6ae2d;">Dashboard em implementação! Horários estão com Placeholder.</h4>
-    <section class="secaoInfo">
+     <section class="secaoInfo">
         <h2>HORÁRIOS</h2>
-        <div class="dadoInfo dashboard">
-            <div class="dadoInfoLeft">
-                <p class="textoPrincipalDado">TREM 1</p>
-                <p class="textoSecundarioDado">Saiu as 12:23</p>
-            </div>
-            <div class="dadoInfoCenter">
-                <img src="../../../assets/icons/dashboard/trafegandoIcone.png" alt="iconeTrafegando">
-            </div>
-            <div class="dadoInfoRight">
-                <p class="textoPrincipalDado">ESTAÇÃO 2</p>
-                <p class="textoSecundarioDado">Chega as 12:31</p>
-            </div>
-    
-        </div>
-        <div class="dadoInfo dashboard">
-            <div class="dadoInfoLeft">
-                <p class="textoPrincipalDado">TREM 2</p>
-                <p class="textoSecundarioDado">Embarcando...</p>
-            </div>
-            <div class="dadoInfoCenter">
-                <img src="../../../assets/icons/dashboard/paradoIcone.png" alt="iconeParado">
-            </div>
-            <div class="dadoInfoRight">
-                <p class="textoPrincipalDado">ESTAÇÃO 1</p>
-                <p class="textoSecundarioDado">Sai as 12:27</p>
-            </div>
-    
-        </div>
-        <div class="dadoInfo dashboard">
-            <div class="dadoInfoLeft">
-                <p class="textoPrincipalDado">TREM 3</p>
-                <p class="textoSecundarioDado">Saiu as 12:24</p>
-            </div>
-            <div class="dadoInfoCenter">
-                <img src="../../../assets/icons/dashboard/trafegandoIcone.png" alt="iconeTrafegando">
-            </div>
-            <div class="dadoInfoRight">
-                <p class="textoPrincipalDado">ESTAÇÃO 1</p>
-                <p class="textoSecundarioDado">Chega as 12:35</p>
-            </div>
+
+        <?php
+            while ($row = $resultTrens2->fetch_assoc()) {
+                $idEstacao = $row['idEstacao'];
+                $queryEstacao = "SELECT nomeEstacao FROM estacoes WHERE id = $idEstacao";
+                $est = ($conn->query($queryEstacao))->fetch_assoc();
+
+                $horaSaida = substr($row['horaSaida'], 0, -3);
+
+                $timestamp = strtotime(date($row['horaSaida']));
+                $novo_timestamp = strtotime('+5 minutes', $timestamp);
+                $chegadaEstimada = date('H:i', $novo_timestamp);
+
+                echo "<div class='dadoInfo dashboard'>
+                <div class='dadoInfoLeft'>
+                    <p class='textoPrincipalDado'>{$row['nomeTrem']}</p>";
+                    if($row['parado']){
+                        echo "<p class='textoSecundarioDado'>Embarcando...</p>";
+                    }else{
+                        echo "<p class='textoSecundarioDado'>Saiu as {$horaSaida}</p>";
+                    }
+                    echo "
+                    
+                </div>
+                <div class='dadoInfoCenter'>";
+                    if($row['parado']){
+                        echo "<img src='../../../assets/icons/dashboard/paradoIcone.png' alt='iconeParado'>";
+                    }else{
+                        echo "<img src='../../../assets/icons/dashboard/trafegandoIcone.png' alt='iconeTrafegando'>";
+                    }
+                    echo "
+                
+                </div>
+                <div class='dadoInfoRight'>
+                    <p class='textoPrincipalDado'>{$est['nomeEstacao']}</p>";
+                    if($row['parado']){
+                        echo "<p class='textoSecundarioDado'>Sai as {$horaSaida}</p>";
+                    }else{
+                        echo "<p class='textoSecundarioDado'>Chega as $chegadaEstimada</p>";
+                    }
+                    echo "
+                </div>
+            </div>";
+            }
+            ?>
     
         </div>
         <div class="textoDireita">
