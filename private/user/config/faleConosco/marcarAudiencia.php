@@ -19,14 +19,13 @@ include '../../../authGuard/authUsuario.php';
             <a href="faleConosco.php"><img src="../../../../assets/icons/header/setaEsquerda.png" alt="Seta"></a>
         </a>
     </header>
-
-    <div class="tituloAzul">
-        <h2>Agenda de audiência</h2>
-    </div>
     
 <div class="mainCentral">
-
+    
     <fieldset class="grupo">
+        <div class="tituloAzul">
+            <h2>Agenda de audiência</h2>
+        </div>
         <form id="check">
 
             <h3 class="amarelo">Horário:</h3>
@@ -41,8 +40,6 @@ include '../../../authGuard/authUsuario.php';
             <div>
                 <h3 class="amarelo">Agendar automaticamente?:</h3>
 
-
-
                 <input type="radio" id="tecnologia1" name="tecnologia">
                 <label for="tecnologia" class="amarelo">Sim</label>
 
@@ -55,7 +52,7 @@ include '../../../authGuard/authUsuario.php';
             <br>
 
             <button type="submit" id="adicionar">Adicionar</button>
-            <button type="button" id="cancelar" onclick="cancelar()">Cancelar</button>
+            <button type="button" id="cancelar">Cancelar</button>
 
         </form>
     </fieldset>
