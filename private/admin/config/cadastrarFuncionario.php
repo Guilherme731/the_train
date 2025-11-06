@@ -4,10 +4,12 @@ include '../../authGuard/authAdmin.php';
 
 include '../../conexao/conexao.php';
 
+include '../../consultaApis/viaCep.php';
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     //$valido = false;
-
+if (isset($_POST['cadastrar'])) {
     $name = $_POST['nome'];
     $email = $_POST['email'];
     $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
@@ -35,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $conn->close();
     //}
 
-
+    }
     
 }
 
@@ -72,7 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <div id="quadradoCadastroFuncionario">
                     <input type="text" id="nomeFuncionario" class="placeholderClaro" name="nome" placeholder="Nome">
                     <?php
-                        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['cadastrar'])) {
                             if(!$name){
                                 echo "<div class='error'>
                                 <p>Preencha o Nome de Forma Correta</p>
@@ -96,7 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <option value="Piloto">Piloto</option> 
                         </select>
                         <?php
-                        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['cadastrar'])) {
                             if(!$cargo || $cargo == 'none'){
                                 echo "<div class='error'>
                                 <p>Preencha o Cargo de Forma Correta</p>
@@ -111,7 +113,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                     <input type="text" id="salarioFuncionario" class="placeholderClaro" name="salario" placeholder="Salario">
                      <?php
-                        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['cadastrar'])) {
                             if(!$salario){
                                 echo "<div class='error'>
                                 <p>Preencha o Salário de Forma Correta</p>
@@ -126,7 +128,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                     <input type="text" id="emailFuncionario" class="placeholderClaro" name="email" placeholder="Email">
                      <?php
-                        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['cadastrar'])) {
                             if(!$email){
                                 echo "<div class='error'>
                                 <p>Preencha o Email de Forma Correta</p>
@@ -141,7 +143,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                     <input type="password" id="senhaFuncionario" class="placeholderClaro" name="senha" placeholder="Senha">
                      <?php
-                        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['cadastrar'])) {
                             if(!$senha || $senha > 8){
                                 echo "<div class='error'>
                                 <p>Preencha a Senha de Forma Correta</p>
@@ -156,7 +158,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                     <input type="text" id="cpfFuncionario" class="placeholderClaro" name="cpf" placeholder="CPF">
                     <?php
-                        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['cadastrar'])) {
                                 if(!$cpf || strlen($cpf) !== 11){
                                     echo "<div class='error'>
                                     <p>Preencha o CPF de Forma Correta</p>
@@ -178,7 +180,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <option value="Outro">Outro</option>
                         </select>
                         <?php
-                        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['cadastrar'])) {
                             if(!$genero || $genero == 'none'){
                                 echo "<div class='error'>
                                 <p>Preencha o Gênero de Forma Correta</p>
@@ -193,7 +195,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                     <input type="date" id="dataNascimentoFuncionario" name="dataNascimento" placeholder="Data de Nascimento">
                     <?php
-                        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['cadastrar'])) {
                             if(!$dataNascimento){
                                 echo "<div class='error'>
                                 <p>Preencha a Data de Nascimento de Forma Correta</p>
@@ -213,7 +215,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <option value="admin">Admin</option>
                         </select>
                         <?php
-                        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['cadastrar'])) {
                             if(!$tipoFuncionario || $tipoFuncionario == 'none'){
                                 echo "<div class='error'>
                                 <p>Preencha o Tipo de Funcionario de Forma Correta</p>
@@ -226,83 +228,64 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         ?>    
                     <div class="error" id="errorTipo"></div>
 
-                   <input type="text" id="cepFuncionario" class="placeholderClaro" name="CEP" placeholder="CEP">
-                     <?php
-                        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                            if(!$email){
-                                echo "<div class='error'>
-                                <p>Preencha o CEP de Forma Correta</p>
-                                </div>";
-                                $valido = false;
-                            }else{
-                                $valido = true;
+                    <?php
+                            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+                            if (isset($_POST['carregarCep'])) {
+                                echo "<input type='text' id='cepFuncionario' class='placeholderClaro' name='cep' placeholder='CEP' readonly>";
+                                echo "<br> <a href=''>Voltar</a>";
                             }
-                        }
-                        ?>  
+                            else{
+                                echo "<input type='text' id='cepFuncionario' class='placeholderClaro' name='cep' placeholder='CEP'>";
+                                echo "<br> <input type='submit' name='carregarCep' value='Confirmar CEP'>";
+                            }
+                        }else{
+                                echo "<input type='text' id='cepFuncionario' class='placeholderClaro' name='cep' placeholder='CEP'>";
+                                echo "<br> <input type='submit' name='carregarCep' value='Confirmar CEP'>";
+
+                            }
+                            ?> 
                     <div class="error" id="errorCEP"></div>   
 
-                    <input type="text" id="ruaFuncionario" class="placeholderClaro" name="Rua" placeholder="Rua">
-                     <?php
+                        <?php
+                        
                         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                            if(!$email){
-                                echo "<div class='error'>
-                                <p>Preencha a rua de Forma Correta</p>
-                                </div>";
-                                $valido = false;
-                            }else{
-                                $valido = true;
-                            }
-                        }
-                        ?>  
-                    <div class="error" id="errorRua"></div>
 
-                    <input type="text" id="numeroFuncionario" class="placeholderClaro" name="Número" placeholder="Número">
-                     <?php
-                        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                            if(!$email){
-                                echo "<div class='error'>
-                                <p>Preencha o número de Forma Correta</p>
-                                </div>";
-                                $valido = false;
-                            }else{
-                                $valido = true;
-                            }
-                        }
-                        ?>  
-                    <div class="error" id="errorNumero"></div>
+                            if (isset($_POST['carregarCep'])) {
 
-                    <input type="text" id="cidadeFuncionario" class="placeholderClaro" name="Cidade" placeholder="Cidade">
-                     <?php
-                        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                            if(!$email){
-                                echo "<div class='error'>
-                                <p>Preencha o cidade de Forma Correta</p>
-                                </div>";
-                                $valido = false;
-                            }else{
-                                $valido = true;
-                            }
-                        }
-                        ?>  
-                    <div class="error" id="errorCidade"></div>
+                                $apiResponse = obterDadosCep($_POST['cep']);
+                                    $sitRua = ($apiResponse[0] != null)? ' readonly' : '';
+                                    $sitCidade = ($apiResponse[1] != null)? ' readonly' : '';
+                                    $sitEstado = ($apiResponse[2] != null)? ' readonly' : '';
+                                    echo "<div class='marginTopDown-2'>
+                                    <input type='text' name='Rua' id='ruaFuncionario' value='" . $apiResponse[0] . "' class='placeholderClaro' placeholder='Rua' " . $sitRua . ">
+                                    <div class='error' id='erroRua'></div>
+                                </div>
 
-                    <input type="text" id="estadoFuncionario" class="placeholderClaro" name="Estado" placeholder="Estado">
-                     <?php
-                        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                            if(!$email){
-                                echo "<div class='error'>
-                                <p>Preencha o estado de Forma Correta</p>
+                                <div class='marginTopDown-2'>
+                                    <input type='text' name='Numero' id='numeroFuncionario' value='' class='placeholderClaro' placeholder='Número'>
+                                    <div class='error' id='erroNumero'></div>
+                                </div>
+
+                                <div class='marginTopDown-2'>
+                                    <input type='text' name='Cidade' id='cidadeFuncionario' value='" . $apiResponse[1] . "' class='placeholderClaro' placeholder='Cidade'" . $sitCidade . ">
+                                    <div class='error' id='erroCidade'></div>
+                                </div>
+
+                                <div class='marginTopDown-2'>
+                                    <input type='text' name='Estado' id='estadoFuncionario' value='" . $apiResponse[2] . "' class='placeholderClaro' placeholder='Estado' " . $sitEstado . ">
+                                    <div class='error' id='erroEstado'></div>
                                 </div>";
-                                $valido = false;
-                            }else{
-                                $valido = true;
+
+
                             }
                         }
-                        ?>  
-                    <div class="error" id="errorEstado"></div>
+                        
+                        ?>
+                    
                     </div>
                         <div class="flexCentro">
-                            <button id="botaoSubmit" type="submit">
+                            <button id="botaoSubmit" type="submit" name="cadastrar">
                                 <div class="flexCentro">
                                     <img class="iconeCadastrarFuncionarioTamanho" src="../../../assets/icons/config/cadastroFuncionarioIcone.png">
                                     <div id="botaoCadastrar">
