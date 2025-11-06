@@ -192,6 +192,6 @@ VALUES
 
 INSERT INTO mensagens(tipo, id_remetente, id_destinatario, conteudo, data_envio)
 VALUES
-('duvida', 1, 1, 'Não entendi como funciona as notificações, como eu poderia criar uma nova?', '02/03/2025'),
-('reportarErro', 1, 2, 'Não estou conseguindo fazer login, mesmo meu email estando correto.', '04/06/2025'),
-('marcarAudiencia', 1, 3, 'Gostaria de marcar uma audiência para o dia 20/11/2025 para discutir os termos do projeto.', '06/11/2025');s
+('duvida', 1, 1, 'Não entendi como funciona as notificações, como eu poderia criar uma nova?', '2025-03-02'),
+('reportarErro', 1, 2, 'Não estou conseguindo fazer login, mesmo meu email estando correto.', '2025-06-04'),
+('marcarAudiencia', 1, 3, 'Gostaria de marcar uma audiência para o dia 20/11/2025 para discutir os termos do projeto.', '2025-11-06');
