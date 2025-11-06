@@ -16,7 +16,7 @@ include '../../../authGuard/authUsuario.php';
 
 <body>
     <header class="headerAzulVoltar">
-        <a href="../../../admin/config/configAdmin.php"><img src="../../../../assets/icons/header/setaEsquerda.png" alt="Seta"></a>
+        <a href="../../config/configFuncionario.php"><img src="../../../../assets/icons/header/setaEsquerda.png" alt="Seta"></a>
     </header>
     <main>
         <div id="quadradoMenu">
@@ -34,9 +34,6 @@ include '../../../authGuard/authUsuario.php';
             </a>
             <a href="../faleConosco/marcarAudiencia.php" class="opcaoMenu paddingLeft-7">
                 <p>Marcar audiência</p>
-            </a>
-            <a href="../faleConosco/verMensagens.php" class="opcaoMenu paddingLeft-7">
-                <p>Ver Mensagem</p>
             </a>
         </div>
 

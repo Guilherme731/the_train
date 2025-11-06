@@ -41,7 +41,8 @@ include '../../authGuard/authUsuario.php';
                         alt="Imagem do ícone de verificação de 2 etapas">
                     <p>Verificação De 2 etapas</p>
                 </a>
-                <a href="faleConosco/faleConosco.php" class="opcaoMenu">
+
+                <a href="<?php if($_SESSION['tipo'] == 'admin'){echo '../../admin/config/responderMensagens.php';} else {echo 'faleConosco/faleConosco.php';}?>" class="opcaoMenu">
                     <img class="iconeConfigTamanho" src="../../../assets/icons/config/faleConoscoIcone.png"
                         alt="Imagem do ícone de Fale Conosco">
                     <p>Fale Conosco</p>
