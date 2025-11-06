@@ -51,9 +51,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $conn->close();
     exit();
     }
-    if(isset($_POST['carregarCep'])){
-        
-    }
 }
 
 
@@ -132,11 +129,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <div class="flexCentro">
                     <div id="informacoesEspeciaisUser">
                         <div class="marginTopDown-2">
-                            <input type="text" name="cep" id="cepUsuario" value="<?php echo $row['cep'] ?>" class="informacoesEspeciais" placeholder="CEP">
+                            <?php
+                            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+                            if (isset($_POST['carregarCep'])) {
+                                echo "<input type='text' name='cep' id='cepUsuario' value='{$_POST['cep']}' class='informacoesEspeciais' placeholder='CEP' readonly>";
+                                echo "<br> <a href=''>Voltar</a>";
+                            }
+                            else{
+                                echo "<input type='text' name='cep' id='cepUsuario' value='{$row['cep']}' class='informacoesEspeciais' placeholder='CEP'>";
+                                echo "<br> <input type='submit' name='carregarCep' value='Confirmar CEP'>";
+                            }
+                        }else{
+                                echo "<input type='text' name='cep' id='cepUsuario' value='{$row['cep']}' class='informacoesEspeciais' placeholder='CEP'>";
+                                echo "<br> <input type='submit' name='carregarCep' value='Confirmar CEP'>";
+
+                            }
+                        ?>
+                            
                             <div class="error" id="erroCep"></div>
                         </div>
 
-                        <input type="submit" name="carregarCep" value="Confirmar CEP">
+                        
+                        
 
                         <?php
                         
@@ -145,12 +160,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             if (isset($_POST['carregarCep'])) {
                                 $sql = "SELECT * FROM usuarios WHERE id = $id";
                                 $result = ($conn->query($sql))->fetch_assoc();
+                                $apiResponse = obterDadosCep($_POST['cep']);
+                                $sitRua = ($apiResponse[0] != null)? ' readonly' : '';
+                                $sitCidade = ($apiResponse[1] != null)? ' readonly' : '';
+                                $sitEstado = ($apiResponse[2] != null)? ' readonly' : '';
 
                                 
 
                                 if($_POST['cep'] == $result['cep']){
                                     echo "<div class='marginTopDown-2'>
-                                    <input type='text' name='rua' id='ruaUsuario' value='" . $row['rua'] . "' class='informacoesEspeciais' placeholder='Rua'>
+                                    <input type='text' name='rua' id='ruaUsuario' value='" . $row['rua'] . "' class='informacoesEspeciais' placeholder='Rua'" . $sitRua . ">
                                     <div class='error' id='erroRua'></div>
                                 </div>
 
@@ -160,19 +179,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 </div>
 
                                 <div class='marginTopDown-2'>
-                                    <input type='text' name='cidade' id='cidadeUsuario' value='" . $row['cidade'] . "' class='informacoesEspeciais' placeholder='Cidade'>
+                                    <input type='text' name='cidade' id='cidadeUsuario' value='" . $row['cidade'] . "' class='informacoesEspeciais' placeholder='Cidade'" . $sitCidade . ">
                                     <div class='error' id='erroCidade'></div>
                                 </div>
 
                                 <div class='marginTopDown-2'>
-                                    <input type='text' name='estado' id='estadoUsuario' value='" . $row['estado'] . "' class='informacoesEspeciais' placeholder='Estado'>
+                                    <input type='text' name='estado' id='estadoUsuario' value='" . $row['estado'] . "' class='informacoesEspeciais' placeholder='Estado'" . $sitEstado . ">
                                     <div class='error' id='erroEstado'></div>
                                 </div>";
                                 }else{
                                     $apiResponse = obterDadosCep($_POST['cep']);
-                                    $sitRua = ($apiResponse[0] != null)? 'disabled' : '';
-                                    $sitCidade = ($apiResponse[1] != null)? 'disabled' : '';
-                                    $sitEstado = ($apiResponse[2] != null)? 'disabled' : '';
+                                    $sitRua = ($apiResponse[0] != null)? ' readonly' : '';
+                                    $sitCidade = ($apiResponse[1] != null)? ' readonly' : '';
+                                    $sitEstado = ($apiResponse[2] != null)? ' readonly' : '';
                                     echo "<div class='marginTopDown-2'>
                                     <input type='text' name='rua' id='ruaUsuario' value='" . $apiResponse[0] . "' class='informacoesEspeciais' placeholder='Rua' " . $sitRua . ">
                                     <div class='error' id='erroRua'></div>
@@ -184,7 +203,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 </div>
 
                                 <div class='marginTopDown-2'>
-                                    <input type='text' name='cidade' id='cidadeUsuario' value='" . $apiResponse[1] . "' class='informacoesEspeciais' placeholder='Cidade' ". $sitCidade .">
+                                    <input type='text' name='cidade' id='cidadeUsuario' value='" . $apiResponse[1] . "' class='informacoesEspeciais' placeholder='Cidade'" . $sitCidade . ">
                                     <div class='error' id='erroCidade'></div>
                                 </div>
 
