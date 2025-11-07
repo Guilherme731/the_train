@@ -750,20 +750,64 @@ margin-left: 8px;
 /* Editar Rotas */
   .estacoes {
     background-color: var(--corAzulEscuro);
-    margin: 2% 5%;
-    height: 10%;
-    border-radius: 5px;
-    width: 90%;
+    margin: 1% auto;
+    height: auto;
+    border-radius: 8px;
+    width: 365px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
 }
 
-.textoAzul{color: var(--corAzulClaro); margin: 4px; width: 55px; font-size: 12px;}
+.textoAzul{ 
+    color: var(--corAzulClaro);
+    margin: 4px;
+    width: auto;
+    font-size: 14px;
+    font-weight: 600;
+    flex-shrink: 0;
+}
 
-.iconeEditarEstacao{height: 17px; width: 20px; margin: 2% 7%; padding-right: 15px; padding-left: 30px;}
+.iconeEditarEstacao{  
+    height: 30px;
+    width: 30px;
+    margin: 0 10px;
+    cursor: pointer;
+    padding-left: 50px;
+}
 
-.iconeAddRota{height: 40px; width: 40px; padding-left: 80%;}
+.iconeAddRota{
+    height: 40px;
+    width: 40px;
+    padding-left: 90%;
+    cursor: pointer;
+}
 
-.moverEstacoesCima{height: 20px; width: 35px; padding-top: 2%; padding-left: 15%; background-color:var(--corAzulEscuro);}
-.moverEstacoesBaixo{height: 20px; width: 40px; padding-top: 2%;}
+
+.moverEstacoesCima{
+    height: 22px;
+    width: 35px;
+    background-color: var(--corAzulEscuro);
+    cursor: pointer;
+    padding-left: 17%;
+}
+.moverEstacoesBaixo{
+    height: 25px;
+    width: 37px;
+    background-color: var(--corAzulEscuro);
+    cursor: pointer;
+}
+
+
+  .iconeAddRota {
+    height: 35px;
+    width: 35px;
+  }
+
+  .textoAzul {
+    font-size: 13px;
+  }
 
 
 #lista1{padding: 0;}
