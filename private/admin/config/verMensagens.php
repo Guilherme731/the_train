@@ -26,20 +26,15 @@ $reultMensagens = $conn->query($sqlMensagens);
 </head>
 <body>
     <header class="headerAzulVoltar">
-        <a href="../../../private/<?php if($_SESSION['tipo'] == 'admin'){echo 'admin/config/configAdmin.php';} else {echo 'user/config/configFuncionario.php';}?>"><img src="../../../../assets/icons/header/setaEsquerda.png" alt="Seta"></a>
-        <img src="../../assets/logos/logoPequena.png" alt="Logo">
-        <a href="alertas.php"><img src="../../assets/icons/header/sinoIcone.png" alt="Notificações"></a>
+        <a href="configAdmin.php"><img src="../../../assets/icons/header/setaEsquerda.png" alt="Seta"></a>
     </header>
     
     <section class="secaoInfo">
-            <div id="tituloDados">
-                <a href="dashboard/dashboard.php"><img src="../../assets/icons/header/setaEsquerda.png" alt="Seta"></a>
-            <div class="textoCentral"><h2>ALERTAS</h2></div>
-            </div>
+            <div class="textoCentral"><h2>MENSAGENS</h2></div>
             <div id="areaAlertas">
             <?php
-            if($resultAlertas->num_rows > 0){
-              while ($row = $resultAlertas->fetch_assoc()){
+            if($reultMensagens->num_rows > 0){
+              while ($row = $reultMensagens->fetch_assoc()){
                 $nomeTipo = $row['tipo'];
                     $tipo = 'duvida';
                 if($nomeTipo == 'reportarErro'){
@@ -58,7 +53,7 @@ $reultMensagens = $conn->query($sqlMensagens);
                     <p class='mensagemSecundaria margin-0'>$conteudo</p>
                 </div>
                 <div class='finalAlerta'>
-                    <a href='fecharAlerta.php?ida=$idMensagem'><img src='../../assets/icons/alertas/fecharIcone.png'></a>
+                    <a href='fecharMensagem.php?ida=$idMensagem'><img src='../../assets/icons/alertas/fecharIcone.png'></a>
                     <p class='data_envio'>$data</p>
                     <p class='data_envio'>$data</p>
                 </div>
@@ -73,7 +68,7 @@ $reultMensagens = $conn->query($sqlMensagens);
             ?>
                 
             </div>
-            <a href="fecharTodosAlertas.php" class="botaoAmarelo">Fechar Tudo</a>
+            <a href="fecharTodasMensagens.php" class="botaoAmarelo">Fechar Tudo</a>
         </section>
 
 
@@ -82,7 +77,7 @@ $reultMensagens = $conn->query($sqlMensagens);
 
 
     <footer class="footerAzulLogo">
-        <img src="../../../../assets/logos/logoCompleta.png" alt="Logo">
+        <img src="../../../assets/logos/logoCompleta.png" alt="Logo">
     </footer>
 </body>
 </html>
