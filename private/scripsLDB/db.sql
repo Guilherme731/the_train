@@ -123,7 +123,7 @@ CREATE TABLE mensagens(
     id_remetente INT NOT NULL,
     id_destinatario INT NOT NULL,
     conteudo TEXT NOT NULL,
-    data_envio DATETIME NOT NULL,
+    data_envio TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (id_remetente) REFERENCES usuarios(id),
     FOREIGN KEY (id_destinatario) REFERENCES usuarios(id)
 );
