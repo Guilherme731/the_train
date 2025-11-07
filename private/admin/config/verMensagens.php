@@ -5,7 +5,7 @@ include '../../conexao/conexao.php';
 
 $id = $_SESSION['user_id'];
 
-$sqlMensagens = "SELECT mensagens.id, mensagens.id_remetente, mensagens.tipo, mensagens.id_destinatario, mensagens.conteudo, mensagens.data_envio FROM mensagens INNER JOIN usuarios";
+$sqlMensagens = "SELECT mensagens.id, mensagens.id_remetente, mensagens.tipo, mensagens.id_destinatario, mensagens.conteudo, mensagens.data_envio FROM mensagens INNER JOIN usuarios ON mensagens.id_remetente = usuarios.id WHERE mensagens.id_destinatario = $id";
 $reultMensagens = $conn->query($sqlMensagens);
 
 
@@ -43,18 +43,17 @@ $reultMensagens = $conn->query($sqlMensagens);
                     $tipo = 'audiencia';
                 }
                 $conteudo = $row['conteudo'];
-                $data = substr($row['data_envio'], 0, 5);
+                $data = $row['data_envio'];
                 $idMensagem = $row['id'];
                 $destinatario = $row['id_destinatario'];
 
                 echo "<div class='alerta'>
                 <div class='textoEsquerda'>
-                    <p class='mensagemPrincipal margin-0'>" . strtoupper($nomeTipo) . "</p>
+                    <p class='mensagemPrincipal margin-0'>" . $nomeTipo . "</p>
                     <p class='mensagemSecundaria margin-0'>$conteudo</p>
                 </div>
                 <div class='finalAlerta'>
-                    <a href='fecharMensagem.php?ida=$idMensagem'><img src='../../assets/icons/alertas/fecharIcone.png'></a>
-                    <p class='data_envio'>$data</p>
+                    <a href='fecharMensagem.php?ida=$idMensagem'><img src='../../../assets/icons/alertas/fecharIcone.png'></a>
                     <p class='data_envio'>$data</p>
                 </div>
                 ";
