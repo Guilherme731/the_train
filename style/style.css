@@ -1056,3 +1056,22 @@ input[type="file"]{
     margin: 2%;
     font-weight: 900
 }
+
+.campoSenhaMudar{
+    width: 95%;
+    background-color: #4c7da3;
+    border: none;
+    border-bottom: solid 2px #2f4858;
+    margin: 1%;
+    color: black;
+    font-size: 20px;
+    padding-top: 10px;
+    color: var(--corAzulClaro);
+}
+
+.botaoSimples{
+    font-size: 17px;
+    background-color: var(--corAzulClaro);
+    border: solid 2px var(--corAzulEscuro);
+    color: var(--corAzulEscuro);
+}
