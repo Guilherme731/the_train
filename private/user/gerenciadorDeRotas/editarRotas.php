@@ -59,13 +59,13 @@ include '../../authGuard/authUsuario.php';
         </h3>
                 
 
-        <div id="listaEstacoes">
-            
+        <div class="gridCentro">
+            <div id="listaEstacoes">
+                
+            </div>
+            <img onclick="criarElementoEstacao()" class="iconeAddRota" src="../../../assets/icons/dashboard/botaoAdd.png" alt="Botão add rotas">
         </div>
 
-
-
-        <img onclick="criarElementoEstacao()" class="iconeAddRota" src="../../../assets/icons/dashboard/botaoAdd.png" alt="Botão add rotas">
 
 
 
