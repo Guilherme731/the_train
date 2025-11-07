@@ -45,7 +45,7 @@ include '../../authGuard/authAdmin.php';
                         alt="Imagem do ícone de verificação de 2 etapas">
                     <p>Verificação de 2 etapas</p>
                 </a>
-                <a href="../../user/config/faleConosco/faleConosco.php" class="opcaoMenu">
+                <a href="verMensagens.php" class="opcaoMenu">
                     <img class="iconeConfigTamanho" src="../../../assets/icons/config/faleConoscoIcone.png"
                         alt="Imagem do ícone de Fale Conosco">
                     <p>Fale Conosco</p>

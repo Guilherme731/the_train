@@ -52,7 +52,7 @@ include '../../../authGuard/authUsuario.php';
             <br>
 
             <button type="submit" id="adicionar">Adicionar</button>
-            <button type="button" id="cancelar">Cancelar</button>
+            <button type="submit" id="cancelar">Cancelar</button>
 
         </form>
     </fieldset>
