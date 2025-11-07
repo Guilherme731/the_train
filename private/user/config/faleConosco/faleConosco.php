@@ -26,7 +26,7 @@ include '../../../authGuard/authUsuario.php';
                 <h2>Fale conosco</h2>
             </div>
             <br>
-            <a href="../faleConosco/duvidas.php" class="opcaoMenu paddingLeft-7">
+            <a href="../faleConosco/comunique.php" class="opcaoMenu paddingLeft-7">
                 <p>Dúvidas</p>
             </a>
             <a href="../faleConosco/reportarErro.php" class="opcaoMenu paddingLeft-7">

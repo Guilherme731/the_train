@@ -1,6 +1,17 @@
 <?php
-session_start();
-include '../../../authGuard/authUsuario.php';
+    session_start();
+    include '../../../authGuard/authUsuario.php';
+    include '../../../conexao/conexao.php'; 
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['mensagem'])) {
+        $mensagem = $_POST['mensagem'];
+        $usuario_id = $_SESSION['id']; 
+        $sql = "INSERT INTO mensagens (usuario_id, mensagem, data_envio) VALUES (?, ?, NOW())";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("is", $usuario_id, $mensagem);
+        $stmt->execute();
+   
+    }
 ?>
 
 <html lang="pt-BR">
