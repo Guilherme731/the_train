@@ -44,6 +44,14 @@
             <br>
             <div class="opcaoMenu padding-20">
                 <form action="" method="POST">
+                
+                <label for="tipo"></label>
+                <select id="escolherTipo" name="tipo" id="tipo" required>
+                    <option value="duvida">Dúvida</option>
+                    <option value="reportarErro">Reportar Erro</option>
+                    <option value="marcarAudiencia">Marcar Audiência</option>
+                </select>
+
                 <textarea name="marcarAudiencia" id="caixaMensagem" required></textarea>
                 <button id="botao" type="submit"><img class="iconeConfigTamanho" src="../../../../assets/icons/config/EnviarIcone.PNG" alt="Imagem do icone enviar"></button>
                 </form>

@@ -214,7 +214,6 @@ body {
     width: 95%;
     color: var(--corAmarelo);
     font-size: 20px;
-
 }
 
 /*  MENUS E OPÇÕES  */
@@ -270,6 +269,15 @@ body {
     height: 50px;
     font-size: 15px;
     color: var(--corAzulClaro);
+}
+
+#escolherTipo{
+    background-color: var(--corAzulEscuro);
+    padding: 1%;
+    margin: 2%;
+    width: 95%;
+    color: var(--corAmarelo);
+    font-size: 20px;
 }
 
 #botaoSubmit{
