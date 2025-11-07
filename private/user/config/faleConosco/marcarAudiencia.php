@@ -1,71 +1,46 @@
 <?php
 session_start();
 include '../../../authGuard/authUsuario.php';
+include '../../../conexao/conexao.php'
 ?>
 
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../../../../scripts/botoesMenus.js"></script>
+    <script src="../../../../scripts/iconeEnviar.js"></script>
     <link rel="shortcut icon" href="../../../../assets/logos/logoPequena.png">
     <link rel="stylesheet" href="../../../../style/style.css">
-    <title>Marcar audiência</title>
+    <title>Reportar erro</title>
 </head>
-
 <body>
     <header class="headerAzulVoltar">
-        <a href="../faleConosco/faleConosco.php">
-            <a href="faleConosco.php"><img src="../../../../assets/icons/header/setaEsquerda.png" alt="Seta"></a>
-        </a>
+        <img src="../../../../assets/icons/header/setaEsquerda.png" alt="Seta" onclick="voltarPagina()">
     </header>
-    
-<div class="mainCentral">
-    
-    <fieldset class="grupo">
-        <div class="tituloAzul">
-            <h2>Agenda de audiência</h2>
-        </div>
-        <form id="check">
-
-            <h3 class="amarelo">Horário:</h3>
-            <input type="time" class="corBarra" name="horário">
-
-            <br>
-
-            <h3 class="amarelo">No. Audiência/Horário:</h3>
-            <input type="number" class="corBarra" name="audiência/horário">
-            <input type="time" class="corBarra" name="audiência/horário">
-
-            <div>
-                <h3 class="amarelo">Agendar automaticamente?:</h3>
-
-                <input type="radio" id="tecnologia1" name="tecnologia">
-                <label for="tecnologia" class="amarelo">Sim</label>
-
-                <input type="radio" id="tecnologia2" name="tecnologia">
-                <label for="tecnologia" class="amarelo">Não</label>
-
+    <main>
+        <div id="quadradoMenu">
+            <div class="flexCentro textoCentral">
+                <img class="iconeConfigTamanho" src="../../../../assets/icons/config/faleConoscoIcone.png" alt="imagem do icone fale conosco">
+                <h2>Marque uma audiência</h2>
             </div>
 
             <br>
-            <br>
-
-            <button type="submit" id="adicionar">Adicionar</button>
-            <button type="submit" id="cancelar">Cancelar</button>
-
-        </form>
-    </fieldset>
-</div> 
-
-    <main>
+            <div class="opcaoMenu padding-20">
+                <form action="" method="POST">
+                <textarea name="marcarAudiencia" id="caixaMensagem" required></textarea>
+                <button id="botao" type="submit"><img class="iconeConfigTamanho" src="../../../../assets/icons/config/EnviarIcone.PNG" alt="Imagem do icone enviar"></button>
+                </form>
+               
+            </div>
+        </div>
 
     </main>
+
+    <div class="espacoFooterAzulLogo"></div>
+
     <footer class="footerAzulLogo">
         <img src="../../../../assets/logos/logoCompleta.png" alt="Logo">
     </footer>
-    <script src="../../../../scripts/marcarAudiencia.js"></script>
-    <script src="../../../../scripts/botoesMenus.js"></script>
 </body>
-
 </html>
