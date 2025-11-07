@@ -3,18 +3,18 @@
     include '../../../authGuard/authUsuario.php';
     include '../../../conexao/conexao.php'; 
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST[''])) {
-        $usuario_id = $_SESSION['usuario_id']; 
-        $id_remetente = $_SESSION['id_remetente'];
-        $id_destinatario = $_SESSION['id_destinatario'];
-        $conteudo = $_SESSION['conteudo'];
-        $tipo = $_SESSION['tipo'];
-        $data_envio = $_SESSION['data_envio'];
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['mensagens'])) {
+        $usuario_id = $_POST['usuario_id']; 
+        $id_remetente = $_POST['id_remetente'];
+        $id_destinatario = $_POST['id_destinatario'];
+        $conteudo = $_POST['conteudo'];
+        $tipo = $_POST['tipo'];
+        $data_envio = $_POST['data_envio'];
 
-        $sql = "INSERT INTO mensagens (usuario_id, id_remetente, id_destinatario, conteudo, tipo, data_envio) VALUES ($usuario_id, $id_remetente, $id_destinatario, $conteudo, $tipo, $data_envio)";
+        $sql = "INSERT INTO mensagens (usuario_id, id_remetente, id_destinatario, conteudo, tipo, data_envio) VALUES (?, ?, ?, ?, ?, ?)";
 
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("is", $usuario_id, $mensagem);
+        $stmt->bind_param("iiisss", $usuario_id, $id_remetente, $id_destinatario, $conteudo, $tipo, $data_envio);
         $stmt->execute();
    
     }
