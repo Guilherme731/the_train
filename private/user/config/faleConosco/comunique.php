@@ -1,6 +1,17 @@
 <?php
-session_start();
-include '../../../authGuard/authUsuario.php';
+    session_start();
+    include '../../../authGuard/authUsuario.php';
+    include '../../../conexao/conexao.php'; 
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['mensagem'])) {
+        $mensagem = $_POST['mensagem'];
+        $usuario_id = $_SESSION['id']; 
+        $sql = "INSERT INTO mensagens (usuario_id, mensagem, data_envio) VALUES (?, ?, NOW())";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("is", $usuario_id, $mensagem);
+        $stmt->execute();
+   
+    }
 ?>
 
 <html lang="pt-BR">
@@ -35,13 +46,12 @@ include '../../../authGuard/authUsuario.php';
             <div class="quadradoMenu">
                 <div class="textoDireita">
                     <a href="">
-                        <img class="iconeConfigTamanho" src="../../../../assets/icons/config/EnviarIcone.PNG" onclick="enviar()" alt="imagem do icone enviar">
+                        <img class="iconeConfigTamanho" src="../../../../assets/icons/config/EnviarIcone.PNG" alt="imagem do icone enviar">
                     </a>
                  
                 </div>
             </div>
         </div>
-
     </main>
 
     <div class="espacoFooterAzulLogo"></div>
@@ -51,3 +61,4 @@ include '../../../authGuard/authUsuario.php';
     </footer>
 
 </body>
+</html>
