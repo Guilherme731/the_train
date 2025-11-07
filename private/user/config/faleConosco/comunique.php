@@ -3,10 +3,16 @@
     include '../../../authGuard/authUsuario.php';
     include '../../../conexao/conexao.php'; 
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['mensagem'])) {
-        $mensagem = $_POST['mensagem'];
-        $usuario_id = $_SESSION['id']; 
-        $sql = "INSERT INTO mensagens (usuario_id, id_remetente, id_destinatario, conteudo, data_envio) VALUES (?, ?, )NOW)";
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST[''])) {
+        $usuario_id = $_SESSION['usuario_id']; 
+        $id_remetente = $_SESSION['id_remetente'];
+        $id_destinatario = $_SESSION['id_destinatario'];
+        $conteudo = $_SESSION['conteudo'];
+        $tipo = $_SESSION['tipo'];
+        $data_envio = $_SESSION['data_envio'];
+
+        $sql = "INSERT INTO mensagens (usuario_id, id_remetente, id_destinatario, conteudo, tipo, data_envio) VALUES ($usuario_id, $id_remetente, $id_destinatario, $conteudo, $tipo, $data_envio)";
+
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("is", $usuario_id, $mensagem);
         $stmt->execute();
