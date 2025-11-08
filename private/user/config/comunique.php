@@ -3,20 +3,52 @@
     include '../../authGuard/authUsuario.php';
     include '../../conexao/conexao.php'; 
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['mensagens'])) {
-        $usuario_id = $_POST['usuario_id']; 
-        $id_remetente = $_POST['id_remetente'];
-        $id_destinatario = $_POST['id_destinatario'];
-        $conteudo = $_POST['conteudo'];
-        $tipo = $_POST['tipo'];
-        $data_envio = $_POST['data_envio'];
+    if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+        if (isset($_SESSION['user_id'])) {
+            $id_remetente = (int) $_SESSION['user_id'];
+        } else {
+            echo "Usuário não autenticado. Faça login.";
+            exit;
+        }
 
-        $sql = "INSERT INTO mensagens (usuario_id, id_remetente, id_destinatario, conteudo, tipo, data_envio) VALUES (?, ?, ?, ?, ?, ?)";
+        $id_destinatario = null;
+        $res = $conn->query("SELECT id FROM usuarios WHERE tipo = 'admin' LIMIT 1");
+        if ($res && $res->num_rows > 0) {
+            $row = $res->fetch_assoc();
+            $id_destinatario = (int) $row['id'];
+        } else {
+            echo "Nenhum administrador encontrado.";
+            exit;
+        }
+
+        $conteudo = isset($_POST['conteudo']) ? trim($_POST['conteudo']) : '';
+        $tipo = isset($_POST['tipo']) ? $_POST['tipo'] : 'duvida';
+
+        if ($conteudo === '') {
+            echo "A mensagem não pode ficar vazia.";
+            exit;
+        }
+
+        $data_envio = date('Y-m-d H:i:s');
+
+        $sql = "INSERT INTO mensagens (id_remetente, id_destinatario, conteudo, tipo, data_envio) VALUES (?, ?, ?, ?, ?)";
 
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("iiisss", $usuario_id, $id_remetente, $id_destinatario, $conteudo, $tipo, $data_envio);
-        $stmt->execute();
-   
+        if (!$stmt) {
+            echo 'Erro no prepare: ' . $conn->error;
+            exit;
+        }
+
+        $stmt->bind_param("iisss", $id_remetente, $id_destinatario, $conteudo, $tipo, $data_envio);
+        if (!$stmt->execute()) {
+            echo 'Erro ao executar query: ' . $stmt->error;
+            exit;
+        }
+
+        echo "<div class='mensagemErro'>
+        <p>Mensagem enviada com sucesso!</p>
+        <a class='fechar' href='comunique.php'>Fechar</a>
+        </div>";
     }
 ?>
 
@@ -52,7 +84,7 @@
                     <option value="marcarAudiencia">Marcar Audiência</option>
                 </select>
 
-                <textarea name="marcarAudiencia" id="caixaMensagem" required></textarea>
+                <textarea name="conteudo" id="caixaMensagem" required></textarea>
                 <button id="botao" type="submit"><img class="iconeConfigTamanho" src="../../../assets/icons/config/EnviarIcone.PNG" alt="Imagem do icone enviar"></button>
                 </form>
                
