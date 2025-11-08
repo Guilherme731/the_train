@@ -42,7 +42,7 @@ include '../../authGuard/authUsuario.php';
                     <p>Verificação De 2 etapas</p>
                 </a>
 
-                <a href="<?php if($_SESSION['tipo'] == 'admin'){echo '../../admin/config/responderMensagens.php';} else {echo 'faleConosco/faleConosco.php';}?>" class="opcaoMenu">
+                <a href="<?php if($_SESSION['tipo'] == 'admin'){echo '../../admin/config/responderMensagens.php';} else {echo 'comunique.php';}?>" class="opcaoMenu">
                     <img class="iconeConfigTamanho" src="../../../assets/icons/config/faleConoscoIcone.png"
                         alt="Imagem do ícone de Fale Conosco">
                     <p>Fale Conosco</p>
