@@ -66,7 +66,7 @@
     <header class="headerAzulVoltar">
         <img src="../../../assets/icons/header/setaEsquerda.png" alt="Seta" onclick="voltarPagina()">
     </header>
-    <main>
+    <main class="gridCentro">
         <div id="quadradoMenu">
             <div class="flexCentro textoCentral">
                 <img class="iconeConfigTamanho" src="../../../assets/icons/config/faleConoscoIcone.png" alt="imagem do icone fale conosco">
@@ -75,7 +75,7 @@
 
             <br>
             <div class="opcaoMenu padding-20">
-                <form action="" method="POST">
+                <form class="gridCentro" action="" method="POST">
                 
                 <label for="tipo"></label>
                 <select id="escolherTipo" name="tipo" id="tipo" required>
