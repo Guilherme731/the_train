@@ -4,16 +4,17 @@ include '../../authGuard/authAdmin.php';
 include '../../conexao/conexao.php';
 $idUser = $_SESSION['user_id'];
 
-if(isset($_GET['id'])){
-    $id = $_GET['id'];
+if(isset($_GET['ida'])){
+    $id = $_GET['ida'];
     
-        $stmt = $conn->prepare("DELETE FROM mensagens WHERE id_destinatario = $id and id = ?");
-        $stmt->bind_param("ii", $idUser, $id);
-        $stmt->execute();
-        header("Location: verMensagens.php");
-    
+    $stmt = $conn->prepare("DELETE FROM mensagens WHERE id = ? AND id_destinatario = ?");
+    $stmt->bind_param("ii", $id, $idUser);
+    $stmt->execute();
+    $stmt->close();
+    header("Location: verMensagens.php");
+    exit();
 }else{
     header("Location: verMensagens.php");
+    exit();
 }
-        
 ?>
