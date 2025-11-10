@@ -1074,4 +1074,12 @@ input[type="file"]{
     background-color: var(--corAzulClaro);
     border: solid 2px var(--corAzulEscuro);
     color: var(--corAzulEscuro);
+    border-radius: 10px;
+    font-weight: bold;
+    padding: 5px 15px;
+    cursor: pointer;
+}
+
+.mensagemSecundaria{
+    word-break: break-word;
 }
