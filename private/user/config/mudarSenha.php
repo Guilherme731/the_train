@@ -1,6 +1,28 @@
 <?php
 session_start();
 include '../../authGuard/authUsuario.php';
+
+include '../../conexao/conexao.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+    $id = $_SESSION['user_id'];
+    $novaSenha = $_POST['senhaNova'];
+
+    $usuarioAtual = ($conn->query("SELECT senha FROM usuarios WHERE id = $id LIMIT 1"))->fetch_assoc();
+    if(password_verify($_POST['senhaAntiga'], $usuarioAtual['senha'])){
+        $stmt = $conn->prepare("UPDATE usuarios SET senha=? WHERE id = ?");
+        $stmt->bind_param("si", password_hash($novaSenha, PASSWORD_DEFAULT), $id);
+        $stmt->execute();
+        header('Location: ../dashboard/dashboard.php');
+    }else{
+        echo "<div class='mensagemErro'> 
+            <p>Senha atual incorreta.</p>
+            <a href='' class='fechar'>Fechar</a>
+                </div>";
+    }
+
+    
+}
 ?>
 
 <!DOCTYPE html>

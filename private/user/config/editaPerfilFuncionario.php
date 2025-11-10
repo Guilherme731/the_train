@@ -92,8 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                 <div id="informacoesPessoais">
                     <div>
-                        <label for="senha"></label>
-                        <input type="password" name="senha" id="senha"  placeholder="Senha" >
+                        <a href="mudarSenha.php" style="text-decoration: none;" class="botaoSimples">Mudar a Senha</a>
                     </div>
 
                     <p>Data de Nascimento</p>
