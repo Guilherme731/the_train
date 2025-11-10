@@ -91,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <form  id="formularioConfgUsuario" method="POST" action="">
 
                 <div id="informacoesPessoais">
-                    <div>
+                    <div class="flexCentro">
                         <a href="mudarSenha.php" style="text-decoration: none;" class="botaoSimples">Mudar a Senha</a>
                     </div>
 
