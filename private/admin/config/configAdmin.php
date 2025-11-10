@@ -71,6 +71,7 @@ include '../../authGuard/authAdmin.php';
                 </a>
             </div>
         </div>
+        <div class="espacoFooterPrincipal"></div>
     </main>
 
     <div class="espacoFooterAzulLogo"></div>

@@ -68,7 +68,7 @@ include '../../authGuard/authUsuario.php';
 
 
 
-
+    <div class="espacoFooterPrincipal"></div>
     </main>
 
     <footer class="footerPrincipal">
