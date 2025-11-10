@@ -1,6 +1,10 @@
 <?php
 session_start();
 include '../../authGuard/authUsuario.php';
+
+if($_SESSION['tipo'] == 'admin'){
+    header('location: ../../admin/config/configAdmin.php');
+}
 ?>
 
 <!DOCTYPE html>

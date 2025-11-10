@@ -2,6 +2,9 @@
 session_start();
 include '../../authGuard/authAdmin.php';
 
+if($_SESSION['tipo'] == 'funcionario'){
+    header('location: ../../user/config/configFuncionario.php');
+}
 ?>
 
 <!DOCTYPE html>
