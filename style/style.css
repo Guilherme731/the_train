@@ -343,6 +343,7 @@ body {
     border-style: solid;
     border-color: #3c6f93;
     border-radius: 20px;
+    cursor: pointer;
 }
 .botaoEnviar{
     text-align: center;
@@ -353,8 +354,9 @@ body {
     margin-top: 20px;
     width: 150px;
     height: 50px;
-    margin-left: 220px;
+    margin-left: 100px;
     border-style: none;
+    cursor: pointer;
 }
 .campoNumeroVerificacao2Etapas {
     text-align: center;

@@ -42,7 +42,7 @@ if($_SESSION['tipo'] == 'funcionario'){
                         alt="Imagem do ícone de Conta">
                     <p>Idioma</p>
                 </a>
-                <a href="../../../public/recuperarSenha.php" class="opcaoMenu">
+                <a href="../../user/config/verificacaoDuasEtapas/codigoVerificacao.php" class="opcaoMenu">
                     <img class="iconeConfigTamanho"
                         src="../../../assets/icons/config/verificacaoDuasEtapas/verificacao2EtapasIcone.png"
                         alt="Imagem do ícone de verificação de 2 etapas">
