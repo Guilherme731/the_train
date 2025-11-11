@@ -7,7 +7,7 @@ $id = $_SESSION['user_id'];
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     $temFTA = $_POST["temFTA"] ?? "";
     $boolean = 1;
-    if('numero1' == $codigo1 && 'numero2' == $codigo2 && 'numero3' == $codigo3 && 'numero4' == $codigo4 && 'numero5' == $codigo5 && 'numero6' == $codigo6){
+    if('numero1' == $codigo && 'numero2' == $codigo2 && 'numero3' == $codigo3 && 'numero4' == $codigo4 && 'numero5' == $codigo5 && 'numero6' == $codigo6){
         $stmt = $conn->prepare("UPDATE usuarios SET temTFA=? WHERE id=?");
         $stmt->bind_param("ii", $boolean, $id);
         $stmt->execute();
