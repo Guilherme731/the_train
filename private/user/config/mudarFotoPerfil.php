@@ -81,10 +81,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['retirar'])){
         <a href="editaPerfilFuncionario.php"><img src="../../../assets/icons/header/setaEsquerda.png" alt="Seta"></a>
     </header>
 
-    <main>
+    <main class="quadradoAzul">
         <div class="gridCentro">
             <div class="gridCentro">
-                <h1 class="textoCentral">Foto de Perfil</h1>
+                    <div class="amarelo">
+                        <h1 class="textoCentral">Foto de Perfil</h1>
+                    </div>
             </div>
 
             <form action="" method="post" enctype="multipart/form-data" class="textoCentral">
