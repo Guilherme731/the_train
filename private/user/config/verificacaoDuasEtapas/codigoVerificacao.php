@@ -1,7 +1,35 @@
 <?php
 session_start();
 include '../../../authGuard/authUsuario.php';
+include '../../../conexao/conexao.php';
+$id = $_SESSION['user_id'];
 
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    $temFTA = $_POST["temFTA"] ?? "";
+    $boolean = 1;
+    $codigo1 = rand(0, 9);
+    $codigo2 = rand(0, 9);
+    $codigo3 = rand(0, 9);
+    $codigo4 = rand(0, 9);
+    $codigo5 = rand(0, 9);
+    $codigo6 = rand(0, 9);
+
+    echo " <p>O seu código é $codigo1 $codigo2 $codigo3 $codigo4 $codigo5 $codigo6</p>";
+
+    if('numero1' == $codigo1 && 'numero2' == $codigo2 && 'numero3' == $codigo3 && 'numero4' == $codigo4 && 'numero5' == $codigo5 && 'numero6' == $codigo6){
+        $stmt = $conn->prepare("UPDATE usuarios SET temTFA=? WHERE id=?");
+        $stmt->bind_param("ii", $boolean, $id);
+        $stmt->execute();
+        $stmt->close();
+    }else{
+        echo "<div class='mensagemErro'> 
+        <p>Código incorreto.</p>
+        <a href='' class='fechar'>Fechar</a>
+            </div>";
+    }
+    
+
+}
 
 ?>
 
@@ -31,18 +59,18 @@ include '../../../authGuard/authUsuario.php';
     </div>
 
     <div class="flexCentro">
-        <form action="">
-        <input class="campoNumeroVerificacao2Etapas" type="number" max="9" min="0" required> 
+        <form action="" method="POST">
+        <input name="numero1" class="campoNumeroVerificacao2Etapas" type="number" max="9" min="0" required> 
 
-        <input class="campoNumeroVerificacao2Etapas" type="number" max="9" min="0" required>
+        <input name="numero2" class="campoNumeroVerificacao2Etapas" type="number" max="9" min="0" required>
     
-        <input class="campoNumeroVerificacao2Etapas" type="number" max="9" min="0" required>
+        <input name="numero3" class="campoNumeroVerificacao2Etapas" type="number" max="9" min="0" required>
     
-        <input class="campoNumeroVerificacao2Etapas" type="number" max="9" min="0" required>
+        <input name="numero4" class="campoNumeroVerificacao2Etapas" type="number" max="9" min="0" required>
     
-        <input class="campoNumeroVerificacao2Etapas" type="number" max="9" min="0" required>
+        <input name="numero5" class="campoNumeroVerificacao2Etapas" type="number" max="9" min="0" required>
     
-        <input class="campoNumeroVerificacao2Etapas" type="number" max="9" min="0" required>
+        <input name="numero6" class="campoNumeroVerificacao2Etapas" type="number" max="9" min="0" required>
 
         <br>
         <br>

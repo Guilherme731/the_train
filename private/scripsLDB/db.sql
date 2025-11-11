@@ -129,6 +129,18 @@ CREATE TABLE mensagens(
     FOREIGN KEY (id_destinatario) REFERENCES usuarios(id) ON DELETE CASCADE
 );
 
+CREATE TABLE codigo(
+    id int auto_increment PRIMARY KEY,
+    id_usuario INT NOT NULL,
+    codigo_1 INT NOT NULL,
+    codigo_2 INT NOT NULL,
+    codigo_3 INT NOT NULL,
+    codigo_4 INT NOT NULL,
+    codigo_5 INT NOT NULL,
+    codigo_6 INT NOT NULL,
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id) ON DELETE CASCADE
+);
+
 INSERT INTO usuarios (`cargo`, `salario`, `genero`, `dataNascimento`, `senha`, `email`, `nome`, `cpf`, `tipo`, `imagemPerfil`, `cep`, `rua`, `cidade`, `estado`, `numero`) VALUES
 ('Administrador', '5000', 'Feminino', '1997-04-27', '$2y$10$UQ8NEEGJMhR27KYLr6JwAOoa6YOXyrbF8jwiirn2QbgcG3eDmBJEC', 'admin@thetrain.com', 'Admin', '99999999999', 'admin', null, '89202205', 'Av. Getúlio Vargas', 'Joinville', 'Santa Catarina', 463),
 ('Operário', '3000', 'Masculino', '1999-05-27', '$2y$10$FXEtBMctNaZfGFhEG9cYgOcROkb0z.2xEayu9JKbZuWVg8L/0OisO', 'user@thetrain.com', 'Usuario', '99999999998', 'funcionario', 'perfilUsuario2.png', '81580290', 'Rua Tenente Coronel Benjamin Lage', 'Curitiba', 'Paraná', 52),
