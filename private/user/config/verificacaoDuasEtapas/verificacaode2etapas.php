@@ -1,6 +1,5 @@
 <?php
-session_start();
-include '../../../authGuard/authUsuario.php';
+
 ?>
 
 <html lang="pt-BR">
