@@ -75,10 +75,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                 <img id="icone" src="../uploads/<?=$imgFileName?>" alt="Icone do funcionario">
             </div>
-
-            <a id="trocarFoto" href="mudarFotoPerfil.php">
-                <p class="textoCentral">Trocar Foto</p>
-            </a>
             
 
             <h2 class="textoCentral"> <?php echo $row['nome']; ?> </h2>
@@ -92,10 +88,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                 <div id="informacoesPessoais">
                     <div class="flexCentro">
+                        <a href="mudarFotoPerfil.php" style="text-decoration: none;" class="botaoSimples">Trocar Foto</a>
+                    </div>
+                    <br>
+                    <div class="flexCentro">
                         <a href="mudarSenha.php" style="text-decoration: none;" class="botaoSimples">Mudar a Senha</a>
                     </div>
 
-                    <p>Data de Nascimento</p>
+                    <p>Data de Nascimento:</p>
 
                     <div class="flex">
                         <div>
@@ -117,6 +117,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         </div>
 
                     </div>
+                    <br>
 
                     <label>
                         <select name="genero" id="generoFuncionario">
