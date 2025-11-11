@@ -1,6 +1,10 @@
     <?php
 session_start();
 include '../../authGuard/authUsuario.php';
+include '../../conexao/conexao.php';
+
+$sqlTrens = 'SELECT id, localizacaoX, localizacaoY FROM trens';
+$resultTrens = $conn->query($sqlTrens);
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -62,10 +66,10 @@ include '../../authGuard/authUsuario.php';
                 </label>
                 <label for="ver-estacoes">Ver Estações</label>
             </div>
-        
+        <a href="">Atualizar Mapa</a>
             <div class="switch-container">
                 <label class="switch">
-                    <input type="checkbox" id="ver-trens" onclick="atualizaOpcoesMapa()">
+                    <input type="checkbox" id="ver-trens" onclick="atualizaOpcoesMapa()" checked>
                     <span class="slider"></span>
                 </label>
                 <label for="ver-trens">Ver Trens</label>
@@ -156,6 +160,16 @@ include '../../authGuard/authUsuario.php';
                             alt="Icone de editar a Rota dos Trens"></a>
                 </div>
             </div>
+            <?php
+echo "<script>
+document.addEventListener('DOMContentLoaded', function() {";
+while($row = $resultTrens->fetch_assoc()){
+    echo "addQuadradoTrem({$row['localizacaoX']}, {$row['localizacaoY']}, {$row['id']});";
+}
+    
+echo "});
+</script>";
+?>
 
             <div class="dadoInfo padding-3">
                 <h3 class="tituloTrem">Rota 3</h3>

@@ -128,6 +128,18 @@ function renderizarTrensMapa(){
     });
 }
 
+function deletarTrens() {
+    let i = 0;
+    while (true) {
+        const trem = document.getElementById('tremMapa' + i);
+        const texto = document.getElementById('textoMapa' + i);
+        if (!trem && !texto) break;
+        if (trem) trem.remove();
+        if (texto) texto.remove();
+        i++;
+    }
+}
+
 function atualizarMapaPorEstacoes(estacoes){
     const segmentos = JSON.parse(segmentosEstacoes);
     let segmentosDaRota;
