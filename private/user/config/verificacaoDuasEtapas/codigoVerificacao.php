@@ -4,6 +4,8 @@ include '../../../authGuard/authUsuario.php';
 include '../../../conexao/conexao.php';
 $id = $_SESSION['user_id'];
 
+$sql = "SELECT codigo_1, codigo_2, codigo_3, codigo_4, codigo_5, codigo_6 FROM codigos WHERE $id=id";
+
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     $temFTA = $_POST["temFTA"] ?? "";
     $boolean = 1;
