@@ -343,7 +343,6 @@ body {
     border-style: solid;
     border-color: #3c6f93;
     border-radius: 20px;
-    cursor: pointer;
 }
 .botaoEnviar{
     text-align: center;
@@ -354,9 +353,8 @@ body {
     margin-top: 20px;
     width: 150px;
     height: 50px;
-    margin-left: 100px;
+    margin-left: 220px;
     border-style: none;
-    cursor: pointer;
 }
 .campoNumeroVerificacao2Etapas {
     text-align: center;
@@ -895,9 +893,8 @@ svg {
     width: 140px;
     height: 60px;
     border: none;
+    display: grid;
 }
-
-
 
 /*  OUTROS  */
 .textoAmareloCentral { justify-content: center; text-align: center; color: var(--corAmarelo); margin: 0;}
@@ -1085,10 +1082,5 @@ input[type="file"]{
 }
 
 .mensagemSecundaria{
-    word-break: break-word;
-}
-
-#horarioEnvio{
-    font-size: 12px;
     word-break: break-word;
 }
