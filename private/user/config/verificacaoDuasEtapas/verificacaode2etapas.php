@@ -1,4 +1,14 @@
 <?php
+include '../../../conexao/conexao.php';
+
+
+
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    
+}
+
+
 
 ?>
 
@@ -29,7 +39,7 @@
         <br>
         <br>
         <div class="container">
-            <form>
+            <form method="POST" action="">
                 <div class="grupoInputs">
                     <input type="number">
                     <input type="number">
@@ -41,7 +51,7 @@
                 <h2 class="tituloAzul">
                     Um código de verificação foi enviado para o seu email. Insira o código para continuar.
                 </h2>
-                <button class="ativo">Reenviar código</button>
+                <button class="ativo" type= "submit" >Reenviar código</button>
             </form>
         </div>
     </main>
