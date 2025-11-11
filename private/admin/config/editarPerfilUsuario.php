@@ -90,31 +90,38 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <div class="flexCentro">
                     <div id="informacoesEspeciaisUser">
                         <div class="marginTopDown-2">
+                            <label for="cargo">Cargo:</label><br>
                             <input type="text" name="cargo" id="cargo" value="<?php echo $row['cargo'] ?>" class="informacoesEspeciais" placeholder="Cargo"><br>
                             <div class="error" id="erroCargo"></div>
                         </div>
 
                         <div class="marginTopDown-2">
+                            <label for="cargo">CPF:</label><br>
                             <input type="text" name="cpf" id="cpf" value="<?php echo $row['cpf'] ?>" class="informacoesEspeciais" placeholder="CPF"><br>
                             <div class="error" id="erroCPF"></div>
                         </div>
 
                         <div class="marginTopDown-2">
+                            <label for="cargo">E-mail:</label><br>
                             <input type="text" name="email" id="email" value="<?php echo $row['email'] ?>" class="informacoesEspeciais" placeholder="E-mail"><br>
                             <div class="error" id="erroEmail"></div>
                         </div>
 
                         <div class="marginTopDown-2">
+                            <label for="cargo">Nome de Usuário:</label><br>
                             <input type="text" name="nome" id="nomeUsuario" value="<?php echo $row['nome'] ?>" class="informacoesEspeciais" placeholder="Nome de Usuário">
                             <div class="error" id="erroNomeUsuario"></div>
                         </div>
 
                         <div class="marginTopDown-2">
+                            <label for="cargo">Senha:</label><br>
                             <input type="text" name="senha" id="senhaUsuario" value="" class="informacoesEspeciais" placeholder="Senha">
+                            <br><span>Deixe vazio para não alterar</span>
                             <div class="error" id="erroSenha"></div>
                         </div>
 
                         <div class="marginTopDown-2">
+                            <label for="cargo">Salário:</label><br>
                             <input type="text" name="salario" id="salarioUsuario" value="<?php echo $row['salario'] ?>" class="informacoesEspeciais" placeholder="Salário">
                             <div class="error" id="erroSalario"></div>
                         </div>
