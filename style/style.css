@@ -1083,3 +1083,8 @@ input[type="file"]{
 .mensagemSecundaria{
     word-break: break-word;
 }
+
+#horarioEnvio{
+    font-size: 12px;
+    word-break: break-word;
+}
