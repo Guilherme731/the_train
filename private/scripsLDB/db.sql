@@ -208,3 +208,7 @@ VALUES
 ('Duvida', 1, 1, 'Não entendi como funciona as notificações, como eu poderia criar uma nova?', '2025-03-02'),
 ('Reportar Erro', 1, 2, 'Não estou conseguindo fazer login, mesmo meu email estando correto.', '2025-06-04'),
 ('Marcar Audiencia', 1, 3, 'Gostaria de marcar uma audiência para o dia 20/11/2025 para discutir os termos do projeto.', '2025-11-06');
+
+INSERT INTO codigo(id_usuario, codigo_1, codigo_2, codigo_3, codigo_4, codigo_5, codigo_6)
+VALUES
+(1, 6, 4, 2, 5, 7, 1);

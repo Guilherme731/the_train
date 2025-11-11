@@ -7,15 +7,6 @@ $id = $_SESSION['user_id'];
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     $temFTA = $_POST["temFTA"] ?? "";
     $boolean = 1;
-    $codigo1 = rand(0, 9);
-    $codigo2 = rand(0, 9);
-    $codigo3 = rand(0, 9);
-    $codigo4 = rand(0, 9);
-    $codigo5 = rand(0, 9);
-    $codigo6 = rand(0, 9);
-
-    echo " <p>O seu código é $codigo1 $codigo2 $codigo3 $codigo4 $codigo5 $codigo6</p>";
-
     if('numero1' == $codigo1 && 'numero2' == $codigo2 && 'numero3' == $codigo3 && 'numero4' == $codigo4 && 'numero5' == $codigo5 && 'numero6' == $codigo6){
         $stmt = $conn->prepare("UPDATE usuarios SET temTFA=? WHERE id=?");
         $stmt->bind_param("ii", $boolean, $id);
