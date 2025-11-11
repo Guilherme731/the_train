@@ -894,6 +894,9 @@ svg {
     height: 60px;
     border: none;
     display: grid;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
 }
 
 /*  OUTROS  */
