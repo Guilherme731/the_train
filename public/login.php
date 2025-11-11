@@ -54,7 +54,7 @@ if(isset($_SESSION["email"])){
             <div class="error" id="errorEmailLogin"></div>
             <input type="password" name="password" id="senhaFuncionarioLogin" placeholder="Senha">
             <div class="error" id="errorSenhaLogin"></div>
-            <a href="recuperarSenha.php">Esqueceu a senha?</a>
+            <a href="../private/user/config/verificacaoDuasEtapas/verificacaode2etapas.php">Esqueceu a senha?</a>
             <button type="submit">Entrar</button>
         </form>
     </main>
