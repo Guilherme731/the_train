@@ -119,7 +119,7 @@ CREATE TABLE sensores_data(
 
 CREATE TABLE mensagens(
     id INT AUTO_INCREMENT PRIMARY KEY,
-    tipo ENUM('duvida', 'reportarErro', 'marcarAudiencia') NOT NULL,
+    tipo ENUM('Duvida', 'Reportar Erro', 'Marcar Audiencia') NOT NULL,
     id_remetente INT NOT NULL,
     id_destinatario INT NOT NULL,
     conteudo TEXT NOT NULL,
@@ -192,6 +192,6 @@ VALUES
 
 INSERT INTO mensagens(tipo, id_destinatario, id_remetente, conteudo, data_envio)
 VALUES
-('duvida', 1, 1, 'Não entendi como funciona as notificações, como eu poderia criar uma nova?', '2025-03-02'),
-('reportarErro', 1, 2, 'Não estou conseguindo fazer login, mesmo meu email estando correto.', '2025-06-04'),
-('marcarAudiencia', 1, 3, 'Gostaria de marcar uma audiência para o dia 20/11/2025 para discutir os termos do projeto.', '2025-11-06');
+('Duvida', 1, 1, 'Não entendi como funciona as notificações, como eu poderia criar uma nova?', '2025-03-02'),
+('Reportar Erro', 1, 2, 'Não estou conseguindo fazer login, mesmo meu email estando correto.', '2025-06-04'),
+('Marcar Audiencia', 1, 3, 'Gostaria de marcar uma audiência para o dia 20/11/2025 para discutir os termos do projeto.', '2025-11-06');
