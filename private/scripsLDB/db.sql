@@ -81,7 +81,7 @@ CREATE TABLE avaliacoes(
 CREATE TABLE alertas(
 	idFuncionario INT NOT NULL,
     idNotificacao INT NOT NULL,
-    FOREIGN KEY (idFuncionario) REFERENCES usuarios(id),
+    FOREIGN KEY (idFuncionario) REFERENCES usuarios(id) ON DELETE CASCADE,
     FOREIGN KEY (idNotificacao) REFERENCES notificacoes(id),
     PRIMARY KEY (idFuncionario, idNotificacao)
 );
@@ -97,7 +97,7 @@ CREATE TABLE rotasEstacoes(
 CREATE TABLE trabalha(
 	idFuncionario INT NOT NULL,
     idTrem INT NOT NULL,
-    FOREIGN KEY (idFuncionario) REFERENCES usuarios(id),
+    FOREIGN KEY (idFuncionario) REFERENCES usuarios(id) ON DELETE CASCADE,
     FOREIGN KEY (idTrem) REFERENCES trens(id),
     PRIMARY KEY (idFuncionario, idTrem)
 );
@@ -124,8 +124,8 @@ CREATE TABLE mensagens(
     id_destinatario INT NOT NULL,
     conteudo TEXT NOT NULL,
     data_envio TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (id_remetente) REFERENCES usuarios(id),
-    FOREIGN KEY (id_destinatario) REFERENCES usuarios(id)
+    FOREIGN KEY (id_remetente) REFERENCES usuarios(id) ON DELETE CASCADE,
+    FOREIGN KEY (id_destinatario) REFERENCES usuarios(id) ON DELETE CASCADE
 );
 
 INSERT INTO usuarios (`cargo`, `salario`, `genero`, `dataNascimento`, `senha`, `email`, `nome`, `cpf`, `tipo`, `imagemPerfil`, `cep`, `rua`, `cidade`, `estado`, `numero`) VALUES
