@@ -37,32 +37,34 @@ include '../../authGuard/authAdmin.php';
 <br>
 <br>
 <br>
-<br>
-<br>
 
 <div class="gridCentro">
-    <div class="flexCentro">
-        <h2>Excluir Funcionário</h2>
-    </div>
-    <div class="flexCentro">
-        <h3>Deseja Realmente Excluir o Funcionário?</h3>
-    </div>
-         
-    <form action="" method="post">
-        <input class="quadradoAzulNormalPequeno" type="submit" value="Excluir">
-    </form>
-        
-        
 
-
-    <a href="selecionarUsuario.php" class="quadradoAzulNormalPequeno">
-        <div>
-            <p>Voltar</p>
+    <div class="flexCentro">
+        <div class="tituloAzul">
+            <h2>Excluir Funcionário</h2>
         </div>
-    </a>
+    </div>
+    <div class="flexCentro">
+        <div class="tituloAzul">
+            <h3>Deseja Realmente Excluir o Funcionário?</h3>
+        </div>
+    </div>
     
-</div>
+    <div class='flexCentro'>
+        <a href='deleteUser.php' class='quadradoAzulNormalPequeno'>
+            <div>
+                <p>Excluir</p>
+            </div>
+        </a>
 
+        <a href='deleteUser.php' class='quadradoAzulNormalPequeno'>
+            <div>
+                <p>Voltar</p>
+            </div>
+        </a>
+    </div>        
+</div>
 
 <div class="flexCentro">
     <div class="espacoFooterAzulLogo"></div>

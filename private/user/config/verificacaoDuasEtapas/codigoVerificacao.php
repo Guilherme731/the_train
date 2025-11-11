@@ -1,6 +1,8 @@
 <?php
 session_start();
 include '../../../authGuard/authUsuario.php';
+
+
 ?>
 
 <!DOCTYPE html>
@@ -29,17 +31,24 @@ include '../../../authGuard/authUsuario.php';
     </div>
 
     <div class="flexCentro">
-        <input class="campoNumeroVerificacao2Etapas" type="number"> 
+        <form action="">
+        <input class="campoNumeroVerificacao2Etapas" type="number" max="9" min="0" required> 
 
-        <input class="campoNumeroVerificacao2Etapas" type="number">
+        <input class="campoNumeroVerificacao2Etapas" type="number" max="9" min="0" required>
     
-        <input class="campoNumeroVerificacao2Etapas" type="number">
+        <input class="campoNumeroVerificacao2Etapas" type="number" max="9" min="0" required>
     
-        <input class="campoNumeroVerificacao2Etapas" type="number">
+        <input class="campoNumeroVerificacao2Etapas" type="number" max="9" min="0" required>
     
-        <input class="campoNumeroVerificacao2Etapas" type="number">
+        <input class="campoNumeroVerificacao2Etapas" type="number" max="9" min="0" required>
     
-        <input class="campoNumeroVerificacao2Etapas" type="number">
+        <input class="campoNumeroVerificacao2Etapas" type="number" max="9" min="0" required>
+
+        <br>
+        <br>
+
+        <button type="submit" class="botaoEnviar">Ativar verificação</button>
+        </form>
     </div>
        
 
