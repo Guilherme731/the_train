@@ -1,4 +1,4 @@
-renderizarTrensMapa();
+//renderizarTrensMapa();
 escondeTrens();
 
 function aplicarRotas(){
