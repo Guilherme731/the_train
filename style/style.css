@@ -377,7 +377,7 @@ body {
     align-items: center;
     border-style: solid;
     margin-top: 20px;
-    margin-left: 5px;
+    padding-left: 10px;
     border-radius: 18px;
     background-color: var(--corAzulClaro);
     width: 40px;
