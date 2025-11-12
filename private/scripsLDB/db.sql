@@ -90,6 +90,7 @@ CREATE TABLE alertas(
 CREATE TABLE rotasEstacoes(
 	idRota INT NOT NULL,
     idEstacao INT NOT NULL,
+    ordem INT NOT NULL DEFAULT 1,
     FOREIGN KEY (idRota) REFERENCES rotas(id),
     FOREIGN KEY (idEstacao) REFERENCES estacoes(id),
     PRIMARY KEY (idRota, idEstacao)
@@ -169,6 +170,14 @@ VALUES
 ('Trem Expresso 1', 'Abril', 85, 300, 120.50, 200, 10, 20, FALSE, TRUE, '12:23', 1, 1),
 ('Trem Regional 2', 'Maio', 89, 400, 90.00, 150, 15, 25, TRUE, TRUE, '12:27', 2, 2),
 ('Trem Urbano 3', 'Junho', 95, 200, 60.75, 100, 8, 12, FALSE, FALSE, '12:24', 3, 3);
+
+INSERT INTO rotasEstacoes(idRota, idEstacao, ordem)
+VALUES
+(1, 1, 1),
+(1, 2, 2),
+(1, 3, 3),
+(1, 3, 4),
+(1, 1, 5),
 
 INSERT INTO manutencoes(tipoManutencao, idEstacao, idTrem)
 VALUES
