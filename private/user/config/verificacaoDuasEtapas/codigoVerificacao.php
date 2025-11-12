@@ -19,12 +19,12 @@ $numero6 = $_POST["numero6"] ?? "";
     $res = $stmt->get_result();
     if ($res && $res->num_rows === 1) {
         $row = $res->fetch_assoc();
-$codigo_1 = intval($row['codigo_1']);
-$codigo_2 = intval($row['codigo_2']);
-$codigo_3 = intval($row['codigo_3']);
-$codigo_4 = intval($row['codigo_4']);
-$codigo_5 = intval($row['codigo_5']);
-$codigo_6 = intval($row['codigo_6']);
+        $codigo_1 = intval($row['codigo_1']);
+        $codigo_2 = intval($row['codigo_2']);
+        $codigo_3 = intval($row['codigo_3']);
+        $codigo_4 = intval($row['codigo_4']);
+        $codigo_5 = intval($row['codigo_5']);
+        $codigo_6 = intval($row['codigo_6']);
     }
     echo "<div class='mensagemCodigo'> 
         <p>O código enviado ao seu email é: $codigo_1 $codigo_2 $codigo_3 $codigo_4 $codigo_5 $codigo_6</p>

@@ -719,7 +719,7 @@ margin-left: 8px;
     transition: .3s;
 }
 .container form button:hover { background: var(--corAzulNormal); }
-.container form button.ativo { opacity: 1; pointer-events: auto; }
+.container form button.ativo { opacity: 1; pointer-events: auto; margin: 8px;}
 
 /*  SWITCH  */
 .switch-container {
