@@ -31,10 +31,25 @@ $numero6 = $_POST["numero6"] ?? "";
         <a href='' class='fechar'>Fechar</a>
         </div>";
 
-if($_SERVER["REQUEST_METHOD"] == "POST"){
+if($_SERVER["REQUEST_METHOD"] == "POST"){       
     if(isset($_POST['reenviar'])){
-        // Aqui você pode implementar o reenviar código
+
+        $numero1 = rand(0, 9);
+        $numero2 = rand(0, 9);
+        $numero3 = rand(0, 9);
+        $numero4 = rand(0, 9);
+        $numero5 = rand(0, 9);
+        $numero6 = rand(0, 9);
+
+        $sql = "UPDATE codigos SET codigo_1=$numero1, codigo_2=$numero2, codigo_3=$numero3, codigo_4=$numero4, codigo_5=$numero5, codigo_6=$numero6 WHERE id=?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $stmt->close();
+
         echo "<div class='mensagemCodigo'> <p>Código reenviado para seu email.</p><a href='' class='fechar'>Fechar</a></div>";
+
+
     } elseif(isset($_POST['verificar'])) {
         $temFTA = $_POST["temFTA"] ?? "";
         $boolean = 1;
