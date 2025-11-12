@@ -52,17 +52,17 @@ include '../../authGuard/authAdmin.php';
     </div>
     
     <div class='flexCentro'>
-        <a href='deleteUser.php' class='quadradoAzulNormalPequeno'>
-            <div>
-                <p>Excluir</p>
-            </div>
-        </a>
+        <form action="" method="post">
+            <input type="submit" href='' class='quadradoAzulNormalPequeno' value="Excluir">
+            <a href='selecionarUsuario.php' class='quadradoAzulNormalPequeno'>
+                <div>
+                    <p>Voltar</p>
+                </div>
+            </a>
+        </form>
+        
 
-        <a href='deleteUser.php' class='quadradoAzulNormalPequeno'>
-            <div>
-                <p>Voltar</p>
-            </div>
-        </a>
+        
     </div>        
 </div>
 
