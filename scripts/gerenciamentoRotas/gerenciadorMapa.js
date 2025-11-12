@@ -154,9 +154,19 @@ function atualizarMapaPorEstacoes(estacoes){
                 if(segmento){
                     const segmentoa = document.getElementById('linha' + segmento[0])
                     segmentoa.classList.add('linhaMapaSelecionada');
-                    if(segmento[0] == "RES" || segmento[0] == "CES" || segmento[0] == "CEI" ){
-                        document.getElementById('linhaRES').classList.add('linhaMapaSelecionada');
-                        document.getElementById('linhaCES').classList.add('linhaMapaSelecionada');
+                    // if(segmento[0] == "RES" || segmento[0] == "CES" || segmento[0] == "CEI" ){
+                    //     document.getElementById('linhaRES').classList.add('linhaMapaSelecionada');
+                    //     document.getElementById('linhaCES').classList.add('linhaMapaSelecionada');
+                    //     document.getElementById('linhaCEI').classList.add('linhaMapaSelecionada');
+                    // }
+                    if(segmento[0] == "RCI" || segmento[0] == "CDI" || segmento[0] == "CEI" ){
+                        document.getElementById('linhaRCI').classList.add('linhaMapaSelecionada');
+                        document.getElementById('linhaCDI').classList.add('linhaMapaSelecionada');
+                        document.getElementById('linhaCEI').classList.add('linhaMapaSelecionada');
+                    }
+                    if(segmento[0] == "CDS" || segmento[0] == "RCS" || segmento[0] == "CES" ){
+                        document.getElementById('linhaRCI').classList.add('linhaMapaSelecionada');
+                        document.getElementById('linhaCDI').classList.add('linhaMapaSelecionada');
                         document.getElementById('linhaCEI').classList.add('linhaMapaSelecionada');
                     }
                 }
