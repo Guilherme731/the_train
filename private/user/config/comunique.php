@@ -57,7 +57,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../../../scripts/botoesMenus.js"></script>
-    <script src="../../../scripts/iconeEnviar.js"></script>
     <link rel="shortcut icon" href="../../../assets/logos/logoPequena.png">
     <link rel="stylesheet" href="../../../style/style.css">
     <title>Comunique</title>
