@@ -317,6 +317,21 @@ body {
     color: var(--corAmarelo);
 }
 
+.mensagemCodigo{
+    text-align: center;
+    font-size: 100%;
+    background: var(--corAzulEscuro);
+    border:3px solid black;
+    border-radius: 5px;
+    position: absolute;
+    top: 0%;
+    left: 79.7%;
+    width: 10%;
+    padding: 5%;
+    margin-bottom: 10px;
+    color: var(--corAmarelo);
+}
+
 .fechar{
     color: var(--corLaranja);
 }
@@ -353,7 +368,7 @@ body {
     margin-top: 20px;
     width: 150px;
     height: 50px;
-    margin-left: 220px;
+    margin-left: 75px;
     border-style: none;
 }
 .campoNumeroVerificacao2Etapas {
