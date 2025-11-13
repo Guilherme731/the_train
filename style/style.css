@@ -330,6 +330,9 @@ body {
     padding: 5%;
     margin-bottom: 10px;
     color: var(--corAmarelo);
+    word-break: break-word;
+    padding: 15px 0px;
+    padding: 5%;
 }
 
 .fechar{
