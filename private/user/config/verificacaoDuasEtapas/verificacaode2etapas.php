@@ -26,14 +26,19 @@ $numero6 = $_POST["numero6"] ?? "";
         $codigo_5 = intval($row['codigo_5']);
         $codigo_6 = intval($row['codigo_6']);
     }
-    echo "<div class='mensagemCodigo'> 
-        <p>O código enviado ao seu email é: $codigo_1 $codigo_2 $codigo_3 $codigo_4 $codigo_5 $codigo_6</p>
-        <a href='' class='fechar'>Fechar</a>
+
+    echo "<div class='felixCentro'> 
+         <div class='mensagemErro'> 
+                <p>O código enviado ao seu email é: $codigo_1 $codigo_2 $codigo_3 $codigo_4 $codigo_5 $codigo_6</p>
+                <a href='' class='fechar'>Fechar</a>
+                </div>
         </div>";
+    
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){       
     if(isset($_POST['reenviar'])){
 
+        
         $numero1 = rand(0, 9);
         $numero2 = rand(0, 9);
         $numero3 = rand(0, 9);
@@ -101,12 +106,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <div class="container">
             <form method="POST" action="">
                 <div class="grupoInputs">
-                    <input type="number" name="numero1">
-                    <input type="number" name="numero2">
-                    <input type="number" name="numero3">
-                    <input type="number" name="numero4">
-                    <input type="number" name="numero5">
-                    <input type="number" name="numero6">
+                    <input type="number" name="numero1" required>
+                    <input type="number" name="numero2" required>
+                    <input type="number" name="numero3" required>
+                    <input type="number" name="numero4" required>
+                    <input type="number" name="numero5" required>
+                    <input type="number" name="numero6" required>
                 </div>
                 <h2 class="tituloAzul">
                     Um código de verificação foi enviado para o seu email. Insira o código para continuar.
@@ -129,6 +134,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <footer class="footerAzulArredondado">
 
     </footer>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.fechar').forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                var mensagem = btn.closest('.mensagemCodigo') || btn.closest('.mensagemErro');
+                if(mensagem) mensagem.remove();
+            });
+        });
+    });
+    </script>
 </body>
 
 </html>
