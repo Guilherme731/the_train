@@ -44,12 +44,13 @@ include '../../authGuard/authUsuario.php';
                 <path id="linhaCCS" class="linhaMapa" d="M 260 10 Q 200 20 200 75" />
 
                 <!-- Quadrados (e retângulos) -->
-                <rect x="135" y="00" width="20" height="20" class="quadradoMapa" />
-                <rect x="250" y="00" width="20" height="20" class="quadradoMapa" />
-                <rect x="330" y="65" width="20" height="20" class="quadradoMapa" />
-                <rect x="190" y="65" width="20" height="20" class="quadradoMapa" />
-                <rect x="250" y="130" width="20" height="20" class="quadradoMapa" />
-                <rect x="75" y="130" width="40" height="20" class="quadradoMapa" />
+                <rect x="135" y="00" width="20" height="20" class="quadradoMapa"/>
+                <rect x="250" y="00" width="20" height="20" class="quadradoMapa"/>
+                <rect x="330" y="65" width="20" height="20" class="quadradoMapaAmarelo"/>
+                <rect x="190" y="65" width="20" height="20" class="quadradoMapa"/>
+                <rect x="250" y="130" width="20" height="20" class="quadradoMapa"/>
+                <rect x="75" y="130" width="40" height="20" class="quadradoMapaAmarelo"/>
+                <rect x="0" y="65" width="20" height="20" class="quadradoMapaAmarelo"/>
 
             </svg>
         </div>

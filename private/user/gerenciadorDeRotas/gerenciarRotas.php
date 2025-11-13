@@ -50,10 +50,11 @@ $resultTrens = $conn->query($sqlTrens);
                 <!-- Quadrados (e retângulos) -->
                 <rect x="135" y="00" width="20" height="20" class="quadradoMapa"/>
                 <rect x="250" y="00" width="20" height="20" class="quadradoMapa"/>
-                <rect x="330" y="65" width="20" height="20" class="quadradoMapa"/>
+                <rect x="330" y="65" width="20" height="20" class="quadradoMapaAmarelo"/>
                 <rect x="190" y="65" width="20" height="20" class="quadradoMapa"/>
                 <rect x="250" y="130" width="20" height="20" class="quadradoMapa"/>
-                <rect x="75" y="130" width="40" height="20" class="quadradoMapa"/>
+                <rect x="75" y="130" width="40" height="20" class="quadradoMapaAmarelo"/>
+                <rect x="0" y="65" width="20" height="20" class="quadradoMapaAmarelo"/>
 
             </svg>
         </div>

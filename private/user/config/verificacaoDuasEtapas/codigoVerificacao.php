@@ -32,6 +32,21 @@ $numero6 = $_POST["numero6"] ?? "";
         </div>";
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
+    if(isset($_POST['reenviar'])){
+
+        $numero1 = rand(0, 9);
+        $numero2 = rand(0, 9);
+        $numero3 = rand(0, 9);
+        $numero4 = rand(0, 9);
+        $numero5 = rand(0, 9);
+        $numero6 = rand(0, 9);
+
+        $sql = "UPDATE codigos SET codigo_1=$numero1, codigo_2=$numero2, codigo_3=$numero3, codigo_4=$numero4, codigo_5=$numero5, codigo_6=$numero6 WHERE id=?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $stmt->close();
+    } else if(isset($_POST['verificar'])){
     $temFTA = $_POST["temFTA"] ?? "";
     $boolean = 1;
     if($numero1 == $codigo_1 && $numero2 == $codigo_2 && $numero3 == $codigo_3 && $numero4 == $codigo_4 && $numero5 == $codigo_5 && $numero6 == $codigo_6){
@@ -43,13 +58,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <p>Código de verificação de duas etapas aplicado com sucesso.</p>
         <a href='' class='fechar'>Fechar</a>
             </div>";
+    
     }else{
         echo "<div class='mensagemErro'> 
         <p>Código incorreto.</p>
         <a href='' class='fechar'>Fechar</a>
             </div>";
     }
-    
+    }
+
 
 }
 
@@ -97,7 +114,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <br>
         <br>
 
-        <button type="submit" class="botaoEnviar">Ativar verificação</button>
+        <div class="flexCentro">
+        <button type="submit" class="botaoEnviar" name="verificar">Ativar verificação</button>
+        <button class="botaoEnviar" type="submit" name="reenviar">Reenviar código</button>
+        </div>
         </form>
     </div>
        
