@@ -28,7 +28,7 @@ $numero6 = $_POST["numero6"] ?? "";
     }
 
     echo "<div class='felixCentro'> 
-         <div class='mensagemErro'> 
+         <div class='mensagemCodigo'> 
                 <p>O código enviado ao seu email é: $codigo_1 $codigo_2 $codigo_3 $codigo_4 $codigo_5 $codigo_6</p>
                 <a href='' class='fechar'>Fechar</a>
                 </div>

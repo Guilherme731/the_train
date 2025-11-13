@@ -317,22 +317,36 @@ body {
     color: var(--corAmarelo);
 }
 
-.mensagemCodigo{
+
+.mensagemCodigo a {
+    display: inline-block;
+    margin-top: 12px;
+    color: #ff914d;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.mensagemCodigo a:hover {
+    color: #ffd580;
+    text-decoration: underline;
+}
+
+.mensagemCodigo {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(145deg, #2f4f60, #3b5c72);
+    border: 2px solid #1d2b34;
+    border-radius: 15px;
+    width: 350px;
+    padding: 25px;
     text-align: center;
-    font-size: 100%;
-    background: var(--corAzulEscuro);
-    border:3px solid black;
-    border-radius: 5px;
-    position: absolute;
-    top: 0%;
-    left: 79.7%;
-    width: 10%;
-    padding: 5%;
-    margin-bottom: 10px;
     color: var(--corAmarelo);
-    word-break: break-word;
-    padding: 15px 0px;
-    padding: 5%;
+    font-size: 1.1rem;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+    animation: aparecer 0.4s ease-out;
 }
 
 .fechar{
