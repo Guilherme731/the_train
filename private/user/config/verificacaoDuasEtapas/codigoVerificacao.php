@@ -116,9 +116,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
         <div class="flexCentro">
         <button type="submit" class="botaoEnviar" name="verificar">Ativar verificação</button>
-        <button class="botaoEnviar" type="submit" name="reenviar">Reenviar código</button>
         </div>
         </form>
+
+        <form action="" method="post">
+        <br>
+        <br>
+        <br>
+        <br>
+        <button class="botaoEnviar" type="submit" name="reenviar">Reenviar código</button></form>
     </div>
        
 
