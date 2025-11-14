@@ -52,8 +52,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $stmt->execute();
         $stmt->close();
 
-        echo "<div class='mensagemCodigo'> <p>Código reenviado para seu email.</p><a href='' class='fechar'>Fechar</a></div>";
-
 
     } elseif(isset($_POST['verificar'])) {
         $temFTA = $_POST["temFTA"] ?? "";
@@ -122,13 +120,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                    
                 </div>
             </form>
-        <form action="" method="post">
-        <br>
-        <br>
-        <br>
-        <br>
-        <button class="botaoEnviar" type="submit" name="reenviar">Reenviar código</button></form>
+              <form action="" method="post">
+                <button class="ativo" type="submit" name="reenviar">Reenviar código</button>
+              </form>
         </div>
+      
+      
     </main>
     <div class="espacoFooterAzul"></div>
     <footer class="footerAzulArredondado">

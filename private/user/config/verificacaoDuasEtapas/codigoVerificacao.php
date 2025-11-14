@@ -126,7 +126,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <br>
         <button class="botaoEnviar" type="submit" name="reenviar">Reenviar código</button></form>
     </div>
-       
+       <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.fechar').forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                var mensagem = btn.closest('.mensagemCodigo') || btn.closest('.mensagemErro');
+                if(mensagem) mensagem.remove();
+            });
+        });
+    });
+    </script>
 
     <p id="textoVerificacao2EtapasConfirmacao">Um código de verificação foi enviado para o seu email. Insira o código para continuar.</p>
     </main>
