@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $email = $_POST["email"] ?? "";
     $pass = $_POST["password"] ?? "";
 
-    $stmt = $conn->prepare("SELECT id, email, senha, tipo FROM usuarios WHERE email=?");
+    $stmt = $conn->prepare("SELECT id, email, senha, tipo, temTFA FROM usuarios WHERE email=?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -17,7 +17,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $_SESSION["user_id"] = $dados["id"];
         $_SESSION["email"] = $dados["email"];
         $_SESSION["tipo"] = $dados["tipo"];
-        header("Location: ../private/user/dashboard/dashboard.php");
+        $_SESSION["verificado"] = false; // ainda não passou pela verificação
+        if($dados['temTFA'] == 1){
+            header("Location: ../private/user/config/verificacaoDuasEtapas/codigoVerificacao.php");
+        }else{
+            header("Location: ../private/user/dashboard/dashboard.php");
+        }
+        
     } else {
         echo "<div class='mensagemErro'>
         <p>Nome ou senha incorretos</p>
@@ -26,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 }
 
-if(isset($_SESSION["email"])){
+if(isset($_SESSION["email"]) && isset($_SESSION["verificado"]) && $_SESSION["verificado"] === true){
     header("Location: ../private/user/dashboard/dashboard.php");
     exit;
 }
@@ -54,7 +60,7 @@ if(isset($_SESSION["email"])){
             <div class="error" id="errorEmailLogin"></div>
             <input type="password" name="password" id="senhaFuncionarioLogin" placeholder="Senha">
             <div class="error" id="errorSenhaLogin"></div>
-            <a href="../private/user/config/verificacaoDuasEtapas/verificacaode2etapas.php">Esqueceu a senha?</a>
+            <a href="recuperarSenha.php">Esqueceu a senha?</a>
             <button type="submit">Entrar</button>
         </form>
     </main>
