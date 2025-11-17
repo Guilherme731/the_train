@@ -26,7 +26,6 @@ $numero6 = $_POST["numero6"] ?? "";
         $codigo_5 = intval($row['codigo_5']);
         $codigo_6 = intval($row['codigo_6']);
     }
-
     echo "<div class='felixCentro'> 
          <div class='mensagemCodigo'> 
                 <p>O código enviado ao seu email é: $codigo_1 $codigo_2 $codigo_3 $codigo_4 $codigo_5 $codigo_6</p>
@@ -51,6 +50,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $stmt->bind_param("i", $id);
         $stmt->execute();
         $stmt->close();
+
+        echo "<div class='mensagemCodigo'> <p>Código reenviado para seu email.</p><a href='' class='fechar'>Fechar</a></div>";
 
 
     } elseif(isset($_POST['verificar'])) {
@@ -120,12 +121,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                    
                 </div>
             </form>
-              <form action="" method="post">
-                <button class="ativo" type="submit" name="reenviar">Reenviar código</button>
-              </form>
+        <form action="" method="post">
+        <br>
+        <br>
+        <br>
+        <br>
+        <button class="botaoEnviar" type="submit" name="reenviar">Reenviar código</button></form>
         </div>
-      
-      
     </main>
     <div class="espacoFooterAzul"></div>
     <footer class="footerAzulArredondado">
