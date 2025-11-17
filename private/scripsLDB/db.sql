@@ -93,7 +93,7 @@ CREATE TABLE rotasEstacoes(
     ordem INT NOT NULL DEFAULT 1,
     FOREIGN KEY (idRota) REFERENCES rotas(id),
     FOREIGN KEY (idEstacao) REFERENCES estacoes(id),
-    PRIMARY KEY (idRota, idEstacao)
+    PRIMARY KEY (idRota, idEstacao, ordem)
 );
 
 CREATE TABLE trabalha(
