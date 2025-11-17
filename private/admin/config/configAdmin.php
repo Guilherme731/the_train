@@ -1,9 +1,22 @@
 <?php
 session_start();
 include '../../authGuard/authAdmin.php';
+include '../../conexao/conexao.php';
 
 if($_SESSION['tipo'] == 'funcionario'){
     header('location: ../../user/config/configFuncionario.php');
+    exit();
+}
+
+$id = $_SESSION['user_id'];
+$temTFA = 0;
+$sql = "SELECT temTFA FROM usuarios WHERE id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $id);
+$stmt->execute();
+$result = $stmt->get_result();
+if ($row = $result->fetch_assoc()) {
+    $temTFA = $row['temTFA'];
 }
 ?>
 
@@ -17,7 +30,6 @@ if($_SESSION['tipo'] == 'funcionario'){
     <link rel="stylesheet" href="../../../style/style.css">
     <script src="../../../scripts/botoesMenus.js"></script>
     <title>Configurações admin</title>
-
 </head>
 
 <body>
@@ -42,7 +54,9 @@ if($_SESSION['tipo'] == 'funcionario'){
                         alt="Imagem do ícone de Conta">
                     <p>Idioma</p>
                 </a>
-                <a href="../../user/config/verificacaoDuasEtapas/codigoVerificacao.php" class="opcaoMenu">
+                <a href="<?php 
+                    if($temTFA == 1){echo '../../user/config/verificacaoDuasEtapas/removerTFA.php';}else{echo '../../user/config/verificacaoDuasEtapas/codigoVerificacao.php';}
+                ?>" class="opcaoMenu">
                     <img class="iconeConfigTamanho"
                         src="../../../assets/icons/config/verificacaoDuasEtapas/verificacao2EtapasIcone.png"
                         alt="Imagem do ícone de verificação de 2 etapas">
@@ -53,14 +67,10 @@ if($_SESSION['tipo'] == 'funcionario'){
                         alt="Imagem do ícone de Fale Conosco">
                     <p>Fale Conosco</p>
                 </a>
-
-                </a>
                 <a href="../../admin/config/cadastrarFuncionario.php" class="opcaoMenu">
                     <img class="iconeConfigTamanho" src="../../../assets/icons/config/addFuncionarioIcone.png"
                         alt="Imagem do ícone de Criar Usuario">
                     <p>Criar Usuário</p>
-                </a>
-
                 </a>
                 <a href="selecionarUsuario.php" class="opcaoMenu">
                     <img class="iconeConfigTamanho" src="../../../assets/icons/config/editarFuncionarioIcone.png"

@@ -13,7 +13,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $dados = $result->fetch_assoc();
     $stmt->close();
 
-    if (password_verify($pass, $dados['senha'])) {
+    if($email == "" && $pass == ""){
+        echo "<div class='mensagemErro'>
+        <p>Nome ou senha incorretos</p>
+        <a class='fechar' href='login.php'>Fechar</a>
+        </div>";
+    }else{
+        if (password_verify($pass, $dados['senha'])) {
         $_SESSION["user_id"] = $dados["id"];
         $_SESSION["email"] = $dados["email"];
         $_SESSION["tipo"] = $dados["tipo"];
@@ -30,6 +36,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <a class='fechar' href='login.php'>Fechar</a>
         </div>";
     }
+    }
+
+    
 }
 
 if(isset($_SESSION["email"]) && isset($_SESSION["verificado"]) && $_SESSION["verificado"] === true){

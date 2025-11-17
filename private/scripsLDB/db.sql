@@ -54,7 +54,6 @@ CREATE TABLE trens(
     parado BOOLEAN,
     ativo BOOLEAN,
     idEstacao INT NOT NULL,
-    ordemRota INT,
     idRota INT NOT NULL,
     horaSaida TIME,
     FOREIGN KEY (idEstacao) REFERENCES estacoes(id),
@@ -94,7 +93,7 @@ CREATE TABLE rotasEstacoes(
     ordem INT NOT NULL DEFAULT 1,
     FOREIGN KEY (idRota) REFERENCES rotas(id),
     FOREIGN KEY (idEstacao) REFERENCES estacoes(id),
-    PRIMARY KEY (idRota, idEstacao, ordem)
+    PRIMARY KEY (idRota, idEstacao)
 );
 
 CREATE TABLE trabalha(
