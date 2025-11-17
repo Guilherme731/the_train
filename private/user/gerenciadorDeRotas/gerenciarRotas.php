@@ -3,7 +3,7 @@ session_start();
 include '../../authGuard/authUsuario.php';
 include '../../conexao/conexao.php';
 
-$sqlTrens = 'SELECT id, localizacaoX, localizacaoY FROM trens';
+$sqlTrens = 'SELECT trens.id AS idTrem, trens.idEstacao AS estacaoAtual, localizacaoX, localizacaoY, horaSaida, ordemRota, trens.idRota, rotas.id, rotasEstacoes.idRota, rotasEstacoes.idEstacao AS nextStop FROM trens INNER JOIN rotas ON trens.idRota = rotas.id INNER JOIN rotasEstacoes ON rotas.id = rotasEstacoes.idRota AND ordemRota = rotasestacoes.ordem';
 $resultTrens = $conn->query($sqlTrens);
 ?>
 <!DOCTYPE html>
@@ -58,6 +58,54 @@ $resultTrens = $conn->query($sqlTrens);
 
             </svg>
         </div>
+        <?php
+echo "<script>
+
+document.addEventListener('DOMContentLoaded', function() {";
+while($row = $resultTrens->fetch_assoc()){
+    $posX = $row['localizacaoX'];
+    $posY = $row['localizacaoY'];
+    if($row['nextStop'] == 3 && $row['estacaoAtual'] == 2){
+        $VEL_X = 2.5;
+
+        $horaSaida = $row['horaSaida'];
+        $now = new DateTime();
+        if(preg_match('/^\d{1,2}:\d{2}$/', $horaSaida)){
+            $horaSaida .= ':00';
+        }
+       if(preg_match('/^\d{1,2}:\d{2}:\d{2}$/', $horaSaida)){
+            list($h, $m, $s) = explode(':', $horaSaida);
+            $saidaSeconds = (intval($h) + 4) * 3600 + intval($m) * 60 + intval($s);
+
+            $now = new DateTime();
+            $nowSeconds = intval($now->format('H')) * 3600 + intval($now->format('i')) * 60 + intval($now->format('s'));
+
+            $diff = $nowSeconds - $saidaSeconds;
+            $posX = abs($diff * $VEL_X);
+
+            if($posX <= 65){
+                $posY = 65 - sqrt(3600-(pow(($posX-65),2)));
+            }else if ($posX > 265 && $posX < 330){
+                $posY = 65 - sqrt(3600-(pow((($posX - 200)-65),2)));
+            }else if($posX >= 330){
+                $posX = 330;
+                $posY = 65;
+            }else{
+                $posY = 5;
+            }
+            
+        } else {
+            $posX = 0;
+        }
+    }
+    echo "addQuadradoTrem($posX, $posY, {$row['idTrem']});";
+}
+    
+echo "
+addQuadradoTrem(50, 50, 9);});
+
+</script>";
+?>
 
         <div class="flexCentro">
             <div class="switch-container">
@@ -161,16 +209,7 @@ $resultTrens = $conn->query($sqlTrens);
                             alt="Icone de editar a Rota dos Trens"></a>
                 </div>
             </div>
-            <?php
-echo "<script>
-document.addEventListener('DOMContentLoaded', function() {";
-while($row = $resultTrens->fetch_assoc()){
-    echo "addQuadradoTrem({$row['localizacaoX']}, {$row['localizacaoY']}, {$row['id']});";
-}
-    
-echo "});
-</script>";
-?>
+            
 
             <div class="dadoInfo padding-3">
                 <h3 class="tituloTrem">Rota 3</h3>

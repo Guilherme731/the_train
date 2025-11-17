@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $_SESSION["tipo"] = $dados["tipo"];
         $_SESSION["verificado"] = false; // ainda não passou pela verificação
         if($dados['temTFA'] == 1){
-            header("Location: ../private/user/config/verificacaoDuasEtapas/codigoVerificacao.php");
+            header("Location: ../private/user/config/verificacaoDuasEtapas/codigoVerificacao.php?from=login");
         }else{
             header("Location: ../private/user/dashboard/dashboard.php");
         }
