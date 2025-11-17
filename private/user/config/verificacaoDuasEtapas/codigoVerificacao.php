@@ -54,6 +54,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 
     } elseif(isset($_POST['verificar'])) {
+        if(isset($_GET['from'])){
+            $_SESSION["verificado"] = true;
+            header('location: ../../dashboard/dashboard.php');
+            exit;
+        }
         $temFTA = $_POST["temFTA"] ?? "";
         $boolean = 1;
         if($numero1 == $codigo_1 && $numero2 == $codigo_2 && $numero3 == $codigo_3 && $numero4 == $codigo_4 && $numero5 == $codigo_5 && $numero6 == $codigo_6){
@@ -90,7 +95,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <header class="headerAzulLogo">
         <img id="ajusteImagem" src="../../../../assets/logos/logoPequena.png" alt="Logo Pequena">
     </header>
-    <a href="../../../../public/recuperarSenha2.php">
+    <a href="../../../../public/login.php">
         <img src="../../../../assets/icons/header/setaEsquerdaClara.PNG" alt="Seta" onclick="voltarPagina()">
     </a>
     <div class="tituloAzul">
