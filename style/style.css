@@ -1130,3 +1130,10 @@ input[type="file"]{
 .mensagemSecundaria{
     word-break: break-word;
 }
+
+.confirmarCep{
+    background-color: var(--corAzulNormal);
+    border-radius: 15px;
+    padding: 1px 20px;
+    color: #86bbd8;
+}
