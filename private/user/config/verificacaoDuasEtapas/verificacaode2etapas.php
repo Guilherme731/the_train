@@ -122,11 +122,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 </div>
             </form>
         <form action="" method="post">
-        <br>
-        <br>
-        <br>
-        <br>
-        <button class="botaoEnviar" type="submit" name="reenviar">Reenviar código</button></form>
+        <button class="ativo" type="submit" name="reenviar">Reenviar código</button></form>
         </div>
     </main>
     <div class="espacoFooterAzul"></div>
