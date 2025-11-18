@@ -129,16 +129,31 @@ function renderizarTrensMapa(){
 }
 
 function deletarTrens() {
-    let i = 0;
-    while (true) {
-        const trem = document.getElementById('tremMapa' + i);
-        const texto = document.getElementById('textoMapa' + i);
-        if (!trem && !texto) break;
-        if (trem) trem.remove();
-        if (texto) texto.remove();
-        i++;
+    const trens = document.getElementsByClassName('tremMapa');
+    const textos = document.getElementsByClassName('textoMapa');
+    // Remove trens
+    while (trens.length > 0) {
+        trens[0].remove();
     }
+    // Remove textos
+    while (textos.length > 0) {
+        textos[0].remove();
+    }
+    
 }
+
+function atualizarTrensMapa() {
+    fetch('../../../private/consultaApis/getTrensPos.php')
+        .then(response => response.json())
+        .then(trens => {
+            deletarTrens();
+            trens.forEach(trem => {
+                addQuadradoTrem(trem[0], trem[1], trem[2]);
+            });
+        });
+}
+
+setInterval(atualizarTrensMapa, 500);
 
 function atualizarMapaPorEstacoes(estacoes){
     const segmentos = JSON.parse(segmentosEstacoes);

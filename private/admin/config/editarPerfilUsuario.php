@@ -141,7 +141,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                             if (isset($_POST['carregarCep'])) {
                                 echo "<input type='text' name='cep' id='cepUsuario' value='{$_POST['cep']}' class='informacoesEspeciais' placeholder='CEP' readonly>";
-                                echo "<br> <a href=''>Voltar</a>";
+                                echo "<br> <a href='' style='text-decoration:none;'>Voltar</a>";
                             }
                             else{
                                 echo "<input type='text' name='cep' id='cepUsuario' value='{$row['cep']}' class='informacoesEspeciais' placeholder='CEP'>";
@@ -149,7 +149,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             }
                         }else{
                                 echo "<input type='text' name='cep' id='cepUsuario' value='{$row['cep']}' class='informacoesEspeciais' placeholder='CEP'>";
-                                echo "<br> <input type='submit' name='carregarCep' value='Confirmar CEP'>";
+                                echo "<br> <input type='submit' name='carregarCep'  class='confirmarCep' value='Confirmar CEP'>";
 
                             }
                         ?>
@@ -234,7 +234,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
 
             <div class="flex">
-                <input type="submit" id="botaoSalvarEditarPerfil" name="salvar" value="Salvar">
+                <?php
+                    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                        if (isset($_POST['carregarCep'])) {
+                            echo "<input id='botaoSalvarEditarPerfil' type='submit' name='salvar' value='Salvar'>";
+                        }
+                    }  else{
+                        echo "<input id='botaoSalvarEditarPerfil' type='submit' name='salvar' value='Salvar' disabled>";
+                    }
+                ?>
             </div>
 
         </form>

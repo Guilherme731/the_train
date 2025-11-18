@@ -11,7 +11,7 @@ $numero4 = $_POST["numero4"] ?? "";
 $numero5 = $_POST["numero5"] ?? "";
 $numero6 = $_POST["numero6"] ?? "";
 
- $stmt = $conn->prepare('SELECT codigo_1, codigo_2, codigo_3, codigo_4, codigo_5, codigo_6 FROM codigos WHERE id = ? LIMIT 1');
+    $stmt = $conn->prepare('SELECT codigo_1, codigo_2, codigo_3, codigo_4, codigo_5, codigo_6 FROM codigos WHERE id = ? LIMIT 1');
     if (!$stmt) { echo 'Erro no prepare: ' . $conn->error; exit; }
     $stmt->bind_param('i', $id);
     $stmt->execute();
@@ -34,49 +34,9 @@ $numero6 = $_POST["numero6"] ?? "";
         </div>";
     
 
-if($_SERVER["REQUEST_METHOD"] == "POST"){       
-    if(isset($_POST['reenviar'])){
 
-        
-        $numero1 = rand(0, 9);
-        $numero2 = rand(0, 9);
-        $numero3 = rand(0, 9);
-        $numero4 = rand(0, 9);
-        $numero5 = rand(0, 9);
-        $numero6 = rand(0, 9);
-
-        $sql = "UPDATE codigos SET codigo_1=$numero1, codigo_2=$numero2, codigo_3=$numero3, codigo_4=$numero4, codigo_5=$numero5, codigo_6=$numero6 WHERE id=?";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("i", $id);
-        $stmt->execute();
-        $stmt->close();
-
-        echo "<div class='mensagemCodigo'> <p>Código reenviado para seu email.</p><a href='' class='fechar'>Fechar</a></div>";
-
-
-    } elseif(isset($_POST['verificar'])) {
-        $temFTA = $_POST["temFTA"] ?? "";
-        $boolean = 1;
-        if($numero1 == $codigo_1 && $numero2 == $codigo_2 && $numero3 == $codigo_3 && $numero4 == $codigo_4 && $numero5 == $codigo_5 && $numero6 == $codigo_6){
-            $stmt = $conn->prepare("UPDATE usuarios SET temTFA=? WHERE id=?");
-            $stmt->bind_param("ii", $boolean, $id);
-            $stmt->execute();
-            $stmt->close();
-            echo "<div class='mensagemCodigo'> 
-            <p>Código de verificação de duas etapas aplicado com sucesso.</p>
-            <a href='' class='fechar'>Fechar</a>
-                </div>";
-        }else{
-            echo "<div class='mensagemErro'> 
-            <p>Código incorreto.</p>
-            <a href='' class='fechar'>Fechar</a>
-                </div>";
-        }
-    }
-}
 
 ?>
-
 <html lang="pt-BR">
 
 <head>
@@ -91,7 +51,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <header class="headerAzulLogo">
         <img id="ajusteImagem" src="../../../../assets/logos/logoPequena.png" alt="Logo Pequena">
     </header>
-    <a href="../../../../public/recuperarSenha2.php">
+    <a href="../../../admin/config/configAdmin.php">
         <img src="../../../../assets/icons/header/setaEsquerdaClara.PNG" alt="Seta" onclick="voltarPagina()">
     </a>
     <div class="tituloAzul">
@@ -122,11 +82,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 </div>
             </form>
         <form action="" method="post">
-        <br>
-        <br>
-        <br>
-        <br>
-        <button class="botaoEnviar" type="submit" name="reenviar">Reenviar código</button></form>
+        <button class="ativo" type="submit" name="reenviar">Reenviar código</button></form>
         </div>
     </main>
     <div class="espacoFooterAzul"></div>
@@ -147,3 +103,47 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 </body>
 
 </html>
+
+<?php
+if($_SERVER["REQUEST_METHOD"] == "POST"){       
+    if(isset($_POST['reenviar'])){
+
+        
+        $numero1 = rand(0, 9);
+        $numero2 = rand(0, 9);
+        $numero3 = rand(0, 9);
+        $numero4 = rand(0, 9);
+        $numero5 = rand(0, 9);
+        $numero6 = rand(0, 9);
+
+        $sql = "UPDATE codigos SET codigo_1=$numero1, codigo_2=$numero2, codigo_3=$numero3, codigo_4=$numero4, codigo_5=$numero5, codigo_6=$numero6 WHERE id=?";
+        $stmt2 = $conn->prepare($sql);
+        $stmt2->bind_param("i", $id);
+        $stmt2->execute();
+        $stmt2->close();
+
+        echo "<div class='mensagemCodigo'> <p>Código reenviado para seu email.</p><a href='' class='fechar'>Fechar</a></div>";
+
+
+    } elseif(isset($_POST['verificar'])) {
+        $temFTA = $_POST["temFTA"] ?? "";
+        $boolean = 1;
+        if($numero1 == $codigo_1 && $numero2 == $codigo_2 && $numero3 == $codigo_3 && $numero4 == $codigo_4 && $numero5 == $codigo_5 && $numero6 == $codigo_6){
+            $stmt3 = $conn->prepare("UPDATE usuarios SET temTFA=? WHERE id=?");
+            $stmt3->bind_param("ii", $boolean, $id);
+            $stmt3->execute();
+            $stmt3->close();
+            echo "<div class='mensagemCodigo'> 
+            <p>Código de verificação de duas etapas aplicado com sucesso.</p>
+            <a href='../../../admin/config/configAdmin.php' class='fecharr'>Voltar para as configurações</a>
+            </div>";
+            exit;
+        }else{
+            echo "<div class='mensagemErro'> 
+            <p>Código incorreto.</p>
+            <a href='' class='fechar'>Fechar</a>
+                </div>";
+        }
+    }
+}
+?>

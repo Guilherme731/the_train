@@ -56,6 +56,7 @@ CREATE TABLE trens(
     idEstacao INT NOT NULL,
     idRota INT NOT NULL,
     horaSaida TIME,
+    ordemRota INT,
     FOREIGN KEY (idEstacao) REFERENCES estacoes(id),
     FOREIGN KEY (idRota) REFERENCES rotas(id)
 );

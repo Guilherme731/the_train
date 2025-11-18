@@ -14,7 +14,7 @@ $resultTrens = $conn->query($sqlTrens);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../../style/style.css">
     <link rel="shortcut icon" href="../../../assets/logos/logoPequena.png">
-    
+
     <title>Gerenciador de rotas</title>
 </head>
 
@@ -58,54 +58,7 @@ $resultTrens = $conn->query($sqlTrens);
 
             </svg>
         </div>
-        <?php
-echo "<script>
-
-document.addEventListener('DOMContentLoaded', function() {";
-while($row = $resultTrens->fetch_assoc()){
-    $posX = $row['localizacaoX'];
-    $posY = $row['localizacaoY'];
-    if($row['nextStop'] == 3 && $row['estacaoAtual'] == 2){
-        $VEL_X = 2.5;
-
-        $horaSaida = $row['horaSaida'];
-        $now = new DateTime();
-        if(preg_match('/^\d{1,2}:\d{2}$/', $horaSaida)){
-            $horaSaida .= ':00';
-        }
-       if(preg_match('/^\d{1,2}:\d{2}:\d{2}$/', $horaSaida)){
-            list($h, $m, $s) = explode(':', $horaSaida);
-            $saidaSeconds = (intval($h) + 4) * 3600 + intval($m) * 60 + intval($s);
-
-            $now = new DateTime();
-            $nowSeconds = intval($now->format('H')) * 3600 + intval($now->format('i')) * 60 + intval($now->format('s'));
-
-            $diff = $nowSeconds - $saidaSeconds;
-            $posX = abs($diff * $VEL_X);
-
-            if($posX <= 65){
-                $posY = 65 - sqrt(3600-(pow(($posX-65),2)));
-            }else if ($posX > 265 && $posX < 330){
-                $posY = 65 - sqrt(3600-(pow((($posX - 200)-65),2)));
-            }else if($posX >= 330){
-                $posX = 330;
-                $posY = 65;
-            }else{
-                $posY = 5;
-            }
-            
-        } else {
-            $posX = 0;
-        }
-    }
-    echo "addQuadradoTrem($posX, $posY, {$row['idTrem']});";
-}
-    
-echo "
-addQuadradoTrem(50, 50, 9);});
-
-</script>";
-?>
+        
 
         <div class="flexCentro">
             <div class="switch-container">

@@ -18,6 +18,7 @@ $result = $stmt->get_result();
 if ($row = $result->fetch_assoc()) {
     $temTFA = $row['temTFA'];
 }
+$stmt->close();
 ?>
 
 <!DOCTYPE html>
@@ -54,14 +55,24 @@ if ($row = $result->fetch_assoc()) {
                         alt="Imagem do ícone de Conta">
                     <p>Idioma</p>
                 </a>
-                <a href="<?php 
-                    if($temTFA == 1){echo '../../user/config/verificacaoDuasEtapas/removerTFA.php';}else{echo '../../user/config/verificacaoDuasEtapas/codigoVerificacao.php';}
-                ?>" class="opcaoMenu">
-                    <img class="iconeConfigTamanho"
-                        src="../../../assets/icons/config/verificacaoDuasEtapas/verificacao2EtapasIcone.png"
-                        alt="Imagem do ícone de verificação de 2 etapas">
-                    <p>Verificação de 2 etapas</p>
-                </a>
+                    
+        <?php if ($temTFA == 1): ?>
+            <a href="#" class="opcaoMenu" onclick="mostrarMensagemTFA(); return false;">
+            <img class="iconeConfigTamanho"
+            src="../../../assets/icons/config/verificacaoDuasEtapas/verificacao2EtapasIcone.png"
+            alt="Imagem do ícone de verificação de 2 etapas">
+            <p>Verificação de 2 etapas</p>
+            </a>
+            
+        <?php else: ?>
+            <a href="../../user/config/verificacaoDuasEtapas/verificacaode2etapas.php" class="opcaoMenu">
+            <img class="iconeConfigTamanho"
+            src="../../../assets/icons/config/verificacaoDuasEtapas/verificacao2EtapasIcone.png"
+            alt="Imagem do ícone de verificação de 2 etapas">
+            <p>Verificação de 2 etapas</p>
+            </a>
+        <?php endif; ?>
+
                 <a href="verMensagens.php" class="opcaoMenu">
                     <img class="iconeConfigTamanho" src="../../../assets/icons/config/faleConoscoIcone.png"
                         alt="Imagem do ícone de Fale Conosco">
@@ -100,4 +111,26 @@ if ($row = $result->fetch_assoc()) {
     </footer>
 </body>
 
+<script>
+    
+function mostrarMensagemTFA() {
+    document.getElementById('mensagemTFA').style.display = 'block';
+}
+function naoMensagemTFA() {
+    document.getElementById('mensagemTFA').style.display = 'none';
+}
+
+function simMensagemTFA(){
+ document.getElementById('mensagemTFA').style.display = 'none';
+}
+</script>
+    <div id="mensagemTFA" class="mensagemCodigo">
+        <p>Você já tem uma verificação de duas etapas, deseja deletar a atual?</p>
+        <div class="flexCentro">
+        <a href="../../user/config/verificacaoDuasEtapas/retirarTFA.php?id=<?= $id ?>" class="fechar">Sim</a>
+        <p>ㅤㅤㅤㅤㅤㅤㅤㅤㅤ</p>
+        <a href="#" class="fechar" onclick="naoMensagemTFA(); return false;">Não</a>
+        </div>
+     </div>
+     <script>naoMensagemTFA();</script>
 </html>
