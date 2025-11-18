@@ -420,7 +420,7 @@ body {
     padding: 7px;
     text-align: center;
 }
-.secaoInfo, .secaoInfoManutencao h2 { color: var(--corAmarelo); margin: 0 0 10px 0; }
+.secaoInfo h2 { color: var(--corAmarelo); margin: 0 0 10px 0; }
 #tituloDados{
     display: flex;
     align-items: center;
