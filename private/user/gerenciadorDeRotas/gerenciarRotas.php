@@ -138,59 +138,121 @@ while($row = $resultTrens->fetch_assoc()){
             $posX = 0;
         }
     }
-    if($row['nextStop'] == 3 && $row['estacaoAtual'] == 3){
-        
+            if ($row['nextStop'] == 3 && $row['estacaoAtual'] == 3) {
 
-        $horaSaida = $row['horaSaida'];
-        $now = new DateTime();
-        if(preg_match('/^\d{1,2}:\d{2}$/', $horaSaida)){
-            $horaSaida .= ':00';
-        }
-       if(preg_match('/^\d{1,2}:\d{2}:\d{2}$/', $horaSaida)){
-            list($h, $m, $s) = explode(':', $horaSaida);
-            $saidaSeconds = (intval($h) + 4) * 3600 + intval($m) * 60 + intval($s);
 
-            $now = new DateTime();
-            $nowSeconds = intval($now->format('H')) * 3600 + intval($now->format('i')) * 60 + intval($now->format('s'));
+                $horaSaida = $row['horaSaida'];
+                $now = new DateTime();
+                if (preg_match('/^\d{1,2}:\d{2}$/', $horaSaida)) {
+                    $horaSaida .= ':00';
+                }
+                if (preg_match('/^\d{1,2}:\d{2}:\d{2}$/', $horaSaida)) {
+                    list($h, $m, $s) = explode(':', $horaSaida);
+                    $saidaSeconds = (intval($h) + 4) * 3600 + intval($m) * 60 + intval($s);
 
-            $diff = $nowSeconds - $saidaSeconds;
-            if($diff <= 0 || ($diff * $VEL_X) > 330){
-                $posX = 330;
+                    $now = new DateTime();
+                    $nowSeconds = intval($now->format('H')) * 3600 + intval($now->format('i')) * 60 + intval($now->format('s'));
+
+                    $diff = $nowSeconds - $saidaSeconds;
+                    if ($diff <= 0 || ($diff * $VEL_X) > 330) {
+                        $posX = 330;
+                    } else if (($diff * $VEL_X) <= 130) {
+                        // FASE 1: Diminuindo de 330 para 200
+                        // posX vai de 330 (diff=0) a 200 (diff=130)
+                        $posX = (330 - ($diff * $VEL_X));
+                    } else {
+                        // FASE 2: Aumentando de 200 em diante
+                        // O movimento de retorno deve usar (diff - 130)
+                        // Para retornar a 330, a lógica é: 200 + (diff - 130)
+                        $posX = (200 + (($diff * $VEL_X) - 130));
+                    }
+
+                    if ($posX <= 0) {
+                        $posX = 330;
+                        $posY = 65;
+                    } else if ($posX <= 265 && ($diff * $VEL_X) < 130 && $posX < 330 && $posX > 0) {
+                        $posY = 65 + sqrt(3600 - (pow((($posX - 200) - 65), 2)));
+                    } else if ($posX > 265 && ($diff * $VEL_X) < 130 && $posX < 330 && $posX > 0) {
+                        $posY = 65 + sqrt(3600 - (pow((($posX - 200) - 65), 2)));
+                    } else if ($posX <= 265 && ($diff * $VEL_X) > 130 && $posX < 330 && $posX > 0) {
+                        $posY = 65 - sqrt(3600 - (pow((($posX - 200) - 65), 2)));
+                    } else if ($posX > 265 && ($diff * $VEL_X) > 130 && $posX < 330 && $posX > 0) {
+                        $posY = 65 - sqrt(3600 - (pow((($posX - 200) - 65), 2)));
+                    } else {
+                        $posY = 65;
+                        $posX = 330;
+                    }
+                } else {
+                    $posX = 0;
+                }
             }
-            else if (($diff * $VEL_X) <= 130) {
-    // FASE 1: Diminuindo de 330 para 200
-    // posX vai de 330 (diff=0) a 200 (diff=130)
-    $posX = (330 - ($diff * $VEL_X));
-} else {
-    // FASE 2: Aumentando de 200 em diante
-    // O movimento de retorno deve usar (diff - 130)
-    // Para retornar a 330, a lógica é: 200 + (diff - 130)
-    $posX = (200 + (($diff * $VEL_X) - 130));
-}
-            
-            if($posX<=0){
-                $posX = 330;
-                $posY = 65;
-            }else if($posX <= 265 && ($diff * $VEL_X) < 130 && $posX < 330 && $posX > 0){
-                $posY = 65 + sqrt(3600-(pow((($posX-200)-65),2)));
-            }else if ($posX > 265 && ($diff * $VEL_X) < 130 && $posX < 330 && $posX > 0){
-                $posY = 65 + sqrt(3600-(pow((($posX - 200)-65),2)));
-            }else if ($posX <= 265 && ($diff * $VEL_X) > 130 && $posX < 330 && $posX > 0){
-                $posY = 65 - sqrt(3600-(pow((($posX - 200)-65),2)));
-            }else if ($posX > 265 && ($diff * $VEL_X) > 130 && $posX < 330 && $posX > 0){
-                $posY = 65 - sqrt(3600-(pow((($posX - 200)-65),2)));
-            }else{
-                $posY = 65;
+            if ($row['nextStop'] == 1 && $row['estacaoAtual'] == 2) {
+
+
+                $horaSaida = $row['horaSaida'];
+                $now = new DateTime();
+                if (preg_match('/^\d{1,2}:\d{2}$/', $horaSaida)) {
+                    $horaSaida .= ':00';
+                }
+                if (preg_match('/^\d{1,2}:\d{2}:\d{2}$/', $horaSaida)) {
+                    list($h, $m, $s) = explode(':', $horaSaida);
+                    $saidaSeconds = (intval($h) + 4) * 3600 + intval($m) * 60 + intval($s);
+
+                    $now = new DateTime();
+                    $nowSeconds = intval($now->format('H')) * 3600 + intval($now->format('i')) * 60 + intval($now->format('s'));
+
+                    $diff = $nowSeconds - $saidaSeconds;
+                    $posX = $diff * $VEL_X;
+
+                    if ($posX <= 5) {
+                        $posX = 5;
+                        $posY = 65;
+                    } else if ($posX <= 65) {
+                        $posY = 65 + sqrt(3600 - (pow(($posX - 65), 2)));
+                    }else {
+                        $posX = 70;
+                        $posY = 135;
+                    }
+                } else {
+                    $posX = 0;
+                }
             }
-            
-        } else {
-            $posX = 0;
+            if ($row['nextStop'] == 2 && $row['estacaoAtual'] == 1) {
+
+
+                $horaSaida = $row['horaSaida'];
+                $now = new DateTime();
+                if (preg_match('/^\d{1,2}:\d{2}$/', $horaSaida)) {
+                    $horaSaida .= ':00';
+                }
+                if (preg_match('/^\d{1,2}:\d{2}:\d{2}$/', $horaSaida)) {
+                    list($h, $m, $s) = explode(':', $horaSaida);
+                    $saidaSeconds = (intval($h) + 4) * 3600 + intval($m) * 60 + intval($s);
+
+                    $now = new DateTime();
+                    $nowSeconds = intval($now->format('H')) * 3600 + intval($now->format('i')) * 60 + intval($now->format('s'));
+
+                    $diff = $nowSeconds - $saidaSeconds;
+                    $posX = 70 - ($diff * $VEL_X);
+
+                    if ($posX <= 5) {
+                        $posX = 5;
+                        $posY = 65;
+                    } else if ($posX <= 65) {
+                        $posY = 65 + sqrt(3600 - (pow(($posX - 65), 2)));
+                    }else {
+                        $posX = 70;
+                        $posY = 135;
+                    }
+                } else {
+                    $posX = 0;
+                }
+            }
+
+            echo "addQuadradoTrem($posX, $posY, {$row['idTrem']});";
         }
-    }
-    echo "addQuadradoTrem($posX, $posY, {$row['idTrem']});";
-}
-    
-echo "});
+
+        echo "});
 </script>";
 ?>
 
