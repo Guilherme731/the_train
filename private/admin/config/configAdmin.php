@@ -78,6 +78,13 @@ $stmt->close();
                         alt="Imagem do ícone de Fale Conosco">
                     <p>Fale Conosco</p>
                 </a>
+
+                <a href="../../user/config/criarManutencao.php" class="opcaoMenu">
+                    <img class="iconeConfigTamanho" src="../../../assets/icons/config/iconeManutencao.png"
+                        alt="Imagem do ícone de Manutenção">
+                    <p>Manutenção</p>
+                </a>
+
                 <a href="../../admin/config/cadastrarFuncionario.php" class="opcaoMenu">
                     <img class="iconeConfigTamanho" src="../../../assets/icons/config/addFuncionarioIcone.png"
                         alt="Imagem do ícone de Criar Usuario">
