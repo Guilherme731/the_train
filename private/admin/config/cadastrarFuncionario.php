@@ -248,7 +248,7 @@ if (isset($_POST['cadastrar'])) {
                             }
                         }else{
                                 echo "<input type='text' id='cepFuncionario' class='placeholderClaro' name='cep' placeholder='CEP'>";
-                                echo "<br> <input type='submit' name='carregarCep' value='Confirmar CEP'>";
+                                echo "<br> <input type='submit' name='carregarCep' class='confirmarCep' value='Confirmar CEP'>";
 
                             }
                             ?> 
