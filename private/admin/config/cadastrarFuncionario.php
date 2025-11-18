@@ -259,7 +259,7 @@ if (isset($_POST['cadastrar'])) {
 
                             if (isset($_POST['carregarCep'])) {
                                 echo "<input type='text' id='cepFuncionario' value='" . (isset($_POST['cep']) ? htmlspecialchars($_POST['cep']) : '') . "' class='placeholderClaro' name='cep' placeholder='CEP' readonly>";
-                                echo "<br> <a href=''>Voltar</a>";
+                                echo "<br> <a href=''style='text-decoration:none;'>Voltar</a>";
                             }
                             else{
                                 echo "<input type='text' id='cepFuncionario' class='placeholderClaro' name='cep' placeholder='CEP' value='" . (isset($_POST['cep']) ? htmlspecialchars($_POST['cep']) : '') . "'>";
@@ -278,29 +278,31 @@ if (isset($_POST['cadastrar'])) {
                         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                             if (isset($_POST['carregarCep'])) {
-
                                 $apiResponse = obterDadosCep($_POST['cep']);
-                                    $sitRua = ($apiResponse[0] != null)? ' readonly' : '';
-                                    $sitCidade = ($apiResponse[1] != null)? ' readonly' : '';
-                                    $sitEstado = ($apiResponse[2] != null)? ' readonly' : '';
-                                    echo "<div class='marginTopDown-2'>
-                                    <input type='text' name='rua' id='ruaFuncionario' value='" . (isset($apiResponse[0]) ? htmlspecialchars($apiResponse[0]) : (isset($_POST['rua']) ? htmlspecialchars($_POST['rua']) : '')) . "' class='placeholderClaro' placeholder='Rua' " . $sitRua . ">
-                                    <div class='error' id='erroRua'></div>
+                                $sitRua = (isset($apiResponse) && is_array($apiResponse) && $apiResponse[0] != null) ? ' readonly' : '';
+                                $sitCidade = (isset($apiResponse) && is_array($apiResponse) && $apiResponse[1] != null) ? ' readonly' : '';
+                                $sitEstado = (isset($apiResponse) && is_array($apiResponse) && $apiResponse[2] != null) ? ' readonly' : '';
+                                $ruaValue = (isset($apiResponse) && is_array($apiResponse) && isset($apiResponse[0])) ? htmlspecialchars($apiResponse[0]) : (isset($_POST['rua']) ? htmlspecialchars($_POST['rua']) : '');
+                                $cidadeValue = (isset($apiResponse) && is_array($apiResponse) && isset($apiResponse[1])) ? htmlspecialchars($apiResponse[1]) : (isset($_POST['cidade']) ? htmlspecialchars($_POST['cidade']) : '');
+                                $estadoValue = (isset($apiResponse) && is_array($apiResponse) && isset($apiResponse[2])) ? htmlspecialchars($apiResponse[2]) : (isset($_POST['estado']) ? htmlspecialchars($_POST['estado']) : '');
+                                echo "<div class='marginTopDown-2'>
+                                <input type='text' name='rua' id='ruaFuncionario' value='" . $ruaValue . "' class='placeholderClaro' placeholder='Rua'" . $sitRua . ">
+                                <div class='error' id='erroRua'></div>
                                 </div>
 
                                 <div class='marginTopDown-2'>
-                                    <input type='text' name='numero' id='numeroFuncionario' value='" . (isset($_POST['numero']) ? htmlspecialchars($_POST['numero']) : '') . "' class='placeholderClaro' placeholder='Número'>
-                                    <div class='error' id='erroNumero'></div>
+                                <input type='text' name='numero' id='numeroFuncionario' value='" . (isset($_POST['numero']) ? htmlspecialchars($_POST['numero']) : '') . "' class='placeholderClaro' placeholder='Número'>
+                                <div class='error' id='erroNumero'></div>
                                 </div>
 
                                 <div class='marginTopDown-2'>
-                                    <input type='text' name='cidade' id='cidadeFuncionario' value='" . (isset($apiResponse[1]) ? htmlspecialchars($apiResponse[1]) : (isset($_POST['cidade']) ? htmlspecialchars($_POST['cidade']) : '')) . "' class='placeholderClaro' placeholder='Cidade'" . $sitCidade . ">
-                                    <div class='error' id='erroCidade'></div>
+                                <input type='text' name='cidade' id='cidadeFuncionario' value='" . $cidadeValue . "' class='placeholderClaro' placeholder='Cidade'" . $sitCidade . ">
+                                <div class='error' id='erroCidade'></div>
                                 </div>
 
                                 <div class='marginTopDown-2'>
-                                    <input type='text' name='estado' id='estadoFuncionario' value='" . (isset($apiResponse[2]) ? htmlspecialchars($apiResponse[2]) : (isset($_POST['estado']) ? htmlspecialchars($_POST['estado']) : '')) . "' class='placeholderClaro' placeholder='Estado' " . $sitEstado . ">
-                                    <div class='error' id='erroEstado'></div>
+                                <input type='text' name='estado' id='estadoFuncionario' value='" . $estadoValue . "' class='placeholderClaro' placeholder='Estado'" . $sitEstado . ">
+                                <div class='error' id='erroEstado'></div>
                                 </div>";
 
 

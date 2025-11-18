@@ -141,7 +141,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                             if (isset($_POST['carregarCep'])) {
                                 echo "<input type='text' name='cep' id='cepUsuario' value='{$_POST['cep']}' class='informacoesEspeciais' placeholder='CEP' readonly>";
-                                echo "<br> <a href=''>Voltar</a>";
+                                echo "<br> <a href='' style='text-decoration:none;'>Voltar</a>";
                             }
                             else{
                                 echo "<input type='text' name='cep' id='cepUsuario' value='{$row['cep']}' class='informacoesEspeciais' placeholder='CEP'>";
@@ -167,12 +167,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             if (isset($_POST['carregarCep'])) {
                                 $sql = "SELECT * FROM usuarios WHERE id = $id";
                                 $result = ($conn->query($sql))->fetch_assoc();
-                                $apiResponse = obterDadosCep($_POST['cep']);
-                                $sitRua = ($apiResponse[0] != null)? ' readonly' : '';
-                                $sitCidade = ($apiResponse[1] != null)? ' readonly' : '';
-                                $sitEstado = ($apiResponse[2] != null)? ' readonly' : '';
 
-                                
+                                $apiResponse = obterDadosCep($_POST['cep']);
+                                $ruaApi = (is_array($apiResponse) && isset($apiResponse[0]) && $apiResponse[0] !== null) ? $apiResponse[0] : null;
+                                $cidadeApi = (is_array($apiResponse) && isset($apiResponse[1]) && $apiResponse[1] !== null) ? $apiResponse[1] : null;
+                                $estadoApi = (is_array($apiResponse) && isset($apiResponse[2]) && $apiResponse[2] !== null) ? $apiResponse[2] : null;
+
+                                $sitRua = ($ruaApi !== null) ? ' readonly' : '';
+                                $sitCidade = ($cidadeApi !== null) ? ' readonly' : '';
+                                $sitEstado = ($estadoApi !== null) ? ' readonly' : '';
 
                                 if($_POST['cep'] == $result['cep']){
                                     echo "<div class='marginTopDown-2'>
@@ -195,27 +198,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                     <div class='error' id='erroEstado'></div>
                                 </div>";
                                 }else{
-                                    $apiResponse = obterDadosCep($_POST['cep']);
-                                    $sitRua = ($apiResponse[0] != null)? ' readonly' : '';
-                                    $sitCidade = ($apiResponse[1] != null)? ' readonly' : '';
-                                    $sitEstado = ($apiResponse[2] != null)? ' readonly' : '';
                                     echo "<div class='marginTopDown-2'>
-                                    <input type='text' name='rua' id='ruaUsuario' value='" . $apiResponse[0] . "' class='informacoesEspeciais' placeholder='Rua' " . $sitRua . ">
+                                    <input type='text' name='rua' id='ruaUsuario' value='" . ($ruaApi ?? '') . "' class='informacoesEspeciais' placeholder='Rua' " . $sitRua . ">
                                     <div class='error' id='erroRua'></div>
                                 </div>
-
+                                
                                 <div class='marginTopDown-2'>
                                     <input type='text' name='numero' id='numeroUsuario' value='' class='informacoesEspeciais' placeholder='Número'>
                                     <div class='error' id='erroNumero'></div>
                                 </div>
-
+                                
                                 <div class='marginTopDown-2'>
-                                    <input type='text' name='cidade' id='cidadeUsuario' value='" . $apiResponse[1] . "' class='informacoesEspeciais' placeholder='Cidade'" . $sitCidade . ">
+                                    <input type='text' name='cidade' id='cidadeUsuario' value='" . ($cidadeApi ?? '') . "' class='informacoesEspeciais' placeholder='Cidade'" . $sitCidade . ">
                                     <div class='error' id='erroCidade'></div>
                                 </div>
-
+                                
                                 <div class='marginTopDown-2'>
-                                    <input type='text' name='estado' id='estadoUsuario' value='" . $apiResponse[2] . "' class='informacoesEspeciais' placeholder='Estado' " . $sitEstado . ">
+                                    <input type='text' name='estado' id='estadoUsuario' value='" . ($estadoApi ?? '') . "' class='informacoesEspeciais' placeholder='Estado' " . $sitEstado . ">
                                     <div class='error' id='erroEstado'></div>
                                 </div>";
                                 }

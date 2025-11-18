@@ -63,7 +63,7 @@ CREATE TABLE trens(
 
 CREATE TABLE manutencoes(
 	id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
-    tipoManutencao VARCHAR(120) NOT NULL,
+    tipoManutencao ENUM('Manutenções Preventivas', 'Controle de inspeções') NOT NULL,
     idEstacao INT NOT NULL,
     descricao VARCHAR(120) NULL,
     idTrem INT NOT NULL,
@@ -182,9 +182,9 @@ VALUES
 
 INSERT INTO manutencoes(tipoManutencao, idEstacao, idTrem)
 VALUES
-('Revisão Elétrica', 1, 3),
-('Manutenção Preventiva', 2, 2),
-('Reparo de Freios', 3, 1);
+('Manutenções Preventivas', 1, 3),
+('Controle de inspeções', 2, 2),
+('Manutenções Preventivas', 3, 1);
 
 INSERT INTO avaliacoes(notaConforto, notaLimpeza, notaVistoria, idTrem)
 VALUES
