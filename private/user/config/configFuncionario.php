@@ -1,10 +1,23 @@
 <?php
 session_start();
 include '../../authGuard/authUsuario.php';
+include '../../conexao/conexao.php';
 
 if($_SESSION['tipo'] == 'admin'){
     header('location: ../../admin/config/configAdmin.php');
 }
+
+$id = $_SESSION['user_id'];
+$temTFA = 0;
+$sql = "SELECT temTFA FROM usuarios WHERE id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $id);
+$stmt->execute();
+$result = $stmt->get_result();
+if ($row = $result->fetch_assoc()) {
+    $temTFA = $row['temTFA'];
+}
+$stmt->close();
 ?>
 
 <!DOCTYPE html>
@@ -39,12 +52,23 @@ if($_SESSION['tipo'] == 'admin'){
                         alt="Imagem do ícone de Conta">
                     <p>Idioma</p>
                 </a>
-                <a href="../../user/config/verificacaoDuasEtapas/codigoVerificacao.php" class="opcaoMenu">
+                
+                <?php if ($temTFA == 1): ?>
+                    <a href="#" class="opcaoMenu" onclick="mostrarMensagemTFA(); return false;">
                     <img class="iconeConfigTamanho"
-                        src="../../../assets/icons/config/verificacaoDuasEtapas/verificacao2EtapasIcone.png"
-                        alt="Imagem do ícone de verificação de 2 etapas">
-                    <p>Verificação De 2 etapas</p>
-                </a>
+                    src="../../../assets/icons/config/verificacaoDuasEtapas/verificacao2EtapasIcone.png"
+                    alt="Imagem do ícone de verificação de 2 etapas">
+                    <p>Verificação de 2 etapas</p>
+                    </a>
+            
+                <?php else: ?>
+                    <a href="../../user/config/verificacaoDuasEtapas/verificacaode2etapas.php" class="opcaoMenu">
+                    <img class="iconeConfigTamanho"
+                    src="../../../assets/icons/config/verificacaoDuasEtapas/verificacao2EtapasIcone.png"
+                    alt="Imagem do ícone de verificação de 2 etapas">
+                    <p>Verificação de 2 etapas</p>
+                    </a>
+                <?php endif; ?>
 
                 <a href="<?php if($_SESSION['tipo'] == 'admin'){echo '../../admin/config/responderMensagens.php';} else {echo 'comunique.php';}?>" class="opcaoMenu">
                     <img class="iconeConfigTamanho" src="../../../assets/icons/config/faleConoscoIcone.png"
@@ -67,5 +91,27 @@ if($_SESSION['tipo'] == 'admin'){
         <img src="../../../assets/logos/logoCompleta.png" alt="Logo">
     </footer>
 </body>
+<script>
+    
+function mostrarMensagemTFA() {
+    document.getElementById('mensagemTFA').style.display = 'block';
+}
+function naoMensagemTFA() {
+    document.getElementById('mensagemTFA').style.display = 'none';
+}
+
+function simMensagemTFA(){
+ document.getElementById('mensagemTFA').style.display = 'none';
+}
+</script>
+    <div id="mensagemTFA" class="mensagemCodigo">
+        <p>Você já tem uma verificação de duas etapas, deseja deletar a atual?</p>
+        <div class="flexCentro">
+        <a href="../../user/config/verificacaoDuasEtapas/retirarTFA.php?id=<?= $id ?>" class="fechar">Sim</a>
+        <p>ㅤㅤㅤㅤㅤㅤㅤㅤㅤ</p>
+        <a href="#" class="fechar" onclick="naoMensagemTFA(); return false;">Não</a>
+        </div>
+     </div>
+     <script>naoMensagemTFA();</script>
 
 </html>

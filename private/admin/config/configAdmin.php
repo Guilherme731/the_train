@@ -55,8 +55,6 @@ $stmt->close();
                         alt="Imagem do ícone de Conta">
                     <p>Idioma</p>
                 </a>
-
-                
                     
         <?php if ($temTFA == 1): ?>
             <a href="#" class="opcaoMenu" onclick="mostrarMensagemTFA(); return false;">
@@ -74,7 +72,6 @@ $stmt->close();
             <p>Verificação de 2 etapas</p>
             </a>
         <?php endif; ?>
-
 
                 <a href="verMensagens.php" class="opcaoMenu">
                     <img class="iconeConfigTamanho" src="../../../assets/icons/config/faleConoscoIcone.png"
@@ -108,30 +105,25 @@ $stmt->close();
 </body>
 
 <script>
+    
 function mostrarMensagemTFA() {
     document.getElementById('mensagemTFA').style.display = 'block';
-     <div id="mensagemTFA" class="mensagemCodigo">
-        <p>Você já tem uma verificação de duas etapas, deseja deletar a atual?</p>
-        <div class="flexCentro">
-        <a href="#" class="fechar" onclick="simMensagemTFA(); return false;">Sim</a>
-        <p>ㅤㅤㅤㅤㅤㅤㅤㅤㅤ</p>
-        <a href="#" class="fechar" onclick="naoMensagemTFA(); return false;">Não</a>
-        </div>
-     </div>
 }
 function naoMensagemTFA() {
     document.getElementById('mensagemTFA').style.display = 'none';
 }
 
 function simMensagemTFA(){
- <?php
- $stmt = $conn->prepare("UPDATE usuarios SET temTFA = 0 WHERE id = ?");
- $stmt->bind_param("i", $id);
- $stmt->execute();
- header("Location configAdmin.php");
- ?>
  document.getElementById('mensagemTFA').style.display = 'none';
 }
 </script>
-
+    <div id="mensagemTFA" class="mensagemCodigo">
+        <p>Você já tem uma verificação de duas etapas, deseja deletar a atual?</p>
+        <div class="flexCentro">
+        <a href="../../user/config/verificacaoDuasEtapas/retirarTFA.php?id=<?= $id ?>" class="fechar">Sim</a>
+        <p>ㅤㅤㅤㅤㅤㅤㅤㅤㅤ</p>
+        <a href="#" class="fechar" onclick="naoMensagemTFA(); return false;">Não</a>
+        </div>
+     </div>
+     <script>naoMensagemTFA();</script>
 </html>
