@@ -1,6 +1,23 @@
 <?php
 session_start();
 include '../../authGuard/authUsuario.php';
+include '../../conexao/conexao.php';
+
+$sqlMantuncao = "SELECT manutencoes.id, manutencoes.tipoManutencao, estacoes.nomeEstacao, trens.nome, manutencoes.descricao FROM manutencoes INNER JOIN estacoes ON manutencoes.idEstacao = estacoes.id INNER JOIN trens ON manutencoes.idTrem = trens.id";
+$reultManutencao = $conn->query($sqlMantuncao);
+
+// Separar as manutenções por tipo
+$preventivas = [];
+$inspecoes = [];
+if ($reultManutencao && $reultManutencao->num_rows > 0) {
+    while ($row = $reultManutencao->fetch_assoc()) {
+        if ($row['tipoManutencao'] == 'Manutenções Preventivas') {
+            $preventivas[] = $row;
+        } elseif ($row['tipoManutencao'] == 'Controle de inspeções') {
+            $inspecoes[] = $row;
+        }
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -21,89 +38,82 @@ include '../../authGuard/authUsuario.php';
 </header>
 
     <main>
-        <section class="secaoInfo">
-  <h2>Manutenções Preventivas</h2>
-        <div class="dadoInfo">
-            <div class="dadoInfoLeft">
-                <p class="textoPrincipalDado">TREM 4</p>
-                <p class="textoSecundarioDado">Soldagem dos trilhos</p>
-            </div>
-            <div class="dadoInfoCenter">
-                <img src="../../../assets/icons/dashboard/circuloLaranjaIcone.png" alt="iconeTremParado">
-            </div>
-            <div class="dadoInfoRight">
-                <p class="textoPrincipalDado">ESTAÇÃO 3</p>
-            </div>
-    
-        </div>
-        <div class="dadoInfo">
-            <div class="dadoInfoLeft">
-                <p class="textoPrincipalDado">TREM 5</p>
-                <p class="textoSecundarioDado">Falta de energia</p>
-            </div>
-            <div class="dadoInfoCenter">
-                <img src="../../../assets/icons/dashboard/circuloLaranjaIcone.png" alt="iconeTremParado">
-            </div>
-            <div class="dadoInfoRight">
-                <p class="textoPrincipalDado">ESTAÇÃO 3</p>
-            </div>
-    
-        </div>
-        <div class="dadoInfo">
-            <div class="dadoInfoLeft">
-                <p class="textoPrincipalDado">TREM 6</p>
-                <p class="textoSecundarioDado">Falha no sistema</p>
-            </div>
-            <div class="dadoInfoCenter">
-                <img src="../../../assets/icons/dashboard/circuloLaranjaIcone.png" alt="iconeTremParado">
-            </div>
-            <div class="dadoInfoRight">
-                <p class="textoPrincipalDado">ESTAÇÃO 4</p>
-            </div>
-        </div>
-        </section>   
+        
+    <form method="POST" action="deletarManutencao.php">
+    <section class="secaoInfoManutencao">
+        <h2>Manutenções Preventivas</h2>
+        <?php
+        if (count($preventivas) > 0) {
+            foreach ($preventivas as $row) {
+                $manutencaoTipo = $row['tipoManutencao'];
+                $descricao = $row['descricao'];
+                $estacaoManutencao = $row['nomeEstacao'];
+                $tremManutencao = $row['nome'];
+                $id = $row['id'];
+                echo "<div class='dadoInfoLeft'>
+                    <div class='flex'>
+                        <div class='grid'>
+                            <p class='tremManutencao'>$tremManutencao</p>
+                            <p class='manutencaoDescricao'>Descrição: $descricao</p>
+                        </div>
+                        <div class='dadoInfoCenterManutencao'>
+                            <img src='../../../assets/icons/dashboard/circuloLaranjaIcone.png' alt='iconeTremParado'>
+                        </div>
+                        <div class='dadoInfoRight'>
+                            <div class='flex'>
+                                <p class='manutencaoEstacao'>$estacaoManutencao</p>
+                                <div class='finalAlerta'>
+                                    <a href='deletarManutencao.php?ida=$id'><img src='../../../assets/icons/alertas/fecharIcone.png'></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>";
+            }
+        } else {
+            echo "<div id='semAlertas'>Não há Manutenções Preventivas no Momento.</div>";
+        }
+        ?>
+    </section>
 
-        <section class="secaoInfo">
-            <h2>Controle de inspeções</h2>
-            <div class="dadoInfo">
-                <div class="dadoInfoLeft">
-                    <p class="textoPrincipalDado">TREM 4</p>
-                    <p class="textoSecundarioDado">Vistoria nos vagões</p>
-                </div>
-                <div class="dadoInfoCenter">
-                    <img src="../../../assets/icons/dashboard/esclamaçãoIcone.png" alt="iconeUrgência">
-                </div>
-                <div class="dadoInfoRight">
-                    <p class="textoPrincipalDado">ESTAÇÃO 3</p>
-                </div>
-        
-            </div>
-            <div class="dadoInfo">
-                <div class="dadoInfoLeft">
-                    <p class="textoPrincipalDado">TREM 6</p>
-                    <p class="textoSecundarioDado">Falta de limpeza</p>
-                </div>
-                <div class="dadoInfoCenter">
-                    <img src="../../../assets/icons/dashboard/esclamaçãoIcone.png" alt="iconeUrgência">
-                </div>
-                <div class="dadoInfoRight">
-                    <p class="textoPrincipalDado">ESTAÇÃO 4</p>
-                </div>
-        
-            </div>
-            <div class="dadoInfo">
-                <div class="dadoInfoLeft">
-                    <p class="textoPrincipalDado">TREM 7</p>
-                    <p class="textoSecundarioDado">Aumentar a segurança</p>
-                </div>
-                <div class="dadoInfoCenter">
-                    <img src="../../../assets/icons/dashboard/esclamaçãoIcone.png" alt="iconeUrgência">
-                </div>
-                <div class="dadoInfoRight">
-                    <p class="textoPrincipalDado">ESTAÇÃO 4</p>
-                </div>
-            </div>
-        </section>
+    <section class="secaoInfoManutencao">
+        <h2>Controle de inspeções</h2>
+        <?php
+        if (count($inspecoes) > 0) {
+            foreach ($inspecoes as $row) {
+                $manutencaoTipo = $row['tipoManutencao'];
+                $descricao = $row['descricao'];
+                $estacaoManutencao = $row['nomeEstacao'];
+                $tremManutencao = $row['nome'];
+                $id = $row['id'];
+                echo "<div class='dadoInfoLeft'>
+                    <div class='flex'>
+                        <div class='grid'>
+                            <p class='tremManutencao'>$tremManutencao</p>
+                            <p class='manutencaoDescricao'>Descrição: $descricao</p>
+                        </div>
+                        <div class='dadoInfoCenterManutencao'>
+                            <img src='../../../assets/icons/dashboard/circuloLaranjaIcone.png' alt='iconeTremParado'>
+                        </div>
+                        <div class='dadoInfoRight'>
+                            <div class='flex'>
+                                <p class='manutencaoEstacao'>$estacaoManutencao</p>
+                                <div class='manutencaoFinalAlerta'>
+                                    <a href='deletarManutencao.php?ida=$id'><img src='../../../assets/icons/alertas/fecharIcone.png'></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>";
+            }
+        } else {
+            echo "<div id='semAlertas'>Não há inspeções no momento.</div>";
+        }
+        ?>
+    </section>
+    
+    
+</form>
     </main>
 
     <div class="espacoFooterPrincipal"></div>
