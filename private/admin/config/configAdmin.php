@@ -17,7 +17,16 @@ $stmt->execute();
 $result = $stmt->get_result();
 if ($row = $result->fetch_assoc()) {
     $temTFA = $row['temTFA'];
+    if($temFTA > 0){
+        echo "<div class='mensagemCodigo'> 
+                <p>Você já possuí a verificação de duas etapas, deseja deletá-la?</p>
+                <a href='' class='fechar'>Fechar</a>
+                </div>
+        </div>";
+    }
 }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -54,13 +63,12 @@ if ($row = $result->fetch_assoc()) {
                         alt="Imagem do ícone de Conta">
                     <p>Idioma</p>
                 </a>
-                <a href="<?php 
-                    if($temTFA == 1){echo '../../user/config/verificacaoDuasEtapas/removerTFA.php';}else{echo '../../user/config/verificacaoDuasEtapas/codigoVerificacao.php';}
-                ?>" class="opcaoMenu">
+                    
+                <a href="../../user/config/verificacaoDuasEtapas/verificacaode2etapas.php" class="opcaoMenu">
                     <img class="iconeConfigTamanho"
                         src="../../../assets/icons/config/verificacaoDuasEtapas/verificacao2EtapasIcone.png"
                         alt="Imagem do ícone de verificação de 2 etapas">
-                    <p>Verificação de 2 etapas</p>
+                    <p>Verificação de 2 etapas</p></a>
                 </a>
                 <a href="verMensagens.php" class="opcaoMenu">
                     <img class="iconeConfigTamanho" src="../../../assets/icons/config/faleConoscoIcone.png"
