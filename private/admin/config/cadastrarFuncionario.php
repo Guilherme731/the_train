@@ -10,25 +10,47 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     //$valido = false;
 if (isset($_POST['cadastrar'])) {
-    $name = $_POST['nome'];
-    $email = $_POST['email'];
+    $name = $_POST['nome'] ?? "";
+    $email = $_POST['email'] ?? "";
     $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
-    $cpf = $_POST['cpf'];
-    $cargo = $_POST['cargo'];
-    $genero = $_POST['genero'];
-    $dataNascimento = $_POST['dataNascimento'];
-    $tipoFuncionario = $_POST['tipoFuncionario'];
-    $salario = $_POST['salario'];
+    $cpf = $_POST['cpf'] ?? "";
+    $cargo = $_POST['cargo'] ?? "";
+    $genero = $_POST['genero'] ?? "";
+    $dataNascimento = $_POST['dataNascimento'] ?? "";
+    $tipoFuncionario = $_POST['tipoFuncionario']?? "";
+    $salario = $_POST['salario'] ?? "";
     $cep = $_POST['cep'];
     $rua = $_POST['rua'];
     $numero = $_POST['numero'];
     $cidade = $_POST['cidade'];
     $estado = $_POST['estado'];
+    $regexEmail = '/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/';
+    $regexSenha = '/^(?=(?:.*[A-Za-z]){5,})(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).+$/';
+
 
     $sql = " INSERT INTO usuarios (nome,email,senha,cpf,cargo,tipo,genero,dataNascimento,salario, cep, rua, numero, cidade, estado) VALUE ('$name','$email','$senha', '$cpf', '$cargo', '$tipoFuncionario', '$genero', '$dataNascimento', '$salario', '$cep', '$rua', '$numero', '$cidade', '$estado')";   
 
-    //if($valido == true){
-        if ($conn->query($sql) === true) {
+    if(!preg_match('/\p{Lu}/u', $name) || preg_match('/\d/', $name)){
+        echo "<div class='mensagemCodigo'>
+        <p>O nome não pode conter números e a primeira letra precisa ser maiúscula</p>
+        <a href='cadastrarFuncionario.php' class='fechar'>Fechar</a>
+        </div>";  
+    } else if($salario < 500 || $salario > 10000000){
+        echo "<div class='mensagemCodigo'>
+        <p>O salário deve ser entre 500 e 10000000</p>
+        <a href='cadastrarFuncionario.php' class='fechar'>Fechar</a>
+        </div>";    
+    } else if(!preg_match($regexEmail, $email)){
+        echo "<div class='mensagemCodigo'>
+        <p>Digite um email válido com @ e .com</p>
+        <a href='cadastrarFuncionario.php' class='fechar'>Fechar</a>
+        </div>";  
+    } else if(strlen($senha) < 8 && preg_match($regexSenha, $senha)){
+        echo "<div class='mensagemCodigo'>
+        <p>A senha deve conter no mínimo 8 caracteres, 5 letras, 1 letra maíuscula, 1 caractere especial e número</p>
+        <a href='cadastrarFuncionario.php' class='fechar'>Fechar</a>
+        </div>";  
+    } else if ($conn->query($sql) === true) {
             echo "<div class='mensagemErro'> 
         <p>Novo Funcionário registrado com sucesso.</p>
         <a href='cadastrarFuncionario.php' class='fechar'>Fechar</a>
@@ -40,10 +62,7 @@ if (isset($_POST['cadastrar'])) {
             </div>" . $sql . '<br>' . $conn->error;
         }
         $conn->close();
-    //}
-
     }
-    
 }
 
     
@@ -79,7 +98,7 @@ if (isset($_POST['cadastrar'])) {
                 <div id="quadradoCadastroFuncionario">
                     
 
-                    <input type="text" id="nomeFuncionario" class="placeholderClaro" name="nome" placeholder="Nome" value="<?php echo isset($_POST['nome']) ? htmlspecialchars($_POST['nome']) : '' ?>">
+                    <input type="text" id="nomeFuncionario" class="placeholderClaro" name="nome" placeholder="Nome" value="<?php echo isset($_POST['nome']) ? htmlspecialchars($_POST['nome']) : '' ?>" required>
                     <?php
                         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['cadastrar'])) {
                             if(!$name){
@@ -95,8 +114,8 @@ if (isset($_POST['cadastrar'])) {
                     <label class="error" id="errorNome"></label>
 
                     <label for="cargo" id="" class="placeholderClaro">
-                        <select name="cargo" id="cargoFuncionario">
-                            <option value="none">Cargo</option>
+                        <select name="cargo" id="cargoFuncionario" required>
+                            <option value="" disabled selected>Cargo</option>
                             <option value="Administrador" <?php if(isset($_POST['cargo']) && $_POST['cargo']==='Administrador') echo 'selected'; ?>>Administrador</option>
                             <option value="Mecânico" <?php if(isset($_POST['cargo']) && $_POST['cargo']==='Mecânico') echo 'selected'; ?>>Mecânico</option>
                             <option value="Faxineiro" <?php if(isset($_POST['cargo']) && $_POST['cargo']==='Faxineiro') echo 'selected'; ?>>Faxineiro</option>
@@ -118,7 +137,7 @@ if (isset($_POST['cadastrar'])) {
                         ?>   
                     
 
-                    <input type="text" id="salarioFuncionario" class="placeholderClaro" name="salario" placeholder="Salario" value="<?php echo isset($_POST['salario']) ? htmlspecialchars($_POST['salario']) : '' ?>">
+                    <input type="text" id="salarioFuncionario" class="placeholderClaro" name="salario" placeholder="Salario" value="<?php echo isset($_POST['salario']) ? htmlspecialchars($_POST['salario']) : '' ?>" required>
                      <?php
                         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['cadastrar'])) {
                             if(!$salario){
@@ -133,7 +152,7 @@ if (isset($_POST['cadastrar'])) {
                         ?>  
                     <div class="error" id="errorSalario"></div>
 
-                    <input type="text" id="emailFuncionario" class="placeholderClaro" name="email" placeholder="Email" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : '' ?>">
+                    <input type="text" id="emailFuncionario" class="placeholderClaro" name="email" placeholder="Email" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : '' ?>" required>
                      <?php
                         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['cadastrar'])) {
                             if(!$email){
@@ -148,7 +167,7 @@ if (isset($_POST['cadastrar'])) {
                         ?>  
                     <div class="error" id="errorEmail"></div>
 
-                    <input type="password" id="senhaFuncionario" class="placeholderClaro" name="senha" placeholder="Senha" value="<?php echo isset($_POST['senha']) ? htmlspecialchars($_POST['senha']) : '' ?>">
+                    <input type="password" id="senhaFuncionario" class="placeholderClaro" name="senha" placeholder="Senha" value="<?php echo isset($_POST['senha']) ? htmlspecialchars($_POST['senha']) : '' ?>" required>
                      <?php
                         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['cadastrar'])) {
                             if(!$senha || $senha > 8){
@@ -163,7 +182,7 @@ if (isset($_POST['cadastrar'])) {
                         ?>  
                     <div class="error" id="errorSenha"></div>
 
-                    <input type="text" id="cpfFuncionario" class="placeholderClaro" name="cpf" placeholder="CPF" value="<?php echo isset($_POST['cpf']) ? htmlspecialchars($_POST['cpf']) : '' ?>">
+                    <input type="text" id="cpfFuncionario" class="placeholderClaro" name="cpf" placeholder="CPF" value="<?php echo isset($_POST['cpf']) ? htmlspecialchars($_POST['cpf']) : '' ?>" required>
                     <?php
                         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['cadastrar'])) {
                                 if(!$cpf || strlen($cpf) !== 11){
@@ -179,8 +198,8 @@ if (isset($_POST['cadastrar'])) {
                     <div class="error" id="errorCpf"></div>                    
 
                     <label for="genero">
-                        <select name="genero" id="generoFuncionario">
-                            <option value="none">Gênero</option>
+                        <select name="genero" id="generoFuncionario" required>
+                            <option value="" disabled selected>Gênero</option>
                             <option value="Feminino" <?php if(isset($_POST['genero']) && $_POST['genero']==='Feminino') echo 'selected'; ?>>Feminino</option>
                             <option value="Masculino" <?php if(isset($_POST['genero']) && $_POST['genero']==='Masculino') echo 'selected'; ?>>Masculino</option>
                             <option value="Prefiro não dizer" <?php if(isset($_POST['genero']) && $_POST['genero']==='Prefiro não dizer') echo 'selected'; ?>>Prefiro não dizer</option>
@@ -200,7 +219,7 @@ if (isset($_POST['cadastrar'])) {
                         ?>  
                     <div class="error" id="errorGenero"></div>
 
-                    <input type="date" id="dataNascimentoFuncionario" name="dataNascimento" placeholder="Data de Nascimento" value="<?php echo isset($_POST['dataNascimento']) ? htmlspecialchars($_POST['dataNascimento']) : '' ?>">
+                    <input type="date" id="dataNascimentoFuncionario" name="dataNascimento" placeholder="Data de Nascimento" value="<?php echo isset($_POST['dataNascimento']) ? htmlspecialchars($_POST['dataNascimento']) : '' ?>" required>
                     <?php
                         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['cadastrar'])) {
                             if(!$dataNascimento){
@@ -216,8 +235,8 @@ if (isset($_POST['cadastrar'])) {
                     <div class="error" id="errorDataNascimento"></div>
 
                     <label for="tipo" id="tipoFuncionario" name="tipoFuncionario" placeholder="Tipo Funcionario">
-                        <select name="tipoFuncionario" id="tipoFuncionario">
-                            <option value="none">Tipo do Funcionário</option>
+                        <select name="tipoFuncionario" id="tipoFuncionario" required>
+                            <option value="" disabled selected>Tipo do Funcionário</option>
                             <option value="funcionario" <?php if(isset($_POST['tipoFuncionario']) && $_POST['tipoFuncionario']==='funcionario') echo 'selected'; ?>>Funcionário</option>
                             <option value="admin" <?php if(isset($_POST['tipoFuncionario']) && $_POST['tipoFuncionario']==='admin') echo 'selected'; ?>>Admin</option>
                         </select>
