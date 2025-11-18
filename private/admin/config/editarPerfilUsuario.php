@@ -141,7 +141,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                             if (isset($_POST['carregarCep'])) {
                                 echo "<input type='text' name='cep' id='cepUsuario' value='{$_POST['cep']}' class='informacoesEspeciais' placeholder='CEP' readonly>";
-                                echo "<br> <a href=''>Voltar</a>";
+                                echo "<br> <a href='' style='text-decoration:none;'>Voltar</a>";
                             }
                             else{
                                 echo "<input type='text' name='cep' id='cepUsuario' value='{$row['cep']}' class='informacoesEspeciais' placeholder='CEP'>";

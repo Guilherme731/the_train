@@ -240,7 +240,7 @@ if (isset($_POST['cadastrar'])) {
 
                             if (isset($_POST['carregarCep'])) {
                                 echo "<input type='text' id='cepFuncionario' value='" . (isset($_POST['cep']) ? htmlspecialchars($_POST['cep']) : '') . "' class='placeholderClaro' name='cep' placeholder='CEP' readonly>";
-                                echo "<br> <a href=''>Voltar</a>";
+                                echo "<br> <a href=''style='text-decoration:none;'>Voltar</a>";
                             }
                             else{
                                 echo "<input type='text' id='cepFuncionario' class='placeholderClaro' name='cep' placeholder='CEP' value='" . (isset($_POST['cep']) ? htmlspecialchars($_POST['cep']) : '') . "'>";
