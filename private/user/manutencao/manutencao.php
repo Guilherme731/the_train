@@ -50,29 +50,22 @@ if ($reultManutencao && $reultManutencao->num_rows > 0) {
                 $estacaoManutencao = $row['nomeEstacao'];
                 $tremManutencao = $row['nome'];
                 $id = $row['id'];
-                echo "<div class='dadoInfoLeft'>
-                    <div class='flex'>
-                        <div class='grid'>
-                            <p class='tremManutencao'>$tremManutencao</p>
-                            <p class='manutencaoDescricao'>Descrição: $descricao</p>
-                        </div>
-                        <div class='dadoInfoCenterManutencao'>
-                            <img src='../../../assets/icons/dashboard/circuloLaranjaIcone.png' alt='iconeTremParado'>
-                        </div>
-                        <div class='dadoInfoRight'>
-                            <div class='flex'>
-                                <p class='manutencaoEstacao'>$estacaoManutencao</p>
-                                <div class='finalAlerta'>
-                                    <a href='deletarManutencao.php?ida=$id'><img src='../../../assets/icons/alertas/fecharIcone.png'></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>";
+                echo "<div class='dadoInfo'>
+                <div class='dadoInfoLeft'>
+                    <p class='textoPrincipalDado'>$tremManutencao</p>
+                    <p class='textoSecundarioDado'>$descricao</p>
+                </div>
+                <div class='dadoInfoCenter'>
+                    <img src='../../../assets/icons/dashboard/circuloLaranjaIcone.png' alt='iconeUrgência'>
+                </div>
+                <div class='dadoInfoRight'>
+                    <p class='textoPrincipalDado'>$estacaoManutencao</p>
+                    <a href='deletarManutencao.php?ida=$id'><img class='manutencaoFinalAlerta' src='../../../assets/icons/alertas/fecharIcone.png' alt='iconeDeletarManutencao'></a>
+                </div>
+        
+            </div>";
             }
-        } else {
-            echo "<div id='semAlertas'>Não há Manutenções Preventivas no Momento.</div>";
-        }
+        } 
         ?>
     </section>
 
@@ -86,25 +79,21 @@ if ($reultManutencao && $reultManutencao->num_rows > 0) {
                 $estacaoManutencao = $row['nomeEstacao'];
                 $tremManutencao = $row['nome'];
                 $id = $row['id'];
-                echo "<div class='dadoInfoLeft'>
-                    <div class='flex'>
-                        <div class='grid'>
-                            <p class='tremManutencao'>$tremManutencao</p>
-                            <p class='manutencaoDescricao'>Descrição: $descricao</p>
-                        </div>
-                        <div class='dadoInfoCenterManutencao'>
-                            <img src='../../../assets/icons/dashboard/circuloLaranjaIcone.png' alt='iconeTremParado'>
-                        </div>
-                        <div class='dadoInfoRight'>
-                            <div class='flex'>
-                                <p class='manutencaoEstacao'>$estacaoManutencao</p>
-                                <div class='manutencaoFinalAlerta'>
-                                    <a href='deletarManutencao.php?ida=$id'><img src='../../../assets/icons/alertas/fecharIcone.png'></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>";
+                echo "<div class='dadoInfo'>
+                <div class='dadoInfoLeft'>
+                    <p class='textoPrincipalDado'>$tremManutencao</p>
+                    <p class='textoSecundarioDado'>$descricao</p>
+                </div>
+                <div class='dadoInfoCenter'>
+                    <img src='../../../assets/icons/dashboard/esclamaçãoIcone.png' alt='iconeUrgência'>
+                </div>
+                <div class='dadoInfoRight'>
+                    <p class='textoPrincipalDado'>$estacaoManutencao</p>
+                    <a href='deletarManutencao.php?ida=$id'><img class='manutencaoFinalAlerta' src='../../../assets/icons/alertas/fecharIcone.png' alt='iconeDeletarManutencao'></a>
+
+                </div>
+        
+            </div>";
             }
         } else {
             echo "<div id='semAlertas'>Não há inspeções no momento.</div>";

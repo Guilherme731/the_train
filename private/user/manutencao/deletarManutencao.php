@@ -11,10 +11,10 @@ if(isset($_GET['ida'])){
     $stmt->bind_param("i", $id);
     $stmt->execute();
     $stmt->close();
-    header("Location: criarManutencao.php");
+    header("Location: manutencao.php");
     exit();
 }else{
-    header("Location: criarManutencao.php");
+    header("Location: manutencao.php");
     exit();
 }
 ?>

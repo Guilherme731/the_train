@@ -440,8 +440,8 @@ body {
 .tremManutencao{
     font-size: 15px;
     color: var(--corAzulClaro);
-    padding-right: 20%;
     margin: 2%;
+    width: 70px;
 }
 .manutencaoDescricao{
     font-size: 15px;
@@ -451,22 +451,26 @@ body {
 }
 
 .manutencaoEstacao{
-    font-size: 25px;
+    font-size: 20px;
     color: var(--corAzulClaro);
-    padding-left: 200%;
 }
 
 .secaoInfoManutencao {
     background-color: var(--corAzulNormal);
     border-radius: 15px;
-    margin: 5px 10px;
-    padding: 7px;
+    margin: 10px 5%;
+    padding: 10px;
     text-align: center;
+    max-width: 900px; 
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .manutencaoFinalAlerta {
     margin-left: auto;
     margin: none;
+    height: 30px; width: 30px;
 }
 
 .dadoInfoCenterManutencao{
@@ -474,11 +478,36 @@ body {
     justify-content: center;
     align-items: center;
     width: 10%;
-    padding-left: 20%;
 }
 
-.manutencaoFinalAlerta a { border: none; background-color: transparent; cursor: pointer;}
-.manutencaoFinalAlerta a img{ height: 30px; width: 30px;}
+.manutencaoFinalAlerta a img{ 
+    width: 20px;
+    height: 2px;
+    cursor: pointer;
+}
+
+
+.dadoInfoManutencao {
+    background-color: var(--corAzulEscuro);
+    color: var(--corAzulClaro);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    gap: 10px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+
+.manuntecaoDescricao,
+.tremManutencao,
+.manuntecaoEstacao {
+    word-break: break-word;
+    margin: 3px 0;
+}
 
 /*  DASHBOARD  */
 .dadoInfo {
