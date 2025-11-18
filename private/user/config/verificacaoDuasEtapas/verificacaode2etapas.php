@@ -65,12 +65,12 @@ $numero6 = $_POST["numero6"] ?? "";
         <div class="container">
             <form method="POST" action="">
                 <div class="grupoInputs">
-                    <input type="number" name="numero1" required>
-                    <input type="number" name="numero2" required>
-                    <input type="number" name="numero3" required>
-                    <input type="number" name="numero4" required>
-                    <input type="number" name="numero5" required>
-                    <input type="number" name="numero6" required>
+                    <input type="number" name="numero1" class="otp" maxlength="1" inputmode="numeric" autocomplete="one-time-code" required>
+                    <input type="number" name="numero2" class="otp" maxlength="1" inputmode="numeric" autocomplete="one-time-code" required>
+                    <input type="number" name="numero3" class="otp" maxlength="1" inputmode="numeric" autocomplete="one-time-code" required>
+                    <input type="number" name="numero4" class="otp" maxlength="1" inputmode="numeric" autocomplete="one-time-code" required>
+                    <input type="number" name="numero5" class="otp" maxlength="1" inputmode="numeric" autocomplete="one-time-code" required>
+                    <input type="number" name="numero6" class="otp" maxlength="1" inputmode="numeric" autocomplete="one-time-code" required>
                 </div>
                 <h2 class="tituloAzul">
                     Um código de verificação foi enviado para o seu email. Insira o código para continuar.
@@ -99,6 +99,63 @@ $numero6 = $_POST["numero6"] ?? "";
             });
         });
     });
+    // Seleciona todos os inputs do código (coloque essa classe nos inputs)
+const inputs = Array.from(document.querySelectorAll('input.otp'));
+
+if (inputs.length) {
+  // coloca o cursor no primeiro ao carregar (opcional)
+  inputs[0].focus();
+
+  inputs.forEach((input, idx) => {
+    // só permitir dígitos
+    input.addEventListener('input', (e) => {
+      const val = e.target.value;
+      // remove tudo que não seja dígito
+      const digit = val.replace(/\D/g, '');
+      e.target.value = digit;
+
+      if (digit.length === 1) {
+        // ir para o próximo input, se houver
+        const next = inputs[idx + 1];
+        if (next) {
+          next.focus();
+          next.select && next.select();
+        }
+      }
+    });
+
+    // Backspace: se campo vazio, volta para o anterior
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Backspace' && !e.target.value) {
+        const prev = inputs[idx - 1];
+        if (prev) {
+          prev.focus();
+          // prev.value = ''; // opcional limpar
+        }
+      }
+      // opcional: permitir apenas números, backspace, seta esquerda/direita, tab
+      // if (!/^[0-9]$/.test(e.key) && !['Backspace','ArrowLeft','ArrowRight','Tab'].includes(e.key)) {
+      //   e.preventDefault();
+      // }
+    });
+
+    // Suporte a colar: distribui os caracteres colados nos inputs a partir deste
+    input.addEventListener('paste', (e) => {
+      e.preventDefault();
+      const paste = (e.clipboardData || window.clipboardData).getData('text');
+      const digits = paste.replace(/\D/g, '').split('');
+      if (digits.length === 0) return;
+      for (let i = 0; i < digits.length && (idx + i) < inputs.length; i++) {
+        inputs[idx + i].value = digits[i];
+      }
+      const nextIndex = Math.min(inputs.length - 1, idx + digits.length);
+      inputs[nextIndex].focus();
+    });
+
+    // comportamento visual: ao focar, selecionar o conteúdo para que digitação sobrescreva
+    input.addEventListener('focus', (e) => e.target.select());
+  });
+}
     </script>
 </body>
 
