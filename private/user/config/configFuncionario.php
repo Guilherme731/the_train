@@ -47,11 +47,6 @@ $stmt->close();
                         alt="Imagem do ícone de editar perfil">
                     <p>Conta</p>
                 </a>
-                <a href="idioma.php" class="opcaoMenu">
-                    <img class="iconeConfigTamanho" src="../../../assets/icons/config/idiomaIcone.png"
-                        alt="Imagem do ícone de Conta">
-                    <p>Idioma</p>
-                </a>
                 
                 <?php if ($temTFA == 1): ?>
                     <a href="#" class="opcaoMenu" onclick="mostrarMensagemTFA(); return false;">
