@@ -55,8 +55,6 @@ $stmt->close();
                         alt="Imagem do ícone de Conta">
                     <p>Idioma</p>
                 </a>
-
-                
                     
         <?php if ($temTFA == 1): ?>
             <a href="#" class="opcaoMenu" onclick="mostrarMensagemTFA(); return false;">
@@ -74,7 +72,6 @@ $stmt->close();
             <p>Verificação de 2 etapas</p>
             </a>
         <?php endif; ?>
-
 
                 <a href="verMensagens.php" class="opcaoMenu">
                     <img class="iconeConfigTamanho" src="../../../assets/icons/config/faleConoscoIcone.png"
