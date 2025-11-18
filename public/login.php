@@ -5,12 +5,15 @@ include("../private/conexao/conexao.php");
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $email = $_POST["email"] ?? "";
     $pass = $_POST["password"] ?? "";
+    
 
+    
     $stmt = $conn->prepare("SELECT id, email, senha, tipo, temTFA FROM usuarios WHERE email=?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $result = $stmt->get_result();
     $dados = $result->fetch_assoc();
+    if($dados){
     $stmt->close();
 
     if($email == "" && $pass == ""){
@@ -19,7 +22,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <a class='fechar' href='login.php'>Fechar</a>
         </div>";
     }else{
-        if (password_verify($pass, $dados['senha'])) {
+        try{
+        $valido = password_verify($pass, $dados['senha']);
+        }catch(Exception $e){
+        echo "<div class='mensagemErro'>
+        <p>Nome ou senha incorretos</p>
+        <a class='fechar' href='login.php'>Fechar</a>
+        </div>";
+    }
+        if ($valido) {
         $_SESSION["user_id"] = $dados["id"];
         $_SESSION["email"] = $dados["email"];
         $_SESSION["tipo"] = $dados["tipo"];
@@ -37,6 +48,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </div>";
     }
     }
+    }else {
+        echo "<div class='mensagemErro'>
+        <p>Nome ou senha incorretos</p>
+        <a class='fechar' href='login.php'>Fechar</a>
+        </div>";
+    }
+    
+    
 
     
 }
