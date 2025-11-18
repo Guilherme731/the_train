@@ -5,7 +5,7 @@ include '../private/conexao/conexao.php';
 $erroEmail = "";
 $email = "";
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = trim($_POST["email"] ?? "");
     $regexEmail = '/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/';
 
@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $result = $stmt->get_result();
 
         if ($result->num_rows > 0) {
-            header("Location: recuperarSenha2.php");
+            header("Location: recuperarSenha2.php?email=$email");
             exit;
         } else {
             $erroEmail = "Email não cadastrado.";

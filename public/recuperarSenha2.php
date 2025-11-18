@@ -2,36 +2,36 @@
 session_start();
 include '../private/conexao/conexao.php';
 
-$erroSenha = "";
-$novaSenha = "";
-$confirmacaoSenha = "";
-if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-    $id = $_SESSION['user_id'] ?? null;
-    $novaSenha = $_POST['novaSenha'] ?? "";
-    $confirmacaoSenha = $_POST['confirmacaoSenha'] ?? "";
 
-    if (empty($novaSenha) || empty($confirmacaoSenha)) {
-        $erroSenha = "Preencha todos os campos.";
-    } elseif (strlen($novaSenha) < 8) {
-        $erroSenha = "A senha deve ter no mínimo 8 caracteres.";
-    } elseif ($novaSenha !== $confirmacaoSenha) {
-        $erroSenha = "As senhas não coincidem.";
-    } elseif ($id) {
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email = $_GET['email'] ?? "";
+    $novaSenha = $_POST['novaSenha'] ?? "";
+    $confirmarSenha = $_POST['confirmarSenha'] ?? "";
+
+    if(strlen($novaSenha) < 8 || strlen($confirmarSenha) < 8){
+        echo "<div class='mensagemCodigo'> 
+        <p>A nova senha precisa conter pelo menos de 8 caracteres.</p>
+        <a href='' class='fechar'>Fechar</a>
+        </div>";
+    } else if($novaSenha != $confirmarSenha){
+        echo "<div class='mensagemCodigo'> 
+        <p>A nova senha e a sua confirmação devem ser iguais.</p>
+        <a href='' class='fechar'>Fechar</a>
+        </div>";
+    } else{
+        $stmt = $conn->prepare("UPDATE usuarios SET senha = ? WHERE email = ?");
         $senhaHash = password_hash($novaSenha, PASSWORD_DEFAULT);
-        $stmt = $conn->prepare("UPDATE usuarios SET senha=? WHERE id = ?");
-        $stmt->bind_param("si", $senhaHash, $id);
+        $stmt->bind_param("ss", $senhaHash, $email);
         $stmt->execute();
-        $stmt->close();
-        header('Location: ../index.php');
-        exit;
-    } else {
-        $erroSenha = "Usuário não identificado.";
+        echo "<div class='mensagemCodigo'> 
+        <p>A sua senha foi alterada com sucesso!</p>
+        <a href='login.php' class='fechar'>Voltar a página inicial</a>
+        </div>";
     }
 }
 ?>
-
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,13 +39,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     <link rel="stylesheet" href="../style/style.css">
     <title>Recuperar senha</title>
 </head>
-
 <body>
     <header class="headerAzulLogo">
         <img id="ajusteImagem" src="../assets/logos/logoPequena.png" alt="Logo Pequena">
-
     </header>
-    <a href="../public/recuperarSenha.php">
+    <a href="../private/admin/config/configAdmin.php">
         <img src="../assets/icons/header/setaEsquerdaClara.PNG" alt="Seta" onclick="voltarPagina()">
     </a>
     <div class="tituloAzulEscuro">
@@ -53,24 +51,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         <br>
     </div>
     <main class="gridCentro">
-        <form action="" id="formularioRecuperarSenha" class="gridCentro" method="POST" autocomplete="off">
-            <input type="password" name="novaSenha" id="novaSenha" class="inputTextPadrao" placeholder="Nova senha" required value="<?php echo htmlspecialchars($novaSenha); ?>">
-            <input type="password" name="confirmacaoSenha" id="confirmacaoSenha" class="inputTextPadrao" placeholder="Confirmar senha" required value="<?php echo htmlspecialchars($confirmacaoSenha); ?>">
-            <?php if ($erroSenha): ?>
-                <div class="mensagemErroInput"><?php echo $erroSenha; ?></div>
-            <?php endif; ?>
-            <div class="aDireita">
-                <input id="botaoAlterarSenha" type="submit" value="Alterar Senha">
+        <form action="" method="POST" autocomplete="off" id="formularioRecuperarSenha" class="gridCentro">
+            <input type="password" name="novaSenha" id="novaSenha" class="inputTextPadrao" placeholder="Nova Senha" required></input>
+            <input type="password" name="confirmarSenha" id="confirmarSenha" class="inputTextPadrao" placeholder="Confirmar Senha" required></input>
+            <div id="aDireita">
+                <input type="submit" id="botaoAlterarSenha" value="Alterar Senha">
             </div>
         </form>
     </main>
-
     <div class="espacoFooterAzul"></div>
     <footer class="footerAzulArredondado">
-
     </footer>
-
-    <script src="../scripts/login/novaSenha.js"></script>
 </body>
-
 </html>
