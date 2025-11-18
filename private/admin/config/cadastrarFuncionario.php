@@ -6,14 +6,32 @@ include '../../conexao/conexao.php';
 
 include '../../consultaApis/viaCep.php';
 
+function validarCPF($cpf) {
+    $cpf = preg_replace('/\D/', '', $cpf);
+    if (strlen($cpf) != 11) return false;
+    if (preg_match('/^(\d)\1{10}$/', $cpf)) return false;
+    for ($t = 9; $t < 11; $t++) {
+        $soma = 0;
+        for ($i = 0; $i < $t; $i++) {
+            $soma += (int)$cpf[$i] * (($t + 1) - $i);
+        }
+        $digito = (11 - ($soma % 11));
+        if ($digito >= 10) $digito = 0;
+        if ($cpf[$t] != $digito) return false;
+    }
+    return true;
+}
+
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     //$valido = false;
 if (isset($_POST['cadastrar'])) {
     $name = $_POST['nome'] ?? "";
     $email = $_POST['email'] ?? "";
-    $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
-    $cpf = $_POST['cpf'] ?? "";
+    $rawSenha = $_POST['senha'] ?? "";
+    $senha = password_hash($rawSenha, PASSWORD_DEFAULT);
+    $cpf = preg_replace('/\D/', '', $_POST['cpf'] ?? '');
     $cargo = $_POST['cargo'] ?? "";
     $genero = $_POST['genero'] ?? "";
     $dataNascimento = $_POST['dataNascimento'] ?? "";
@@ -24,6 +42,7 @@ if (isset($_POST['cadastrar'])) {
     $numero = $_POST['numero'];
     $cidade = $_POST['cidade'];
     $estado = $_POST['estado'];
+    $rawSenha = $_POST['senha'] ?? "";
     $regexEmail = '/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/';
     $regexSenha = '/^(?=(?:.*[A-Za-z]){5,})(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).+$/';
 
@@ -45,11 +64,21 @@ if (isset($_POST['cadastrar'])) {
         <p>Digite um email válido com @ e .com</p>
         <a href='cadastrarFuncionario.php' class='fechar'>Fechar</a>
         </div>";  
-    } else if(strlen($senha) < 8 && preg_match($regexSenha, $senha)){
+    } else if(strlen($rawSenha) < 8 || !preg_match($regexSenha, $rawSenha)){
         echo "<div class='mensagemCodigo'>
         <p>A senha deve conter no mínimo 8 caracteres, 5 letras, 1 letra maíuscula, 1 caractere especial e número</p>
         <a href='cadastrarFuncionario.php' class='fechar'>Fechar</a>
-        </div>";  
+        </div>"; 
+    } else if (!preg_match('/^\d{11}$/', $cpf)) {
+        echo "<div class='mensagemCodigo'>
+        <p>Digite um CPF válido</p>
+        <a href='cadastrarFuncionario.php' class='fechar'>Fechar</a>
+        </div>"; 
+    } else if (!validarCPF($cpf)) {
+        echo "<div class='mensagemCodigo'>
+        <p>Digite um CPF válido</p>
+        <a href='cadastrarFuncionario.php' class='fechar'>Fechar</a>
+        </div>"; 
     } else if ($conn->query($sql) === true) {
             echo "<div class='mensagemErro'> 
         <p>Novo Funcionário registrado com sucesso.</p>
@@ -170,7 +199,7 @@ if (isset($_POST['cadastrar'])) {
                     <input type="password" id="senhaFuncionario" class="placeholderClaro" name="senha" placeholder="Senha" value="<?php echo isset($_POST['senha']) ? htmlspecialchars($_POST['senha']) : '' ?>" required>
                      <?php
                         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['cadastrar'])) {
-                            if(!$senha || $senha > 8){
+                            if(!$rawSenha || strlen($rawSenha) < 8){
                                 echo "<div class='error'>
                                 <p>Preencha a Senha de Forma Correta</p>
                                 </div>";
@@ -185,9 +214,14 @@ if (isset($_POST['cadastrar'])) {
                     <input type="text" id="cpfFuncionario" class="placeholderClaro" name="cpf" placeholder="CPF" value="<?php echo isset($_POST['cpf']) ? htmlspecialchars($_POST['cpf']) : '' ?>" required>
                     <?php
                         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['cadastrar'])) {
-                                if(!$cpf || strlen($cpf) !== 11){
+                                if(!preg_match('/^\d{11}$/', $cpf)){
                                     echo "<div class='error'>
-                                    <p>Preencha o CPF de Forma Correta</p>
+                                    <p>Preencha o CPF com 11 números (somente dígitos)</p>
+                                    </div>";
+                                    $valido = false;
+                                } else if(!validarCPF($cpf)){
+                                    echo "<div class='error'>
+                                    <p>CPF inválido</p>
                                     </div>";
                                     $valido = false;
                                 }else{
@@ -291,7 +325,7 @@ if (isset($_POST['cadastrar'])) {
                                 </div>
 
                                 <div class='marginTopDown-2'>
-                                <input type='text' name='numero' id='numeroFuncionario' value='" . (isset($_POST['numero']) ? htmlspecialchars($_POST['numero']) : '') . "' class='placeholderClaro' placeholder='Número'>
+                                <input type='text' name='numero' id='numeroFuncionario' value='" . (isset($_POST['numero']) ? htmlspecialchars($_POST['numero']) : '') . "' class='placeholderClaro' placeholder='Número' required>
                                 <div class='error' id='erroNumero'></div>
                                 </div>
 
