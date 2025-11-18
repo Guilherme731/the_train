@@ -221,6 +221,6 @@ VALUES
 
 INSERT INTO codigos(id_usuario, codigo_1, codigo_2, codigo_3, codigo_4, codigo_5, codigo_6)
 VALUES
-(1, 6, 4, 2, 5, 7, 1);
-(2, 6, 4, 8, 5, 5, 1);
+(1, 6, 4, 2, 5, 7, 1),
+(2, 6, 4, 8, 5, 5, 1),
 (3, 6, 4, 1, 5, 9, 1);
