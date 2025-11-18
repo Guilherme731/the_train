@@ -68,7 +68,6 @@ $resultTrens = $conn->query($sqlTrens);
                 </label>
                 <label for="ver-estacoes">Ver Estações</label>
             </div>
-        <a href="">Atualizar Mapa</a>
             <div class="switch-container">
                 <label class="switch">
                     <input type="checkbox" id="ver-trens" onclick="atualizaOpcoesMapa()" checked>
