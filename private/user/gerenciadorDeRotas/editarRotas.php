@@ -1,6 +1,12 @@
 <?php
 session_start();
 include '../../authGuard/authUsuario.php';
+include '../../conexao/conexao.php';
+
+$idRota = $_GET['id'];
+
+$sqlRotas = "SELECT idRota, idEstacao, ordem FROM rotasEstacoes WHERE idRota = $idRota ORDER BY ordem";
+$resultRotas = $conn->query($sqlRotas);
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -62,6 +68,23 @@ include '../../authGuard/authUsuario.php';
 
         <div class="gridCentro">
             <div id="listaEstacoes">
+                <?php 
+                while($row = $resultRotas->fetch_assoc()){
+                    echo "<div class='estacoes'>
+                    <div class='flex'>
+                        <h3 class='textoAzul'>Estação {$row['idEstacao']}</h3>
+                        <div class='flex'>
+                            <a href='mudarPosEstacao.php?idEstacao={$row['idEstacao']}&idRota={$row['idRota']}&ordemAtual={$row['ordem']}&operacao=excluir' class='botaoSumir'><img src='../../../assets/icons/dashboard/deletar.png' class='iconeEditarEstacao' alt=''></a>
+                            <a href='mudarPosEstacao.php?idEstacao={$row['idEstacao']}&idRota={$row['idRota']}&ordemAtual={$row['ordem']}&operacao=subir' class='botaoSumir'><img src='../../../assets/icons/dashboard/irParaCima.png' class='moverEstacoesCima' alt=''></a>
+                            <a href='mudarPosEstacao.php?idEstacao={$row['idEstacao']}&idRota={$row['idRota']}&ordemAtual={$row['ordem']}&operacao=descer'><img src='../../../assets/icons/dashboard/irParaBaixo.png' class='moverEstacoesBaixo' alt=''></a>
+                            
+                        </div>
+                    </div>
+                </div>";
+                }
+                
+                
+                ?>
                 
             </div>
             <img onclick="criarElementoEstacao()" class="iconeAddRota" src="../../../assets/icons/dashboard/botaoAdd.png" alt="Botão add rotas">
@@ -89,7 +112,7 @@ include '../../authGuard/authUsuario.php';
 
     <script src="../../../scripts/gerenciamentoRotas/jsons/rotas.js"></script>
     <script src="../../../scripts/gerenciamentoRotas/gerenciadorMapa.js"></script>
-    <script src="../../../scripts/gerenciamentoRotas/editarRotas.js"></script>
+    <!-- <script src="../../../scripts/gerenciamentoRotas/editarRotas.js"></script> -->
 
 </body>
 
