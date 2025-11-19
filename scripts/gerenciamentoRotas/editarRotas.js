@@ -1,15 +1,15 @@
 const mapaSvg = document.getElementById('svgMapaEditar');
 const tituloPagina = document.getElementById('tituloPagina');
 const listaEstacoes = document.getElementById("listaEstacoes");
-let rota = sessionStorage.getItem('rotaParaEditar');
-if (rota) {
-    visualizarRota(rota);
-    tituloPagina.innerText = 'Editando Rota ' + (parseInt(rota) + 1);
+// let rota = sessionStorage.getItem('rotaParaEditar');
+// if (rota) {
+//     visualizarRota(rota);
+//     tituloPagina.innerText = 'Editando Rota ' + (parseInt(rota) + 1);
 
-    carregarListaEstacoes(rota);
-} else {
-    alert('Erro ao obter rota!');
-}
+//     carregarListaEstacoes(rota);
+// } else {
+//     alert('Erro ao obter rota!');
+// }
 
 function mover(botao, direcao) {
     const item = botao.closest(".estacoes");
@@ -24,19 +24,19 @@ function mover(botao, direcao) {
     exibirOrdem();
 }
 
-function exibirOrdem() {
-    const itens = document.querySelectorAll(".estacoes");
-    const ordem = Array.from(itens).map(el => el.dataset.id);
-    atualizarMapaPorEstacoes(ordem);
-}
+// function exibirOrdem() {
+//     const itens = document.querySelectorAll(".estacoes");
+//     const ordem = Array.from(itens).map(el => el.dataset.id);
+//     atualizarMapaPorEstacoes(ordem);
+// }
 
-function carregarListaEstacoes(numeroRota){
-    const rotas = JSON.parse(rotasEstacoes);
+// function carregarListaEstacoes(numeroRota){
+//     const rotas = JSON.parse(rotasEstacoes);
 
-    rotas.rotasE[numeroRota].forEach(estacaoNumero => {
-        criarElementoEstacao(estacaoNumero);
-    });
-}
+//     rotas.rotasE[numeroRota].forEach(estacaoNumero => {
+//         criarElementoEstacao(estacaoNumero);
+//     });
+// }
 
 function criarElementoEstacao(estacaoNumero){
     let idEstacao = estacaoNumero;

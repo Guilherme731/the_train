@@ -6,6 +6,79 @@ include '../../conexao/conexao.php';
 
 include '../../consultaApis/viaCep.php';
 
+function validarCPF($cpf) {
+    $cpf = preg_replace('/\D/', '', $cpf);
+    if (strlen($cpf) != 11 || preg_match('/^(\d)\1{10}$/', $cpf)) return false;
+    for ($t = 9; $t < 11; $t++) {
+        $soma = 0;
+        for ($i = 0; $i < $t; $i++) {
+            $soma += (int)$cpf[$i] * (($t + 1) - $i);
+        }
+        $digito = (11 - ($soma % 11));
+        if ($digito >= 10) $digito = 0;
+        if ($cpf[$t] != $digito) return false;
+    }
+    return true;
+}
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['cadastrar'])) {
+    $name = trim($_POST['nome'] ?? "");
+    $email = trim($_POST['email'] ?? "");
+    $rawSenha = $_POST['senha'] ?? "";
+    $cpf = preg_replace('/\D/', '', $_POST['cpf'] ?? '');
+    $cargo = trim($_POST['cargo'] ?? "");
+    $genero = $_POST['genero'] ?? "";
+    $dataNascimento = $_POST['dataNascimento'] ?? "";
+    $tipoFuncionario = $_POST['tipoFuncionario'] ?? "";
+    $salario = floatval($_POST['salario'] ?? 0);
+    $cep = $_POST['cep'] ?? "";
+    $rua = $_POST['rua'] ?? "";
+    $numero = $_POST['numero'] ?? "";
+    $cidade = $_POST['cidade'] ?? "";
+    $estado = $_POST['estado'] ?? "";
+
+    $regexEmail = '/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/';
+    $regexSenha = '/^(?=(?:.*[A-Za-z]){5,})(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).+$/';
+
+    $errors = [];
+    if (!preg_match('/^\p{Lu}/u', $name) || preg_match('/\d/', $name)) {
+        $errors[] = "O nome não pode conter números e a primeira letra precisa ser maiúscula.";
+    }
+    if ($salario < 500 || $salario > 10000000) {
+        $errors[] = "O salário deve ser entre 500 e 10000000.";
+    }
+    if (!preg_match($regexEmail, $email)) {
+        $errors[] = "Digite um email válido com @ e .com.";
+    }
+    if (strlen($rawSenha) < 8 || !preg_match($regexSenha, $rawSenha)) {
+        $errors[] = "A senha deve conter no mínimo 8 caracteres, 5 letras, 1 letra maiúscula, 1 caractere especial e número.";
+    }
+    if (!preg_match('/^\d{11}$/', $cpf) || !validarCPF($cpf)) {
+        $errors[] = "Digite um CPF válido.";
+    }
+
+    if (!empty($errors)) {
+        foreach ($errors as $error) {
+            echo "<div class='mensagemCodigo'><p>$error</p><a href='cadastrarFuncionario.php' class='fechar'>Fechar</a></div>";
+        }
+    } else {
+        $senha = password_hash($rawSenha, PASSWORD_DEFAULT);
+
+        $stmt = $conn->prepare("INSERT INTO usuarios (nome, email, senha, cpf, cargo, tipo, genero, dataNascimento, salario, cep, rua, numero, cidade, estado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("ssssssssssssss", $name, $email, $senha, $cpf, $cargo, $tipoFuncionario, $genero, $dataNascimento, $salario, $cep, $rua, $numero, $cidade, $estado);
+
+        if ($stmt->execute()) {
+            echo "<div class='mensagemErro'><p>Novo Funcionário registrado com sucesso.</p><a href='cadastrarFuncionario.php' class='fechar'>Fechar</a></div>";
+        } else {
+            echo "<div class='mensagemErro'><p>Erro ao registrar funcionário.</p><a href='cadastrarFuncionario.php' class='fechar'>Fechar</a></div>";
+        }
+        $stmt->close();
+    }
+    $conn->close();
+}
+?>
+
+<?php
 $id = $_GET['id'];
 
 $sql = "SELECT * FROM usuarios WHERE id=$id";
@@ -52,8 +125,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     exit();
     }
 }
-
-
 
 ?>
 
