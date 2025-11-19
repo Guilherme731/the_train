@@ -71,12 +71,6 @@ $stmt->close();
                     <p>Fale Conosco</p>
                 </a>
 
-                <a href="criarManutencao.php" class="opcaoMenu">
-                    <img class="iconeConfigTamanho" src="../../../assets/icons/config/iconeManutencao.png"
-                        alt="Imagem do ícone de Manutenção">
-                    <p>Manutenção</p>
-                </a>
-
                 <a href="../../../public/sair.php" class="opcaoMenu">
                     <img class="iconeConfigTamanho" src="../../../assets/icons/config/sair.png"
                         alt="Imagem do ícone de Fale Conosco">

@@ -60,6 +60,7 @@ if ($reultManutencao && $reultManutencao->num_rows > 0) {
                 </div>
                 <div class='dadoInfoRight'>
                     <p class='textoPrincipalDado'>$estacaoManutencao</p>
+                    <a href='../config/criarManutencao.php?id=$id'><img class='manutencaoFinalAlerta' src='../../../assets/icons/dashboard/addRota.png' alt='iconeAdicionarManutencao'></a>
                     <a href='deletarManutencao.php?ida=$id'><img class='manutencaoFinalAlerta' src='../../../assets/icons/alertas/fecharIcone.png' alt='iconeDeletarManutencao'></a>
                 </div>
         
@@ -89,8 +90,8 @@ if ($reultManutencao && $reultManutencao->num_rows > 0) {
                 </div>
                 <div class='dadoInfoRight'>
                     <p class='textoPrincipalDado'>$estacaoManutencao</p>
-                    <a href='deletarManutencao.php?ida=$id'><img class='manutencaoFinalAlerta' src='../../../assets/icons/alertas/fecharIcone.png' alt='iconeDeletarManutencao'></a>
-
+                    <a href='../config/criarManutencao.php?id=$id'><img class='manutencaoFinalAlerta' src='../../../assets/icons/dashboard/addRota.png' alt='iconeAdicionarManutencao'></a>
+                    <a href='deletarManutencao.php?id=$id'><img class='manutencaoFinalAlerta' src='../../../assets/icons/alertas/fecharIcone.png' alt='iconeDeletarManutencao'></a>
                 </div>
         
             </div>";
