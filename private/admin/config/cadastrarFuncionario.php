@@ -42,7 +42,6 @@ if (isset($_POST['cadastrar'])) {
     $numero = $_POST['numero'];
     $cidade = $_POST['cidade'];
     $estado = $_POST['estado'];
-    $rawSenha = $_POST['senha'] ?? "";
     $regexEmail = '/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/';
     $regexSenha = '/^(?=(?:.*[A-Za-z]){5,})(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).+$/';
 

@@ -6,23 +6,32 @@ include '../../conexao/conexao.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     $id = $_SESSION['user_id'];
-    $novaSenha = $_POST['senhaNova'];
-
+    $rawSenha = $_POST['novaSenha'] ?? "";
+    $novaSenha = password_hash($rawSenha, PASSWORD_DEFAULT);
+    $regexSenha = '/^(?=(?:.*[A-Za-z]){5,})(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).+$/';
     $usuarioAtual = ($conn->query("SELECT senha FROM usuarios WHERE id = $id LIMIT 1"))->fetch_assoc();
     if(password_verify($_POST['senhaAntiga'], $usuarioAtual['senha'])){
+        if(strlen($rawSenha) < 8 || !preg_match($regexSenha, $rawSenha)){
+            echo "<div class='mensagemCodigo'>
+        <p>A senha deve conter no mínimo 8 caracteres, 5 letras, 1 letra maíuscula, 1 caractere especial e número</p>
+        <a href='mudarSenha.php' class='fechar'>Fechar</a>
+        </div>"; 
+        } else{
         $stmt = $conn->prepare("UPDATE usuarios SET senha=? WHERE id = ?");
-        $stmt->bind_param("si", password_hash($novaSenha, PASSWORD_DEFAULT), $id);
+        $stmt->bind_param("si", password_hash($rawSenha, PASSWORD_DEFAULT), $id);
         $stmt->execute();
-        header('Location: ../dashboard/dashboard.php');
+        echo "<div class='mensagemCodigo'>
+        <p>A sua senha foi alterada com sucesso!</p>
+        <a href='../dashboard/dashboard.php' class='fechar'>Voltar para o dashboard</a>
+        </div>"; 
+        }
     }else{
         echo "<div class='mensagemErro'> 
             <p>Senha atual incorreta.</p>
             <a href='' class='fechar'>Fechar</a>
                 </div>";
     }
-
-    
-}
+    }
 ?>
 
 <!DOCTYPE html>
@@ -49,10 +58,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     
                 <form action="" method="post">
                     <label for="senhaAntiga">Senha Antiga:</label><br>
-                    <input type="password" class="campoSenhaMudar placeholderClaro" name="senhaAntiga" id="senhaAntiga" placeholder="****">
+                    <input type="password" class="campoSenhaMudar placeholderClaro" name="senhaAntiga" id="senhaAntiga" placeholder="****" required>
                     <br>
-                    <label for="senhaNova">Senha Nova:</label><br>
-                    <input type="password" class="campoSenhaMudar placeholderClaro" name="senhaNova" id="senhaNova" placeholder="****">
+                    <label for="novaSenha">Senha Nova:</label><br>
+                    <input type="password" class="campoSenhaMudar placeholderClaro" name="novaSenha" id="novaSenha" placeholder="****" required value="<?php echo isset($_POST['novaSenha']) ? htmlspecialchars($_POST['novaSenha']) : '' ?>">
                     <input type="submit" class="botaoSimples" value="Confirmar Mudança">
                 </form>
             </div>

@@ -6,22 +6,25 @@ include '../private/conexao/conexao.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_GET['email'] ?? "";
-    $novaSenha = $_POST['novaSenha'] ?? "";
+    $rawSenha = $_POST['novaSenha'] ?? "";
+    $novaSenha = password_hash($rawSenha, PASSWORD_DEFAULT);
     $confirmarSenha = $_POST['confirmarSenha'] ?? "";
+    $regexSenha = '/^(?=(?:.*[A-Za-z]){5,})(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).+$/';
 
-    if(strlen($novaSenha) < 8 || strlen($confirmarSenha) < 8){
-        echo "<div class='mensagemCodigo'> 
-        <p>A nova senha precisa conter pelo menos de 8 caracteres.</p>
-        <a href='' class='fechar'>Fechar</a>
-        </div>";
-    } else if($novaSenha != $confirmarSenha){
+
+    if(strlen($rawSenha) < 8 || !preg_match($regexSenha, $rawSenha)){
+        echo "<div class='mensagemCodigo'>
+        <p>A senha deve conter no mínimo 8 caracteres, 5 letras, 1 letra maíuscula, 1 caractere especial e número</p>
+        <a href='recuperarSenha2.php' class='fechar'>Fechar</a>
+        </div>"; 
+    } else if($rawSenha != $confirmarSenha){
         echo "<div class='mensagemCodigo'> 
         <p>A nova senha e a sua confirmação devem ser iguais.</p>
         <a href='' class='fechar'>Fechar</a>
         </div>";
     } else{
         $stmt = $conn->prepare("UPDATE usuarios SET senha = ? WHERE email = ?");
-        $senhaHash = password_hash($novaSenha, PASSWORD_DEFAULT);
+        $senhaHash = password_hash($rawSenha, PASSWORD_DEFAULT);
         $stmt->bind_param("ss", $senhaHash, $email);
         $stmt->execute();
         echo "<div class='mensagemCodigo'> 
@@ -52,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
     <main class="gridCentro">
         <form action="" method="POST" autocomplete="off" id="formularioRecuperarSenha" class="gridCentro">
-            <input type="password" name="novaSenha" id="novaSenha" class="inputTextPadrao" placeholder="Nova Senha" required></input>
+            <input type="password" name="novaSenha" id="novaSenha" class="inputTextPadrao" placeholder="Nova Senha" required value="<?php echo isset($_POST['novaSenha']) ? htmlspecialchars($_POST['novaSenha']) : '' ?>"></input>
             <input type="password" name="confirmarSenha" id="confirmarSenha" class="inputTextPadrao" placeholder="Confirmar Senha" required></input>
             <div id="aDireita">
                 <input type="submit" id="botaoAlterarSenha" value="Alterar Senha">
