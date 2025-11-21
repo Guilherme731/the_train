@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
         </div>"; 
         } else{
         $stmt = $conn->prepare("UPDATE usuarios SET senha=? WHERE id = ?");
-        $stmt->bind_param("si", password_hash($rawSenha, PASSWORD_DEFAULT), $id);
+        $stmt->bind_param("si", $novaSenha, $id);
         $stmt->execute();
         echo "<div class='mensagemCodigo'>
         <p>A sua senha foi alterada com sucesso!</p>
