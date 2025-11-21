@@ -3,11 +3,30 @@ session_start();
 include '../../authGuard/authUsuario.php';
 include '../../conexao/conexao.php';
 
+$sqlTrensPadrao = 'SELECT id, idRota, nome FROM trens';
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+    $resultTrensEdicao = $conn->query($sqlTrensPadrao);
+    while($trem = $resultTrensEdicao->fetch_assoc()){
+        $idNovaRota = $_POST['idRota' . $trem['id']];
+        $stmt = $conn->prepare("UPDATE trens SET idRota = ? WHERE id = ?");
+        $stmt->bind_param("ii", $idNovaRota, $trem['id']);
+        $stmt->execute();
+    }
+    echo "<div class='mensagemErro'><p>Rotas atualizadas com sucesso.</p><a href='' class='fechar'>Fechar</a></div>";
+    
+}
+
 $sqlTrens = 'SELECT trens.id AS idTrem, trens.idEstacao AS estacaoAtual, localizacaoX, localizacaoY, horaSaida, ordemRota, trens.idRota, rotas.id, rotasEstacoes.idRota, rotasEstacoes.idEstacao AS nextStop FROM trens INNER JOIN rotas ON trens.idRota = rotas.id INNER JOIN rotasEstacoes ON rotas.id = rotasEstacoes.idRota AND ordemRota = rotasestacoes.ordem';
 $resultTrens = $conn->query($sqlTrens);
 
+
+$resultTrensPadrao = $conn->query($sqlTrensPadrao);
+
 $sqlRotas = 'SELECT id, nome FROM rotas ORDER BY id';
 $resultRotas = $conn->query($sqlRotas);
+
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -83,66 +102,48 @@ $resultRotas = $conn->query($sqlRotas);
 
         <div class="secaoInfo">
             <h2>TRENS</h2>
-            <div class="dadoInfo padding-3">
+            <form action="" method="POST">
+            <?php 
+            while($row = $resultTrensPadrao->fetch_assoc()){
+                $nomeSelect = 'idRota' . strval($row['id']);
+                ?>
+                <div class="dadoInfo padding-3">
                 <a class="iconeDesligar" onclick="desligarTrem(0)"><img class="iconeDesligar" src="../../../assets/icons/dashboard/desligar.png"
                         alt="Icone de Desligar os Trens"></a>
-                <h3 class="tituloTrem">Trem 1</h3>
+                <h3 class="tituloTrem"><?= $row['nome'] ?></h3>
                 <div class="parteDireitaGerenciador">
-                    <a class="iconeVisualizarRota"  onclick="mostraTremEspecifico(0)"><img class="iconeVisualizarRota"
-                            src="../../../assets/icons/dashboard/visualizar.png" alt="Icone de Visualizar a Rota dos Trens"></a>
-        
-                    <select class="selecionarRota" id="selectRota1">
-                        <option value="rota1">Rota 1</option>
-                        <option value="rota2">Rota 2</option>
-                        <option value="rota3">Rota 3</option>
+                    <select class="selecionarRota" id="selectRota<?= $row['id'] ?>" name="<?= $nomeSelect ?>">
+                        <?php
+                        // Para cada trem, buscar as rotas novamente
+                        $resultRotasLocal = $conn->query($sqlRotas);
+                        while($rowR = $resultRotasLocal->fetch_assoc()){
+                            if($rowR['id'] == $row['idRota']){
+                                echo "<option value='{$rowR['id']}' selected>{$rowR['nome']}</option>";
+                            }else{
+                                echo "<option value='{$rowR['id']}'>{$rowR['nome']}</option>";
+                            }
+                        }
+                        ?>
                     </select>
                 </div>
             </div>
-
-            <div class="dadoInfo padding-3">
-                <a class="iconeDesligar" onclick="desligarTrem(1)"><img class="iconeDesligar" src="../../../assets/icons/dashboard/desligar.png"
-                        alt="Icone de Desligar os Trens"></a>
-                <h3 class="tituloTrem">Trem 2</h3>
-                <div class="parteDireitaGerenciador">
-                    <a class="iconeVisualizarRota"   onclick="mostraTremEspecifico(1)"><img class="iconeVisualizarRota"
-                            src="../../../assets/icons/dashboard/visualizar.png" alt="Icone de Visualizar a Rota dos Trens"></a>
-        
-                    <select class="selecionarRota" id="selectRota2">
-                        <option value="rota1">Rota 1</option>
-                        <option value="rota2">Rota 2</option>
-                        <option value="rota3">Rota 3</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="dadoInfo padding-3">
-                <a class="iconeDesligar" onclick="desligarTrem(2)"><img class="iconeDesligar" src="../../../assets/icons/dashboard/desligar.png"
-                        alt="Icone de Desligar os Trens"></a>
-                <h3 class="tituloTrem">Trem 3</h3>
-                <div class="parteDireitaGerenciador">
-                    <a class="iconeVisualizarRota"   onclick="mostraTremEspecifico(2)"><img class="iconeVisualizarRota"
-                            src="../../../assets/icons/dashboard/visualizar.png" alt="Icone de Visualizar a Rota dos Trens"></a>
-        
-                    <select class="selecionarRota" id="selectRota3">
-                        <option value="rota1">Rota 1</option>
-                        <option value="rota2">Rota 2</option>
-                        <option value="rota3">Rota 3</option>
-                    </select>
-                </div>
-            </div>
+                <?php
+            }
+            ?>
 
             <div class="textoDireita">
                 <button type="submit" class="botaoAmarelo">
                     Aplicar
                 </button>
             </div>
-            
+            </form>
 
         </div>
 
         <div class="secaoInfo">
             <h2>ROTAS</h2>
             <?php
+            $resultRotas = $conn->query($sqlRotas);
             while($row = $resultRotas->fetch_assoc()){
                 echo "<div class='dadoInfo padding-3'>
                 <h3 class='tituloTrem'>{$row['nome']}</h3>
