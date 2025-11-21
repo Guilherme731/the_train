@@ -5,6 +5,9 @@ include '../../conexao/conexao.php';
 
 $sqlTrens = 'SELECT trens.id AS idTrem, trens.idEstacao AS estacaoAtual, localizacaoX, localizacaoY, horaSaida, ordemRota, trens.idRota, rotas.id, rotasEstacoes.idRota, rotasEstacoes.idEstacao AS nextStop FROM trens INNER JOIN rotas ON trens.idRota = rotas.id INNER JOIN rotasEstacoes ON rotas.id = rotasEstacoes.idRota AND ordemRota = rotasestacoes.ordem';
 $resultTrens = $conn->query($sqlTrens);
+
+$sqlRotas = 'SELECT id, nome FROM rotas ORDER BY id';
+$resultRotas = $conn->query($sqlRotas);
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -129,7 +132,7 @@ $resultTrens = $conn->query($sqlTrens);
             </div>
 
             <div class="textoDireita">
-                <button onclick="aplicarRotas()" class="botaoAmarelo">
+                <button type="submit" class="botaoAmarelo">
                     Aplicar
                 </button>
             </div>
@@ -139,41 +142,21 @@ $resultTrens = $conn->query($sqlTrens);
 
         <div class="secaoInfo">
             <h2>ROTAS</h2>
-
-            <div class="dadoInfo padding-3">
-                <h3 class="tituloTrem">Rota 1</h3>
-                <div class="parteDireitaGerenciador">
-                    <a onclick="visualizarRota(0)"><img class="iconeVisualizarRota" src="../../../assets/icons/dashboard/visualizar.png"
-                        alt="Icone de Visualizar a Rota dos Trens"></a>
+            <?php
+            while($row = $resultRotas->fetch_assoc()){
+                echo "<div class='dadoInfo padding-3'>
+                <h3 class='tituloTrem'>{$row['nome']}</h3>
+                <div class='parteDireitaGerenciador'>
+                    <a onclick='visualizarRota(".($row['id'] - 1).")'><img class='iconeVisualizarRota' src='../../../assets/icons/dashboard/visualizar.png'
+                        alt='Icone de Visualizar a Rota dos Trens'></a>
         
-                    <a onclick="abrirEdicaoRota(0)"><img class="iconeEditarRota" src="../../../assets/icons/dashboard/editarRota.png"
-                            alt="Icone de editar a Rota dos Trens"></a>
+                    <a href='editarRotas.php?id={$row['id']}'><img class='iconeEditarRota' src='../../../assets/icons/dashboard/editarRota.png'
+                            alt='Icone de editar a Rota dos Trens'></a>
                 </div>
-            </div>
-
-            <div class="dadoInfo padding-3">
-                <h3 class="tituloTrem">Rota 2</h3>
-                <div class="parteDireitaGerenciador">
-                    <a onclick="visualizarRota(1)"><img class="iconeVisualizarRota" src="../../../assets/icons/dashboard/visualizar.png"
-                        alt="Icone de Visualizar a Rota dos Trens"></a>
-        
-                    <a onclick="abrirEdicaoRota(1)"><img class="iconeEditarRota" src="../../../assets/icons/dashboard/editarRota.png"
-                            alt="Icone de editar a Rota dos Trens"></a>
-                </div>
-            </div>
-            
-
-            <div class="dadoInfo padding-3">
-                <h3 class="tituloTrem">Rota 3</h3>
-                <div class="parteDireitaGerenciador">
-                    <a onclick="visualizarRota(2)"><img class="iconeVisualizarRota" src="../../../assets/icons/dashboard/visualizar.png"
-                        alt="Icone de Visualizar a Rota dos Trens"></a>
-        
-                    <a onclick="abrirEdicaoRota(2)"><img class="iconeEditarRota" src="../../../assets/icons/dashboard/editarRota.png"
-                            alt="Icone de editar a Rota dos Trens"></a>
-                </div>
-            </div>
-            <img class="iconeAddRotas" src="../../../assets/icons/dashboard/addRota.png" alt="Icone add rotas" onclick="criarRota()">
+            </div>";
+            }
+            ?>
+            <a href="criarRota.php"><img class="iconeAddRotas" src="../../../assets/icons/dashboard/addRota.png" alt="Icone add rotas"></a>
         </div>
         
 
