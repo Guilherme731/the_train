@@ -93,7 +93,7 @@ $resultRotas = $conn->query($sqlRotas);
                 ?>
                 
             </div>
-            <img onclick="criarElementoEstacao()" class="iconeAddRota" src="../../../assets/icons/dashboard/botaoAdd.png" alt="Botão add rotas">
+            <a href="inserirEstacaoRota.php?idRota=<?= $idRota ?>"><img class="iconeAddRota" src="../../../assets/icons/dashboard/botaoAdd.png" alt="Botão add rotas"></a>
         </div>
 
 
