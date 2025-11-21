@@ -1,6 +1,8 @@
 
 const mapa = document.getElementById('svgMapa');
 
+idInterval = 0;
+
 document.addEventListener('DOMContentLoaded', function () {
     // const linhasMapa = document.getElementsByClassName('linhaMapa');
     // for (let i = 0; i < linhasMapa.length; i++) {
@@ -22,9 +24,11 @@ function atualizaOpcoesMapa() {
     }
     if (inputTrens.checked == true) {
         mostraTrens();
+        idInterval = setInterval(atualizarTrensMapa, 500);
     }
     else {
         escondeTrens();
+        clearInterval(idInterval);
     }
 }
 
@@ -33,9 +37,17 @@ function mostraEstacoes() {
     for (let i = 0; i < estacoes.length; i++) {
         estacoes[i].style.display = 'block';
     }
+    estacoes = document.getElementsByClassName('quadradoMapaAmarelo');
+    for (let i = 0; i < estacoes.length; i++) {
+        estacoes[i].style.display = 'block';
+    }
 }
 function escondeEstacoes() {
     let estacoes = document.getElementsByClassName('quadradoMapa');
+    for (let i = 0; i < estacoes.length; i++) {
+        estacoes[i].style.display = 'none';
+    }
+    estacoes = document.getElementsByClassName('quadradoMapaAmarelo');
     for (let i = 0; i < estacoes.length; i++) {
         estacoes[i].style.display = 'none';
     }
@@ -153,7 +165,7 @@ function atualizarTrensMapa() {
         });
 }
 
-setInterval(atualizarTrensMapa, 500);
+idInterval = setInterval(atualizarTrensMapa, 500);
 
 function atualizarMapaPorEstacoes(estacoes){
     const segmentos = JSON.parse(segmentosEstacoes);
