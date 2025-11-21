@@ -29,7 +29,7 @@ function renumerarOrdens($conn, $idRota) {
 if ($operacao === 'subir' || $operacao === 'descer') {
     $novaOrdem = ($operacao === 'subir') ? $ordemAtual - 1 : $ordemAtual + 1;
     if ($novaOrdem < 1 || $novaOrdem > $maxOrdem) {
-        $_SESSION['rota_msg'] = ($operacao === 'subir') ? 'Não é possível subir: já é a primeira estação.' : 'Não é possível descer: já é a última estação.';
+        $_SESSION['rota_msg'] = ($operacao === 'subir') ? 'Erro: estação no limite superior' : 'Erro: estação no limite inferior';
         header("Location: editarRotas.php?id=$idRota");
         exit;
     }

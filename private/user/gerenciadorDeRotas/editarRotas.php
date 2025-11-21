@@ -80,7 +80,7 @@ $resultRotas = $conn->query($sqlRotas);
                     <div class='flex'>
                         <h3 class='textoAzul'>Estação {$row['idEstacao']}</h3>
                         <div class='flex'>
-                            <a href='mudarPosEstacao_safe.php?idEstacao={$row['idEstacao']}&idRota={$row['idRota']}&ordemAtual={$row['ordem']}&operacao=excluir' class='botaoSumir'><img src='../../../assets/icons/dashboard/deletar.png' class='iconeEditarEstacao' alt=''></a>
+                            <a href='deletarEstacao.php?idRota={$row['idRota']}&ordem={$row['ordem']}' class='botaoSumir'><img src='../../../assets/icons/dashboard/deletar.png' class='iconeEditarEstacao' alt=''></a>
                             <a href='mudarPosEstacao_safe.php?idEstacao={$row['idEstacao']}&idRota={$row['idRota']}&ordemAtual={$row['ordem']}&operacao=subir' class='botaoSumir'><img src='../../../assets/icons/dashboard/irParaCima.png' class='moverEstacoesCima' alt=''></a>
                             <a href='mudarPosEstacao_safe.php?idEstacao={$row['idEstacao']}&idRota={$row['idRota']}&ordemAtual={$row['ordem']}&operacao=descer'><img src='../../../assets/icons/dashboard/irParaBaixo.png' class='moverEstacoesBaixo' alt=''></a>
                             
