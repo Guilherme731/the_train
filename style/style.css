@@ -458,6 +458,18 @@ body {
     outline: none; 
 }
 
+/* Mensagem flash para ações em rotas (sucesso/erro) */
+.mensagemFlash{
+    background-color: var(--corAzulEscuro);
+    color: var(--corAmarelo);
+    padding: 10px 15px;
+    border-radius: 10px;
+    margin: 10px auto;
+    max-width: 800px;
+    text-align: center;
+    font-weight: 600;
+}
+
 .tremManutencao{
     font-size: 15px;
     color: var(--corAzulClaro);
