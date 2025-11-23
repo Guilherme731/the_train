@@ -7,6 +7,32 @@ $idRota = $_GET['id'];
 
 $sqlRotas = "SELECT idRota, idEstacao, ordem FROM rotasEstacoes WHERE idRota = $idRota ORDER BY ordem";
 $resultRotas = $conn->query($sqlRotas);
+
+$estacoesMapa = [];
+
+$resultRotas2 = $conn->query($sqlRotas);
+$i = 0;
+$CES = false;
+$CEI = false;
+$RCI = false;
+$CDI = false;
+$CDS = false;
+$RCS = false;
+$RES = false;
+$RCC = false;
+$CCI = false;
+$CCS = false;
+while($row = $resultRotas2->fetch_assoc()){
+    $estacoesMapa[$i] = $row['idEstacao'];
+    if($i > 0){
+        if(($estacoesMapa[$i - 1] == 1 && $estacoesMapa[$i] == 2) || ($estacoesMapa[$i - 1] == 2 && $estacoesMapa[$i] == 1)) $CEI = true;
+        if(($estacoesMapa[$i - 1] == 2 && $estacoesMapa[$i] == 3) || ($estacoesMapa[$i - 1] == 3 && $estacoesMapa[$i] == 2)) {$CES = true; $RES = true; $RCS = true;$CDS = true;}
+        if($estacoesMapa[$i - 1] == 3 && $estacoesMapa[$i] == 3) {$CCI = true;$CCS = true;$CDI = true;$CDS = true;}
+        if(($estacoesMapa[$i - 1] == 3 && $estacoesMapa[$i] == 1) || ($estacoesMapa[$i - 1] == 1 && $estacoesMapa[$i] == 3)) {$CDI = true;$RCI = true;}
+    }
+
+    $i++;
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -36,18 +62,18 @@ $resultRotas = $conn->query($sqlRotas);
                 <!-- C -> Curva   R -> Reta  | D -> Direita  E -> Esquerda   C -> Central |  S-> Superior  I -> Inferior -->
 
                 <!-- Linhas perimetrais -->
-                <path id="linhaCES" class="linhaMapa" d="M 10 75 Q 10 10 90 10" />
-                <path id="linhaCEI" class="linhaMapa" d="M 90 140 Q 10 140 10 75" />
-                <path id="linhaRCI" class="linhaMapa" d="M 90 140 260 140" />
-                <path id="linhaCDI" class="linhaMapa" d="M 260 140 Q 340 140 340 75" />
-                <path id="linhaCDS" class="linhaMapa" d="M 340 75 Q 340 10 260 10" />
-                <path id="linhaRCS" class="linhaMapa" d="M 145 10 260 10" />
-                <path id="linhaRES" class="linhaMapa" d="M 90 10 145 10" />
+                <path id="linhaCES" class="linhaMapa <?php if($CES){echo 'linhaMapaSelecionada';} ?>" d="M 10 75 Q 10 10 90 10" />
+                <path id="linhaCEI" class="linhaMapa <?php if($CEI){echo 'linhaMapaSelecionada';} ?>" d="M 90 140 Q 10 140 10 75" />
+                <path id="linhaRCI" class="linhaMapa <?php if($RCI){echo 'linhaMapaSelecionada';} ?>" d="M 90 140 260 140" />
+                <path id="linhaCDI" class="linhaMapa <?php if($CDI){echo 'linhaMapaSelecionada';} ?>" d="M 260 140 Q 340 140 340 75" />
+                <path id="linhaCDS" class="linhaMapa <?php if($CDS){echo 'linhaMapaSelecionada';} ?>" d="M 340 75 Q 340 10 260 10" />
+                <path id="linhaRCS" class="linhaMapa <?php if($RCS){echo 'linhaMapaSelecionada';} ?>" d="M 145 10 260 10" />
+                <path id="linhaRES" class="linhaMapa <?php if($RES){echo 'linhaMapaSelecionada';} ?>" d="M 90 10 145 10" />
 
                 <!-- Linhas interiores -->
-                <path id="linhaRCI" class="linhaMapa" d="M 170 140 110 75" />
-                <path id="linhaCCI" class="linhaMapa" d="M 260 140 Q 200 130 200 75" />
-                <path id="linhaCCS" class="linhaMapa" d="M 260 10 Q 200 20 200 75" />
+                <path id="linhaRCC" class="linhaMapa <?php if($RCC){echo 'linhaMapaSelecionada';} ?>" d="M 170 140 110 75" />
+                <path id="linhaCCI" class="linhaMapa <?php if($CCI){echo 'linhaMapaSelecionada';} ?>" d="M 260 140 Q 200 130 200 75" />
+                <path id="linhaCCS" class="linhaMapa <?php if($CCS){echo 'linhaMapaSelecionada';} ?>" d="M 260 10 Q 200 20 200 75" />
 
                 <!-- Quadrados (e retângulos) -->
                 <rect x="135" y="00" width="20" height="20" class="quadradoMapa"/>
@@ -116,8 +142,8 @@ $resultRotas = $conn->query($sqlRotas);
         </div>
     </footer>
 
-    <script src="../../../scripts/gerenciamentoRotas/jsons/rotas.js"></script>
-    <script src="../../../scripts/gerenciamentoRotas/gerenciadorMapa.js"></script>
+    <!-- <script src="../../../scripts/gerenciamentoRotas/jsons/rotas.js"></script> -->
+    <!-- <script src="../../../scripts/gerenciamentoRotas/gerenciadorMapa.js"></script> -->
     <!-- <script src="../../../scripts/gerenciamentoRotas/editarRotas.js"></script> -->
 
 </body>

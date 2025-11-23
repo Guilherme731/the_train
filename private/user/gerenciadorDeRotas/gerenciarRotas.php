@@ -148,9 +148,6 @@ $resultRotas = $conn->query($sqlRotas);
                 echo "<div class='dadoInfo padding-3'>
                 <h3 class='tituloTrem'>{$row['nome']}</h3>
                 <div class='parteDireitaGerenciador'>
-                    <a onclick='visualizarRota(".($row['id'] - 1).")'><img class='iconeVisualizarRota' src='../../../assets/icons/dashboard/visualizar.png'
-                        alt='Icone de Visualizar a Rota dos Trens'></a>
-        
                     <a href='editarRotas.php?id={$row['id']}'><img class='iconeEditarRota' src='../../../assets/icons/dashboard/editarRota.png'
                             alt='Icone de editar a Rota dos Trens'></a>
                 </div>
