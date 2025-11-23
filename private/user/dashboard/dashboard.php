@@ -34,7 +34,7 @@ $resultEstacoes = $conn->query($sqlEstacoes);
         <img id="iconeUsuarios" src="../../../assets/icons/dashboard/botaoVisualizarUsuarios.png" alt="Botão para visualizar usuários">
     </div>
     </a>
-     <h4 class="flexCentro" style="background-color: #33658a; width:fit-content; text-align:center; margin:20px auto; padding: 5px; border: solid 3px #f6ae2d; border-radius: 15px; color:#f6ae2d;">Você tem sessão iniciada como <?=$user['nome']?>.</h4>
+     <h4 class="flexCentro" style="background-color: #33658a; width:fit-content; text-align:center; margin:20px auto; padding: 5px; border: solid 3px #f6ae2d; border-radius: 15px; color:#f6ae2d; max-width: 60%;">Você tem sessão iniciada como <?=$user['nome']?>.</h4>
      <section class="secaoInfo">
         <h2>HORÁRIOS</h2>
 
