@@ -191,6 +191,72 @@ while ($row = $resultTrens->fetch_assoc()) {
             $posX = 0;
         }
     }
+    if ($row['nextStop'] == 1 && $row['estacaoAtual'] == 3) {
+
+
+        $horaSaida = $row['horaSaida'];
+        $now = new DateTime();
+        if (preg_match('/^\d{1,2}:\d{2}$/', $horaSaida)) {
+            $horaSaida .= ':00';
+        }
+        if (preg_match('/^\d{1,2}:\d{2}:\d{2}$/', $horaSaida)) {
+            list($h, $m, $s) = explode(':', $horaSaida);
+            $saidaSeconds = (intval($h) + 4) * 3600 + intval($m) * 60 + intval($s);
+
+            $now = new DateTime();
+            $nowSeconds = intval($now->format('H')) * 3600 + intval($now->format('i')) * 60 + intval($now->format('s'));
+
+            $diff = $nowSeconds - $saidaSeconds;
+            $posX = 330 - ($diff * $VEL_X);
+
+            if ($posX >= 330) {
+                $posX = 330;
+                $posY = 65;
+            } else if ($posX >= 265) {
+                $posY = 65 + sqrt(3600 - (pow(($posX - 265), 2)));
+            }else if ($posX <= 70) {
+                $posX = 70;
+                $posY = 135;
+            } else {
+                $posY = 135;
+            }
+        } else {
+            $posX = 0;
+        }
+    }
+    if ($row['nextStop'] == 3 && $row['estacaoAtual'] == 1) {
+
+
+        $horaSaida = $row['horaSaida'];
+        $now = new DateTime();
+        if (preg_match('/^\d{1,2}:\d{2}$/', $horaSaida)) {
+            $horaSaida .= ':00';
+        }
+        if (preg_match('/^\d{1,2}:\d{2}:\d{2}$/', $horaSaida)) {
+            list($h, $m, $s) = explode(':', $horaSaida);
+            $saidaSeconds = (intval($h) + 4) * 3600 + intval($m) * 60 + intval($s);
+
+            $now = new DateTime();
+            $nowSeconds = intval($now->format('H')) * 3600 + intval($now->format('i')) * 60 + intval($now->format('s'));
+
+            $diff = $nowSeconds - $saidaSeconds;
+            $posX = 70+($diff * $VEL_X);
+
+            if ($posX >= 330) {
+                $posX = 330;
+                $posY = 65;
+            } else if ($posX >= 265) {
+                $posY = 65 + sqrt(3600 - (pow(($posX - 265), 2)));
+            }else if ($posX <= 70) {
+                $posX = 70;
+                $posY = 135;
+            } else {
+                $posY = 135;
+            }
+        } else {
+            $posX = 0;
+        }
+    }
 
     $trensPos[$i] = [$posX, $posY, $row['idTrem']];
     $i++;
