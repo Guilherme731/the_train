@@ -6,7 +6,6 @@ include '../../conexao/conexao.php';
 $sqlMantuncao = "SELECT manutencoes.id, manutencoes.tipoManutencao, estacoes.nomeEstacao, trens.nome, manutencoes.descricao FROM manutencoes INNER JOIN estacoes ON manutencoes.idEstacao = estacoes.id INNER JOIN trens ON manutencoes.idTrem = trens.id";
 $reultManutencao = $conn->query($sqlMantuncao);
 
-// Separar as manutenções por tipo
 $preventivas = [];
 $inspecoes = [];
 if ($reultManutencao && $reultManutencao->num_rows > 0) {
@@ -65,6 +64,7 @@ if ($reultManutencao && $reultManutencao->num_rows > 0) {
                 </div>
         
             </div>";
+
             }
         } 
         ?>
@@ -91,7 +91,7 @@ if ($reultManutencao && $reultManutencao->num_rows > 0) {
                 <div class='dadoInfoRight'>
                     <p class='textoPrincipalDado'>$estacaoManutencao</p>
                     <a href='../config/criarManutencao.php?id=$id'><img class='manutencaoFinalAlerta' src='../../../assets/icons/dashboard/addRota.png' alt='iconeAdicionarManutencao'></a>
-                    <a href='deletarManutencao.php?id=$id'><img class='manutencaoFinalAlerta' src='../../../assets/icons/alertas/fecharIcone.png' alt='iconeDeletarManutencao'></a>
+                    <a href='deletarManutencao.php?ida=$id'><img class='manutencaoFinalAlerta' src='../../../assets/icons/alertas/fecharIcone.png' alt='iconeDeletarManutencao'></a>
                 </div>
         
             </div>";
