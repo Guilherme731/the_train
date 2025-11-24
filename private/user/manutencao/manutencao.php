@@ -66,7 +66,9 @@ if ($reultManutencao && $reultManutencao->num_rows > 0) {
             </div>";
 
             }
-        } 
+        } else {
+            echo "<div id='semAlertas'>Não há manutenções no momento.</div>";
+        }
         ?>
     </section>
 
