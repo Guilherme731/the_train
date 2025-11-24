@@ -125,6 +125,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div id="centroPerfil">
                 <div class="flexCentro">
                     <div id="informacoesEspeciaisUser">
+                        <div class="flexCentro">
+                        <a href="editarSenhaFuncionario.php?user_id=<?= $id ?>" style="text-decoration: none;" class="botaoSimples">Mudar a Senha do Usuário</a>
+                    </div>
                         <div class="marginTopDown-2">
                                  <label for="cargo" id="" class="placeholderClaro">
                         <select name="cargo" id="cargoFuncionario" required>
