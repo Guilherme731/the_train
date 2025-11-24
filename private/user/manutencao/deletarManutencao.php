@@ -1,6 +1,5 @@
 <?php
 session_start();
-include '../../authGuard/authAdmin.php';
 include '../../conexao/conexao.php';
 $idUser = $_SESSION['user_id'];
 

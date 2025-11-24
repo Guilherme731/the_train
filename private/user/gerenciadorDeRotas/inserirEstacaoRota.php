@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                         <?php 
                         $resultEstacoes = $conn->query("SELECT * FROM estacoes");
                         while($row = $resultEstacoes->fetch_assoc()){
-                            echo "<option value='{$row['id']}'>{$row['nomeEstacao']}</option>"; 
+                            echo "<option value='{$row['id']}'> {$row['id']} - {$row['nomeEstacao']}</option>"; 
                         }
 
                         ?>
