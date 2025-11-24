@@ -470,24 +470,6 @@ body {
     font-weight: 600;
 }
 
-.tremManutencao{
-    font-size: 15px;
-    color: var(--corAzulClaro);
-    margin: 2%;
-    width: 70px;
-}
-.manutencaoDescricao{
-    font-size: 15px;
-    color: var(--corAzulClaro);
-    margin: 2%;
-    word-break: break-word;
-}
-
-.manutencaoEstacao{
-    font-size: 20px;
-    color: var(--corAzulClaro);
-}
-
 .secaoInfoManutencao {
     background-color: var(--corAzulNormal);
     border-radius: 15px;
@@ -506,41 +488,12 @@ body {
     height: 30px; width: 30px;
 }
 
-.dadoInfoCenterManutencao{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 10%;
-}
-
 .manutencaoFinalAlerta a img{ 
     width: 20px;
     height: 2px;
     cursor: pointer;
 }
 
-
-.dadoInfoManutencao {
-    background-color: var(--corAzulEscuro);
-    color: var(--corAzulClaro);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px;
-    border-radius: 15px;
-    margin-bottom: 10px;
-    gap: 10px;
-    flex-wrap: wrap;
-    width: 100%;
-}
-
-
-.manuntecaoDescricao,
-.tremManutencao,
-.manuntecaoEstacao {
-    word-break: break-word;
-    margin: 3px 0;
-}
 
 /*  DASHBOARD  */
 .dadoInfo {
