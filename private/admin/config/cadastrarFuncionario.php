@@ -268,7 +268,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             ?>
                             <div class="error" id="errorDataNascimento"></div>
 
-                            <label for="tipo" id="tipoFuncionario" name="tipoFuncionario" placeholder="Tipo Funcionario"></label>
                                 <select name="tipoFuncionario" id="tipoFuncionario" required>
                                     <option value="" disabled selected>Tipo do Funcionário</option>
                                     <option value="funcionario" <?php if (isset($_POST['tipoFuncionario']) && $_POST['tipoFuncionario'] === 'funcionario') echo 'selected'; ?>>Funcionário</option>
