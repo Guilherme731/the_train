@@ -10,7 +10,7 @@ $i = 0;
 while ($row = $resultTrens->fetch_assoc()) {
     $posX = 0;
     $posY = 0;
-    $VEL_X = 8;
+    $VEL_X = 20;
     if ($row['nextStop'] == 3 && $row['estacaoAtual'] == 2) {
 
 
