@@ -17,26 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $descricao = isset($_POST['descricao']) ? trim($_POST['descricao']) : '';
     $estacao = isset($_POST['idEstacao']) ? $_POST['idEstacao'] : '';
     $trem = isset($_POST['idTrem']) ? $_POST['idTrem'] : '';
-    $valido = true;
-    
-    if (!$tipoManutencao) {
-        $valido = false;
-        echo "<div class='mensagemErro'><p>Preencha o Tipo da Manutenção corretamente</p><a href='criarManutencao.php' class='fechar'>Fechar</a></div>";
-    }
-    if (!$descricao) {
-        $valido = false;
-        echo "<div class='mensagemErro'><p>Preencha a Descrição corretamente</p><a href='criarManutencao.php' class='fechar'>Fechar</a></div>";
-    }
-    if (!$estacao || $estacao == "none") {
-        $valido = false;
-        echo "<div class='mensagemErro'><p>Preencha a Estação corretamente</p><a href='criarManutencao.php' class='fechar'>Fechar</a></div>";
-    }
-    if (!$trem || $trem == "none") {
-        $valido = false;
-        echo "<div class='mensagemErro'><p>Preencha o Trem corretamente</p><a href='criarManutencao.php' class='fechar'>Fechar</a></div>";
-    }
-    
-    if ($valido) {
+   
         $stmt = $conn->prepare("INSERT INTO manutencoes (tipoManutencao, descricao, idEstacao, idTrem) VALUES (?, ?, ?, ?)");
         $stmt->bind_param("ssii", $tipoManutencao, $descricao, $estacao, $trem);
         if ($stmt->execute()) {
@@ -47,7 +28,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt->close();
         $conn->close();
     }
-}
 ?>
 
 <!DOCTYPE html>
@@ -73,40 +53,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="flexCentro textoCentral">
         <div id="manutencao">
             <label class="placeholderClaro" name="tipo">
-                <select name="tipoManutencao" id="salarioFuncionario">
-                    <option value="none">Tipo de Manutenção</option>
-                    <option value="Manutenções Preventivas">Manutenções Preventivas</option>
-                    <option value="Controle de inspeções">Controle de inspeções</option>
+                <select name="tipoManutencao" id="salarioFuncionario" required>
+                    <option value="" disabled selected>Tipo de Manutenção</option>
+                    <option value="Manutenções Preventivas" <?php if(isset($_POST['tipoManutencao']) && $_POST['tipoManutencao']==='Manutenções Preventivas') echo 'selected'; ?>>Manutenções Preventivas</option>
+                    <option value="Controle de Inspeções" <?php if(isset($_POST['tipoManutencao']) && $_POST['tipoManutencao']==='Controle de Inspeções') echo 'selected'; ?>>Controle de inspeções</option>
                 </select>
             </label>
-            <textarea class="placeholderClaro" placeholder="Descrição" name="descricao" id="cpfFuncionario"><?php echo isset($_POST['descricao']) ? htmlspecialchars($_POST['descricao']) : '' ?></textarea>
+            <textarea class="placeholderClaro" placeholder="Descrição" name="descricao" id="cpfFuncionario" required><?php echo isset($_POST['descricao']) ? htmlspecialchars($_POST['descricao']) : '' ?></textarea>
             <label class="placeholderClaro" name="estacao">
-                <select name="idEstacao" id="nomeFuncionario">
-                    <option value="none">Estação</option>
-                    <?php
-                        if ($resultEstacao) {
-                            $resultEstacao->data_seek(0);
-                            while ($rowEstacao = $resultEstacao->fetch_assoc()) {
-                                echo "<option value='" . $rowEstacao['id'] . "'";
-                                if(isset($_POST['idEstacao']) && $_POST['idEstacao'] == $rowEstacao['id']) echo ' selected';
-                                echo ">" . $rowEstacao['nomeEstacao'] . "</option>";
-                            }
-                        }
-                    ?>
+                <select name="idEstacao" id="nomeFuncionario" required>
+                    <option value="" disabled selected>Estação</option>
+                    <option value="Estação Aurora" <?php if(isset($_POST['idEstacao']) && $_POST['idEstacao']==='Estação Aurora') echo 'selected'; ?>>Estação Aurora</option>
+                    <option value="Estação Vila Nova" <?php if(isset($_POST['idEstacao']) && $_POST['idEstacao']==='Estação Vila Nova') echo 'selected'; ?>>Estação Vila Nova</option>
+                    <option value="Estação Vale Verde" <?php if(isset($_POST['idEstacao']) && $_POST['idEstacao']==='Estação Vale Verde') echo 'selected'; ?>>Estação Vale Verde</option>
                 </select>
             </label>
             <label class="placeholderClaro" name="trem">
-                <select name="idTrem" id="emailFuncionario">
-                    <option value="none">Trem</option>
-                    <?php
-                        if ($resultTrem) {
-                            while ($rowTrem = $resultTrem->fetch_assoc()) {
-                                echo "<option value='" . $rowTrem['id'] . "'";
-                                if(isset($_POST['idTrem']) && $_POST['idTrem'] == $rowTrem['id']) echo ' selected';
-                                echo ">" . $rowTrem['nome'] . "</option>";
-                            }
-                        }
-                    ?>
+                <select name="idTrem" id="emailFuncionario" required>
+                    <option value="" disabled selected>Trem</option>
+                    <option value="Trem Expresso 1" <?php if(isset($_POST['idTrem']) && $_POST['idTrem']==='Trem Expresso 1') echo 'selected'; ?>>Trem Expresso 1</option>
+                    <option value="Trem Regional 2" <?php if(isset($_POST['idTrem']) && $_POST['idTrem']==='Trem Regional 2') echo 'selected'; ?>>Trem Regional 2 </option>
+                    <option value="Trem Urbano 3" <?php if(isset($_POST['idTrem']) && $_POST['idTrem']==='Trem Urbano 3') echo 'selected'; ?>>Trem Urbano 3</option>
                 </select>
             </label>
         </div>
