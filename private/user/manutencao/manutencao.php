@@ -40,7 +40,7 @@ if ($reultManutencao && $reultManutencao->num_rows > 0) {
         
     <form method="POST" action="deletarManutencao.php">
     <section class="secaoInfoManutencao">
-        <h2>Manutenções Preventivas</h2>
+        <h2 class="amarelo">Manutenções Preventivas</h2>
         <?php
         if (count($preventivas) > 0) {
             foreach ($preventivas as $row) {
@@ -72,7 +72,7 @@ if ($reultManutencao && $reultManutencao->num_rows > 0) {
     </section>
 
     <section class="secaoInfoManutencao">
-        <h2>Controle de inspeções</h2>
+        <h2 class="amarelo">Controle de inspeções</h2>
         <?php
         if (count($inspecoes) > 0) {
             foreach ($inspecoes as $row) {
@@ -102,7 +102,7 @@ if ($reultManutencao && $reultManutencao->num_rows > 0) {
         }
         ?>
     </section>
-    <a href='../config/criarManutencao.php?id=$id'><img class='iconeAddRotas' src='../../../assets/icons/dashboard/addRota.png' alt='iconeAdicionarManutencao'></a>
+    <a href='../config/criarManutencao.php?id=$id'><img class='iconeAddManutencoes quadradoAzulNormalPequenoManutencoes' src='../../../assets/icons/dashboard/addRota.png' alt='iconeAdicionarManutencao'></a>
     
 </form>
     </main>
