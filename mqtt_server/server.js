@@ -14,7 +14,7 @@ var client = mqtt.connect(options);
 
 client.on("connect", () => {
     console.log("Conectado ao MQTT");
-    client.subscribe(["S1/Iluminacao", "S1/Temp", "S1/Presenca"]);
+    client.subscribe(["S1/Iluminacao", "S1/Temp", "S1/Presenca", "S2/Presenca", "S3/Presenca"]);
 });
 
 client.on("message", async (topic, message) => {
@@ -46,6 +46,26 @@ client.on("message", async (topic, message) => {
         }
         const data = new Date();
         await conn.execute("UPDATE trens SET quantidadePassageiros=" + numeroInteiroAleatorio(1,150) + ", parado=0, idEstacao=1, horaSaida='"+ data.getHours() +":" + data.getMinutes() + ":" + data.getSeconds() +"', ordemRota=" + (currentOrdem + 1) + " WHERE id=1");
+    }
+    else if(topic == "S2/Presenca" && payload == "1"){
+        const [rows] = await conn.execute('SELECT ordemRota, idEstacao FROM trens WHERE id = 1', [1]);
+        let currentOrdem = rows.length ? rows[0].ordemRota : 0;
+        //let antigaEstacao = rows.length ? rows[0].ordemRota : 0;
+        if(currentOrdem >=6){
+            currentOrdem = 0;
+        }
+        const data = new Date();
+        await conn.execute("UPDATE trens SET quantidadePassageiros=" + numeroInteiroAleatorio(1,150) + ", parado=0, idEstacao=2, horaSaida='"+ data.getHours() +":" + data.getMinutes() + ":" + data.getSeconds() +"', ordemRota=" + (currentOrdem + 1) + " WHERE id=1");
+    }
+    else if(topic == "S3/Presenca" && payload == "1"){
+        const [rows] = await conn.execute('SELECT ordemRota, idEstacao FROM trens WHERE id = 1', [1]);
+        let currentOrdem = rows.length ? rows[0].ordemRota : 0;
+        //let antigaEstacao = rows.length ? rows[0].ordemRota : 0;
+        if(currentOrdem >=6){
+            currentOrdem = 0;
+        }
+        const data = new Date();
+        await conn.execute("UPDATE trens SET quantidadePassageiros=" + numeroInteiroAleatorio(1,150) + ", parado=0, idEstacao=3, horaSaida='"+ data.getHours() +":" + data.getMinutes() + ":" + data.getSeconds() +"', ordemRota=" + (currentOrdem + 1) + " WHERE id=1");
     }
     //await conn.execute("UPDATE trens SET quantidadePassageiros=35 WHERE id=1");
 
