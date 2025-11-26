@@ -75,12 +75,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <label class="placeholderClaro" name="tipo">
                 <select name="tipoManutencao" id="salarioFuncionario">
                     <option value="none">Tipo de Manutenção</option>
-                    <?php
-                        while ($rowTipo = $resultTipo->fetch_assoc()) {
-                            echo "<option value='" . $rowTipo['tipoManutencao'] . "'";
-                            echo ">" . $rowTipo['tipoManutencao'] . "</option>";
-                        }
-                    ?>
+                    <option value="Manutenções Preventivas">Manutenções Preventivas</option>
+                    <option value="Controle de inspeções">Controle de inspeções</option>
                 </select>
             </label>
             <textarea class="placeholderClaro" placeholder="Descrição" name="descricao" id="cpfFuncionario"><?php echo isset($_POST['descricao']) ? htmlspecialchars($_POST['descricao']) : '' ?></textarea>
