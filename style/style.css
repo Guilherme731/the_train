@@ -1000,6 +1000,24 @@ svg {
     justify-content: center;
 }
 
+.quadradoAzulNormalPequenoManutencoes{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--corAzulNormal);
+    border-radius: 50%;
+    width: 40px;      
+    height: 40px;    
+    margin-left: 43%;
+    border: 3px solid var(--corAzulNormal);   
+}
+
+@media (min-width: 1024px) {
+    .quadradoAzulNormalPequenoManutencoes {
+        margin-left: 48.4%; 
+    }
+}
+
 /*  OUTROS  */
 .textoAmareloCentral { justify-content: center; text-align: center; color: var(--corAmarelo); margin: 0;}
 .textoTrem { color: var(--corAzulClaro); margin: 1% 0; padding-right: 30%; width: 30%;}
@@ -1008,6 +1026,7 @@ svg {
 .iconeVisualizarRota { height: 30px; width: 45px; padding-right: 25%;}
 .iconeEditarRota{height: 30px; width: 30px; margin-left: 10px;}
 .iconeAddRotas{height: 45px; width: 50px; padding-left: 85%; padding-top: 1%;}
+.iconeAddManutencoes{height: 45px; width: 50px;} 
 
 
 #nomeFuncionario, #emailFuncionario, #senhaFuncionario, #cpfFuncionario, #cargoFuncionario, #salarioFuncionario, #dataNascimentoFuncionario, #generoFuncionario, #tipoFuncionario, #cepFuncionario, #ruaFuncionario, #numeroFuncionario, #cidadeFuncionario, #estadoFuncionario{
