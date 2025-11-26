@@ -4,6 +4,48 @@ include '../../../authGuard/authUsuario.php';
 include '../../../conexao/conexao.php';
 $id = $_SESSION['user_id'];
 
+$numero1 = $_POST["numero1"] ?? "";
+$numero2 = $_POST["numero2"] ?? "";
+$numero3 = $_POST["numero3"] ?? "";
+$numero4 = $_POST["numero4"] ?? "";
+$numero5 = $_POST["numero5"] ?? "";
+$numero6 = $_POST["numero6"] ?? "";
+
+
+    $stmt = $conn->prepare('SELECT codigo_1, codigo_2, codigo_3, codigo_4, codigo_5, codigo_6 FROM codigos WHERE id = ? LIMIT 1');
+    if (!$stmt) { echo 'Erro no prepare: ' . $conn->error; exit; }
+    $stmt->bind_param('i', $id);
+    $stmt->execute();
+
+    $res = $stmt->get_result();
+    if ($res && $res->num_rows === 1) {
+        $row = $res->fetch_assoc();
+        $codigo_1 = intval($row['codigo_1']);
+        $codigo_2 = intval($row['codigo_2']);
+        $codigo_3 = intval($row['codigo_3']);
+        $codigo_4 = intval($row['codigo_4']);
+        $codigo_5 = intval($row['codigo_5']);
+        $codigo_6 = intval($row['codigo_6']);
+    }
+
+if(!isset($_GET['from'])){
+    echo "<div class='felixCentro'> 
+         <div class='mensagemCodigo'> 
+                <p>O código enviado ao seu email é: $codigo_1 $codigo_2 $codigo_3 $codigo_4 $codigo_5 $codigo_6</p>
+                <a href='' class='fechar'>Fechar</a>
+                </div>
+        </div>";
+}else{
+    if(!isset($_POST['verificar'])){
+        echo "<div class='felixCentro'> 
+         <div class='mensagemCodigo'> 
+                <p>O código enviado ao seu email é: $codigo_1 $codigo_2 $codigo_3 $codigo_4 $codigo_5 $codigo_6</p>
+                <a href='' class='fechar'>Fechar</a>
+                </div>
+        </div>";
+    }
+}
+
 if($_SERVER["REQUEST_METHOD"] == "POST"){       
     if(isset($_POST['reenviar'])){
 
@@ -39,7 +81,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <p>Código de verificação de duas etapas aplicado com sucesso.</p>
             <a href='../../../admin/config/configAdmin.php' class='fecharr'>Voltar para as configurações</a>
             </div>";
-            exit;
             }
             
         }else{
@@ -51,34 +92,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
 }
 
-$numero1 = $_POST["numero1"] ?? "";
-$numero2 = $_POST["numero2"] ?? "";
-$numero3 = $_POST["numero3"] ?? "";
-$numero4 = $_POST["numero4"] ?? "";
-$numero5 = $_POST["numero5"] ?? "";
-$numero6 = $_POST["numero6"] ?? "";
 
-    $stmt = $conn->prepare('SELECT codigo_1, codigo_2, codigo_3, codigo_4, codigo_5, codigo_6 FROM codigos WHERE id = ? LIMIT 1');
-    if (!$stmt) { echo 'Erro no prepare: ' . $conn->error; exit; }
-    $stmt->bind_param('i', $id);
-    $stmt->execute();
-
-    $res = $stmt->get_result();
-    if ($res && $res->num_rows === 1) {
-        $row = $res->fetch_assoc();
-        $codigo_1 = intval($row['codigo_1']);
-        $codigo_2 = intval($row['codigo_2']);
-        $codigo_3 = intval($row['codigo_3']);
-        $codigo_4 = intval($row['codigo_4']);
-        $codigo_5 = intval($row['codigo_5']);
-        $codigo_6 = intval($row['codigo_6']);
-    }
-    echo "<div class='felixCentro'> 
-         <div class='mensagemCodigo'> 
-                <p>O código enviado ao seu email é: $codigo_1 $codigo_2 $codigo_3 $codigo_4 $codigo_5 $codigo_6</p>
-                <a href='' class='fechar'>Fechar</a>
-                </div>
-        </div>";
+    
     
 
 
