@@ -3,7 +3,7 @@ session_start();
 include '../../authGuard/authAdmin.php';
 
 include '../../conexao/conexao.php';
-
+$id = $_GET['user_id'];
 if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     $id = $_GET['user_id'];
     $rawSenha = $_POST['novaSenha'] ?? "";
@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
 
 <body>
     <header class="headerAzulVoltar">
-        <a href="../config/configFuncionario.php"><img src="../../../assets/icons/header/setaEsquerda.png" alt="Seta"></a>
+        <a href="editarPerfilUsuario.php?id=<?=$id?>"><img src="../../../assets/icons/header/setaEsquerda.png" alt="Seta"></a>
     </header>
 
     <main class="mainCentral">

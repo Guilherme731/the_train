@@ -132,18 +132,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                  <label for="cargo" id="" class="placeholderClaro">
                         <select name="cargo" id="cargoFuncionario" required>
                             <option value="" disabled selected>Cargo</option>
-                            <option value="Administrador" <?php if(isset($_POST['cargo']) && $_POST['cargo']==='Administrador') echo 'selected'; ?>>Administrador</option>
-                            <option value="Mecânico" <?php if(isset($_POST['cargo']) && $_POST['cargo']==='Mecânico') echo 'selected'; ?>>Mecânico</option>
-                            <option value="Faxineiro" <?php if(isset($_POST['cargo']) && $_POST['cargo']==='Faxineiro') echo 'selected'; ?>>Faxineiro</option>
-                            <option value="Supervisor" <?php if(isset($_POST['cargo']) && $_POST['cargo']==='Supervisor') echo 'selected'; ?>>Supervisor</option>
-                            <option value="Operário" <?php if(isset($_POST['cargo']) && $_POST['cargo']==='Operário') echo 'selected'; ?>>Operário</option>
-                            <option value="Piloto" <?php if(isset($_POST['cargo']) && $_POST['cargo']==='Piloto') echo 'selected'; ?>>Piloto</option> 
+                            <option value="Administrador" <?php if((isset($_POST['cargo']) && $_POST['cargo']==='Administrador' || $row['cargo'] == "Administrador")) echo 'selected'; ?>>Administrador</option>
+                            <option value="Mecânico" <?php if((isset($_POST['cargo']) && $_POST['cargo']==='Mecânico' || $row['cargo'] == "Mecânico")) echo 'selected'; ?>>Mecânico</option>
+                            <option value="Faxineiro" <?php if((isset($_POST['cargo']) && $_POST['cargo']==='Faxineiro' || $row['cargo'] == "Faxineiro")) echo 'selected'; ?>>Faxineiro</option>
+                            <option value="Supervisor" <?php if((isset($_POST['cargo']) && $_POST['cargo']==='Supervisor' || $row['cargo'] == "Supervisor")) echo 'selected'; ?>>Supervisor</option>
+                            <option value="Operário" <?php if((isset($_POST['cargo']) && $_POST['cargo']==='Operário' || $row['cargo'] == "Operário")) echo 'selected'; ?>>Operário</option>
+                            <option value="Piloto" <?php if((isset($_POST['cargo']) && $_POST['cargo']==='Piloto' || $row['cargo'] == "Piloto")) echo 'selected'; ?>>Piloto</option> 
                         </select>
                             <div class="error" id="erroCargo"></div>
                         </div>
 
                         <div class="marginTopDown-2">
-                            <input type="text" id="cpfFuncionario" class="placeholderClaro" name="cpf" placeholder="CPF" value="<?php echo isset($_POST['cpf']) ? htmlspecialchars($_POST['cpf']) : '' ?>" required>
+                            <input type="text" id="cpfFuncionario" class="placeholderClaro" name="cpf" placeholder="CPF" value="<?php echo isset($_POST['cpf']) ? htmlspecialchars($_POST['cpf']) : $row['cpf'] ?>" required>
                     <?php
                         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['cadastrar'])) {
                                 if(!preg_match('/^\d{11}$/', $cpf)){
@@ -165,17 +165,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         </div>
 
                         <div class="marginTopDown-2">
-                            <input type="text" id="emailFuncionario" class="placeholderClaro" name="email" placeholder="Email" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : '' ?>" required>
+                            <input type="text" id="emailFuncionario" class="placeholderClaro" name="email" placeholder="Email" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : $row['email'] ?>" required>
                             <div class="error" id="erroEmail"></div>
                         </div>
 
                         <div class="marginTopDown-2">
-                            <input type="text" id="nomeFuncionario" class="placeholderClaro" name="nome" placeholder="Nome" value="<?php echo isset($_POST['nome']) ? htmlspecialchars($_POST['nome']) : '' ?>" required>
+                            <input type="text" id="nomeFuncionario" class="placeholderClaro" name="nome" placeholder="Nome" value="<?php echo isset($_POST['nome']) ? htmlspecialchars($_POST['nome']) : $row['nome'] ?>" required>
                             <div class="error" id="erroNomeUsuario"></div>
                         </div>
 
                         <div class="marginTopDown-2">
-                            <input type="text" id="salarioFuncionario" class="placeholderClaro" name="salario" placeholder="Salario" value="<?php echo isset($_POST['salario']) ? htmlspecialchars($_POST['salario']) : '' ?>" required>
+                            <input type="text" id="salarioFuncionario" class="placeholderClaro" name="salario" placeholder="Salario" value="<?php echo isset($_POST['salario']) ? htmlspecialchars($_POST['salario']) : $row['salario'] ?>" required>
                             <div class="error" id="erroSalario"></div>
                         </div>
 
