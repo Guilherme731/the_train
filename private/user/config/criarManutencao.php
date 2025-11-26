@@ -13,6 +13,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("siis", $tipoManutencao, $idEstacao, $idTrem, $descricao);
         $stmt->execute();
+
+        echo "<div class='mensagemErro'> 
+        <p>Nova manutenção registrada com sucesso!</p>
+        <a href='../manutencao/manutencao.php' class='fechar'>Voltar para as manutenções</a>
+        </div>";
 }
 ?>
 
@@ -41,8 +46,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <label class="placeholderClaro" name="tipo">
                 <select name="tipoManutencao" id="salarioFuncionario" required>
                     <option value="" disabled selected>Tipo de Manutenção</option>
-                    <option value="Manutenção Preventiva" <?php if(isset($_POST['tipoManutencao']) && $_POST['tipoManutencao']==='Manutenções Preventivas') echo 'selected'; ?>>Manutenção Preventiva</option>
-                    <option value="Controle de Inspeção" <?php if(isset($_POST['tipoManutencao']) && $_POST['tipoManutencao']==='Controle de Inspeções') echo 'selected'; ?>>Controle de inspeção</option>
+                    <option value="Manutenções Preventivas" <?php if(isset($_POST['tipoManutencao']) && $_POST['tipoManutencao']==='Manutenções Preventivas') echo 'selected'; ?>>Manutenção Preventiva</option>
+                    <option value="Controle de inspeções" <?php if(isset($_POST['tipoManutencao']) && $_POST['tipoManutencao']==='Controle de Inspeções') echo 'selected'; ?>>Controle de inspeção</option>
                 </select>
             </label>
             <textarea class="placeholderClaro" placeholder="Descrição" name="descricao" id="cpfFuncionario" required><?php echo isset($_POST['descricao']) ? htmlspecialchars($_POST['descricao']) : '' ?></textarea>
