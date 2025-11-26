@@ -4,7 +4,7 @@
 ## Sobre o The Train
 O The Train é um sistema de gerenciamento de ferrovias com interface de aplicativo móvel responsivo. Com ele você pode gerenciar os trens, as rotas, os horários, as manutenções, etc...
 > [!IMPORTANT]
-> Versão em desenvolvimento da S.A. de Desenvolvimento de Sistemas
+> Versão em CONCLUÍDA da S.A. de Desenvolvimento de Sistemas
 
 > [!WARNING]
 > O script do banco de dados está localizado em private/scriptsLDB/db.sql
@@ -23,11 +23,11 @@ Acesso em servidor:
 > email: rodrigo@thetrain.com
 > senha: rodrigo123
 
-## Recursos com Banco de Dados implementado
-- Login e AuthGuard
-- Registro e exclusão de Usuários (admin)
-- Edição e Visualização de Usuários (admin e outros)
-- Sensores/dados de Trens e Estações (dashboard)
+Para utilizar em sua máquina:
+- Utilize o XAMPP para o repositório inteiro.
+- Execute o arquivo SQL (private/scriptsLDB/db.sql).
+- Execute `npm install` em mqtt_server
+- Execute `node server.js` em mqtt_server para iniciar o servidor de controle do mqtt. (Necessário para conexão com hivemq)
 
 ## Principais Funções
 - Verificação de duas etapas
@@ -50,6 +50,7 @@ A equipe de desenvolvimento faz parte da turma DS23 1 M1, do SENAI SC.
 - Rodrigo F. S.
 ## Contribuindo com o projeto
 Esse projeto é avaliativo e, portanto, o desenvolvimento está limitado à equipe. Porém, você pode testar e reportar problemas e erros no The Train com o Github Issues.
+
 
 
 
