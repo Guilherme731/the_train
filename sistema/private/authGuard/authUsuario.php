@@ -43,7 +43,7 @@ if ($docRoot !== false && $rootFsReal !== false && strpos($rootFsReal, $docRoot)
 $projectUrlPath = str_replace('\\','/',$projectUrlPath);
 $projectUrlPath = '/' . trim($projectUrlPath, '/');
 
-$loginUrl = rtrim($protocol . $host . $projectUrlPath, '/') . '/public/login.php';
+$loginUrl = rtrim($protocol . $host . $projectUrlPath, '/') . '/sistema/public/login.php';
 
 header("Location: $loginUrl");
 exit();
