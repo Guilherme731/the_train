@@ -7,7 +7,7 @@ O The Train é um sistema de gerenciamento de ferrovias com interface de aplicat
 > Versão em CONCLUÍDA da S.A. de Desenvolvimento de Sistemas
 
 > [!WARNING]
-> O script do banco de dados está localizado em private/scriptsLDB/db.sql
+> O script do banco de dados está localizado em banco_dados/db.sql
 ## Acesse o The Train
 Acesso em servidor:
 [thetrain.guilhermepmoreira.com/the_train](https://thetrain.guilhermepmoreira.com/the_train)
@@ -25,7 +25,7 @@ Acesso em servidor:
 
 Para utilizar em sua máquina:
 - Utilize o XAMPP para o repositório inteiro.
-- Execute o arquivo SQL (private/scriptsLDB/db.sql).
+- Execute o arquivo SQL (banco_dados/db.sql).
 - Execute `npm install` em mqttServer
 - Execute `node server.js` em mqttServer para iniciar o servidor de controle do mqtt. (Necessário para conexão com hivemq)
 
