@@ -3,7 +3,7 @@ session_start();
 include '../../authGuard/authUsuario.php';
 include '../../conexao/conexao.php';
 
-$sqlEstacoes = 'SELECT id, nomeEstacao, temperatura, estaChovendo FROM estacoes';
+$sqlEstacoes = 'SELECT id, nomeEstacao, temperatura, estaChovendo, umidade FROM estacoes';
 $resultEstacoes = $conn->query($sqlEstacoes);
 ?>
 <!DOCTYPE html>
