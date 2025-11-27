@@ -1,5 +1,22 @@
 <?php
 include '../conexao/conexao.php';
+date_default_timezone_set('America/Sao_Paulo');
+
+function secondsSinceDeparture($horaSaida) {
+    $tz = new DateTimeZone('America/Sao_Paulo');
+    if (preg_match('/^\d{1,2}:\d{2}$/', $horaSaida)) {
+        $horaSaida .= ':00';
+    }
+    if (!preg_match('/^\d{1,2}:\d{2}:\d{2}$/', $horaSaida)) {
+        return null;
+    }
+
+    $saidaDt = DateTime::createFromFormat('H:i:s', $horaSaida, $tz);
+    if (!$saidaDt) return null;
+    $now = new DateTime('now', $tz);
+    $saidaDt->setDate(intval($now->format('Y')), intval($now->format('m')), intval($now->format('d')));
+    return intval($now->getTimestamp()) - intval($saidaDt->getTimestamp());
+}
 
 $sqlTrens = 'SELECT trens.id AS idTrem, trens.idEstacao AS estacaoAtual, localizacaoX, localizacaoY, horaSaida, ordemRota, trens.idRota, rotas.id, rotasEstacoes.idRota, rotasEstacoes.idEstacao AS nextStop FROM trens INNER JOIN rotas ON trens.idRota = rotas.id INNER JOIN rotasEstacoes ON rotas.id = rotasEstacoes.idRota AND ordemRota = rotasEstacoes.ordem';
 $resultTrens = $conn->query($sqlTrens);
@@ -15,18 +32,8 @@ while ($row = $resultTrens->fetch_assoc()) {
 
 
         $horaSaida = $row['horaSaida'];
-        $now = new DateTime();
-        if (preg_match('/^\d{1,2}:\d{2}$/', $horaSaida)) {
-            $horaSaida .= ':00';
-        }
-        if (preg_match('/^\d{1,2}:\d{2}:\d{2}$/', $horaSaida)) {
-            list($h, $m, $s) = explode(':', $horaSaida);
-            $saidaSeconds = (intval($h) + 4) * 3600 + intval($m) * 60 + intval($s);
-
-            $now = new DateTime();
-            $nowSeconds = intval($now->format('H')) * 3600 + intval($now->format('i')) * 60 + intval($now->format('s'));
-
-            $diff = $nowSeconds - $saidaSeconds;
+        $diff = secondsSinceDeparture($horaSaida);
+        if ($diff !== null) {
             $posX = $diff * $VEL_X;
 
             if ($posX <= 5) {
@@ -50,18 +57,8 @@ while ($row = $resultTrens->fetch_assoc()) {
 
 
         $horaSaida = $row['horaSaida'];
-        $now = new DateTime();
-        if (preg_match('/^\d{1,2}:\d{2}$/', $horaSaida)) {
-            $horaSaida .= ':00';
-        }
-        if (preg_match('/^\d{1,2}:\d{2}:\d{2}$/', $horaSaida)) {
-            list($h, $m, $s) = explode(':', $horaSaida);
-            $saidaSeconds = (intval($h) + 4) * 3600 + intval($m) * 60 + intval($s);
-
-            $now = new DateTime();
-            $nowSeconds = intval($now->format('H')) * 3600 + intval($now->format('i')) * 60 + intval($now->format('s'));
-
-            $diff = $nowSeconds - $saidaSeconds;
+        $diff = secondsSinceDeparture($horaSaida);
+        if ($diff !== null) {
             $posX = (330 - $diff * $VEL_X);
 
             if ($posX <= 5) {
@@ -85,28 +82,13 @@ while ($row = $resultTrens->fetch_assoc()) {
 
 
         $horaSaida = $row['horaSaida'];
-        $now = new DateTime();
-        if (preg_match('/^\d{1,2}:\d{2}$/', $horaSaida)) {
-            $horaSaida .= ':00';
-        }
-        if (preg_match('/^\d{1,2}:\d{2}:\d{2}$/', $horaSaida)) {
-            list($h, $m, $s) = explode(':', $horaSaida);
-            $saidaSeconds = (intval($h) + 4) * 3600 + intval($m) * 60 + intval($s);
-
-            $now = new DateTime();
-            $nowSeconds = intval($now->format('H')) * 3600 + intval($now->format('i')) * 60 + intval($now->format('s'));
-
-            $diff = $nowSeconds - $saidaSeconds;
+        $diff = secondsSinceDeparture($horaSaida);
+        if ($diff !== null) {
             if ($diff <= 0 || ($diff * $VEL_X) > 330) {
                 $posX = 330;
             } else if (($diff * $VEL_X) <= 130) {
-                // FASE 1: Diminuindo de 330 para 200
-                // posX vai de 330 (diff=0) a 200 (diff=130)
                 $posX = (330 - ($diff * $VEL_X));
             } else {
-                // FASE 2: Aumentando de 200 em diante
-                // O movimento de retorno deve usar (diff - 130)
-                // Para retornar a 330, a lógica é: 200 + (diff - 130)
                 $posX = (200 + (($diff * $VEL_X) - 130));
             }
 
@@ -133,18 +115,8 @@ while ($row = $resultTrens->fetch_assoc()) {
 
 
         $horaSaida = $row['horaSaida'];
-        $now = new DateTime();
-        if (preg_match('/^\d{1,2}:\d{2}$/', $horaSaida)) {
-            $horaSaida .= ':00';
-        }
-        if (preg_match('/^\d{1,2}:\d{2}:\d{2}$/', $horaSaida)) {
-            list($h, $m, $s) = explode(':', $horaSaida);
-            $saidaSeconds = (intval($h) + 4) * 3600 + intval($m) * 60 + intval($s);
-
-            $now = new DateTime();
-            $nowSeconds = intval($now->format('H')) * 3600 + intval($now->format('i')) * 60 + intval($now->format('s'));
-
-            $diff = $nowSeconds - $saidaSeconds;
+        $diff = secondsSinceDeparture($horaSaida);
+        if ($diff !== null) {
             $posX = $diff * $VEL_X;
 
             if ($posX <= 5) {
@@ -164,18 +136,8 @@ while ($row = $resultTrens->fetch_assoc()) {
 
 
         $horaSaida = $row['horaSaida'];
-        $now = new DateTime();
-        if (preg_match('/^\d{1,2}:\d{2}$/', $horaSaida)) {
-            $horaSaida .= ':00';
-        }
-        if (preg_match('/^\d{1,2}:\d{2}:\d{2}$/', $horaSaida)) {
-            list($h, $m, $s) = explode(':', $horaSaida);
-            $saidaSeconds = (intval($h) + 4) * 3600 + intval($m) * 60 + intval($s);
-
-            $now = new DateTime();
-            $nowSeconds = intval($now->format('H')) * 3600 + intval($now->format('i')) * 60 + intval($now->format('s'));
-
-            $diff = $nowSeconds - $saidaSeconds;
+        $diff = secondsSinceDeparture($horaSaida);
+        if ($diff !== null) {
             $posX = 70 - ($diff * $VEL_X);
 
             if ($posX <= 5) {
@@ -195,18 +157,8 @@ while ($row = $resultTrens->fetch_assoc()) {
 
 
         $horaSaida = $row['horaSaida'];
-        $now = new DateTime();
-        if (preg_match('/^\d{1,2}:\d{2}$/', $horaSaida)) {
-            $horaSaida .= ':00';
-        }
-        if (preg_match('/^\d{1,2}:\d{2}:\d{2}$/', $horaSaida)) {
-            list($h, $m, $s) = explode(':', $horaSaida);
-            $saidaSeconds = (intval($h) + 4) * 3600 + intval($m) * 60 + intval($s);
-
-            $now = new DateTime();
-            $nowSeconds = intval($now->format('H')) * 3600 + intval($now->format('i')) * 60 + intval($now->format('s'));
-
-            $diff = $nowSeconds - $saidaSeconds;
+        $diff = secondsSinceDeparture($horaSaida);
+        if ($diff !== null) {
             $posX = 330 - ($diff * $VEL_X);
 
             if ($posX >= 330) {
@@ -228,18 +180,8 @@ while ($row = $resultTrens->fetch_assoc()) {
 
 
         $horaSaida = $row['horaSaida'];
-        $now = new DateTime();
-        if (preg_match('/^\d{1,2}:\d{2}$/', $horaSaida)) {
-            $horaSaida .= ':00';
-        }
-        if (preg_match('/^\d{1,2}:\d{2}:\d{2}$/', $horaSaida)) {
-            list($h, $m, $s) = explode(':', $horaSaida);
-            $saidaSeconds = (intval($h) + 4) * 3600 + intval($m) * 60 + intval($s);
-
-            $now = new DateTime();
-            $nowSeconds = intval($now->format('H')) * 3600 + intval($now->format('i')) * 60 + intval($now->format('s'));
-
-            $diff = $nowSeconds - $saidaSeconds;
+        $diff = secondsSinceDeparture($horaSaida);
+        if ($diff !== null) {
             $posX = 70+($diff * $VEL_X);
 
             if ($posX >= 330) {
@@ -258,7 +200,7 @@ while ($row = $resultTrens->fetch_assoc()) {
         }
     }
 
-    $trensPos[$i] = [$posX, $posY, $row['idTrem']];
+    $trensPos[$i] = [$posX, $posY, $row['idTrem'], $diff];
     $i++;
 }
 header('Content-Type: application/json');
