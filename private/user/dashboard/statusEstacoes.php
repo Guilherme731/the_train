@@ -55,7 +55,7 @@ $resultEstacoes = $conn->query($sqlEstacoes);
                     
                     
                     echo "
-                    <p class='iconeETempStatusEstacoes'>{$row['temperatura']}ºC</p>
+                    <p class='iconeETempStatusEstacoes'>{$row['temperatura']}ºC | {$row['umidade']}%</p>
                 </div>
             </div>
                 ";

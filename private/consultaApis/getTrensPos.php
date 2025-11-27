@@ -200,7 +200,7 @@ while ($row = $resultTrens->fetch_assoc()) {
         }
     }
 
-    $trensPos[$i] = [$posX, $posY, $row['idTrem'], $diff];
+    $trensPos[$i] = [$posX, $posY, $row['idTrem']];
     $i++;
 }
 header('Content-Type: application/json');

@@ -33,6 +33,7 @@ CREATE TABLE estacoes(
 	id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     nomeEstacao ENUM('Estação Aurora', 'Estação Vila Nova', 'Estação Vale Verde', 'Estação São Pedro') NOT NULL,
     temperatura DECIMAL NOT NULL,
+    umidade DECIMAL NOT NULL,
     estaChovendo BOOLEAN NOT NULL
 );
 
@@ -154,11 +155,11 @@ VALUES
 ('8:20:00', 'Atraso', 'Atraso na rota 1 devido a animal ferido na linha.'),
 ('2:20:10', 'Falha Mecânica', 'Requisição de manutenção para o trem 2, problema de desgaste do eixo que gerou a quebra das rodas.'); 
 
-INSERT INTO estacoes(nomeEstacao, temperatura, estaChovendo)
+INSERT INTO estacoes(nomeEstacao, temperatura, estaChovendo, umidade)
 VALUES
-('Estação Aurora', 23.3, TRUE),
-('Estação Vila Nova', 25.3, FALSE),
-('Estação Vale Verde', 15.3, TRUE);
+('Estação Aurora', 23.3, TRUE, 60),
+('Estação Vila Nova', 25.3, FALSE, 70),
+('Estação Vale Verde', 15.3, TRUE, 80);
 
 INSERT INTO rotas(nome)
 VALUES
@@ -166,11 +167,11 @@ VALUES
 ('Rota Sul'),
 ('Rota Central');
 
-INSERT INTO trens(nome, mes, desempenho, consumo, velocidade, quantidadePassageiros, localizacaoX, localizacaoY, parado, ativo, horaSaida, idEstacao, idRota)
+INSERT INTO trens(nome, mes, desempenho, consumo, velocidade, quantidadePassageiros, localizacaoX, localizacaoY, parado, ativo, horaSaida, idEstacao, idRota, ordemRota)
 VALUES
-('Trem Expresso 1', 'Abril', 85, 300, 120.50, 200, 10, 20, FALSE, TRUE, '12:23', 1, 1),
-('Trem Regional 2', 'Maio', 89, 400, 90.00, 150, 15, 25, TRUE, TRUE, '12:27', 2, 2),
-('Trem Urbano 3', 'Junho', 95, 200, 60.75, 100, 8, 12, FALSE, FALSE, '12:24', 3, 3);
+('Trem Expresso 1', 'Abril', 85, 300, 120.50, 200, 10, 20, FALSE, TRUE, '12:23', 1, 1, 2),
+('Trem Regional 2', 'Maio', 89, 400, 90.00, 150, 15, 25, TRUE, TRUE, '12:27', 2, 1, 3),
+('Trem Urbano 3', 'Junho', 95, 200, 60.75, 100, 8, 12, FALSE, FALSE, '12:24', 3, 1, 3);
 
 INSERT INTO rotasEstacoes(idRota, idEstacao, ordem)
 VALUES

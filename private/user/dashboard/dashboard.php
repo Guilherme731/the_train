@@ -12,7 +12,7 @@ $sqlTrens = 'SELECT trens.nome AS nomeTrem, rotas.nome AS nomeRota, ativo, quant
 $resultTrens = $conn->query($sqlTrens);
 $resultTrens2 = $conn->query($sqlTrens);
 
-$sqlEstacoes = 'SELECT id, nomeEstacao, temperatura, estaChovendo FROM estacoes LIMIT 3';
+$sqlEstacoes = 'SELECT id, nomeEstacao, temperatura, estaChovendo, umidade FROM estacoes LIMIT 3';
 $resultEstacoes = $conn->query($sqlEstacoes);
 ?>
 <!DOCTYPE html>
@@ -152,7 +152,7 @@ $resultEstacoes = $conn->query($sqlEstacoes);
                     
                     
                     echo "
-                    <p class='iconeETempStatusEstacoes'>{$row['temperatura']}ºC</p>
+                    <p class='iconeETempStatusEstacoes'>{$row['temperatura']}ºC | {$row['umidade']}%</p>
                 </div>
             </div>
                 ";

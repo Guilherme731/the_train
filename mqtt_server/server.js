@@ -36,6 +36,8 @@ client.on("message", async (topic, message) => {
         }
     }else if(topic == "S1/Temp"){
         await conn.execute("UPDATE estacoes SET temperatura=" + payload);
+    }else if(topic == "S1/Umid"){
+        await conn.execute("UPDATE estacoes SET umidade=" + payload);
     }
     else if(topic == "S1/Presenca" && payload == "1"){
         const [rotaAtual] = await conn.execute('SELECT idRota FROM trens WHERE id = 1', [1]);
