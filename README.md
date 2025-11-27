@@ -26,8 +26,8 @@ Acesso em servidor:
 Para utilizar em sua máquina:
 - Utilize o XAMPP para o repositório inteiro.
 - Execute o arquivo SQL (private/scriptsLDB/db.sql).
-- Execute `npm install` em mqtt_server
-- Execute `node server.js` em mqtt_server para iniciar o servidor de controle do mqtt. (Necessário para conexão com hivemq)
+- Execute `npm install` em mqttServer
+- Execute `node server.js` em mqttServer para iniciar o servidor de controle do mqtt. (Necessário para conexão com hivemq)
 
 ## Principais Funções
 - Verificação de duas etapas
