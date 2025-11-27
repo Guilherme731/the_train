@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function(){
     }
 
     if(valido){
-        window.location.href = '../../../the_train/public/login.php';
+        window.location.href = '../../../the_train/sistema/public/login.php';
     }
     });
 });
