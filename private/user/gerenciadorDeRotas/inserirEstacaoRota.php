@@ -6,9 +6,9 @@ include '../../conexao/conexao.php';
 $idRota = $_GET['idRota'];
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-    $resultOrdem = $conn->query("SELECT MAX(ordem) AS maxima_ordem FROM rotasestacoes WHERE idRota=$idRota");
+    $resultOrdem = $conn->query("SELECT MAX(ordem) AS maxima_ordem FROM rotasEstacoes WHERE idRota=$idRota");
     $proximaOrdem = ($resultOrdem->fetch_assoc())['maxima_ordem'] + 1;
-    $stmt = $conn->prepare("INSERT INTO rotasestacoes(idRota, idEstacao, ordem) VALUES (?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO rotasEstacoes(idRota, idEstacao, ordem) VALUES (?, ?, ?)");
     $stmt->bind_param("iii", $idRota, $_POST['idEstacao'], $proximaOrdem);
     $stmt->execute();
     header("location: editarRotas.php?id=$idRota");
