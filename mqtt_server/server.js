@@ -14,7 +14,7 @@ var client = mqtt.connect(options);
 
 client.on("connect", () => {
     console.log("Conectado ao MQTT");
-    client.subscribe(["S1/Iluminacao", "S1/Temp", "S1/Presenca", "S2/Presenca", "S3/Presenca"]);
+    client.subscribe(["S1/Iluminacao", "S1/Temp", "S1/Presenca", "S2/Presenca", "S3/Presenca", "S1/Umid"]);
 });
 
 client.on("message", async (topic, message) => {
