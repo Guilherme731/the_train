@@ -1,5 +1,5 @@
 # The Train
-<img src="assets/logos/logoCompleta.png" alt="Logotipo do The Train" width="200"/>
+<img src="sistema/assets/logos/logoCompleta.png" alt="Logotipo do The Train" width="200"/>
 
 ## Sobre o The Train
 O The Train é um sistema de gerenciamento de ferrovias com interface de aplicativo móvel responsivo. Com ele você pode gerenciar os trens, as rotas, os horários, as manutenções, etc...
@@ -29,6 +29,9 @@ Para utilizar em sua máquina:
 - Execute `npm install` em mqttServer
 - Execute `node server.js` em mqttServer para iniciar o servidor de controle do mqtt. (Necessário para conexão com hivemq)
 
+> [!TIP]
+> É preciso instalar o node.js e executar o server.js para ser possível conectar com funções MQTT.
+
 ## Principais Funções
 - Verificação de duas etapas
 - Dashboard
@@ -48,8 +51,10 @@ A equipe de desenvolvimento faz parte da turma DS23 1 M1, do SENAI SC.
 - Gabriel K. B.
 - Pedro F. F.
 - Rodrigo F. S.
+
 ## Contribuindo com o projeto
 Esse projeto é avaliativo e, portanto, o desenvolvimento está limitado à equipe. Porém, você pode testar e reportar problemas e erros no The Train com o Github Issues.
+
 
 
 
